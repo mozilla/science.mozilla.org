@@ -1,0 +1,7 @@
+{
+  "name": "Mozilla Science Lab",
+  "description": "Mozilla Science Lab: Helping Research Thrive on the Open Web",
+  "repository": "https://github.com/mozillascience/site",
+  "logo": "http://mozscilab.herokuapp.com/logo.png",
+  "keywords": ["web", "science", "node", "express", "static"]
+}
