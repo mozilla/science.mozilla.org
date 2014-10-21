@@ -1,0 +1,37 @@
+mixin header(loggedIn)
+  header
+    div
+      a(href="https://www.mozilla.org/" id="tabzilla") mozilla
+      link(href="//mozorg.cdn.mozilla.net/media/css/tabzilla-min.css" rel="stylesheet")
+      script(src="//mozorg.cdn.mozilla.net/tabzilla/tabzilla.js")
+
+
+
+    div.pure-menu.pure-menu-open.pure-menu-horizontal
+
+      a(href='//mozillascience.org' id="logo")
+        img(src='/img/logo.png').MSLlogo
+
+      //ul
+        if(loggedIn)
+          li= 'Welcome ' + user.name
+          li
+            a(href='/logout') Logout
+        else
+          li
+            a(href='/auth/github')
+              i.fa.fa-github
+              span  Sign in with Github
+
+    div.pure-menu.pure-menu-open.pure-menu-horizontal.navigation.is-center
+      ul
+        li
+          a(href='/about') ABOUT
+        li
+          a(href='/blog') BLOG
+        li
+          a(href='/education') EDUCATION
+        li
+          a(href='/community') COMMUNITY
+        li
+          a(href='/collaborate') COLLABORATE

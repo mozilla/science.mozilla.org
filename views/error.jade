@@ -1,0 +1,22 @@
+
+include partials/head.jade
+include partials/header.jade
+include splash.jade
+include partials/footer.jade
+
+doctype html5
+html
+  head
+    +head() 
+  body.vanilla   
+    div.page-wrapper
+      +header(loggedIn)
+      section
+        h1 Whoooops!  Something's gone wrong.
+
+        p#errorPageContent= errorMessage
+
+        form(method='post', action='logout').pure-form
+            button(value=0, name='page').pure-button Back to Safety
+
+      +footer()

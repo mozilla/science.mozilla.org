@@ -1,0 +1,60 @@
+include partials/head.jade
+include partials/header.jade
+include partials/footer.jade
+
+
+doctype html5
+html
+  head
+    +head('About Collaborate')
+  body
+    div.page-wrapper
+      +header(loggedIn)
+
+
+
+      section.about.splash
+        h1 Science Lab Collaborate
+
+      section
+        h2 Empowering the research community to solve problems and build new tools together.
+        p
+          | Science Lab Collaborate is a curated list of open source software projects helping further science on the web from both the Science Lab and the broader community. Over the next few months, we'll be testing out new ways for the community to work together on research projects across disciplines and specialties, both within academia and outside. Part of the Science Lab’s mission is to work with other community members to work collaboratively on projects that move science on the web forward. This pilot will test out ways to better communicate and facilitate means for others to get involved in a wide variety of research projects outside of their domain, and see how we can further break down siloes by working on open research projects together.
+
+        h2 History
+        p
+          | This program was first
+          a(href="https://www.youtube.com/watch?v=hIs1fWumaXU")  announced
+          |  as "Interdisciplinary Programming" by Angelina Fabbro (
+          a(href="https://twitter.com/hopefulcyborg") @hopefulcyborg
+          | ) and Bill Mills (
+          a(href="https://twitter.com/billdoesphysics") @billdoesphysics
+          | ) at
+          a(href="https://thestrangeloop.com/")  Stange Loop
+          |  and
+          a(href="http://2013.lxjs.org/")  LXJS
+          |  in 2013. Since then, it has evolved into the Mozilla Science Lab's pilot on contributorship - we're hoping to build on this program and learn about how our whole community can work together! You can read the
+          a(href="http://mozillascience.org/bringing-researchers-and-developers-together-a-call-for-proposals/")  original call for proposals here
+          | .
+
+        h2(id='FAQ') FAQ
+        b Do I have to be a scientist to help?
+        p No! We've tried to tease out tasks that are specially suited for designers, developers and contributors with no knowledge of the relevant science. If you have questions about the science involved, the project leads and the MSL team would be happy to try and sort them out - but all that's required is enthusiasm!
+
+        b Can I submit my project?
+        p
+          | Unfortunately, the call for proposals has closed for this pilot study. We will be looking for new projects soon, though. Feel free to
+          a(href='mailto:sciencelab@mozillafoundation.org')  get in touch
+          |  with us in the meantime.
+
+        b What is Mozilla's role here?
+        p Mozilla Science Lab is the middleman connecting projects and contributors to each other. We want to enable the community to learn, solve problems and build tools together.
+
+        b How can I help?
+        p When you find a project you're interested in, just click the 'Join Project!' button to begin. The project lead will be notified and you can work together to see where your skills can help the project.
+
+
+
+
+    +footer()
+

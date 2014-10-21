@@ -1,0 +1,161 @@
+include ../partials/head.jade
+include ../partials/header.jade
+include ../partials/footer.jade
+
+doctype html5
+html
+  head
+    +head(title)
+  body
+    div.page-wrapper
+      +header(loggedIn)
+
+      section.project
+        div
+          h1= title
+          p
+            i= subjects.join(', ')
+
+          div.pure-u-1.pure-u-md-1-4.sidebar
+            div
+              div.crop
+                img(src= imageName)
+            if(contributors || local_contrib)
+              h3 PARTICIPANTS
+            if(contributors)
+              each contrib in contributors
+                a(href= contrib.html_url).tooltips.pure-u-1-4.contributor
+                  img(src= contrib.avatar_url)
+                  span= contrib.login
+            if(local_contrib)
+              each localc in local_contrib
+                if(localc)
+                  a(href="https://github.com/" + localc.githubId).tooltips.pure-u-1-4.contributor.local
+                    img(src= localc.avatar_url)
+                    span= localc.githubId
+          div.pure-u-md-3-4
+            div.pure-u-1.pure-u-lg-1-3
+                i.fa.fa-user
+                label= lead.name
+            div.pure-u-1.pure-u-lg-1-3
+                i.fa.fa-map-marker
+                label= institute
+            div.pure-u-1.pure-u-lg-1-3
+              if(inactive == 'true')
+                i.fa.fa-circle.text-danger
+                label Closed Project
+              else
+                i.fa.fa-circle.text-success
+                label Active Project
+            div.pure-u-1
+              p
+                small= 'Tags: ' + languages.join(', ')
+                br
+                small= 'Looking for: ' + wanted.join(', ')
+            div.pure-u-1
+              p.summary!= tweetable
+              if(who)
+                h3 WHO WE ARE
+                p.summary!= who
+              if(what)
+                h3 WHAT WE'RE DOING
+                p.summary!= what
+
+            if(!member && loggedIn)
+              div#join-project.ui-hidden
+                h3 JOIN THIS PROJECT
+                input(type="checkbox" id="star" checked)
+                b  Star this project on GitHub
+                br
+                span To help you keep track of this project
+                br
+                br
+                input(type="checkbox" id="fork" checked)
+                b  Fork this project on GitHub
+                br
+                span This will create your own copy of the code. This allows your to freely make your own changes.
+                br
+                br
+                b Introduce yourself to the other participants.
+                br
+                span What interests you in this project? How can you help?
+                br
+                textarea.pure-u-1(rows='5', id="helptext")
+                a.pure-button.btn-success(id='submit-project', href="javascript:void(0)", data-href='/projects/' + route + '/join') Submit
+                p
+
+            div.project-links
+              if(page)
+                a.pure-button.projectLink(href= page) Website
+              if(repo)
+                a.pure-button.projectLink(href= repo) Go to the Repo
+              if(loggedIn)
+                if(!member)
+                    span.pure-button.btn-success(id='join', data-href='/projects/' + route + '/join') Join Project!
+                else if(canLeave)
+                    span.pure-button.btn-danger(id='leave', data-href='/projects/' + route + '/leave') Leave Project
+                if(canEdit)
+                  a.pure-button.btn-danger(href='/projects/' + route + '/edit') Edit Project
+              else
+                a.pure-button.btn-success(href="/auth/github") Sign in to Join the Project!
+
+
+
+          div.pure-u-1.pure-u-md-1-4
+
+            if(moreInfo)
+              h3 MORE INFORMATION
+              ul.infolink
+                each info in moreInfo
+                  li
+                    a(href= info.link)= info.title
+            //h3 RELATED PROJECTS
+          div.pure-u-1.pure-u-md-3-4
+            div.pure-u-1
+              if(goals)
+                h3 MAIN DELIVERABLES
+                ul.goals
+                  each goal in goals
+                    li!= goal
+              if(content)
+                h3 REPO PREVIEW
+
+                ul.pure-u-1.repo
+                  if(type == 'org')
+                    each c in content
+                        li
+                          div.pure-u-3-5
+                            i.fa.fa-book
+                            a(href= c.html_url)= c.name
+                          div.pure-u-2-5.fade.repo-info
+                            div
+                              span= c.language
+                              a(href= c.html_url + '/stargazers').fade
+                                i.fa.fa-star
+                                span= c.stargazers_count
+                              a(href= c.html_url + '/network').fade
+                                i.fa.fa-code-fork
+                                span= c.forks_count
+                          div= c.description
+                  else
+                    each c in content
+                      if(c.type != 'file')
+                        li
+                          i.fa.fa-folder
+                          a(href= c.html_url)= c.name
+                    each c in content
+                      if(c.type == 'file')
+                        li
+                          i.fa.fa-file-text-o
+                          a(href= c.html_url)= c.name
+
+        div
+          br
+          br
+          i
+            | Have a question? Read more
+            a(href="/collaborate/about")  about this program
+            |  or
+            a(href='mailto:sciencelab@mozillafoundation.org')  get in touch
+            | .
+    +footer()

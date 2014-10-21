@@ -1,0 +1,15 @@
+mixin head(title)
+  - var title = (title ? title + ' | Mozilla Science Lab' : 'Mozilla Science Lab')
+  meta(charset='utf-8')
+  meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
+  meta(name='description', content='Mozilla Science Lab: Helping Research Thrive on the Open Web')
+  title= title
+  meta(name='viewport', content="width=device-width, initial-scale=1")
+  link(rel='icon', type='image/ico', href='/img/favicon.ico')
+
+  // This can take arguments later and then we can conditionally insert chunks of CSS depending on which page we're on
+  link(rel='stylesheet', type='text/css', href='http://fonts.googleapis.com/css?family=Fira+Sans:400,300,500,700')
+  link(rel='stylesheet', type='text/css', href='//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.css')
+  link(rel='stylesheet', type='text/css', href='http://yui.yahooapis.com/pure/0.5.0/pure-min.css ')
+  link(rel='stylesheet', type='text/css', href='http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css')
+  link(rel='stylesheet', type='text/css', href='/style.css')

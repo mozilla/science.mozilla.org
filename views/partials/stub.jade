@@ -1,0 +1,31 @@
+mixin stub(project)
+  - var route = '/projects/'+project.route
+  div.project.pure-g
+    div.pure-u-1.pure-u-md-1-4
+      h3
+        a(href= route)= project.title
+      div
+        i= project.subjects.join(', ')
+    div.pure-u-md-3-4
+      div.pure-u-1.pure-u-lg-1-3
+        i.fa.fa-user
+        label= project.lead.name
+      div.pure-u-1.pure-u-lg-1-3
+        i.fa.fa-map-marker
+        label= project.institute
+      div.pure-u-1.pure-u-lg-1-3
+        i.fa.fa-tag
+        label= project.languages.join(', ')
+    div.pure-u-1.pure-u-md-1-4.sidebar
+      a(href= route)
+        div.crop
+          - var image = '/static/img/'+project.imageName
+          img(src= image)
+    div.pure-u-1.pure-u-md-3-4
+      if(project.tweetable)
+        p!= project.tweetable
+      else if(project.who)
+        p!= project.who
+      else
+        p!= project.summary
+      span= 'Looking for: ' + project.wanted.join(', ')

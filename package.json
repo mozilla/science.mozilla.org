@@ -7,7 +7,9 @@
     "start": "node index.js"
   },
   "dependencies": {
-    "express": "~4.9.x"
+    "express": "~4.9.x",
+    "jade": "^1.7.0",
+    "normalize.css": "^3.0.2"
   },
   "engines": {
     "node": "0.10.x"

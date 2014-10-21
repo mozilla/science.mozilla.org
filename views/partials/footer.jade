@@ -1,0 +1,91 @@
+mixin footer
+  footer
+    img(src='/img/footer-design.png').footer-design
+    div.page-wrapper
+      div.footer-main
+        div.pure-u-1.pure-u-md-1-2
+          p
+            img(src='/img/footer-mozilla-white.png')
+          p
+            a(href="https://www.mozilla.org/en-US/about/legal/terms/mozilla/")
+              small.fa-inverse Terms of Service
+            br
+            a(href="https://www.mozilla.org/en-US/privacy/websites")
+              small.fa-inverse Privacy Policy
+            br
+            a(href="https://github.com/mozillascience/Collaborate/issues/new")
+              small.fa-inverse Report a Bug
+            br
+            a(href="http://creativecommons.org/licenses/by/4.0/" target="_blank")
+              i.fa.fa-cc.fa-inverse
+              small.fa-inverse  Creative Commons Attribution 4.0 International License
+        div.pure-u-1.pure-u-md-1-4
+          em Links
+          ul
+            li
+              a(href="http://mozillascience.org/") Home
+            li
+              a(href="http://mozillascience.org/about/") About
+            li
+              a(href="http://mozillascience.org/blog/") Blog
+            li
+              a(href="http://mozillascience.org/education/") Education
+            li
+              a(href="http://mozillascience.org/community/") Community
+            li
+              a(href="http://collaborate.mozillascience.org/") Collaborate
+
+        //div.pure-u-1.pure-u-md-1-4
+          em FOLLOW US
+          div
+            a(href="https://twitter.com/MozillaScience" target="_blank").fa-stack.fa-lg
+              i.fa.fa-circle.fa-stack-2x.social-icons
+              i.fa.fa-twitter.fa-stack-1x.fa-inverse
+        div.pure-u-1.pure-u-md-1-4
+          em Keep in Touch
+          ul
+            li
+              a(href="http://forum.mozillascience.org/")
+                span.fa.fa-comments
+                span  Forum
+            li
+              a(href="https://twitter.com/MozillaScience")
+                span.fa.fa-twitter
+                span  @MozillaScience
+            li
+              a(href="https://mail.mozilla.org/listinfo/mozillascience")
+                span.fa.fa-envelope
+                span  Mailing List
+            li
+              a(href="https://wiki.mozilla.org/ScienceLab/Calls")
+                span.fa.fa-phone
+                span  Community Call
+            li
+              a(href="irc://irc.mozilla.org/sciencelab")
+                b irc
+                span  #ScienceLab
+        //div.pure-u-1.pure-u-md-1-4.email
+          em MAILING LIST
+          p
+            small Occasional e-mail updates & news.
+          input(placeholder="Sign up with your e-mail")
+          button.pure-button.pure-button-primary
+            i.fa.fa-caret-right
+        div
+
+
+  div#scripts
+    script(src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js")
+    script
+      window.jQuery || document.write('<script src="/static/js/vendor/jquery-1.11.1.min.js"><\/script>')
+
+    script(src="/static/js/main.js")
+    //script
+      | (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      | (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      | m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      | })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      | ga('create', 'UA-55172412-1', 'auto');
+      | ga('send', 'pageview');
+

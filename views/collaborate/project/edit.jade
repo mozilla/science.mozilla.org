@@ -1,0 +1,105 @@
+include ../partials/head.jade
+include ../partials/header.jade
+include ../partials/footer.jade
+
+doctype html5
+html
+  head
+    +head()
+  body
+    div.page-wrapper
+      +header(loggedIn)
+
+      section.project
+        div
+          h1
+            input(value= title, id='ptitle')
+          p
+            input(value= subjects.join(', '), id='psubjects')
+
+          div.pure-u-1.pure-u-md-1-4.sidebar
+            div
+              div.crop
+                img(src= imageName)
+          div.pure-u-md-3-4
+            div.pure-u-1.pure-u-lg-1-3
+                i.fa.fa-user
+                input(value= lead.name, id='plead')
+            div.pure-u-1.pure-u-lg-1-3
+                i.fa.fa-map-marker
+                input(value= institute, id='pinstitute')
+            div.pure-u-1.pure-u-lg-1-3
+              if(inactive == 'true')
+                input(type="checkbox" id="pactive")
+              else
+                input(type="checkbox" id="pactive" checked)
+              label  Active Project
+            div.pure-u-1
+              p
+                small= 'Tags: '
+                  input(value=languages.join(', '), id='planguages')
+                br
+                small= 'Looking for: '
+                  input(value=wanted.join(', '), id='pwanted')
+            div.pure-u-1
+              p.summary
+                textarea(id='ptweetable')= tweetable
+              h3 WHO WE ARE
+              p.summary
+                textarea(id='pwho')= who
+              h3 WHAT WE'RE DOING
+              p.summary
+                textarea(id='pwhat')= what
+
+
+            div.project-links
+              span.pure-button.projectLink Website:
+                input(value=page, id='ppage')
+              span.pure-button.projectLink Go to the Repo:
+                input(value=repo, id='prepo')
+
+
+
+          div.pure-u-1.pure-u-md-1-4
+
+              h3 MORE INFORMATION
+              ul.infolink(id='pmoreinfo')
+                if(moreInfo)
+                  each info in moreInfo
+                    li
+                      input(value=info.title)
+                      br
+                      span Link:
+                      input(value=info.link)
+                li
+                  input(placeholder='new entry')
+                  br
+                  span Link:
+                  input(placeholder='new link')
+          div.pure-u-1.pure-u-md-3-4
+            div.pure-u-1
+              h3 MAIN DELIVERABLES
+              ul.goals(id='pgoals')
+                if(goals)
+                  each goal in goals
+                    li
+                      input(value=goal)
+                li
+                  input(placeholder='new deliverable')
+
+            div.project-links
+              span.pure-button.btn-success(id='save-project', data-href='/projects/' + route + '/save') Save Changes
+              a.pure-button(href='/projects/' + route) View Project
+
+
+
+        div
+          br
+          br
+          i
+            | Have a question? Read more
+            a(href="/projects/about")  about this program
+            |  or
+            a(href='mailto:sciencelab@mozillafoundation.org')  get in touch
+            | .
+    +footer()

@@ -1,0 +1,49 @@
+include partials/head.jade
+include partials/header.jade
+include welcome.jade
+include partials/footer.jade
+include partials/stub.jade
+
+
+doctype html5
+html
+  head
+    +head()
+  body
+    div.page-wrapper
+      +header(loggedIn)
+      section
+        +welcome()
+
+
+
+      section.projectList
+        div.pure-g
+          div.pure-u-1.pure-u-1-4
+            h2 CODE PROJECTS
+            i
+              | Here are a few projects that could use your help. Have a question? Read our
+              a(href="/collaborate/about#FAQ")  FAQ
+              |  or
+              a(href='mailto:sciencelab@mozillafoundation.org')  get in touch
+              | .
+          div.pure-u-1.pure-u-3-4
+
+
+        div.projects(id="project-list")
+          - for(var i=0; i<projects.length; i++){
+            - if(projects[i].title)
+              +stub(projects[i])
+          - }
+
+        div
+          br
+          br
+          i
+            | Have a question? Read more
+            a(href="/collaborate/about")  about this program
+            |  or
+            a(href='mailto:sciencelab@mozillafoundation.org')  get in touch
+            | .
+    +footer()
+
