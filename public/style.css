@@ -343,11 +343,6 @@ label {
 
 /* Header Menu */
 
-.home-menu {
-    padding: 0.5em;
-    text-align: center;
-    box-shadow: 0 1px 1px rgba(0,0,0, 0.10);
-}
 
 .pure-menu.pure-menu-open.pure-menu-horizontal {
     /* Fixed menus normally have a border at the bottom. */
@@ -361,6 +356,16 @@ label {
 
 .pure-menu-horizontal a {
   border:1px solid clear;
+  font-weight:300;
+  color: #555;
+}
+
+a:hover {
+  color: #f47e3c;
+}
+
+.pure-menu-horizontal li a {
+  padding: 5px 30px;
 }
 
 .pure-menu-horizontal.navigation ul {
@@ -375,26 +380,6 @@ label {
 
 .pure-menu-horizontal.navigation .pure-menu-selected a {
   border:1px solid #8ACEFF;
-}
-
-.home-menu .pure-menu-heading {
-    color: white;
-    font-weight: 400;
-    font-size: 120%;
-}
-
-.home-menu .pure-menu-selected a {
-    color: white;
-}
-
-.home-menu a {
-    color: #6FBEF3;
-}
-.home-menu li a:hover,
-.home-menu li a:focus {
-    background: none;
-    border: none;
-    color: #AECFE5;
 }
 
 /* Footer Styles */
@@ -484,21 +469,20 @@ footer ul a {
     clear:both;
 }
 
+div.header-img {
+  background: #E3F4FF;
+  min-height: 200px;
+  margin: 2em 0;
+  overflow:hidden;
+}
+
+div.splash div.header-img h1 {
+  margin:350px 0 1em 0;
+}
+
 h1 {
   font-size: 3em;
   margin-bottom:0.2em;
-}
-
-.content-wrapper {
-    /* These styles are required for the "scroll-over" effect */
-    position: absolute;
-    left: 0;
-    top: 87%;
-    width: 100%;
-    min-height: 12%;
-    z-index: 2;
-    background: white;
-
 }
 
 /* This is the class used for the main content headers (<h2>) */
@@ -544,22 +528,6 @@ h1 {
 }
 
 /* Content Pages */
-
-.vanilla {
-	padding: 0px;
-}
-
-.vanilla section {
-	margin-top: 50%;
-}
-
-.vanilla .content-wrapper {
-	/*width: 70%;*/
-	margin: 0 auto;
-	position: static;
-	margin-top: 12%;
-	margin-bottom: 12%;
-}
 
 .project textarea {
   width: 100%;
@@ -678,20 +646,26 @@ i.bigIcon{
         }
 
     .l-box-lg {
-        border: none;
+      border:none;
     }
 
-	.vanilla section {
-		margin-top: 15%;
-	}
 
 }
 
 /* Desktop & Up Media Queries */
-@media (min-width: 78em) {
+@media (min-width: 70em) {
     /* We increase the header font size even more */
     .splash-head {
         font-size: 300%;
+    }
+
+    .l-box-lg {
+      border:none;
+      border-right: 2px solid #E3F4FF;
+    }
+
+    .l-box-lg:last-of-type {
+      border:none;
     }
 }
 
@@ -723,10 +697,6 @@ i.bigIcon{
 }
 .pure-g {
   letter-spacing: normal; /* no idea why letter spacing gets messed up in  upper .content */
-}
-
-header, .ribbon, .ribbon-alt {
-    /*display: none;*/
 }
 
 .splash-head {
@@ -899,4 +869,49 @@ a:hover.tooltips span {
   top: 100%;
   left: 0;
   z-index: 999;
+}
+
+div.connect ul {
+  list-style: none;
+  padding:0;
+  margin:0;
+}
+
+div.circle-img {
+  background: #E3F4FF;
+  height:4em;
+  width:4em;
+  margin: 0 auto;
+  border-radius: 2em;
+}
+
+a.project-img {
+  background: #E3F4FF;
+  height:200px;
+  flex-grow:1;
+  margin: 1em;
+}
+
+a.project-img:first-child {
+  margin-left:0;
+}
+a.project-img:last-child {
+  margin-right:0;
+}
+
+.spaced-columns {
+  padding: 0 1em;
+}
+
+.spaced-columns:first-child {
+  padding-left: 0;
+}
+
+.spaced-columns:last-child {
+  padding-right:0;
+}
+
+div.featured-projects {
+  display: flex;
+  justify-content: space-between;
 }
