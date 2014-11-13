@@ -1,5 +1,6 @@
 include partials/head.jade
 include partials/header.jade
+include partials/connect.jade
 include partials/footer.jade
 
 
@@ -20,10 +21,69 @@ html
       div.pure-u-1
         div.pure-u-1.pure-u-md-1-2.spaced-columns
           div.header-img
-          h3 DO YOU WANT TO LEARN?
+          h3 DO YOU WANT TO TEACH?
+          p We want help the community learns skills to further open practices in research. To help with this, we've developed both trainings and resources around open research practices.
+          ul
+            li
+              | Want to teach? We run a free online training course for people who want to pass their skills along --- see
+              a(href="http://teaching.software-carpentry.org/")  http://teaching.software-carpentry.org/
+              | for more information.
+            li Help us create resources (from curricula to broader resources about open science work). All our materials are freely available under open licenses, and contributions are always welcome. Some of our ongoing projects:
+              ul
+                li
+                  | We're composing some lessons on
+                  a(href="https://github.com/mozillascience/codeReview")  Code Review
+                  |  specially aimed at scientists - learn what makes good code, and how to keep your software projects healthy and growing.
+                li
+                  | We're building
+                  a(href="https://github.com/mozillascience/instructorTraining")  Instructor Training
+                  |  content for delivery to a wider audience. Explore our take on educational psychology and teaching skills here.
+
+
         div.pure-u-1.pure-u-md-1-2.spaced-columns
           div.header-img
-          h3 DO YOU WANT TO TEACH?
+          h3 DO YOU WANT TO LEARN?
+          p To help people understand what the open web can do to accelerate science, we run workshops all over the world to help scientists learn the skills needed to use today's tools and create tomorrow's. We also will be building out resources for those looking to learn more about the latest tools and policies and how to apply them to their work.
+            ul
+              li
+                | Join a workshop: see
+                a(href="http://software-carpentry.org/")  http://software-carpentry.org
+                | for a list of upcoming events, or
+                a(href="http://software-carpentry.org/workshops/request.html")  fill out this form
+                |  if you'd like Software Carpentry to run one for you.
+
+        div.pure-u-1
+          h3 PROGRAMS
+          p There are many groups interested in teaching open science skills or the web. Here are a few:
+          ul
+            li
+              a(href="http://altbibl.io/dst4l/") Data Science Training for Libraries / DST4L
+            li
+              a(href="http://opensciencetraining.com/") Open Science Training Initiative
+            li
+              a(href="http://ropensci.org/") rOpenSci
+            li
+              a(href="http://datacarpentry.org/") Data Carpentry
+            li
+              a(href="https://webmaker.org/make-your-own") Webmaker Teach Templates
+            li
+              a(href="http://schoolofdata.org/") School of Data
+              |  /
+              a(href="https://okfn.org/")  Open Knowledge Foundation
+            li
+              a(href="https://training.github.com/") GitHub training
+            li
+              a(href="http://schoolofopen.p2pu.org/") Creative Commons / P2PU / School of Open's Open Science Course
+            li
+              a(href="http://www.pyladies.com/") PyLadies
+
+        div.pure-u-1.pure-u-md-3-4.spaced-columns
+          h3 CONTACT US
+          p Are you running a program to teach software and open science skills to researchers? Is there a set of lessons or discussions that you would like to see built? Let us know in the Mozilla Science Forum under Training, or join the conversation on twitter @MozillaScience.
+        div.pure-u-1.pure-u-md-1-4.spaced-columns
+          h3
+          +connect()
+
 
     +footer()
 

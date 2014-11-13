@@ -44,14 +44,13 @@ h3 {
 ul {
    font-size: 1.25em;
    line-height: 1.6em;
-   margin: 0 0 1.6em 3.2em;
+   margin: 0 0 1em 0;
+   padding: 0 0 0 2em;
    list-style: disc outside;
 }
 
-ul.level2 {
-   font-size: 1em;
-   margin-left: 1.75em;
-   list-style-type: circle;
+ul ul {
+  font-size: 1em;
 }
 
 ol {
