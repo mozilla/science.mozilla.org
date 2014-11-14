@@ -913,4 +913,25 @@ a.project-img:last-child {
 div.featured-projects {
   display: flex;
   justify-content: space-between;
+  position:relative;
+}
+
+div.featured-projects:before {
+    content:"\A";
+    border-style: solid;
+    border-width: 10px 15px 10px 0;
+    border-color: transparent #E3F4FF transparent transparent;
+    position: absolute;
+    left: -25px;
+    top: 100px;
+}
+
+div.featured-projects:after {
+    content:"\A";
+    border-style: solid;
+    border-width: 10px 0 10px 15px;
+    border-color: transparent #E3F4FF transparent transparent;
+    position: absolute;
+    right: -25px;
+    top: 100px;
 }
