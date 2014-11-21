@@ -362,11 +362,11 @@ label {
 a:hover {
   color: #f47e3c;
 }
-
+/*
 .pure-menu-horizontal li a {
   padding: 5px 30px;
 }
-
+*/
 .pure-menu-horizontal.navigation ul {
   float:none;
   background: #c9e3f6;
@@ -920,7 +920,7 @@ div.featured-projects:before {
     content:"\A";
     border-style: solid;
     border-width: 10px 15px 10px 0;
-    border-color: transparent #E3F4FF transparent transparent;
+    border-color: transparent #c9e3f6 transparent transparent;
     position: absolute;
     left: -25px;
     top: 100px;
@@ -930,7 +930,7 @@ div.featured-projects:after {
     content:"\A";
     border-style: solid;
     border-width: 10px 0 10px 15px;
-    border-color: transparent #E3F4FF transparent transparent;
+    border-color: transparent transparent transparent #c9e3f6;
     position: absolute;
     right: -25px;
     top: 100px;
