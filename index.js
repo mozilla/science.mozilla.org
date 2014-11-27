@@ -14,6 +14,10 @@ app.listen(app.get('port'), function() {
 });
 
 
+
+
+
+// ROUTES
 app.get('/collaborate', function(request, response) {
   response.render('collaborate/collaborate.jade');
 });

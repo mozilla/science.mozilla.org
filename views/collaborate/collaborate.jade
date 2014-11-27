@@ -4,17 +4,17 @@ include welcome.jade
 include ../partials/footer.jade
 include ../partials/stub.jade
 
+-var page = "Collaborate"
 
 doctype html5
 html
   head
-    +head()
+    +head(page)
   body
     div.page-wrapper
-      +header(loggedIn)
+      +header(loggedIn, page)
       section
         +welcome()
-
 
 
       section.projectList

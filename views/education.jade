@@ -3,14 +3,15 @@ include partials/header.jade
 include partials/connect.jade
 include partials/footer.jade
 
+-var page = "Education"
 
 doctype html5
 html
   head
-    +head()
+    +head(page)
   body
     div.page-wrapper
-      +header(loggedIn)
+      +header(loggedIn, page)
 
       div.splash
         h1 Learn & Teach Code

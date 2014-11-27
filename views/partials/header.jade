@@ -1,4 +1,4 @@
-mixin header(loggedIn)
+mixin header(loggedIn, page)
   header
     div
       a(href="https://www.mozilla.org/" id="tabzilla") mozilla
@@ -22,16 +22,15 @@ mixin header(loggedIn)
             a(href='/auth/github')
               i.fa.fa-github
               span  Sign in with Github
-
     div.pure-menu.pure-menu-open.pure-menu-horizontal.navigation.is-center
       ul
-        li
-          a(href='/about') ABOUT
-        li
+        li(class=page === 'About' ? "pure-menu-selected" : "")
+            a(href='/about') ABOUT
+        li(class=page === 'Blog' ? "pure-menu-selected" : "")
           a(href='/blog') BLOG
-        li
+        li(class=page === 'Education' ? "pure-menu-selected" : "")
           a(href='/education') EDUCATION
-        li
+        li(class=page === 'Community' ? "pure-menu-selected" : "")
           a(href='/community') COMMUNITY
-        li
+        li(class=page === 'Collaborate' ? "pure-menu-selected" : "")
           a(href='/collaborate') COLLABORATE

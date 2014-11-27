@@ -3,14 +3,15 @@ include partials/header.jade
 include partials/footer.jade
 include partials/connect.jade
 
+-var page = "Community"
 
 doctype html5
 html
   head
-    +head()
+    +head(page)
   body
     div.page-wrapper
-      +header(loggedIn)
+      +header(loggedIn, page)
 
       div.splash
         h1 Community
