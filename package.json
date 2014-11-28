@@ -8,8 +8,11 @@
   },
   "dependencies": {
     "express": "~4.9.x",
+    "forever": "^0.13.0",
     "jade": "^1.7.0",
-    "normalize.css": "^3.0.2"
+    "mongoose": "^3.8.19",
+    "normalize.css": "^3.0.2",
+    "path": "^0.4.9"
   },
   "engines": {
     "node": "0.10.x"
