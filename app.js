@@ -23,10 +23,10 @@ db.once('open', function callback () {
 
 var models = require('./models.js')
 
-var routes = require("./routes");
 
 
 // ROUTES
+var routes = require("./routes");
 var projectRoutes = routes.projects();
 
 app.get('/', function(request, response) {
@@ -57,4 +57,5 @@ app.get('/collaborate/about', function(request, response) {
   response.render('collaborate/about.jade');
 });
 
+app.get("/api/projects/:project", projectRoutes.get);
 app.get("/api/projects", projectRoutes.getAll);

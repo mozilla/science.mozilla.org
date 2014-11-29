@@ -24,7 +24,8 @@ var projectSchema = new Schema({
                    avatar_url: String }],
   moreinfo: [{link: String, title: String}],
   createdAt: Date,
-  updatedAt: Date
+  updatedAt: Date,
+  route: String
 });
 
 
@@ -44,5 +45,18 @@ mongoose.model('Project', projectSchema);
 
 var userSchema = new Schema({
   name: String,
-  gitHubId: String
+  gitHubId: String,
+  avatar_url: String,
+  createdAt: Date,
+  updatedAt: Date
 })
+
+userSchema.pre('save', function(next, done){
+  if (this.isNew) {
+    this.createdAt = Date.now();
+  }
+  this.updatedAt = Date.now();
+  next();
+});
+
+mongoose.model('User', userSchema);

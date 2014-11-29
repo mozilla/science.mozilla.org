@@ -38,6 +38,12 @@ module.exports = function() {
         if (err) return console.error(err);
         res.json(projects);
       })
+    },
+    get: function(req, res, next){
+      Project.find({ route: req.params.project }, function(err, project){
+        if (err) return console.error(err);
+        res.json(project);
+      })
     }
   };
 
