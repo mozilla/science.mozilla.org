@@ -10,14 +10,15 @@ html
   head
     +head(page)
   body
-    div.page-wrapper
-      +header(loggedIn, page)
+    +header(loggedIn, page)
 
-      div.splash
-        h1 About Science Lab
-        | learn about open science and more about us
-
+    div.splash
       div.header-img
+        div.page-wrapper
+          h1 About Science Lab
+          | learn about open science and more about us
+    div.page-wrapper
+
 
       div
         div.pure-u-1.pure-u-md-3-4.spaced-columns

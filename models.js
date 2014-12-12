@@ -25,7 +25,11 @@ var projectSchema = new Schema({
   moreinfo: [{link: String, title: String}],
   createdAt: Date,
   updatedAt: Date,
-  route: String
+  route: String,
+  whoIsGoingToUseThis: String,
+  dependencies: String,
+  hoursyouspendonproject: Number
+
 });
 
 

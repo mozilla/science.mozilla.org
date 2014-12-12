@@ -8,50 +8,66 @@ html
   head
     +head()
   body
+    +header(loggedIn)
+    div.splash
+      div.header-img(id="home-banner")
+        div.page-wrapper
+          h1 Helping Research Thrive
+            br
+            | on the Open Web
+          div.pure-u-15-24
+            h3 The Mozilla Science Lab is helping a global network of researchers, tool developers, librarians and publishers collaborate to further science on the web. We believe a community of peers working, learning and building together is needed to make research thrive on the open web.
+          div
+            a(href="/community")
+              div.pure-button.join JOIN US
+          div.is-center
+            a(href="/").down
+              i.fa.fa-chevron-down
     div.page-wrapper
-      +header(loggedIn)
-
-
-
-      div.splash
-        div.header-img
-          h1 Helping Research Thrive on the Open Web
-        h3 The Mozilla Science Lab is helping a global network of researchers, tool developers, librarians and publishers collaborate to further science on the web. We believe a community of peers working, learning and building together is needed to make research thrive on the open web.
-      div
-          div.content.is-center
-              div.l-box-lg.pure-u-1.pure-u-md-1-2.pure-u-lg-1-3
-                  h1
-                    div.circle-img
-                    h3 experiement
-                  p
-                    | Explore and collaborate in our labratory with tools, projects and scientists!
-                div.l-box-lg.pure-u-1.pure-u-md-1-2.pure-u-lg-1-3
-                  h1
-                    div.circle-img
-                    h3 innovate
-                  p
-                    | Learn code for your research and discover new innovative methodologies.
-                div.l-box-lg.pure-u-1.pure-u-md-1-2.pure-u-lg-1-3
-                  h1
-                    div.circle-img
-                    h3 collaborate
-                  p
-                    | Coordinating a community and supporting scientists everywhere.
       div.pure-u-1
-          h3.pull-left FEATURED PROJECTS
-          h3
-          span.pull-right
-            i
-              a(href="/collaborate") see more projects
-          div.pure-u-1.featured-projects
-            a.pure-u-md-1-4.tooltips.project-img
-              img(src='')
-            a.pure-u-md-1-4.tooltips.project-img
-              img(src='')
-            a.pure-u-md-1-4.tooltips.project-img
-              img(src='')
-            a.pure-u-md-1-4.tooltips.project-img
-              img(src='')
+        div.pure-u-1-3.l-box-lg
+          div.circle-img(id="circle-innovate")
+        div.pure-u-2-3.l-box-lg
+          h2 Experiment
+          p
+            | Explore and collaborate with web tools, software projects and scientists helping further science on the web
+          a(href="/collaborate").next
+            span Collaborate on code for science &nbsp;
+              span.fa.fa-arrow-right
+        div.pure-u-2-3.l-box-lg
+          h2 Innovate
+          p
+            | Join our training programs to learn and teach skills for open research and discover new innovative methodologies.
+          a(href="/training").next
+            span Learn and teach open research skills &nbsp;
+              span.fa.fa-arrow-right
+        div.pure-u-1-3.l-box-lg
+            div.circle-img(id="circle-exp").pull-right
+        div.pure-u-1-3.l-box-lg
+          div.circle-img(id="circle-collab")
+        div.pure-u-2-3.l-box-lg
+          h2 Participate
+          p
+            | We are a global network of researchers, tool developers, librarians and publishers collaborating to further science on the web.
+          a(href="/community").next
+            span Join a community building and learning together &nbsp;
+              span.fa.fa-arrow-right
+      div
+        div.pure-u-1
+            h3.pull-left FEATURED PROJECTS
+            h3
+            span.pull-right
+              i
+                a(href="/collaborate") see more projects
+            div.pure-u-1.featured-projects
+              a.pure-u-md-1-4.tooltips.project-img
+                img(src='')
+              a.pure-u-md-1-4.tooltips.project-img
+                img(src='')
+              a.pure-u-md-1-4.tooltips.project-img
+                img(src='')
+              a.pure-u-md-1-4.tooltips.project-img
+                img(src='')
 
       div
         div.pure-u-1.pure-u-md-1-2.spaced-columns

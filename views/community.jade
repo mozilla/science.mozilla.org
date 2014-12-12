@@ -10,14 +10,15 @@ html
   head
     +head(page)
   body
+    +header(loggedIn, page)
+
+    div.splash
+      div.header-img(id="community-banner")
+        div.page-wrapper
+          h1 Community
+          | join others around open research in the sciences
     div.page-wrapper
-      +header(loggedIn, page)
 
-      div.splash
-        h1 Community
-        | join others around open research in the sciences
-
-      div.header-img
 
       div
         div.pure-u-1.pure-u-md-3-4.spaced-columns

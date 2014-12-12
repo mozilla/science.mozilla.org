@@ -1,36 +1,40 @@
 mixin header(loggedIn, page)
   header
-    div
-      a(href="https://www.mozilla.org/" id="tabzilla") mozilla
-      link(href="//mozorg.cdn.mozilla.net/media/css/tabzilla-min.css" rel="stylesheet")
-      script(src="//mozorg.cdn.mozilla.net/tabzilla/tabzilla.js")
 
 
 
-    div.pure-menu.pure-menu-open.pure-menu-horizontal
+    div.menu-wrapper.menu-fixed
+      div.pure-menu.pure-menu-open.pure-menu-horizontal
+        a(href="https://www.mozilla.org/" id="tabzilla") mozilla
+        link(href="//mozorg.cdn.mozilla.net/media/css/tabzilla-min.css" rel="stylesheet")
+        script(src="//mozorg.cdn.mozilla.net/tabzilla/tabzilla.js")
 
-      a(href='/' id="logo")
-        img(src='/img/logo.png').MSLlogo
-
-      //ul
-        if(loggedIn)
-          li= 'Welcome ' + user.name
+        a(href='/' id="logo").pull-left
+          img(src='/img/ScienceLabSticker.png').MSLlogo
+        ul.pull-left
+          li(class=page === 'About' ? "pure-menu-selected" : "")
+              a(href='/about') About
+          li(class=page === 'Blog' ? "pure-menu-selected" : "")
+            a(href='/blog') Blog
+          li(class=page === 'Education' ? "pure-menu-selected" : "")
+            a(href='/training') Training
+          li(class=page === 'Collaborate' ? "pure-menu-selected" : "")
+            a(href='/collaborate') Collaborate
+        ul.pull-right
           li
-            a(href='/logout') Logout
-        else
+            a(href='/community').button JOIN US
           li
             a(href='/auth/github')
               i.fa.fa-github
-              span  Sign in with Github
-    div.pure-menu.pure-menu-open.pure-menu-horizontal.navigation.is-center
-      ul
-        li(class=page === 'About' ? "pure-menu-selected" : "")
-            a(href='/about') ABOUT
-        li(class=page === 'Blog' ? "pure-menu-selected" : "")
-          a(href='/blog') BLOG
-        li(class=page === 'Education' ? "pure-menu-selected" : "")
-          a(href='/education') EDUCATION
-        li(class=page === 'Community' ? "pure-menu-selected" : "")
-          a(href='/community') COMMUNITY
-        li(class=page === 'Collaborate' ? "pure-menu-selected" : "")
-          a(href='/collaborate') COLLABORATE
+              span  Sign In
+        //ul
+          if(loggedIn)
+            li= 'Welcome ' + user.name
+            li
+              a(href='/logout') Logout
+          else
+            li
+              a(href='/auth/github')
+                i.fa.fa-github
+                span  Sign in with Github
+

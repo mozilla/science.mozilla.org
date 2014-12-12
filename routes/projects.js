@@ -44,7 +44,13 @@ module.exports = function() {
         if (err) return console.error(err);
         res.json(project);
       })
-    }
+    },
+    search: function(req, res, next){
+      var query = req.params.query;
+      Project.find({ route: query }, function(err, project){
+        if (err) return console.error(err);
+        res.json(project);
+      })    }
   };
 
 };

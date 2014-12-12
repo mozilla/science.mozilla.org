@@ -6,7 +6,9 @@ body {
    line-height: 1.5em;
    font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
    color: #444;
-   padding: 0;
+   padding:0;
+   margin:0;
+   border-top: 3px solid #FFF;
 }
 
 p {
@@ -92,7 +94,7 @@ a:visited {
    outline: 0;
 }
 
-a:hover{
+a:hover, a.button:hover{
    color:#f47e3c;
 }
 
@@ -295,8 +297,8 @@ label {
 }
 
 .l-box-lg {
-    padding: 2em;
-    border-bottom: 1px solid rgba(0,0,0,0.1);
+    padding: 40px 50px;
+    /*border-bottom: 1px solid rgba(0,0,0,0.1);*/
 }
 
 .is-center {
@@ -341,45 +343,62 @@ label {
 
 
 /* Header Menu */
-
+.menu-wrapper {
+    box-shadow: 0 4px 2px -2px rgba(128,128,128,0.5);
+    text-align: center;
+    background:rgba(255,255,255,0.8);
+    min-height: 72px;
+    width:100%;
+    color:white;
+    background:transparent;
+    box-shadow:none;
+}
 
 .pure-menu.pure-menu-open.pure-menu-horizontal {
     /* Fixed menus normally have a border at the bottom. */
-    border-bottom: none;
+    /*border-bottom: none;*/
+    /*box-shadow: 0 4px 2px -2px rgba(128,128,128,0.5);*/
+    max-width: 1300px;
+    /*text-align: center;*/
+    margin: 0 auto;
+    /*background:rgba(255,255,255,0.8)*/
 }
 
-.pure-menu-horizontal ul {
-  float:right;
-  clear:both;
+.menu-fixed {
+  position:absolute;
+  top:0;
+  z-index: 20;
 }
 
 .pure-menu-horizontal a {
-  border:1px solid clear;
-  font-weight:300;
-  color: #555;
+  /*color: #555;*/
+  color:#CCC;
+  font-size: 13px;
 }
 
 a:hover {
   color: #f47e3c;
 }
-/*
-.pure-menu-horizontal li a {
-  padding: 5px 30px;
+
+.pure-menu-horizontal ul {
+  margin:20px 0;
 }
-*/
-.pure-menu-horizontal.navigation ul {
-  float:none;
-  background: #c9e3f6;
-  border-radius:1em;
-  margin:2em 0;
-}
-.pure-menu-horizontal.navigation a {
-  border-radius: 1em;
+.pure-menu-horizontal a {
+  border-radius: 15px;
 }
 
-.pure-menu-horizontal.navigation .pure-menu-selected a {
-  border:1px solid #8ACEFF;
+.pure-menu li a {
+  padding: 5px 20px;
+  background: none;
 }
+
+.pure-menu li a:hover {
+  background:none;
+}
+
+/*.pure-menu-horizontal .pure-menu-selected a {
+  border:1px solid #8ACEFF;
+}*/
 
 /* Footer Styles */
 
@@ -464,19 +483,30 @@ footer ul a {
 }
 
 .splash {
-    text-align: center;
+    /*text-align: center;*/
     clear:both;
+    margin:0;
+    padding:0;
 }
 
-div.header-img {
-  background: #E3F4FF;
+.header-img {
+  background: #7AB5DB; /*#E3F4FF;*/
   min-height: 200px;
-  margin: 2em 0;
-  overflow:hidden;
+  margin: 0 0 50px;
+  padding:100px 0;
+  color:white;
 }
 
-div.splash div.header-img h1 {
-  margin:350px 0 1em 0;
+#home-banner {
+  min-height:100vh;
+  background: url("./img/blurred.jpg");
+  background-size: cover;
+  background-position: left top;
+}
+
+div.splash div.header-img h1, div.splash div.header-img h3 {
+  color:white;
+  text-shadow: 1px 1px #444;
 }
 
 h1 {
@@ -644,28 +674,7 @@ i.bigIcon{
             float: right;
         }
 
-    .l-box-lg {
-      border:none;
-    }
 
-
-}
-
-/* Desktop & Up Media Queries */
-@media (min-width: 70em) {
-    /* We increase the header font size even more */
-    .splash-head {
-        font-size: 300%;
-    }
-
-    .l-box-lg {
-      border:none;
-      border-right: 2px solid #E3F4FF;
-    }
-
-    .l-box-lg:last-of-type {
-      border:none;
-    }
 }
 
 /* pilot study styles */
@@ -698,19 +707,13 @@ i.bigIcon{
   letter-spacing: normal; /* no idea why letter spacing gets messed up in  upper .content */
 }
 
-.splash-head {
-  margin: 0;
-  border: none;
-  border-radius: 0;
-}
-
 .content-contrast {
   background-color: #c9e3f6;
 }
 
 .MSLlogo{
-  width:260px;
-  margin:1em 0;
+  height: 40px;
+  margin:14px 20px 4px;
 }
 
 /* weird pure css alignment stuff */
@@ -878,10 +881,31 @@ div.connect ul {
 
 div.circle-img {
   background: #E3F4FF;
-  height:4em;
-  width:4em;
-  margin: 0 auto;
-  border-radius: 2em;
+  height:280px;
+  width:280px;
+  /*margin: 0 auto;*/
+  border-radius: 50%;
+}
+
+#circle-exp {
+  background: url("./img/light.jpg") no-repeat;
+  background-size: cover;
+}
+
+#circle-innovate {
+  background: url("./img/innovate.jpg") no-repeat;
+  background-size: cover;
+}
+
+#circle-collab {
+  background: url("./img/collaborate.jpg") no-repeat;
+  background-size: cover;
+}
+
+#community-banner {
+  background: url("./img/community.jpg") no-repeat;
+  background-size: cover;
+  background-position: center bottom;
 }
 
 a.project-img {
@@ -910,13 +934,13 @@ a.project-img:last-child {
   padding-right:0;
 }
 
-div.featured-projects {
+.featured-projects {
   display: flex;
   justify-content: space-between;
   position:relative;
 }
 
-div.featured-projects:before {
+.featured-projects:before {
     content:"\A";
     border-style: solid;
     border-width: 10px 15px 10px 0;
@@ -926,7 +950,7 @@ div.featured-projects:before {
     top: 100px;
 }
 
-div.featured-projects:after {
+.featured-projects:after {
     content:"\A";
     border-style: solid;
     border-width: 10px 0 10px 15px;
@@ -934,4 +958,55 @@ div.featured-projects:after {
     position: absolute;
     right: -25px;
     top: 100px;
+}
+
+.pull-right {
+  float:right;
+}
+
+.pull-left {
+  float:left;
+}
+
+.pure-menu .button {
+  font-weight: 900;
+  border:1px solid white;
+}
+
+a.button {
+  color:white;
+}
+
+.pure-menu .button:hover {
+  font-weight: 900;
+  border:1px solid white;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.pure-button.join {
+  border:2px solid white;
+  background:rgba(255,0,0,0.4);
+  border-radius:40px;
+  font-size: 20px;
+  color:white;
+  margin-top:40px;
+
+}
+
+.pure-button.join:hover {
+  background:rgba(255,0,0,0.6);
+}
+
+.down {
+  position:absolute;
+  bottom:30px;
+  font-size:30pt;
+  color:white;
+  margin-left: -0.5em;
+}
+
+.next span {
+  /*font-weight: 600;*/
+  font-size:14pt;
+
 }
