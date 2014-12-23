@@ -297,7 +297,6 @@ label {
 }
 
 .l-box-lg {
-    padding: 40px 50px;
     /*border-bottom: 1px solid rgba(0,0,0,0.1);*/
 }
 
@@ -345,13 +344,13 @@ label {
 /* Header Menu */
 .menu-wrapper {
     box-shadow: 0 4px 2px -2px rgba(128,128,128,0.5);
+    z-index:5;
+    position:relative;
     text-align: center;
-    background:rgba(255,255,255,0.8);
     min-height: 72px;
     width:100%;
-    color:white;
-    background:transparent;
-    box-shadow:none;
+    background: rgba(201, 227, 246, 1);
+    border:none;
 }
 
 .pure-menu.pure-menu-open.pure-menu-horizontal {
@@ -361,18 +360,19 @@ label {
     max-width: 1300px;
     /*text-align: center;*/
     margin: 0 auto;
+    border:none;
     /*background:rgba(255,255,255,0.8)*/
 }
-
+/*
 .menu-fixed {
-  position:absolute;
+  position:fixed;
   top:0;
   z-index: 20;
-}
+}*/
 
 .pure-menu-horizontal a {
-  /*color: #555;*/
-  color:#CCC;
+  color: #555;
+  /*color:#CCC;*/
   font-size: 13px;
 }
 
@@ -384,7 +384,7 @@ a:hover {
   margin:20px 0;
 }
 .pure-menu-horizontal a {
-  border-radius: 15px;
+  border-radius: 3px;
 }
 
 .pure-menu li a {
@@ -493,25 +493,24 @@ footer ul a {
   background: #7AB5DB; /*#E3F4FF;*/
   min-height: 200px;
   margin: 0 0 50px;
-  padding:100px 0;
-  color:white;
+  padding:30px 0 60px;
 }
 
 #home-banner {
-  min-height:100vh;
-  background: url("./img/blurred.jpg");
+  /*min-height:100vh;*/
+  background: url("./img/helix.jpg") no-repeat;
   background-size: cover;
-  background-position: left top;
+  background-position: center top;
 }
 
 div.splash div.header-img h1, div.splash div.header-img h3 {
-  color:white;
-  text-shadow: 1px 1px #444;
+  color:black;
+  /*text-shadow: 1px 1px #444;*/
 }
 
 h1 {
-  font-size: 3em;
-  margin-bottom:0.2em;
+  font-size: 4em;
+  margin-bottom:0em;
 }
 
 /* This is the class used for the main content headers (<h2>) */
@@ -712,8 +711,8 @@ i.bigIcon{
 }
 
 .MSLlogo{
-  height: 40px;
-  margin:14px 20px 4px;
+  height: 36px;
+  margin:10px 20px 10px;
 }
 
 /* weird pure css alignment stuff */
@@ -970,7 +969,11 @@ a.project-img:last-child {
 
 .pure-menu .button {
   font-weight: 900;
-  border:1px solid white;
+  /*border:1px solid #555;*/
+  color: #555;
+  color:white;
+  border-radius:0;
+  background:#ea602f;
 }
 
 a.button {
@@ -979,34 +982,26 @@ a.button {
 
 .pure-menu .button:hover {
   font-weight: 900;
-  border:1px solid white;
-  background: rgba(255, 255, 255, 0.8);
+  background: #7d3e27;
 }
 
 .pure-button.join {
-  border:2px solid white;
-  background:rgba(255,0,0,0.4);
-  border-radius:40px;
+  background:#ea602f;
   font-size: 20px;
   color:white;
   margin-top:40px;
-
 }
 
 .pure-button.join:hover {
-  background:rgba(255,0,0,0.6);
-}
-
-.down {
-  position:absolute;
-  bottom:30px;
-  font-size:30pt;
-  color:white;
-  margin-left: -0.5em;
+  background:#7d3e27;
 }
 
 .next span {
   /*font-weight: 600;*/
-  font-size:14pt;
+  font-size:12pt;
 
+}
+
+#tabzilla {
+  border:none;
 }

@@ -3,14 +3,14 @@ mixin header(loggedIn, page)
 
 
 
-    div.menu-wrapper.menu-fixed
+    div.menu-wrapper
       div.pure-menu.pure-menu-open.pure-menu-horizontal
         a(href="https://www.mozilla.org/" id="tabzilla") mozilla
         link(href="//mozorg.cdn.mozilla.net/media/css/tabzilla-min.css" rel="stylesheet")
         script(src="//mozorg.cdn.mozilla.net/tabzilla/tabzilla.js")
 
         a(href='/' id="logo").pull-left
-          img(src='/img/ScienceLabSticker.png').MSLlogo
+          img(src='/img/logo.png').MSLlogo
         ul.pull-left
           li(class=page === 'About' ? "pure-menu-selected" : "")
               a(href='/about') About
