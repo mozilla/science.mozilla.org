@@ -37,8 +37,8 @@ app.get('/about', function(request, response) {
   response.render('about.jade');
 });
 
-app.get('/education', function(request, response) {
-  response.render('education.jade');
+app.get('/training', function(request, response) {
+  response.render('training.jade');
 });
 
 app.get('/community', function(request, response) {

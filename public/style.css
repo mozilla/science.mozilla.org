@@ -8,7 +8,7 @@ body {
    color: #444;
    padding:0;
    margin:0;
-   border-top: 3px solid #FFF;
+   border-top: 2px solid #FFF;
 }
 
 p {
@@ -38,7 +38,7 @@ h2 {
 h3 {
    font-size: 1.625em;
    line-height: 1.231em;
-   margin: 2.462em 0 0.615em 0;
+   margin: 2.462em 0 0.85em 0;
    font-weight: 400;
    font-style: normal;
 }
@@ -83,7 +83,7 @@ p.pquote {
 }
 
 a {
-   color: #248CC8;
+   color: #25aae1;
    text-decoration: none;
    outline: 0;
    cursor: pointer;
@@ -281,7 +281,8 @@ h4,
 h5,
 h6,
 label {
-    color: #34495e;
+    /*color: #34495e;*/
+    color:#000;
     font-family:'Fira Sans',Arial,"Lucida Grande",sans-serif;
     font-weight:300;
 }
@@ -298,6 +299,20 @@ label {
 
 .l-box-lg {
     /*border-bottom: 1px solid rgba(0,0,0,0.1);*/
+    padding: 1.5em;
+    /*text-align: center;*/
+}
+
+.callout {
+  font-size: 1.5em;
+  line-height: 1.8em;
+  background: #EFEFEF;
+  /*color:#000;*/
+  padding: 50px 0;
+}
+
+.circle-box {
+  padding:0 3em;
 }
 
 .is-center {
@@ -354,25 +369,14 @@ label {
 }
 
 .pure-menu.pure-menu-open.pure-menu-horizontal {
-    /* Fixed menus normally have a border at the bottom. */
-    /*border-bottom: none;*/
-    /*box-shadow: 0 4px 2px -2px rgba(128,128,128,0.5);*/
-    max-width: 1300px;
-    /*text-align: center;*/
+    width:80%;
+    max-width:1170px;
     margin: 0 auto;
     border:none;
-    /*background:rgba(255,255,255,0.8)*/
 }
-/*
-.menu-fixed {
-  position:fixed;
-  top:0;
-  z-index: 20;
-}*/
 
 .pure-menu-horizontal a {
   color: #555;
-  /*color:#CCC;*/
   font-size: 13px;
 }
 
@@ -403,7 +407,7 @@ a:hover {
 /* Footer Styles */
 
 .page-wrapper {
-  width: 75%;
+  width: 80%;
   max-width:1170px;
   margin: 0 auto;
 }
@@ -492,8 +496,8 @@ footer ul a {
 .header-img {
   background: #7AB5DB; /*#E3F4FF;*/
   min-height: 200px;
-  margin: 0 0 50px;
-  padding:30px 0 60px;
+  margin: 0;
+  padding:60px 0 120px;
 }
 
 #home-banner {
@@ -712,7 +716,7 @@ i.bigIcon{
 
 .MSLlogo{
   height: 36px;
-  margin:10px 20px 10px;
+  margin:10px 20px 10px 0;
 }
 
 /* weird pure css alignment stuff */
@@ -881,7 +885,8 @@ div.connect ul {
 div.circle-img {
   background: #E3F4FF;
   height:280px;
-  width:280px;
+  /*width:280px;*/
+  width:100%;
   /*margin: 0 auto;*/
   border-radius: 50%;
 }
@@ -922,7 +927,7 @@ a.project-img:last-child {
 }
 
 .spaced-columns {
-  padding: 0 1em;
+  padding: 0 2em;
 }
 
 .spaced-columns:first-child {
@@ -967,39 +972,33 @@ a.project-img:last-child {
   float:left;
 }
 
-.pure-menu .button {
-  font-weight: 900;
-  /*border:1px solid #555;*/
-  color: #555;
+.pure-button, .pure-menu .pure-button {
+  background:rgb(239, 64, 54);
   color:white;
   border-radius:0;
-  background:#ea602f;
+  font-weight:600;
+  margin:0;
 }
 
-a.button {
-  color:white;
-}
-
-.pure-menu .button:hover {
-  font-weight: 900;
-  background: #7d3e27;
-}
-
-.pure-button.join {
-  background:#ea602f;
-  font-size: 20px;
-  color:white;
-  margin-top:40px;
-}
-
-.pure-button.join:hover {
+.pure-button:hover, .pure-menu .pure-button:hover  {
   background:#7d3e27;
+}
+
+.pure-button.light {
+  background:#949392;
+}
+.pure-button.light:hover {
+  background:#94631b;
+}
+
+.splash .pure-button {
+  margin:40px 15px 0 0;
+  font-size: 20px;
 }
 
 .next span {
   /*font-weight: 600;*/
   font-size:12pt;
-
 }
 
 #tabzilla {
