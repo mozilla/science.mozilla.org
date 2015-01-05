@@ -445,12 +445,18 @@ footer .social-icons {
 
 footer .email input {
   padding: 0.5em;
+  border:none;
+  margin:0;
 }
 
 footer .email .pure-button {
-  padding: 0.5em 1em;
+  padding: 0.5em 1em 0.6em;
   margin:0 0.5em;
-  border-radius: 0;
+  border: none;
+  background: #c9e3f6;
+  color:rgb(239, 64, 54);
+  font-size:1em;
+  line-height:1em;
 }
 
 footer ul {
@@ -702,12 +708,6 @@ i.bigIcon{
         }
 }
 
-/*@media (max-width:600px){
-footer ul.footer-links {
-  flex-wrap:wrap;
-}
-}
-*/
 /* pilot study styles */
 
 .fade {
