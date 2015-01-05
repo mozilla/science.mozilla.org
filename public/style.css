@@ -38,7 +38,7 @@ h2 {
 h3 {
    font-size: 1.625em;
    line-height: 1.231em;
-   margin: 2.462em 0 0.85em 0;
+   margin: 2em 0 1.5em 0;
    font-weight: 400;
    font-style: normal;
 }
@@ -436,7 +436,7 @@ footer p {
 }
 
 footer .footer-main {
-  padding: 50px 0;
+  padding-top: 50px;
 }
 
 footer .social-icons {
@@ -462,6 +462,30 @@ footer ul {
 
 footer ul a {
   color:white;
+}
+
+footer ul.footer-links {
+  display:flex;
+  flex-direction:row;
+  justify-content: space-between;
+  flex-wrap:wrap;
+}
+
+footer ul.footer-links li.spacer {
+  border-right:1px solid #F7C4A6;
+  width:0;
+}
+footer ul.footer-links li:last-child {
+  border:none;
+}
+footer ul.footer-links li a {
+  text-transform: uppercase;
+  color: #F7C4A6;
+  font-size:0.8em;
+}
+
+footer ul a:hover, footer ul.footer-links li a:hover {
+  color:f47e3c;
 }
 
 ::-webkit-input-placeholder {
@@ -676,10 +700,14 @@ i.bigIcon{
         .home-menu ul {
             float: right;
         }
-
-
 }
 
+/*@media (max-width:600px){
+footer ul.footer-links {
+  flex-wrap:wrap;
+}
+}
+*/
 /* pilot study styles */
 
 .fade {
@@ -883,27 +911,22 @@ div.connect ul {
 }
 
 div.circle-img {
-  background: #E3F4FF;
-  height:280px;
-  /*width:280px;*/
+  height:100px;
   width:100%;
-  /*margin: 0 auto;*/
-  border-radius: 50%;
+  margin-top: 40px;
+  background: transparent no-repeat center top / auto 100px;
 }
 
 #circle-exp {
-  background: url("./img/light.jpg") no-repeat;
-  background-size: cover;
+  background-image: url("./img/experiment.svg");
 }
 
 #circle-innovate {
-  background: url("./img/innovate.jpg") no-repeat;
-  background-size: cover;
+  background-image: url("./img/lightbulb.svg");
 }
 
 #circle-collab {
-  background: url("./img/collaborate.jpg") no-repeat;
-  background-size: cover;
+  background-image: url("./img/participate.svg");
 }
 
 #community-banner {
@@ -927,7 +950,7 @@ a.project-img:last-child {
 }
 
 .spaced-columns {
-  padding: 0 2em;
+  padding: 1em 5em 0 1em;
 }
 
 .spaced-columns:first-child {

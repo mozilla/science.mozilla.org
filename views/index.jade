@@ -29,9 +29,8 @@ html
         | can make research thrive on the open web.
     div.page-wrapper
       div.pure-u-1.pure-u-md-1-3
-        //div.pure-u-1.pure-u-md-1-3.l-box-lg
-          div.circle-img(id="circle-innovate")
         div.l-box-lg
+          div.circle-img(id="circle-exp")
           h3.is-center EXPERIMENT
           p
             | Find out how you can contribute your skills to further science. We're helping coders, designers and researchers collaborate to build new tools for science.
@@ -39,9 +38,8 @@ html
             span Collaborate on code for science &nbsp;
               span.fa.fa-chevron-right
       div.pure-u-1.pure-u-md-1-3
-        //div.pure-u-1.pure-u-md-1-3.l-box-lg.pull-right
-            div.circle-img(id="circle-exp")
         div.l-box-lg
+          div.circle-img(id="circle-innovate")
           h3.is-center INNOVATE
           p
             | Learn new and innovative methodologies in our training programs to learn and teach skills for open research. We offer workshops, online training and other educational events.
@@ -49,9 +47,8 @@ html
             span Learn and teach open research skills &nbsp;
               span.fa.fa-chevron-right
       div.pure-u-1.pure-u-md-1-3
-        //div.pure-u-1.pure-u-md-1-3.l-box-lg
-          div.circle-img(id="circle-collab")
         div.l-box-lg
+          div.circle-img(id="circle-collab")
           h3.is-center PARTICIPATE
           p
             | We are a global network of researchers, tool developers, librarians and publishers collaborating to further science on the web.
@@ -59,12 +56,13 @@ html
             span Build and learn with our community &nbsp;
               span.fa.fa-chevron-right
       div
-        div.pure-u-1
+        div.pure-u-1.spaced-columns
             h3.pull-left FEATURED PROJECTS
             h3
             span.pull-right
-              i
-                a(href="/collaborate") see more projects
+              a(href="/collaborate")
+                | See more projects &nbsp;
+                span.fa.fa-chevron-right
             div.pure-u-1.featured-projects
               a.pure-u-md-1-4.tooltips.project-img
                 img(src='')
