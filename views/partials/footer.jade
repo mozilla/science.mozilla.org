@@ -3,37 +3,20 @@ mixin footer
     img(src='/img/footer-design.png').footer-design
     div.page-wrapper
       div.footer-main
-        div.pure-u-1.pure-u-md-1-2
-          p
-            img(src='/img/footer-mozilla-white.png')
-          p
-            a(href="https://www.mozilla.org/en-US/about/legal/terms/mozilla/")
-              small.fa-inverse Terms of Service
-            br
-            a(href="https://www.mozilla.org/en-US/privacy/websites")
-              small.fa-inverse Privacy Policy
-            br
-            a(href="https://github.com/mozillascience/Collaborate/issues/new")
-              small.fa-inverse Report a Bug
-            br
-            a(href="http://creativecommons.org/licenses/by/4.0/" target="_blank")
-              i.fa.fa-cc.fa-inverse
-              small.fa-inverse  Creative Commons Attribution 4.0 International License
-        div.pure-u-1.pure-u-md-1-4
-          em Links
+        div.pure-u-1.pure-u-md-3-4
+          img(src='/img/footer-mozilla-white.png')
           ul
             li
-              a(href="http://mozillascience.org/") Home
+              a(href="https://www.mozilla.org/en-US/about/legal/terms/mozilla/") Terms of Service
             li
-              a(href="http://mozillascience.org/about/") About
+              a(href="https://www.mozilla.org/en-US/privacy/websites") Privacy Policy
             li
-              a(href="http://mozillascience.org/blog/") Blog
+              a(href="https://github.com/mozillascience/Collaborate/issues/new") Report a Bug
             li
-              a(href="http://mozillascience.org/education/") Training
-            li
-              a(href="http://collaborate.mozillascience.org/") Collaborate
-            li
-              a(href="http://mozillascience.org/community/") Join Us
+              a(href="http://creativecommons.org/licenses/by/4.0/" target="_blank")
+                i.fa.fa-cc.fa-inverse
+                |  Creative Commons Attribution 4.0 International License
+
 
         //div.pure-u-1.pure-u-md-1-4
           em FOLLOW US
@@ -71,7 +54,26 @@ mixin footer
           input(placeholder="Sign up with your e-mail")
           button.pure-button.pure-button-primary
             i.fa.fa-caret-right
-        div
+        div.pure-u-1
+          h3
+            ul.footer-links
+              li
+                a(href="http://mozillascience.org/") Home
+              li.spacer
+              li
+                a(href="http://mozillascience.org/about/") About
+              li.spacer
+              li
+                a(href="http://mozillascience.org/blog/") Blog
+              li.spacer
+              li
+                a(href="http://mozillascience.org/education/") Training
+              li.spacer
+              li
+                a(href="http://collaborate.mozillascience.org/") Collaborate
+              li.spacer
+              li
+                a(href="http://mozillascience.org/community/") Join Us
 
 
   div#scripts
