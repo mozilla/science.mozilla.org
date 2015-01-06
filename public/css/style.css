@@ -369,13 +369,12 @@ label {
     overflow:hidden;
 }
 
-.pure-menu .menu-button {
+.pure-menu #menu-button {
   display:inline-block;
-  border:1px solid #888;
+  border:1px solid #AAA;
   padding:10px;
   margin:15px 10px 15px 0;
   background:#EEE;
-  cursor:pointer;
   border-radius: 0;
   line-height: 1em;
 }
@@ -398,8 +397,27 @@ a:hover {
 
 .pure-menu.pure-menu-horizontal ul {
   margin:20px 0;
-  display:none;
 }
+
+/* small screens menu */
+.pure-menu.pure-menu-horizontal ul {
+  display:none;
+  width:100%;
+  margin:0;
+}
+
+.pure-menu.pure-menu-horizontal ul li {
+  display:block;
+  width:100%;
+  border-top:1px solid #AAA;
+}
+
+.pure-menu.pure-menu-horizontal ul.display {
+  display:block;
+}
+/* end small screens menu */
+
+
 .pure-menu-horizontal a {
   border-radius: 3px;
 }
@@ -746,7 +764,7 @@ i.bigIcon{
 
 .MSLlogo{
   height: 36px;
-  margin:10px 15px 10px 0;
+  margin:11px 15px 0 0;
 }
 
 /* weird pure css alignment stuff */
@@ -1065,10 +1083,17 @@ a.project-img:last-child {
 
   .pure-menu.pure-menu-horizontal ul.pull-right {
     display:block;
+    margin: 20px 0;
+    width: auto;
+  }
+
+  .pure-menu.pure-menu-horizontal ul.pull-right li {
+    display:inline-block;
+    width:auto;
+    border: none;
   }
 
 }
-
 
 @media (min-width:64em) {
   .pure-menu #tabzilla  {
@@ -1076,8 +1101,16 @@ a.project-img:last-child {
   }
   .pure-menu.pure-menu-horizontal ul.pull-left {
     display:block;
+    margin: 20px 0;
+    width: auto;
   }
-  .pure-menu .menu-button {
+
+  .pure-menu.pure-menu-horizontal ul.pull-left li {
+    display:inline-block;
+    width:auto;
+    border: none;
+  }
+  .pure-menu #menu-button {
     display:none;
   }
 
