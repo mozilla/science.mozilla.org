@@ -441,7 +441,8 @@ footer .footer-design {
   width:200px;
   position: absolute;
   bottom: 100%;
-  margin-bottom: -25px;
+  left:20px;
+  margin-bottom: -20px;
 }
 
 footer p {
