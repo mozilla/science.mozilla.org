@@ -511,8 +511,11 @@ footer ul.footer-links {
   flex-direction:row;
   justify-content: space-between;
   flex-wrap:wrap;
+  width:100%;
 }
-
+footer ul.footer-links li {
+  width:auto;
+}
 footer ul.footer-links li.spacer {
   border-right:1px solid #F7C4A6;
   width:0;
@@ -556,18 +559,18 @@ footer h3 {
     text-align: center;
     clear:both;
     margin:0;
-    padding:20px 0;
+    padding:1.5rem 0;
 }
 
 .header-img {
   background: #C9E3F6; /*#E3F4FF;*/
-  min-height: 200px;
+  min-height: 12rem;
   margin: 0;
-  margin-bottom: 15px;
+  margin-bottom: 1.5rem;
 }
 
 #home-banner .bg {
-  padding:60px 0 120px;
+  padding:4rem 0 8rem;
   background: -moz-linear-gradient(-45deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.84) 14%, rgba(255,255,255,0.54) 26%, rgba(255,255,255,0.4) 42%, rgba(255,255,255,0.1) 61%, rgba(255,255,255,0) 70%, rgba(255,255,255,0) 100%); /* FF3.6+ */
   background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(14%,rgba(255,255,255,0.84)), color-stop(26%,rgba(255,255,255,0.54)), color-stop(42%,rgba(255,255,255,0.4)), color-stop(61%,rgba(255,255,255,0.1)), color-stop(70%,rgba(255,255,255,0)), color-stop(100%,rgba(255,255,255,0))); /* Chrome,Safari4+ */
   background: -webkit-linear-gradient(-45deg, rgba(255,255,255,1) 0%,rgba(255,255,255,0.84) 14%,rgba(255,255,255,0.54) 26%,rgba(255,255,255,0.4) 42%,rgba(255,255,255,0.1) 61%,rgba(255,255,255,0) 70%,rgba(255,255,255,0) 100%); /* Chrome10+,Safari5.1+ */
@@ -588,7 +591,7 @@ footer h3 {
 
 h1 {
   font-size: 4em;
-  margin-bottom:10px;
+  margin-bottom:0.4rem;
 }
 
 /* This is the class used for the main content headers (<h2>) */
@@ -678,41 +681,6 @@ p#passError, p#disciplineError, p#languageError, p#affiliationError{
 i.bigIcon{
   color: #FFFFFF;
   font-size: 1000%
-}
-
-/* User Matches */
-
-#userMatches {
-
-}
-
-.resultsUserStub {
-  padding: 0.5px 1em 1em;
-  background: none repeat scroll 0% 0% #EEE;
-  border-radius: 5px;
-  margin-bottom: 1em;
-}
-
-.resultsUserStub h3, .resultsUserStub h4 {
-  margin: 0.5em 0px;
-}
-
-.resultsUserStub h4 {
-  display: inline-block;
-  clear: both;
-}
-
-.resultsUserStub ul {
-  list-style-type: none;
-  content: '';
-  display: inline-block;
-  margin: 0;
-  padding-left: 0.5em;
-}
-
-.resultsUserStub ul li {
-  display: inline-block;
-  font-size: 80%;
 }
 
 /* Form Customizations */
