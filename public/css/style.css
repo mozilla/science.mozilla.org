@@ -468,7 +468,7 @@ footer p {
 }
 
 footer .footer-main {
-  padding-top: 30px;
+  padding-top: 50px;
 }
 
 footer .footer-main div {
@@ -528,6 +528,10 @@ footer ul.footer-links li a {
 
 footer ul a:hover, footer ul.footer-links li a:hover {
   color:f47e3c;
+}
+
+footer h3 {
+  margin: 1em 0;
 }
 
 ::-webkit-input-placeholder {
@@ -1047,6 +1051,11 @@ a.project-img:last-child {
 .pure-menu #tabzilla {
   border:none;
   display:none;
+}
+
+/* make the chevron line up nicer... */
+span.fa.fa-chevron-right {
+  font-size:0.7em;
 }
 
 
