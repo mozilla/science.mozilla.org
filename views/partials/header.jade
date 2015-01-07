@@ -13,12 +13,17 @@ mixin header(loggedIn, page)
         a(href='/' id="logo").pull-left
           img(src='/img/logo.png').MSLlogo
         ul.pull-right
-          li
-            a(href='/community').pure-button JOIN US
-          li
-            a(href='/auth/github')
-              i.fa.fa-github
-              span  Sign In
+          if(loggedIn)
+            li= 'Welcome ' + user.name
+            li
+              a(href='/logout') Logout
+          else
+            li
+              a(href='/community').pure-button JOIN US
+            li
+              a(href='/auth/github')
+                i.fa.fa-github
+                span  Sign In
         ul.pull-left
           li(class=page === 'About' ? "pure-menu-selected" : "")
               a(href='/about') About
@@ -28,14 +33,4 @@ mixin header(loggedIn, page)
             a(href='/training') Training
           li(class=page === 'Collaborate' ? "pure-menu-selected" : "")
             a(href='/collaborate') Collaborate
-        //ul
-          if(loggedIn)
-            li= 'Welcome ' + user.name
-            li
-              a(href='/logout') Logout
-          else
-            li
-              a(href='/auth/github')
-                i.fa.fa-github
-                span  Sign in with Github
 
