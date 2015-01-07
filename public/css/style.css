@@ -30,7 +30,7 @@ h1 {
 h2 {
    font-size: 2em;
    line-height: 1.188em;
-   margin: 2em 0 0.5em 0;
+   margin: 1em 0 0.5em 0;
    font-weight: 400;
    font-style: normal;
 }
@@ -553,10 +553,10 @@ footer h3 {
 /* Header + Header Menu */
 
 .splash {
-    /*text-align: center;*/
+    text-align: center;
     clear:both;
     margin:0;
-    padding:10px 0;
+    padding:20px 0;
 }
 
 .header-img {
@@ -971,7 +971,7 @@ a.project-img:last-child {
 }
 
 .spaced-columns {
-  padding: 1em 5em 0 1em;
+  padding: 1em 3em 0 1em;
 }
 
 .spaced-columns:first-child {
