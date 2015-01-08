@@ -926,16 +926,8 @@ div.circle-img {
 
 a.project-img {
   background: #E3F4FF;
-  height:200px;
-  flex-grow:1;
-  margin: 1em;
-}
-
-a.project-img:first-child {
-  margin-left:0;
-}
-a.project-img:last-child {
-  margin-right:0;
+  height:6rem;
+  margin:1em 0;
 }
 
 .spaced-columns {
@@ -950,31 +942,6 @@ a.project-img:last-child {
   padding-right:0;
 }
 
-.featured-projects {
-  display: flex;
-  justify-content: space-between;
-  position:relative;
-}
-
-.featured-projects:before {
-    content:"\A";
-    border-style: solid;
-    border-width: 10px 15px 10px 0;
-    border-color: transparent #c9e3f6 transparent transparent;
-    position: absolute;
-    left: -25px;
-    top: 100px;
-}
-
-.featured-projects:after {
-    content:"\A";
-    border-style: solid;
-    border-width: 10px 0 10px 15px;
-    border-color: transparent transparent transparent #c9e3f6;
-    position: absolute;
-    right: -25px;
-    top: 100px;
-}
 
 .pull-right {
   float:right;
@@ -1040,6 +1007,41 @@ span.fa.fa-chevron-right {
     display:block;
   }
 
+  .featured-projects {
+    display: flex;
+    justify-content: space-between;
+    position:relative;
+  }
+
+  .featured-projects:before {
+      content:"\A";
+      border-style: solid;
+      border-width: 10px 15px 10px 0;
+      border-color: transparent #c9e3f6 transparent transparent;
+      position: absolute;
+      left: -25px;
+      top: 3rem;
+  }
+
+  .featured-projects:after {
+      content:"\A";
+      border-style: solid;
+      border-width: 10px 0 10px 15px;
+      border-color: transparent transparent transparent #c9e3f6;
+      position: absolute;
+      right: -25px;
+      top: 3rem;
+  }
+
+  a.project-img {
+    margin:1em;
+  }
+  a.project-img:first-child {
+    margin-left:0;
+  }
+  a.project-img:last-child {
+    margin-right:0;
+  }
 }
 
 
@@ -1087,4 +1089,15 @@ span.fa.fa-chevron-right {
     display:none;
   }
 
+  a.project-img {
+    height:12rem;
+  }
+
+  .featured-projects:before {
+      top: 6rem;
+  }
+
+  .featured-projects:after {
+      top: 6rem;
+  }
 }
