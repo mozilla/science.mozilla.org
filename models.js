@@ -28,8 +28,8 @@ var projectSchema = new Schema({
   route: String,
   whoIsGoingToUseThis: String,
   dependencies: String,
-  hoursyouspendonproject: Number
-
+  hoursyouspendonproject: Number,
+  featured: Boolean
 });
 
 

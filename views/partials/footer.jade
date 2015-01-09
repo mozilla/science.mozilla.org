@@ -51,9 +51,10 @@ mixin footer
           em MAILING LIST
           p
             small Occasional e-mail updates & news.
-          input(placeholder="Sign up with your e-mail")
-          button.pure-button.pure-button-primary
-            i.fa.fa-caret-right
+          form(action="https://mail.mozilla.org/subscribe/mozillascience" method="POST")
+            input(placeholder="Sign up with your e-mail" name="email")
+            button(type="submit").pure-button.pure-button-primary
+              i.fa.fa-caret-right
         div.pure-u-1
           h3
             ul.footer-links
