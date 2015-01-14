@@ -57,5 +57,10 @@ app.get('/collaborate/about', function(request, response) {
   response.render('collaborate/about.jade');
 });
 
+app.get("/projects/:project", projectRoutes.get);
+
+
 app.get("/api/projects/:project", projectRoutes.get);
 app.get("/api/projects", projectRoutes.getAll);
+
+app.get("/api/projects/search/:query", projectRoutes.search);

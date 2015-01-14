@@ -1021,6 +1021,7 @@ span.fa.fa-chevron-right {
       position: absolute;
       left: -25px;
       top: 3rem;
+      cursor:pointer;
   }
 
   .featured-projects:after {
@@ -1031,6 +1032,7 @@ span.fa.fa-chevron-right {
       position: absolute;
       right: -25px;
       top: 3rem;
+      cursor:pointer;
   }
 
   a.project-img {

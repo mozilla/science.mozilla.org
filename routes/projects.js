@@ -46,8 +46,33 @@ module.exports = function() {
       })
     },
     search: function(req, res, next){
-      var query = req.params.query;
-      Project.find({ route: query }, function(err, project){
+      var query = req.params.query.replace(' ','\\s');
+      var regex = new RegExp(query, 'gi')
+      Project.find( { $or: [ { route: regex},
+                             { who: regex},
+                             { what: regex},
+                             { pageURL: regex },
+                             { description: regex },
+                             { tweetable: regex },
+                             { institution: regex },
+                             { 'github.user': regex },
+                             { 'github.repo': regex },
+                             { wanted: regex },
+                             { goals: regex },
+                             { imageName: regex },
+                             { languages: regex },
+                             { subjects: regex },
+                             { 'lead.name': regex },
+                             { 'lead.githubId': regex },
+                             // { contributors.name: regex },
+                             // { contributors.gitHubId: regex },
+                             // { contributors.avatar_url: regex },
+                             { moreinfo: regex },
+                             { route: regex },
+                             { whoIsGoingToUseThis: regex },
+                             { dependencies: regex },
+                             // { hoursyouspendonproject: regex },
+                             {title: regex} ] }, function(err, project){
         if (err) return console.error(err);
         res.json(project);
       })    }
