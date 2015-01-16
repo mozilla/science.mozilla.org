@@ -57,7 +57,7 @@ var ProjectImg = React.createClass({
         route = "/projects/" + project.route,
         image = "/img/projects/" + project.imageName;
     return (
-      <div className="pure-u-1-3">
+      <div className="pure-u-1 pure-u-md-1-4">
         <a href={ route }>
           <div className="crop">
             <img src={image} />
@@ -202,11 +202,11 @@ var ProjectImgGroup = React.createClass({
 });
 
 React.render(
-  <ProjectBox url="/api/projects"/>,
-  document.getElementById('content')
+  <FeatureBox url="/api/projects/featured"/>,
+  document.getElementById('featured-projects')
 );
 
 React.render(
-  <FeatureBox url="/api/projects/featured"/>,
-  document.getElementById('featured-projects')
+  <ProjectBox url="/api/projects"/>,
+  document.getElementById('content')
 );
