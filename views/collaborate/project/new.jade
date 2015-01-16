@@ -1,6 +1,6 @@
-include ../partials/head.jade
-include ../partials/header.jade
-include ../partials/footer.jade
+include ../../partials/head.jade
+include ../../partials/header.jade
+include ../../partials/footer.jade
 
 doctype html5
 html
@@ -15,7 +15,7 @@ html
           h1
             input(value= title, id='ptitle')
           p
-            input(value= subjects.join(', '), id='psubjects')
+            input(value= subjects, id='psubjects')
 
           div.pure-u-1.pure-u-md-1-4.sidebar
             div
@@ -24,7 +24,7 @@ html
           div.pure-u-md-3-4
             div.pure-u-1.pure-u-lg-1-3
                 i.fa.fa-user
-                input(value= lead.name, id='plead')
+                input(value= lead, id='plead')
             div.pure-u-1.pure-u-lg-1-3
                 i.fa.fa-map-marker
                 input(value= institute, id='pinstitute')
@@ -37,10 +37,10 @@ html
             div.pure-u-1
               p
                 small= 'Tags: '
-                  input(value=languages.join(', '), id='planguages')
+                  input(value=languages, id='planguages')
                 br
                 small= 'Looking for: '
-                  input(value=wanted.join(', '), id='pwanted')
+                  input(value=wanted, id='pwanted')
             div.pure-u-1
               p.summary
                 textarea(id='ptweetable')= tweetable

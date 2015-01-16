@@ -29,7 +29,8 @@ var projectSchema = new Schema({
   whoIsGoingToUseThis: String,
   dependencies: String,
   hoursyouspendonproject: Number,
-  featured: Boolean
+  featured: Boolean,
+  status: String
 });
 
 

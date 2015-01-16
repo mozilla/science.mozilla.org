@@ -39,10 +39,104 @@ module.exports = function() {
         res.json(projects);
       })
     },
-    get: function(req, res, next){
-      Project.find({ route: req.params.project }, function(err, project){
+    featured: function(req, res, next){
+      Project.find({featured: true}, function (err, projects) {
         if (err) return console.error(err);
-        res.json(project);
+        res.json(projects);
+      })
+    },
+    get: function(req, res, next){
+      Project.findOne({ route: req.params.project }, function(err, project){
+        if (err) return console.error(err);
+        if(req.xhr) {
+          res.json(project);
+        } else {
+
+
+
+
+
+            var args = (project.github.repo) ? {user: project.github.user } : {org: project.github.user},
+                vars = {
+                          title: project.title,
+                          imageName: '/img/projects/' + project.imageName,
+                          subjects: project.subjects,
+                          languages: project.languages,
+                          lead: project.lead,
+                          institute: project.institute,
+                          who: project.who || project.summary,
+                          what: project.what,
+                          tweetable: project.tweetable || project.who || project.summary,
+                          repo: project.repoURL,
+                          page: project.pageURL,
+                          moreInfo: project.moreinfo,
+                          goals: project.goals,
+                          type: (project.github.repo) ? 'repo' : 'org',
+                          loggedIn: !!req.user,
+                          user: req.user,
+                          route: project.route,
+                          wanted: project.wanted,
+                          inactive: project.inactive
+                        };
+            if(project.contributors) {
+              vars.local_contrib = project.contributors;
+              if(req.user){
+                var match = vars.local_contrib.filter(isUser, req.user.githubId);
+                if(match.length > 0) {
+                  vars.member = true;
+                  vars.canLeave = true;
+                }
+              }
+            }
+            if(req.user) vars.user = req.user;
+            // if(project.github.repo) {
+            //   args.repo = project.github.repo;
+              // github.repos.getContributors(args, function(err, r){
+              //   if(err) console.log(err);
+              //   if(r) vars.contributors = r;
+              //   args.path = '';
+              //   if(r && req.user){
+              //     var match = r.filter(isUser, req.user.githubId);
+              //     if(match.length > 0)  vars.member = true;
+              //   }
+              //   github.repos.getContent(args, function(err, r){
+              //     if(r) vars.content = r;
+                  res.render('collaborate/project/project.jade', vars);
+                // })
+              // });
+            // } else {
+            //   github.orgs.getPublicMembers(args, function(err, r){
+            //     if(r) vars.contributors = r;
+            //     if(r && req.user){
+            //       var match = r.filter(isUser, req.user.githubId);
+            //       if(match.length > 0) {
+            //         vars.member = true;
+            //       }
+            //     }
+            //     github.repos.getFromOrg(args, function(err, r){
+            //       if(r) vars.content = r;
+            //       res.render('collaborate/project/project.jade', vars);
+            //     })
+            //   });
+            // }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        }
       })
     },
     search: function(req, res, next){
