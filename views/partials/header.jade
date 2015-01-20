@@ -14,7 +14,8 @@ mixin header(loggedIn, page)
           img(src='/img/logo.png').MSLlogo
         ul.pull-right
           if(loggedIn)
-            li= 'Welcome ' + user.name
+            li
+              a(href='#')='Welcome ' + user.name
             li
               a(href='/logout') Logout
           else
@@ -33,4 +34,8 @@ mixin header(loggedIn, page)
             a(href='/training') Training
           li(class=page === 'Collaborate' ? "pure-menu-selected" : "")
             a(href='/collaborate') Collaborate
+          if(loggedIn)
+            li(class=page === 'Community' ? "pure-menu-selected" : "")
+              a(href='/community') Community
+
 

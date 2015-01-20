@@ -53,7 +53,11 @@ var userSchema = new Schema({
   gitHubId: String,
   avatar_url: String,
   createdAt: Date,
-  updatedAt: Date
+  updatedAt: Date,
+  token: String,
+  company: String,
+  email: String,
+  location: String
 })
 
 userSchema.pre('save', function(next, done){

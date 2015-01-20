@@ -1,4 +1,64 @@
 
+var converter = new Showdown.converter();
+
+
+/* Featured Projects Box */
+
+var FeatureBox = React.createClass({
+  loadProjectsFromServer: function() {
+    $.ajax({
+      url: this.props.url,
+      dataType: 'json',
+      success: function(data) {
+        this.setState({data: data});
+      }.bind(this),
+      error: function(xhr, status, err) {
+        console.error(this.props.url, status, err.toString());
+      }.bind(this)
+    });
+  },
+  getInitialState: function() {
+    return {data: []};
+  },
+  componentDidMount: function() {
+    this.loadProjectsFromServer();
+  },
+  render: function() {
+    var projectNodes = this.state.data.map(function(project, index) {
+      return (
+        <ProjectImg project={project} key={project.route}>
+        </ProjectImg>
+      );
+    });
+    return (
+      <div>
+        {projectNodes}
+      </div>
+    );
+  }
+})
+
+
+var ProjectImg = React.createClass({
+  render: function() {
+    var project = this.props.project,
+        route = "/projects/" + project.route,
+        image = "/img/projects/" + project.imageName;
+    return (
+      <div className="pure-u-1 pure-u-md-1-4">
+        <a href={ route } className="project-img">
+          <div >
+            <img src={image} height="100%"/>
+            <span> {project.title} </span>
+          </div>
+        </a>
+      </div>
+    );
+  }
+});
+
+
+/* Project List */
 
 var Project = React.createClass({
   render: function() {
@@ -6,6 +66,7 @@ var Project = React.createClass({
         route = "/projects/" + project.route,
         image = "/img/projects/" + project.imageName,
         summary = project.tweetable || project.who || project.summary;
+    summary = converter.makeHtml(summary);
     return (
       <div className="project pure-g">
         <div className="pure-u-1 pure-u-md-1-4">
@@ -40,9 +101,7 @@ var Project = React.createClass({
           </a>
         </div>
         <div className="pure-u-1 pure-u-md-3-4">
-          <p>
-            {summary}
-          </p>
+          <p dangerouslySetInnerHTML={{__html: summary}} />
         </div>
       </div>
     );
@@ -51,53 +110,7 @@ var Project = React.createClass({
 
 
 
-var ProjectImg = React.createClass({
-  render: function() {
-    var project = this.props.project,
-        route = "/projects/" + project.route,
-        image = "/img/projects/" + project.imageName;
-    return (
-      <div className="pure-u-1 pure-u-md-1-4">
-        <a href={ route }>
-          <div className="crop">
-            <img src={image} />
-            <span> {project.title} </span>
-          </div>
-        </a>
-      </div>
-    );
-  }
-});
 
-
-var FeatureBox = React.createClass({
-  loadProjectsFromServer: function() {
-    $.ajax({
-      url: this.props.url,
-      dataType: 'json',
-      success: function(data) {
-        this.setState({data: data});
-      }.bind(this),
-      error: function(xhr, status, err) {
-        console.error(this.props.url, status, err.toString());
-      }.bind(this)
-    });
-  },
-  getInitialState: function() {
-    return {data: []};
-  },
-  componentDidMount: function() {
-    this.loadProjectsFromServer();
-    // setInterval(this.loadProjectsFromServer, this.props.pollInterval);
-  },
-  render: function(){
-    return (
-      <div id="featured">
-        <ProjectImgGroup data={this.state.data} />
-      </div>
-    );
-  }
-})
 
 var ProjectBox = React.createClass({
   loadProjectsFromServer: function(args) {
@@ -145,7 +158,6 @@ var ProjectBox = React.createClass({
       <div id="projectbox">
         <SearchForm onSearchSubmit={this.loadProjectsFromServer} />
         <ProjectList data={this.state.data} />
-        {/* <CommentForm onCommentSubmit={this.handleProjectSubmit} /> */}
       </div>
     );
   }
@@ -179,22 +191,6 @@ var ProjectList = React.createClass({
     });
     return (
       <div id="project-list">
-        {projectNodes}
-      </div>
-    );
-  }
-});
-
-var ProjectImgGroup = React.createClass({
-  render: function() {
-    var projectNodes = this.props.data.map(function(project, index) {
-      return (
-        <ProjectImg project={project} key={project.route}>
-        </ProjectImg>
-      );
-    });
-    return (
-      <div>
         {projectNodes}
       </div>
     );

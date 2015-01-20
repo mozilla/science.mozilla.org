@@ -764,6 +764,11 @@ i.bigIcon{
 .project a .crop {
   max-height:12em;
 }
+/*
+.project-img {
+  height: 165px;
+  overflow:hidden;
+}*/
 
 section.project label {
   font-size:1.3em;
