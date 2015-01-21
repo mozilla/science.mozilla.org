@@ -995,7 +995,13 @@ span.fa.fa-chevron-right {
 }
 
 .post {
-  padding-top: 20px;
+  padding: 20px 0;
+  border-bottom:1px solid #DEDEDE;
+}
+
+.post h1 {
+  font-size:2em;
+  margin-bottom:10px;
 }
 
 

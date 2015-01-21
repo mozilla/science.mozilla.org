@@ -1,8 +1,17 @@
 mixin post(p, excerpt)
   - var link = "/" + p.slug
   div.post
+    if(p.featured_image)
+      if(excerpt)
+        a(href=link)
+          img(src=p.featured_image.guid)
+      else
+        img(src=p.featured_image.guid)
     h1
-      a(href=link)!=p.title
+      if(excerpt)
+        a(href=link)!=p.title
+      else
+        span=p.title
     div
       | Posted on &nbsp;
       a(href=link) #{moment(p.date).format('LL')}
@@ -12,3 +21,18 @@ mixin post(p, excerpt)
       p!=p.excerpt.replace('[&hellip;]', '<a href="' + link + '">[&hellip;]</a>')
     else
       p!=p.content
+      div#disqus_thread
+      script(type="text/javascript").
+        var disqus_shortname = 'mozillaopenscience';
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+
+      noscript
+        | Please enable JavaScript to view the
+        a(href="https://disqus.com/?ref_noscript") comments powered by Disqus.
+

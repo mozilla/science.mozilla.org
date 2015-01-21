@@ -14,8 +14,14 @@ html
     +header(loggedIn, page)
     div.page-wrapper
 
-      div(id="blog")
-       +post(content[0])
+
+      div.pure-u-1.pure-u-md-3-4
+        +post(content[0])
+
+
+      div.pure-u-1.pure-u-md-1-4
+        div.l-box-lg.header-img
+          +connect()
 
     +footer()
 
