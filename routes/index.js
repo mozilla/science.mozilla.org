@@ -1,4 +1,5 @@
 
 module.exports = {
-  projects: require("./projects")
+  projects: require("./projects"),
+  posts: require("./blog")
 };

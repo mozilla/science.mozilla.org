@@ -1,6 +1,7 @@
 include partials/head.jade
 include partials/header.jade
 include partials/footer.jade
+include partials/post.jade
 include partials/connect.jade
 
 -var page = "Blog"
@@ -20,10 +21,15 @@ html
       div
         div.pure-u-1.pure-u-md-3-4
           div.header-img(style="margin-right:1em")
-          p Coming soon
+          div(id="blog")
+            - for(var i=0; i<posts.length; i++){
+                +post(posts[i], true)
+            - }
+
         div.pure-u-1.pure-u-md-1-4
           div.l-box-lg.header-img
             +connect()
+
 
     +footer()
 

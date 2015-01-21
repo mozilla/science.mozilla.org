@@ -35,6 +35,7 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 app.locals.loggedIn = true;
+app.locals.moment = require('moment');
 
 var discourse_sso = require('discourse-sso');
 var sso = new discourse_sso(process.env.SSOSECRET || 'abigail');
@@ -63,6 +64,7 @@ localQuery = function(req, res, next) {
 // ROUTES
 var routes = require("./routes");
 var projectRoutes = routes.projects();
+var postRoutes = routes.posts();
 
 app.get('/', localQuery, function(request, response) {
   response.render('index.jade');
@@ -78,10 +80,6 @@ app.get('/training', localQuery, function(request, response) {
 
 app.get('/community', localQuery, function(request, response) {
   response.render('community.jade');
-});
-
-app.get('/blog', localQuery, function(request, response) {
-  response.render('blog.jade');
 });
 
 app.get('/sso', function(request, response) {
@@ -133,6 +131,7 @@ app.get("/projects/:project", localQuery, projectRoutes.get);
 app.get("/api/projects/featured", projectRoutes.featured);
 app.get("/api/projects/:project", projectRoutes.get);
 app.get("/api/projects", projectRoutes.getAll);
+app.get("/blog", postRoutes.getAll);
 
 app.get("/api/projects/search/:query", projectRoutes.search);
 
@@ -153,6 +152,7 @@ app.get('/logout', function(req, res){
   res.redirect('/');
 });
 
+app.get('/:slug', postRoutes.get);
 
 // Github
 var GitHubApi = require("github");
@@ -176,7 +176,6 @@ if(GITHUB_TOKEN){
 }
 
 /* Github authentication */
-console.log(GITHUB_CLIENT_ID);
 passport.use(new GitHubStrategy({
     clientID: GITHUB_CLIENT_ID,
     clientSecret: GITHUB_CLIENT_SECRET,

@@ -15,13 +15,15 @@
     "forever": "^0.13.0",
     "github": "^0.2.3",
     "jade": "^1.7.0",
+    "moment": "^2.9.0",
     "mongoose": "^3.8.19",
     "normalize.css": "^3.0.2",
     "passport": "^0.2.1",
     "passport-github": "^0.1.5",
     "passport-local": "^1.0.0",
     "path": "^0.4.9",
-    "url": "^0.10.2"
+    "url": "^0.10.2",
+    "wordpress-rest-api": "^0.4.0"
   },
   "engines": {
     "node": "0.10.x"

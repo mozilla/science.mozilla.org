@@ -589,7 +589,7 @@ footer h3 {
   margin: 0;
 }
 
-h1 {
+.splash h1, .bg h1 {
   font-size: 4em;
   margin-bottom:0.4rem;
 }
@@ -994,7 +994,9 @@ span.fa.fa-chevron-right {
   font-size:0.7em;
 }
 
-
+.post {
+  padding-top: 20px;
+}
 
 
 
