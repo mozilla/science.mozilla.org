@@ -1004,7 +1004,15 @@ span.fa.fa-chevron-right {
   margin-bottom:10px;
 }
 
+#blog .sidebar {
+  margin: 20px 0 0 1em;
+  background: #C9E3F6;
+  padding: 1em;
+}
 
+#blog .sidebar h3 {
+  margin:0.8em 0;
+}
 
 
 

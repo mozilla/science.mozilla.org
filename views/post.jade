@@ -12,7 +12,7 @@ html
     +head(page)
   body
     +header(loggedIn, page)
-    div.page-wrapper
+    div.page-wrapper#blog
 
 
       div.pure-u-1.pure-u-md-3-4
@@ -20,7 +20,8 @@ html
 
 
       div.pure-u-1.pure-u-md-1-4
-        div.l-box-lg.header-img
+        div.sidebar
+          h3 Join the Conversation
           +connect()
 
     +footer()
