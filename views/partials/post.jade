@@ -1,0 +1,14 @@
+mixin post(p, excerpt)
+  - var link = "/" + p.slug
+  div.post
+    h1
+      a(href=link)!=p.title
+    div
+      | Posted on &nbsp;
+      a(href=link) #{moment(p.date).format('LL')}
+      |  by
+      | #{ p.author.name }
+    if excerpt
+      p!=p.excerpt.replace('[&hellip;]', '<a href="' + link + '">[&hellip;]</a>')
+    else
+      p!=p.content
