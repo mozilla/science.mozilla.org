@@ -9,7 +9,7 @@ include partials/connect.jade
 doctype html5
 html
   head
-    +head(page)
+    +head(content[0].title || page)
   body
     +header(loggedIn, page)
     div.page-wrapper#blog
