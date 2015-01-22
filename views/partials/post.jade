@@ -15,8 +15,8 @@ mixin post(p, excerpt)
     div
       | Posted on &nbsp;
       a(href=link) #{moment(p.date).format('LL')}
-      |  by
-      | #{ p.author.name }
+      |  by &nbsp;
+      a(href='/blog/' + p.author.username) #{ p.author.name }
     if excerpt
       p!=p.excerpt.replace('[&hellip;]', '<a href="' + link + '">[&hellip;]</a>')
     else

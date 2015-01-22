@@ -12,7 +12,6 @@ module.exports = function() {
           if ( err ) {
               return console.log(err);
           }
-          // res.json(posts);
           res.render('blog.jade', {loggedIn: !!req.user,
                                   posts: posts,
                                   user : req.user || undefined})
@@ -23,10 +22,20 @@ module.exports = function() {
           if ( err ) {
               return console.log(err);
           }
-          console.log(post);
           res.render('post.jade', {loggedIn: !!req.user,
                                   content: post,
                                   user : req.user || undefined})
+      });
+    },
+    author: function(req, res, next){
+      wp.posts().author( req.params.author ).get(function( err, posts ) {
+          if ( err ) {
+              return console.log(err);
+          }
+          res.render('blog.jade', {loggedIn: !!req.user,
+                                  posts: posts,
+                                  user : req.user || undefined,
+                                  author: req.params.author})
       });
     }
   };

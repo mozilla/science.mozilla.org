@@ -152,6 +152,7 @@ app.get('/logout', function(req, res){
   res.redirect('/');
 });
 
+app.get('/blog/:author', postRoutes.author);
 app.get('/:slug', postRoutes.get);
 
 // Github
