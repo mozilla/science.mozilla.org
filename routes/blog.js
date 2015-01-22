@@ -37,6 +37,14 @@ module.exports = function() {
                                   user : req.user || undefined,
                                   author: req.params.author})
       });
+    },
+    feed: function(req, res, next){
+      wp.posts().get(function( err, posts ) {
+          if ( err ) {
+              return console.log(err);
+          }
+          res.render('rss.jade', {posts: posts})
+      });
     }
   };
 

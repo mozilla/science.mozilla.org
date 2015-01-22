@@ -153,6 +153,8 @@ app.get('/logout', function(req, res){
 });
 
 app.get('/blog/:author', postRoutes.author);
+
+app.get('/feed', postRoutes.feed);
 app.get('/:slug', postRoutes.get);
 
 // Github

@@ -21,6 +21,7 @@ mixin post(p, excerpt)
       p!=p.excerpt.replace('[&hellip;]', '<a href="' + link + '">[&hellip;]</a>')
     else
       p!=p.content
+      div#comments
       div#disqus_thread
       script(type="text/javascript").
         var disqus_shortname = 'mozillaopenscience';
