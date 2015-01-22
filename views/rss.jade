@@ -9,20 +9,15 @@ rss(version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns
         language en-US
 
         if posts.length
-            lastBuildDate= new Date(posts[0].publishedAt).toUTCString()
+            lastBuildDate= new Date(posts[0].date).toUTCString()
         each post in posts
             item
-                title= post.title
+                title!= post.title
                 link http://mozillascience.org/#{post.slug}/
                 comments http://mozillascience.org/#{post.slug}#comments
                 description
-                    | <![CDATA[
-                    | !{post.excerpt}
-
-                    | ]]>
+                    | <![CDATA[!{post.excerpt}]]>
                 content:encoded
-                    | <![CDATA[
-                    | !{post.content}
-                    | ]]>
+                    | <![CDATA[!{post.content}]]>
                 pubDate= new Date(post.date).toUTCString()
                 guid(isPermaLink='false') <a href="http://mozillascience.org/#{post.slug}" rel="nofollow">http://mozillascience.org/#{post.slug}</a>
