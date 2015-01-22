@@ -995,7 +995,7 @@ span.fa.fa-chevron-right {
 }
 
 .post {
-  padding: 20px 0;
+  padding: 40px 0;
   border-bottom:1px solid #DEDEDE;
 }
 
@@ -1005,7 +1005,7 @@ span.fa.fa-chevron-right {
 }
 
 #blog .sidebar {
-  margin: 20px 0 0 1em;
+  margin: 40px 0 0 20px;
   background: #C9E3F6;
   padding: 1em;
 }
