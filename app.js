@@ -3,6 +3,7 @@ var express = require('express'),
     app = express(),
     mongoose = require('mongoose'),
     MongoStore = require('connect-mongo')(session),
+    bodyParser = require('body-parser'),
     path = require('path'),
     mongoUri = process.env.MONGOLAB_URI
     || process.env.MONGOHQ_URL
@@ -24,6 +25,8 @@ app.use(express.static(__dirname + '/public'));
 app.set('views', __dirname + '/views');
 // app.use(express.cookieParser());
 // app.use(express.bodyParser());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 app.use(session({
   store: new MongoStore({
     url: mongoUri
@@ -132,7 +135,10 @@ app.get('/projects/new', localQuery, function(request, response) {
 
 
 app.get("/projects/:project", localQuery, projectRoutes.get);
+app.get("/projects/:project/edit", localQuery, projectRoutes.edit);
+app.post("/projects/:project/join", localQuery, projectRoutes.join);
 
+app.get("/api/projects/test", projectRoutes.setLink);
 app.get("/api/projects/featured", projectRoutes.featured);
 app.get("/api/projects/:project", projectRoutes.get);
 app.get("/api/projects", projectRoutes.getAll);
@@ -141,7 +147,7 @@ app.get("/blog", postRoutes.getAll);
 app.get("/api/projects/search/:query", projectRoutes.search);
 
 app.get('/auth/github',
-  passport.authenticate('github', { scope: 'public_repo'}));
+  passport.authenticate('github', { scope: 'user public_repo'}));
 
 app.get('/auth/github/callback',
   passport.authenticate('github', { failureRedirect: '/' }),

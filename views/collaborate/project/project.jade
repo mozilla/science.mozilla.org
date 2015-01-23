@@ -54,7 +54,7 @@ html
                 small= 'Looking for: ' + project.wanted.join(', ')
             div.pure-u-1
               p.summary!= project.short_description
-              if(project.short_description)
+              //if(project.short_description)
                 h3 WHO WE ARE
                 p.summary!= project.short_description
               if(project.description)
@@ -73,7 +73,7 @@ html
                 input(type="checkbox" id="fork" checked)
                 b  Fork this project on GitHub
                 br
-                span This will create your own copy of the code. This allows your to freely make your own changes.
+                span This will create your own copy of the code. This allows you to freely make your own changes.
                 br
                 br
                 b Introduce yourself to the other participants.
@@ -126,7 +126,7 @@ html
                         li
                           div.pure-u-3-5
                             i.fa.fa-book
-                            //a(href= c.html_url)= c.name
+                            a(href= c.html_url)= c.name
                           div.pure-u-2-5.fade.repo-info
                             div
                               span= c.language
@@ -142,12 +142,12 @@ html
                       if(c.type != 'file')
                         li
                           i.fa.fa-folder
-                          //a(href= c.html_url)= c.name
+                          a(href= c.html_url)= c.name
                     each c in content
                       if(c.type == 'file')
                         li
                           i.fa.fa-file-text-o
-                          //a(href= c.html_url)= c.name
+                          a(href= c.html_url)= c.name
 
         div
           br

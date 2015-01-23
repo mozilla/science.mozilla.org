@@ -449,7 +449,7 @@ a:hover {
 
 footer {
   color: #FFF;
-  background:rgb(239, 64, 54);
+  background:#D9615B;
   margin: 50px 0 0;
   border-top:12px solid #c9e3f6;
   position:relative;
@@ -490,7 +490,7 @@ footer .email .pure-button {
   margin:0 0.5em;
   border: none;
   background: #c9e3f6;
-  color:rgb(239, 64, 54);
+  color:#D9615B;
   font-size:1em;
   line-height:1em;
 }
@@ -525,7 +525,7 @@ footer ul.footer-links li:last-child {
 }
 footer ul.footer-links li a {
   text-transform: uppercase;
-  color: #F7C4A6;
+  color: #FFF;
   font-size:0.8em;
 }
 
@@ -770,6 +770,10 @@ i.bigIcon{
   overflow:hidden;
 }*/
 
+section.project {
+  padding-top:20px;
+}
+
 section.project label {
   font-size:1.3em;
 }
@@ -781,6 +785,20 @@ section.project label {
 
 .project .project-links {
   float:right;
+}
+
+.project-links .pure-button {
+  margin-left: 10px;
+}
+
+.project-links a.pure-button:hover {
+  background-color: #3574A1;
+  color:white;
+}
+
+.project-links a.pure-button {
+  background-color: #c9e3f6;
+  color:black;
 }
 
 span.tag {
@@ -957,7 +975,7 @@ a.project-img {
 }
 
 .pure-button, .pure-menu .pure-button {
-  background:rgb(239, 64, 54);
+  background:#D9615B;
   color:white;
   border-radius:0;
   margin:0;

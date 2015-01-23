@@ -4,6 +4,14 @@ var mongoose = require('mongoose'),
     Project = mongoose.model('Project'),
     User = mongoose.model('User');
 
+function isUser(element, id){
+  return element && (element.login == this || element.githubId == this);
+}
+
+function canEdit(project, user){
+  return (user && ((user.githubId == project.lead.githubId) || (user.githubId == process.env.ADMIN)));
+}
+
 module.exports = function() {
    // Error messages
   var errorHandlers = {
@@ -49,7 +57,7 @@ module.exports = function() {
         res.json(projects);
       })
     },
-    get: function(req, res, next){
+    edit: function(req, res, next){
       Project.findOne({ slug: req.params.project }).populate('lead').exec(function(err, project){
         if (err) return console.error(err);
         if(req.xhr) {
@@ -62,6 +70,95 @@ module.exports = function() {
                           loggedIn: !!req.user,
                           user: req.user,
                           project: project,
+                          canEdit: canEdit(project, req.user)
+                        };
+          if(canEdit(project, req.user)){
+            res.render('collaborate/project/edit.jade', vars);
+          } else {
+            res.status(403).end();
+          }
+        }
+      });
+    },
+    join: function(req, res, next){
+      Project.findOne({ slug: req.params.project }).exec(function(err, project){
+        if (err) return console.error(err);
+
+
+
+
+
+
+
+         var args = (project.github.repo) ? {user: project.github.user } : {org: project.github.user},
+              contributors = project.contributors || [];
+          User.findOne({ gitHubId: req.user.githubId }).exec(function(err, user){
+            contributors.push(req.user._id);
+            project.contributors = contributors;
+            project.save();
+            res.send();
+          })
+
+
+          if(project.github.repo){
+            args.repo = project.github.repo;
+            if(req.body.star === 'true'){
+              github.repos.star(args, function(err, r){
+                if(err) console.log(err);
+              });
+            }
+            if(req.body.fork === 'true'){
+              github.repos.fork(args, function(err, r){
+                if(err) console.log(err);
+              });
+            }
+            args.title = req.user.name + ": new volunteer via Mozilla Science Lab Collaborate";
+            args.body = req.body.text + "<p><br><blockquote>This issue was created by @" + req.user.githubId + " via <a href='http://collaborate.mozillascience.org'>Mozilla Science Lab Collaborate</a></blockquote></p>";
+            args.labels = ['New Volunteer'];
+            github.issues.create(args, function(err, r){
+                if(err) console.log(err);
+            });
+          }
+
+
+
+
+
+
+
+
+      });
+
+    },
+
+    /* REMEMBER TO REMOVE THIS */
+    setLink: function(req, res, next){
+    Project.findOne({ slug: "international-quality-controlled-ocean-database-validation-suite"}, function(err, project){
+      User.findOne({ githubId: "s-good"}, function(err, user) {
+        project.lead.push(user._id);
+        project.save(function(err){
+          console.log(err);
+          res.json(project);
+
+        });
+      });
+    });
+  },
+
+    get: function(req, res, next){
+      Project.findOne({ slug: req.params.project }).populate('lead').populate('contributors').exec(function(err, project){
+        if (err) return console.error(err);
+        if(req.xhr) {
+          res.json(project);
+        } else {
+            var args = (project.github.repo) ? {user: project.github.user } : {org: project.github.user},
+                vars = {
+                          lead: project.lead.map(function(item){ return item.name}),
+                          type: (project.github.repo) ? 'repo' : 'org',
+                          loggedIn: !!req.user,
+                          user: req.user,
+                          project: project,
+                          canEdit: canEdit(project, req.user)
                         };
             if(project.contributors) {
               vars.local_contrib = project.contributors;
@@ -74,36 +171,36 @@ module.exports = function() {
               }
             }
             if(req.user) vars.user = req.user;
-            // if(project.github.repo) {
-            //   args.repo = project.github.repo;
-              // github.repos.getContributors(args, function(err, r){
-              //   if(err) console.log(err);
-              //   if(r) vars.contributors = r;
-              //   args.path = '';
-              //   if(r && req.user){
-              //     var match = r.filter(isUser, req.user.githubId);
-              //     if(match.length > 0)  vars.member = true;
-              //   }
-              //   github.repos.getContent(args, function(err, r){
-              //     if(r) vars.content = r;
+            if(project.github.repo) {
+              args.repo = project.github.repo;
+              github.repos.getContributors(args, function(err, r){
+                if(err) console.log(err);
+                if(r) vars.contributors = r;
+                args.path = '';
+                if(r && req.user){
+                  var match = r.filter(isUser, req.user.githubId);
+                  if(match.length > 0)  vars.member = true;
+                }
+                github.repos.getContent(args, function(err, r){
+                  if(r) vars.content = r;
                   res.render('collaborate/project/project.jade', vars);
-                // })
-              // });
-            // } else {
-            //   github.orgs.getPublicMembers(args, function(err, r){
-            //     if(r) vars.contributors = r;
-            //     if(r && req.user){
-            //       var match = r.filter(isUser, req.user.githubId);
-            //       if(match.length > 0) {
-            //         vars.member = true;
-            //       }
-            //     }
-            //     github.repos.getFromOrg(args, function(err, r){
-            //       if(r) vars.content = r;
-            //       res.render('collaborate/project/project.jade', vars);
-            //     })
-            //   });
-            // }
+                })
+              });
+            } else {
+              github.orgs.getPublicMembers(args, function(err, r){
+                if(r) vars.contributors = r;
+                if(r && req.user){
+                  var match = r.filter(isUser, req.user.githubId);
+                  if(match.length > 0) {
+                    vars.member = true;
+                  }
+                }
+                github.repos.getFromOrg(args, function(err, r){
+                  if(r) vars.content = r;
+                  res.render('collaborate/project/project.jade', vars);
+                })
+              });
+            }
 
 
 
