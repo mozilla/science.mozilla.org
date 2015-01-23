@@ -82,6 +82,10 @@ app.get('/community', localQuery, function(request, response) {
   response.render('community.jade');
 });
 
+app.get('/u/:username', localQuery, function(request, response) {
+  response.render('user.jade');
+});
+
 app.get('/sso', function(request, response) {
   var ref = request.session.ref = url.parse('http://forum.mozillascience.org/');
   var payload = request.query.sso;
@@ -116,7 +120,9 @@ app.get('/collaborate', localQuery, function(request, response) {
 app.get('/collaborate/about', localQuery, function(request, response) {
   response.render('collaborate/about.jade');
 });
-app.get("/collaborate/admin", localQuery, function(request, response) {
+
+
+app.get('/projects/admin', localQuery, function(request, response) {
   response.render('collaborate/admin.jade');
 });
 
@@ -126,7 +132,6 @@ app.get('/projects/new', localQuery, function(request, response) {
 
 
 app.get("/projects/:project", localQuery, projectRoutes.get);
-
 
 app.get("/api/projects/featured", projectRoutes.featured);
 app.get("/api/projects/:project", projectRoutes.get);

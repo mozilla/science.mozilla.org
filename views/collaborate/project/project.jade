@@ -5,21 +5,21 @@ include ../../partials/footer.jade
 doctype html5
 html
   head
-    +head(title)
+    +head(project.title)
   body
     +header(loggedIn)
     div.page-wrapper
 
       section.project
         div
-          h1= title
+          h1= project.title
           p
-            i= subjects.join(', ')
+            i= project.subjects.join(', ')
 
           div.pure-u-1.pure-u-md-1-4.sidebar
             div
               div.crop
-                img(src= imageName)
+                img(src= project.image_url)
             if(contributors || local_contrib)
               h3 PARTICIPANTS
             if(contributors)
@@ -36,10 +36,10 @@ html
           div.pure-u-md-3-4
             div.pure-u-1.pure-u-lg-1-3
                 i.fa.fa-user
-                //label= lead.name
+                label= lead.join(', ')
             div.pure-u-1.pure-u-lg-1-3
                 i.fa.fa-map-marker
-                label= institute
+                label= project.institute
             div.pure-u-1.pure-u-lg-1-3
               if(inactive == 'true')
                 i.fa.fa-circle.text-danger
@@ -49,17 +49,17 @@ html
                 label Active Project
             div.pure-u-1
               p
-                small= 'Tags: ' + languages.join(', ')
+                small= 'Tags: ' + project.languages.join(', ')
                 br
-                small= 'Looking for: ' + wanted.join(', ')
+                small= 'Looking for: ' + project.wanted.join(', ')
             div.pure-u-1
-              p.summary!= tweetable
-              if(who)
+              p.summary!= project.short_description
+              if(project.short_description)
                 h3 WHO WE ARE
-                p.summary!= who
-              if(what)
+                p.summary!= project.short_description
+              if(project.description)
                 h3 WHAT WE'RE DOING
-                p.summary!= what
+                p.summary!= project.description
 
             if(!member && loggedIn)
               div#join-project.ui-hidden
@@ -81,21 +81,21 @@ html
                 span What interests you in this project? How can you help?
                 br
                 textarea.pure-u-1(rows='5', id="helptext")
-                a.pure-button.btn-success(id='submit-project', href="javascript:void(0)", data-href='/projects/' + route + '/join') Submit
+                a.pure-button.btn-success(id='submit-project', href="javascript:void(0)", data-href='/projects/' + project.slug + '/join') Submit
                 p
 
             div.project-links
-              if(page)
-                a.pure-button.projectLink(href= page) Website
-              if(repo)
-                a.pure-button.projectLink(href= repo) Go to the Repo
+              if(project.project_url)
+                a.pure-button.projectLink(href= project.project_url) Website
+              if(project.github)
+                a.pure-button.projectLink(href= 'https://github.com/' + project.github.user + '/' + project.github.repo) Go to the Repo
               if(loggedIn)
                 if(!member)
-                    span.pure-button.btn-success(id='join', data-href='/projects/' + route + '/join') Join Project!
+                    span.pure-button.btn-success(id='join', data-href='/projects/' + project.slug + '/join') Join Project!
                 else if(canLeave)
-                    span.pure-button.btn-danger(id='leave', data-href='/projects/' + route + '/leave') Leave Project
+                    span.pure-button.btn-danger(id='leave', data-href='/projects/' + project.slug + '/leave') Leave Project
                 if(canEdit)
-                  a.pure-button.btn-danger(href='/projects/' + route + '/edit') Edit Project
+                  a.pure-button.btn-danger(href='/projects/' + project.slug + '/edit') Edit Project
               else
                 a.pure-button.btn-success(href="/auth/github") Sign in to Join the Project!
 
@@ -103,19 +103,19 @@ html
 
           div.pure-u-1.pure-u-md-1-4
 
-            if(moreInfo)
+            if(project.moreInfo)
               h3 MORE INFORMATION
               ul.infolink
-                each info in moreInfo
+                each info in project.moreInfo
                   li
                     a(href= info.link)= info.title
             //h3 RELATED PROJECTS
           div.pure-u-1.pure-u-md-3-4
             div.pure-u-1
-              if(goals)
+              if(project.goals)
                 h3 MAIN DELIVERABLES
                 ul.goals
-                  each goal in goals
+                  each goal in project.goals
                     li!= goal
               if(content)
                 h3 REPO PREVIEW

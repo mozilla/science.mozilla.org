@@ -29,13 +29,7 @@ html
               | .
           div.pure-u-1.pure-u-3-4
 
-
-        //div.projects(id="project-list")
-          - for(var i=0; i<projects.length; i++){
-            - if(projects[i].title)
-              +stub(projects[i])
-          - }
-        div(id="content")
+        div#content
 
 
         div

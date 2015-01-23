@@ -1,7 +1,8 @@
 // var ObjectID = require('mongodb').ObjectID;
 'use strict';
 var mongoose = require('mongoose'),
-    Project = mongoose.model('Project');
+    Project = mongoose.model('Project'),
+    User = mongoose.model('User');
 
 module.exports = function() {
    // Error messages
@@ -34,10 +35,13 @@ module.exports = function() {
       }
     },
     getAll: function(req, res, next){
-      Project.find(function (err, projects) {
+      Project
+        .find()
+        .populate('lead')
+        .exec(function (err, projects) {
         if (err) return console.error(err);
         res.json(projects);
-      })
+      });
     },
     featured: function(req, res, next){
       Project.find({featured: true}, function (err, projects) {
@@ -46,37 +50,18 @@ module.exports = function() {
       })
     },
     get: function(req, res, next){
-      Project.findOne({ route: req.params.project }, function(err, project){
+      Project.findOne({ slug: req.params.project }).populate('lead').exec(function(err, project){
         if (err) return console.error(err);
         if(req.xhr) {
           res.json(project);
         } else {
-
-
-
-
-
             var args = (project.github.repo) ? {user: project.github.user } : {org: project.github.user},
                 vars = {
-                          title: project.title,
-                          imageName: '/img/projects/' + project.imageName,
-                          subjects: project.subjects,
-                          languages: project.languages,
-                          lead: project.lead,
-                          institute: project.institute,
-                          who: project.who || project.summary,
-                          what: project.what,
-                          tweetable: project.tweetable || project.who || project.summary,
-                          repo: project.repoURL,
-                          page: project.pageURL,
-                          moreInfo: project.moreinfo,
-                          goals: project.goals,
+                          lead: project.lead.map(function(item){ return item.name}),
                           type: (project.github.repo) ? 'repo' : 'org',
                           loggedIn: !!req.user,
                           user: req.user,
-                          route: project.route,
-                          wanted: project.wanted,
-                          inactive: project.inactive
+                          project: project,
                         };
             if(project.contributors) {
               vars.local_contrib = project.contributors;
@@ -123,26 +108,13 @@ module.exports = function() {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
         }
       })
     },
     search: function(req, res, next){
       var query = req.params.query.replace(' ','\\s');
       var regex = new RegExp(query, 'gi')
-      Project.find( { $or: [ { route: regex},
+      Project.find( { $or: [ { slug: regex},
                              { who: regex},
                              { what: regex},
                              { pageURL: regex },
@@ -162,7 +134,7 @@ module.exports = function() {
                              // { contributors.gitHubId: regex },
                              // { contributors.avatar_url: regex },
                              { moreinfo: regex },
-                             { route: regex },
+                             { slug: regex },
                              { whoIsGoingToUseThis: regex },
                              { dependencies: regex },
                              // { hoursyouspendonproject: regex },

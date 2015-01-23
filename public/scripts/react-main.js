@@ -26,7 +26,7 @@ var FeatureBox = React.createClass({
   render: function() {
     var projectNodes = this.state.data.map(function(project, index) {
       return (
-        <ProjectImg project={project} key={project.route}>
+        <ProjectImg project={project} key={project.slug}>
         </ProjectImg>
       );
     });
@@ -42,13 +42,12 @@ var FeatureBox = React.createClass({
 var ProjectImg = React.createClass({
   render: function() {
     var project = this.props.project,
-        route = "/projects/" + project.route,
-        image = "/img/projects/" + project.imageName;
+        slug = "/projects/" + project.slug;
     return (
       <div className="pure-u-1 pure-u-md-1-4">
-        <a href={ route } className="project-img">
+        <a href={ slug } className="project-img">
           <div >
-            <img src={image} height="100%"/>
+            <img src={project.image_url} height="100%"/>
             <span> {project.title} </span>
           </div>
         </a>
@@ -63,15 +62,14 @@ var ProjectImg = React.createClass({
 var Project = React.createClass({
   render: function() {
     var project = this.props.project,
-        route = "/projects/" + project.route,
-        image = "/img/projects/" + project.imageName,
-        summary = project.tweetable || project.who || project.summary;
+        slug = "/projects/" + project.slug,
+        summary = project.short_description || project.description;
     summary = converter.makeHtml(summary);
     return (
       <div className="project pure-g">
         <div className="pure-u-1 pure-u-md-1-4">
           <h3>
-            <a href={route}>
+            <a href={slug}>
               {project.title}
             </a>
           </h3>
@@ -82,7 +80,7 @@ var Project = React.createClass({
         <div className="pure-u-md-3-4">
           <div className="pure-u-1 pure-u-lg-1-3">
             <i className="fa fa-user" />
-            <label> { project.lead.name} </label>
+            <label> {project.lead.map(function(item){return item.name }).join(', ') } </label>
           </div>
           <div className="pure-u-1 pure-u-lg-1-3">
             <i className="fa fa-map-marker" />
@@ -94,9 +92,9 @@ var Project = React.createClass({
           </div>
         </div>
         <div className="pure-u-1 pure-u-md-1-4 sidebar">
-          <a href={ route }>
+          <a href={ slug }>
             <div className="crop">
-              <img src={image} />
+              <img src={project.image_url} />
             </div>
           </a>
         </div>
@@ -185,7 +183,7 @@ var ProjectList = React.createClass({
   render: function() {
     var projectNodes = this.props.data.map(function(project, index) {
       return (
-        <Project project={project} key={project.route}>
+        <Project project={project} key={project.slug}>
         </Project>
       );
     });
@@ -198,13 +196,16 @@ var ProjectList = React.createClass({
 });
 
 
+if(document.getElementById('featured-projects')){
+  React.render(
+    <FeatureBox url="/api/projects/featured"/>,
+    document.getElementById('featured-projects')
+  );
+}
 
-React.render(
-  <FeatureBox url="/api/projects/featured"/>,
-  document.getElementById('featured-projects')
-);
-
-React.render(
-  <ProjectBox url="/api/projects"/>,
-  document.getElementById('content')
-);
+if(document.getElementById('content')){
+  React.render(
+    <ProjectBox url="/api/projects"/>,
+    document.getElementById('content')
+  );
+}
