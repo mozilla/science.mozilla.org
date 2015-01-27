@@ -61,20 +61,22 @@
       var title = $('#ptitle').val(),
           subjects = $('#psubjects').val().split(', '),
           languages = $('#planguages').val().split(', '),
-          // lead = $('#plead').val(),
           institute = $('#pinstitute').val(),
           description = $('#pdescription').val(),
           short_description = $('#pshort_description').val(),
-          repoURL = $('#prepo').val(),
           project_url = $('#pproject_url').val(),
           info = $('#plinks').children(),
           g = $('#pgoals').find('input'),
           wanted = $('#pwanted').val().split(', '),
           active = $('#pactive').prop('checked'),
           links = [],
+          repo = $('#prepo').val().split('/'),
+          github = { user: repo[repo.length-2], repo: repo[repo.length-1] }
           goals = [];
       $(this).text('Saving...');
 
+
+      console.log(github);
       $.map(info, function(val, i){
         var values = $(val).children('input'),
             title = $(values[0]).val();
@@ -101,7 +103,7 @@
             institute: institute,
             description: description,
             short_description: short_description,
-            repoURL: repoURL,
+            github: github,
             project_url: project_url,
             links: links,
             goals: goals,
