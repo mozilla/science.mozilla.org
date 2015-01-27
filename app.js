@@ -136,9 +136,10 @@ app.get('/projects/new', localQuery, function(request, response) {
 
 app.get("/projects/:project", localQuery, projectRoutes.get);
 app.get("/projects/:project/edit", localQuery, projectRoutes.edit);
+app.post("/projects/:project/save", localQuery, projectRoutes.save);
+
 app.post("/projects/:project/join", localQuery, projectRoutes.join);
 
-app.get("/api/projects/test", projectRoutes.setLink);
 app.get("/api/projects/featured", projectRoutes.featured);
 app.get("/api/projects/:project", projectRoutes.get);
 app.get("/api/projects", projectRoutes.getAll);
@@ -147,7 +148,7 @@ app.get("/blog", postRoutes.getAll);
 app.get("/api/projects/search/:query", projectRoutes.search);
 
 app.get('/auth/github',
-  passport.authenticate('github', { scope: 'user public_repo'}));
+  passport.authenticate('github', { scope: 'public_repo'}));
 
 app.get('/auth/github/callback',
   passport.authenticate('github', { failureRedirect: '/' }),

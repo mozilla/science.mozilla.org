@@ -20,7 +20,7 @@ var projectSchema = new Schema({
   languages: [String],
   subjects: [String],
   contributors: [{ type: Schema.Types.ObjectId, ref: 'User' }],
-  moreinfo: [{link: String, title: String}],
+  links: [{link: String, title: String}],
   lead: [{ type: Schema.Types.ObjectId, ref: 'User' }],
   createdAt: Date,
   updatedAt: Date,

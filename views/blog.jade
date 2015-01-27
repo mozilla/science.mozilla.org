@@ -12,7 +12,7 @@ html
     +head(author || page)
   body
     +header(loggedIn, page)
-    div.page-wrapper
+    div.page-wrapper#blog
       if(!author)
         div.splash
           h1 Blog
@@ -20,9 +20,7 @@ html
 
       div
         div.pure-u-1.pure-u-md-3-4
-          if(!author)
-            div.header-img(style="margin-right:1em")
-          else
+          if(author)
             div.post
               h1 Author Archives:&nbsp;
                b #{author}
@@ -33,7 +31,8 @@ html
 
         if(!author)
           div.pure-u-1.pure-u-md-1-4
-            div.l-box-lg.header-img
+            div.sidebar
+              h3 Join the Conversation
               +connect()
 
 

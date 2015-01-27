@@ -61,18 +61,17 @@
       var title = $('#ptitle').val(),
           subjects = $('#psubjects').val().split(', '),
           languages = $('#planguages').val().split(', '),
-          lead = $('#plead').val(),
+          // lead = $('#plead').val(),
           institute = $('#pinstitute').val(),
-          who = $('#pwho').val(),
-          what = $('#pwhat').val(),
-          tweetable = $('#ptweetable').val(),
+          description = $('#pdescription').val(),
+          short_description = $('#pshort_description').val(),
           repoURL = $('#prepo').val(),
-          pageURL = $('#ppage').val(),
-          info = $('#pmoreinfo').children(),
+          project_url = $('#pproject_url').val(),
+          info = $('#plinks').children(),
           g = $('#pgoals').find('input'),
           wanted = $('#pwanted').val().split(', '),
           active = $('#pactive').prop('checked'),
-          moreInfo = [],
+          links = [],
           goals = [];
       $(this).text('Saving...');
 
@@ -80,33 +79,34 @@
         var values = $(val).children('input'),
             title = $(values[0]).val();
         if(title){
-          moreInfo.push({
+          links.push({
             link: $(values[1]).val(),
             title: title
           });
         }
       });
       g.each(function(){
-        goals.push($(this).val());
+        if($(this).val()){
+          goals.push($(this).val());
+        }
       })
       $.ajax({
         url: $(this).data('href'),
         type:'POST',
         data: {
-          title: title,
-          subjects: subjects,
-          languages: languages,
-          lead: lead,
-          institute: institute,
-          who: who,
-          what: what,
-          tweetable: tweetable,
-          repoURL: repoURL,
-          pageURL: pageURL,
-          moreInfo: moreInfo,
-          goals: goals,
-          wanted: wanted,
-          inactive: (!active)
+          project: {
+            title: title,
+            subjects: subjects,
+            languages: languages,
+            institute: institute,
+            description: description,
+            short_description: short_description,
+            repoURL: repoURL,
+            project_url: project_url,
+            links: links,
+            goals: goals,
+            wanted: wanted
+          }
         },
         success: function(msg){
           window.location.reload();

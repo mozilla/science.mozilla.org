@@ -80,6 +80,11 @@ module.exports = function() {
         }
       });
     },
+    save: function(req, res, next){
+      Project.where({slug: req.params.project}).update(req.body.project, function(){
+          res.send();
+      });
+    },
     join: function(req, res, next){
       Project.findOne({ slug: req.params.project }).exec(function(err, project){
         if (err) return console.error(err);
@@ -130,21 +135,6 @@ module.exports = function() {
       });
 
     },
-
-    /* REMEMBER TO REMOVE THIS */
-    setLink: function(req, res, next){
-    Project.findOne({ slug: "international-quality-controlled-ocean-database-validation-suite"}, function(err, project){
-      User.findOne({ githubId: "s-good"}, function(err, user) {
-        project.lead.push(user._id);
-        project.save(function(err){
-          console.log(err);
-          res.json(project);
-
-        });
-      });
-    });
-  },
-
     get: function(req, res, next){
       Project.findOne({ slug: req.params.project }).populate('lead').populate('contributors').exec(function(err, project){
         if (err) return console.error(err);

@@ -103,10 +103,10 @@ html
 
           div.pure-u-1.pure-u-md-1-4
 
-            if(project.moreInfo)
+            if(project.links)
               h3 MORE INFORMATION
               ul.infolink
-                each info in project.moreInfo
+                each info in project.links
                   li
                     a(href= info.link)= info.title
             //h3 RELATED PROJECTS
