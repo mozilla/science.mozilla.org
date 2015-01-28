@@ -30,9 +30,9 @@ html
             if(local_contrib)
               each localc in local_contrib
                 if(localc)
-                  a(href="https://github.com/" + localc.githubId).tooltips.pure-u-1-4.contributor.local
+                  a(href="https://github.com/" + localc.github_id).tooltips.pure-u-1-4.contributor.local
                     img(src= localc.avatar_url)
-                    span= localc.githubId
+                    span= localc.github_id
           div.pure-u-md-3-4
             div.pure-u-1.pure-u-lg-1-3
                 i.fa.fa-user

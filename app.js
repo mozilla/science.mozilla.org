@@ -8,7 +8,9 @@ var express = require('express'),
     mongoUri = process.env.MONGOLAB_URI
     || process.env.MONGOHQ_URL
     || 'mongodb://127.0.0.1:27017/test',
-    dotenv = require('dotenv');
+    dotenv = require('dotenv'),
+    aws = require('aws-sdk'),
+    uuid = require('node-uuid');
 
 dotenv.load();
 passport = require('passport');        // user authentication
@@ -19,6 +21,10 @@ var GITHUB_CLIENT_ID = process.env.GITHUB_CLIENT_ID;
 var GITHUB_CLIENT_SECRET = process.env.GITHUB_CLIENT_SECRET;
 var GITHUB_TOKEN = process.env.GITHUB_TOKEN;
 var DISCOURSE = process.env.DISCOURSE;
+
+var AWS_ACCESS_KEY = process.env.AWS_ACCESS_KEY;
+var AWS_SECRET_KEY = process.env.AWS_SECRET_KEY;
+var S3_BUCKET = process.env.S3_BUCKET
 
 app.set('port', (process.env.PORT || 5000));
 app.use(express.static(__dirname + '/public'));
@@ -35,6 +41,7 @@ app.use(session({
   saveUninitialized: true,
   secret: process.env.MONGO_SECRET || 'secret'
 }));
+app.engine('html', require('ejs').renderFile);
 app.use(passport.initialize());
 app.use(passport.session());
 app.locals.loggedIn = true;
@@ -102,7 +109,7 @@ app.get('/sso', function(request, response) {
 
         var userparams = {
           nonce: request.session.nonce,
-          external_id: request.user.gitHubId,
+          external_id: request.user.github_id,
           email: request.user.email
         };
 
@@ -132,10 +139,12 @@ app.get('/projects/admin', localQuery, function(request, response) {
 app.get('/projects/new', localQuery, function(request, response) {
   response.render('collaborate/project/new.jade');
 });
+app.post('/projects/new', localQuery, projectRoutes.insert);
 
 
 app.get("/projects/:project", localQuery, projectRoutes.get);
 app.get("/projects/:project/edit", localQuery, projectRoutes.edit);
+
 app.post("/projects/:project/save", localQuery, projectRoutes.save);
 
 app.post("/projects/:project/join", localQuery, projectRoutes.join);
@@ -163,6 +172,34 @@ app.get('/logout', function(req, res){
   req.logout();
   res.redirect('/');
 });
+
+
+app.get('/sign_s3', function(req, res){
+    aws.config.update({accessKeyId: AWS_ACCESS_KEY, secretAccessKey: AWS_SECRET_KEY});
+    var s3 = new aws.S3();
+    var s3_object_name = uuid.v1();
+    var s3_params = {
+        Bucket: S3_BUCKET,
+        Key: s3_object_name,
+        Expires: 60,
+        ContentType: req.query.s3_object_type,
+        ACL: 'public-read'
+    };
+    s3.getSignedUrl('putObject', s3_params, function(err, data){
+        if(err){
+            console.log(err);
+        }
+        else{
+            var return_data = {
+                signed_request: data,
+                url: 'https://'+S3_BUCKET+'.s3.amazonaws.com/'+s3_object_name
+            };
+            res.write(JSON.stringify(return_data));
+            res.end();
+        }
+    });
+});
+
 
 app.get('/blog/:author', postRoutes.author);
 
@@ -207,7 +244,7 @@ passport.use(new GitHubStrategy({
       });
       User = mongoose.model('User');
 
-      User.findOne({'githubId': profile.username}, function(err, user) {
+      User.findOne({'github_id': profile.username}, function(err, user) {
         if(err) { // OAuth error
           console.log(err);
           return done(err);
@@ -226,8 +263,9 @@ passport.use(new GitHubStrategy({
         } else { // record not in database
           var reg = new User({
             name: profile._json.name || profile.username,
+            username: profile.username,
             email: profile._json.email,
-            githubId: profile.username,
+            github_id: profile.username,
             company: profile._json.company,
             location: profile._json.location,
             token: profile.token,

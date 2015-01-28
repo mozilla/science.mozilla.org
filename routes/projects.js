@@ -5,11 +5,11 @@ var mongoose = require('mongoose'),
     User = mongoose.model('User');
 
 function isUser(element, id){
-  return element && (element.login == this || element.githubId == this);
+  return element && (element.login == this || element.github_id == this);
 }
 
 function canEdit(project, user){
-  return (user && ((user.githubId == project.lead.githubId) || (user.githubId == process.env.ADMIN)));
+  return (user && ((user.github_id == project.lead.github_id) || (user.github_id == process.env.ADMIN)));
 }
 
 module.exports = function() {
@@ -85,6 +85,15 @@ module.exports = function() {
           res.send();
       });
     },
+    insert: function(req, res, next){
+      var project = req.body.project;
+      project.lead = [];
+      project.lead.push(req.user._id);
+      var p = new Project(project);
+      p.save(function(){
+        res.redirect('/projects/' + project.slug + '/edit');
+      });
+    },
     join: function(req, res, next){
       Project.findOne({ slug: req.params.project }).exec(function(err, project){
         if (err) return console.error(err);
@@ -97,7 +106,7 @@ module.exports = function() {
 
          var args = (project.github.repo) ? {user: project.github.user } : {org: project.github.user},
               contributors = project.contributors || [];
-          User.findOne({ gitHubId: req.user.githubId }).exec(function(err, user){
+          User.findOne({ github_id: req.user.github_id }).exec(function(err, user){
             contributors.push(req.user._id);
             project.contributors = contributors;
             project.save();
@@ -118,7 +127,7 @@ module.exports = function() {
               });
             }
             args.title = req.user.name + ": new volunteer via Mozilla Science Lab Collaborate";
-            args.body = req.body.text + "<p><br><blockquote>This issue was created by @" + req.user.githubId + " via <a href='http://collaborate.mozillascience.org'>Mozilla Science Lab Collaborate</a></blockquote></p>";
+            args.body = req.body.text + "<p><br><blockquote>This issue was created by @" + req.user.github_id + " via <a href='http://collaborate.mozillascience.org'>Mozilla Science Lab Collaborate</a></blockquote></p>";
             args.labels = ['New Volunteer'];
             github.issues.create(args, function(err, r){
                 if(err) console.log(err);
@@ -153,7 +162,7 @@ module.exports = function() {
             if(project.contributors) {
               vars.local_contrib = project.contributors;
               if(req.user){
-                var match = vars.local_contrib.filter(isUser, req.user.githubId);
+                var match = vars.local_contrib.filter(isUser, req.user.github_id);
                 if(match.length > 0) {
                   vars.member = true;
                   vars.canLeave = true;
@@ -168,7 +177,7 @@ module.exports = function() {
                 if(r) vars.contributors = r;
                 args.path = '';
                 if(r && req.user){
-                  var match = r.filter(isUser, req.user.githubId);
+                  var match = r.filter(isUser, req.user.github_id);
                   if(match.length > 0)  vars.member = true;
                 }
                 github.repos.getContent(args, function(err, r){
@@ -180,7 +189,7 @@ module.exports = function() {
               github.orgs.getPublicMembers(args, function(err, r){
                 if(r) vars.contributors = r;
                 if(r && req.user){
-                  var match = r.filter(isUser, req.user.githubId);
+                  var match = r.filter(isUser, req.user.github_id);
                   if(match.length > 0) {
                     vars.member = true;
                   }
@@ -216,9 +225,9 @@ module.exports = function() {
                              { languages: regex },
                              { subjects: regex },
                              { 'lead.name': regex },
-                             { 'lead.githubId': regex },
+                             { 'lead.github_id': regex },
                              // { contributors.name: regex },
-                             // { contributors.gitHubId: regex },
+                             // { contributors.github_id: regex },
                              // { contributors.avatar_url: regex },
                              { moreinfo: regex },
                              { slug: regex },

@@ -47,7 +47,7 @@ mongoose.model('Project', projectSchema);
 var userSchema = new Schema({
   name: String,
   username: String,
-  gitHubId: String,
+  github_id: String,
   avatar_url: String,
   createdAt: Date,
   updatedAt: Date,

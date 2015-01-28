@@ -14,13 +14,21 @@ html
         div
           h1
             input(value= project.title, id='ptitle')
+            input#pslug(value=project.slug type="hidden")
           p
             input(value= project.subjects.join(', '), id='psubjects')
 
           div.pure-u-1.pure-u-md-1-4.sidebar
             div
-              div.crop
-                img(src= project.image_url)
+              div#preview.crop
+                img(src=project.image_url)
+
+              input#pimage_url(type="hidden" name="pimage_url" value=project.image_url)
+              input#files(type="file")
+              p#status Please select a file
+
+
+
           div.pure-u-md-3-4
             div.pure-u-1.pure-u-lg-1-3
                 i.fa.fa-user
@@ -99,4 +107,5 @@ html
             |  or
             a(href='mailto:sciencelab@mozillafoundation.org')  get in touch
             | .
+    script(type="text/javascript" src="/scripts/s3upload.js")
     +footer()
