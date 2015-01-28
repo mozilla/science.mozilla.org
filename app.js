@@ -164,8 +164,9 @@ app.get('/auth/github/callback',
   passport.authenticate('github', { failureRedirect: '/' }),
   function(req, res) {
     var return_path = req.session.cookie.path || (req.headers && req.headers.referer) || '/';
-    res.redirect('http://forum.mozillascience.org/session/sso?return_path=' + return_path);
-    // res.redirect(req.session.cookie.path || (req.headers && req.headers.referer) || '/');
+
+    // res.redirect('http://forum.mozillascience.org/session/sso?return_path=' + return_path);
+    res.redirect(req.session.cookie.path || (req.headers && req.headers.referer) || '/');
   });
 
 //logout
