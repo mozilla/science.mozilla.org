@@ -75,7 +75,11 @@ localQuery = function(req, res, next) {
 var routes = require("./routes");
 var projectRoutes = routes.projects();
 var postRoutes = routes.posts();
-
+function ensureAuthenticated(req, res, next) {
+  if (req.isAuthenticated()) { return next(); }
+  req.session.cookie.path = '/projects/new';
+  res.redirect('/auth/github')
+}
 app.get('/', localQuery, function(request, response) {
   response.render('index.jade');
 });
@@ -136,7 +140,7 @@ app.get('/projects/admin', localQuery, function(request, response) {
   response.render('collaborate/admin.jade');
 });
 
-app.get('/projects/new', localQuery, function(request, response) {
+app.get('/projects/new', localQuery, ensureAuthenticated, function(request, response) {
   response.render('collaborate/project/new.jade');
 });
 app.post('/projects', localQuery, projectRoutes.insert);
