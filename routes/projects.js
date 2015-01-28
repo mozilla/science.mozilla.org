@@ -85,6 +85,11 @@ module.exports = function() {
           res.send();
       });
     },
+    remove: function(req, res, next){
+      Project.findOneAndRemove({slug: req.params.project }, function(){
+        res.send();
+      });
+    },
     insert: function(req, res, next){
       var project = req.body.project;
       project.lead = [];
@@ -146,62 +151,65 @@ module.exports = function() {
     },
     get: function(req, res, next){
       Project.findOne({ slug: req.params.project }).populate('lead').populate('contributors').exec(function(err, project){
-        if (err) return console.error(err);
-        if(req.xhr) {
-          res.json(project);
+        if(!project){
+          res.status(404).end();
         } else {
-            var args = (project.github.repo) ? {user: project.github.user } : {org: project.github.user},
-                vars = {
-                          lead: project.lead.map(function(item){ return item.name}),
-                          type: (project.github.repo) ? 'repo' : 'org',
-                          loggedIn: !!req.user,
-                          user: req.user,
-                          project: project,
-                          canEdit: canEdit(project, req.user)
-                        };
-            if(project.contributors) {
-              vars.local_contrib = project.contributors;
-              if(req.user){
-                var match = vars.local_contrib.filter(isUser, req.user.github_id);
-                if(match.length > 0) {
-                  vars.member = true;
-                  vars.canLeave = true;
-                }
-              }
-            }
-            if(req.user) vars.user = req.user;
-            if(project.github.repo) {
-              args.repo = project.github.repo;
-              github.repos.getContributors(args, function(err, r){
-                if(err) console.log(err);
-                if(r) vars.contributors = r;
-                args.path = '';
-                if(r && req.user){
-                  var match = r.filter(isUser, req.user.github_id);
-                  if(match.length > 0)  vars.member = true;
-                }
-                github.repos.getContent(args, function(err, r){
-                  if(r) vars.content = r;
-                  res.render('collaborate/project/project.jade', vars);
-                })
-              });
-            } else {
-              github.orgs.getPublicMembers(args, function(err, r){
-                if(r) vars.contributors = r;
-                if(r && req.user){
-                  var match = r.filter(isUser, req.user.github_id);
+          if (err) return console.error(err);
+          if(req.xhr) {
+            res.json(project);
+          } else {
+              var args = (project.github.repo) ? {user: project.github.user } : {org: project.github.user},
+                  vars = {
+                            lead: project.lead.map(function(item){ return item.name}),
+                            type: (project.github.repo) ? 'repo' : 'org',
+                            loggedIn: !!req.user,
+                            user: req.user,
+                            project: project,
+                            canEdit: canEdit(project, req.user)
+                          };
+              if(project.contributors) {
+                vars.local_contrib = project.contributors;
+                if(req.user){
+                  var match = vars.local_contrib.filter(isUser, req.user.github_id);
                   if(match.length > 0) {
                     vars.member = true;
+                    vars.canLeave = true;
                   }
                 }
-                github.repos.getFromOrg(args, function(err, r){
-                  if(r) vars.content = r;
-                  res.render('collaborate/project/project.jade', vars);
-                })
-              });
+              }
+              if(req.user) vars.user = req.user;
+              if(project.github.repo) {
+                args.repo = project.github.repo;
+                github.repos.getContributors(args, function(err, r){
+                  if(err) console.log(err);
+                  if(r) vars.contributors = r;
+                  args.path = '';
+                  if(r && req.user){
+                    var match = r.filter(isUser, req.user.github_id);
+                    if(match.length > 0)  vars.member = true;
+                  }
+                  github.repos.getContent(args, function(err, r){
+                    if(r) vars.content = r;
+                    res.render('collaborate/project/project.jade', vars);
+                  })
+                });
+              } else {
+                github.orgs.getPublicMembers(args, function(err, r){
+                  if(r) vars.contributors = r;
+                  if(r && req.user){
+                    var match = r.filter(isUser, req.user.github_id);
+                    if(match.length > 0) {
+                      vars.member = true;
+                    }
+                  }
+                  github.repos.getFromOrg(args, function(err, r){
+                    if(r) vars.content = r;
+                    res.render('collaborate/project/project.jade', vars);
+                  })
+                });
+              }
+
             }
-
-
 
 
         }

@@ -28,7 +28,7 @@
               status_elem.innerHTML = 'Upload progress: ' + percent + '% ' + message;
           },
           onFinishS3Put: function(public_url) {
-              status_elem.innerHTML = 'Upload completed. Uploaded to: '+ public_url;
+              status_elem.innerHTML = 'Upload completed.';
               url_elem.value = public_url;
               preview_elem.innerHTML = '<img src="'+public_url+'" style="width:300px;" />';
           },
@@ -90,6 +90,19 @@
       });
     })
 
+    $('#delete-project').click(function(){
+      $.ajax({
+        url: $(this).data('href'),
+        type:'DELETE',
+        success: function(msg){
+          window.location.href = "/collaborate";
+        },
+        error: function(xhr,status,error) {
+          console.log(xhr);
+        }
+      });
+    });
+
 
     $('#save-project').click(function(){
       var title = $('#ptitle').val(),
@@ -100,7 +113,7 @@
           short_description = $('#pshort_description').val(),
           project_url = $('#pproject_url').val(),
           info = $('#plinks').children(),
-          g = $('#pgoals').find('input'),
+          g = $('#pgoals').find('textarea'),
           wanted = $('#pwanted').val().split(', '),
           active = $('#pactive').prop('checked'),
           links = [],

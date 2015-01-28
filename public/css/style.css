@@ -450,7 +450,7 @@ a:hover {
 footer {
   color: #FFF;
   background:#D9615B;
-  margin: 50px 0 0;
+  margin: 130px 0 0;
   border-top:12px solid #c9e3f6;
   position:relative;
 }
@@ -1032,6 +1032,22 @@ span.fa.fa-chevron-right {
   margin:0.8em 0;
 }
 
+.edit-page input {
+  width:100%;
+}
+
+.edit-page .projectLink {
+  width:100%;
+  margin:10px 0;
+}
+
+.edit-page .projectLink input {
+  width:80%;
+}
+
+.edit-page input[type='radio'] {
+  width: 20px;
+}
 
 
 

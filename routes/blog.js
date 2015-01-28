@@ -22,9 +22,13 @@ module.exports = function() {
           if ( err ) {
               return console.log(err);
           }
-          res.render('post.jade', {loggedIn: !!req.user,
-                                  content: post,
-                                  user : req.user || undefined})
+          if(post.title){
+            res.render('post.jade', {loggedIn: !!req.user,
+                                    content: post,
+                                    user : req.user || undefined})
+          } else {
+            res.status(404).end();
+          }
       });
     },
     author: function(req, res, next){

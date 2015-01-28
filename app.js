@@ -139,11 +139,12 @@ app.get('/projects/admin', localQuery, function(request, response) {
 app.get('/projects/new', localQuery, function(request, response) {
   response.render('collaborate/project/new.jade');
 });
-app.post('/projects/new', localQuery, projectRoutes.insert);
+app.post('/projects', localQuery, projectRoutes.insert);
 
 
 app.get("/projects/:project", localQuery, projectRoutes.get);
 app.get("/projects/:project/edit", localQuery, projectRoutes.edit);
+app.delete("/projects/:project", localQuery, projectRoutes.remove);
 
 app.post("/projects/:project/save", localQuery, projectRoutes.save);
 
