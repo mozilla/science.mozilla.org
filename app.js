@@ -148,7 +148,7 @@ app.get('/projects/new', function(req, res){
   res.redirect('/projects/submit');
 })
 
-app.get('/projects/submit', localQuery, ensureAuthenticated, function(request, response) {
+app.get('/projects/submit', ensureAuthenticated, localQuery, function(request, response) {
   response.render('collaborate/project/new.jade');
 });
 
