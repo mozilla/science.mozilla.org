@@ -122,6 +122,10 @@
           slug = $('#pslug') ? $('#pslug').val() : undefined,
           github = { user: repo[repo.length-2], repo: repo[repo.length-1] },
           redirect = "",
+          license = $('input[name="license"]:checked').val(),
+          hours = $('input[name="hours"]:checked').val(),
+          scientific_need = $('#pscientific_need').val(),
+          learning = $('#plearning').val(),
           goals = [];
       $(this).text('Saving...');
 
@@ -129,6 +133,8 @@
         slug = slugify(title);
         redirect = '/projects/' + slug + '/edit';
       }
+
+      if(license === "Other") license = $('#license').val();
 
       $.map(info, function(val, i){
         var values = $(val).children('input'),
@@ -145,6 +151,7 @@
           goals.push($(this).val());
         }
       })
+
 
       $.ajax({
         url: $(this).data('href'),
@@ -163,6 +170,10 @@
             goals: goals,
             image_url: image_url,
             wanted: wanted,
+            scientific_need: scientific_need,
+            learning: learning,
+            hours: hours,
+            license: license,
             slug: slug
           }
         },

@@ -143,6 +143,7 @@ app.get('/projects/admin', localQuery, function(request, response) {
 app.get('/projects/new', localQuery, ensureAuthenticated, function(request, response) {
   response.render('collaborate/project/new.jade');
 });
+
 app.post('/projects', localQuery, projectRoutes.insert);
 
 

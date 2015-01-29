@@ -26,6 +26,10 @@ var projectSchema = new Schema({
   updatedAt: Date,
   slug: String,
   featured: Boolean,
+  license: String,
+  hours: String,
+  scientific_need: String,
+  learning: String,
   status: String
 });
 
@@ -33,6 +37,7 @@ var projectSchema = new Schema({
 projectSchema.pre('save', function(next, done){
   if (this.isNew) {
     this.createdAt = Date.now();
+    this.status = 'Submitted';
   }
   this.updatedAt = Date.now();
   next();

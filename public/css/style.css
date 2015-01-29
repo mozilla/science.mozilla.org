@@ -709,6 +709,9 @@ i.bigIcon{
 .text-danger {
   color: #ee5f5b;
 }
+.text-warning {
+  color:#BAB961;
+}
 
 .btn-success {
   background: #62c462;

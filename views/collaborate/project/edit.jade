@@ -89,6 +89,50 @@ html
                   input(placeholder='Title')
                   br
                   br
+
+
+              h3 LICENSE
+              div
+                label
+                  input(type="radio" name="license" value="MIT"  checked=(project.license == 'MIT'))
+                  | MIT
+              div
+                label
+                  input(type="radio" name="license" value="BSD" checked=(project.license == 'BSD'))
+                  | BSD
+              div
+                label
+                  input(type="radio" name="license" value="Other" onClick="$('#license').focus()" checked=((project.license != 'MIT') && (project.license != 'BSD')))
+                  | Other:&nbsp;
+                  input#license(type="text" style="width:150px" value=(((project.license != 'MIT') && (project.license != 'BSD')) ? project.license : ''))
+              br
+              br
+
+            div.content-contrast.l-box-lg
+              p
+                i Note: Your responses in this section will not be included in your public project page
+                div
+                  p How many hours a week can you spend working with others on this project?
+                  div
+                    label
+                      input(type="radio" name="hours" value="1-2 hours" checked=(project.hours == '1-2 hours'))
+                      | 1-2 hours
+                  div
+                    label
+                      input(type="radio" name="hours" value="2-5 hours" checked=(project.hours == '2-5 hours'))
+                      | 2-5 hours
+                  div
+                    label
+                      input(type="radio" name="hours" value="5+ hours" checked=(project.hours == '5+ hours'))
+                      | 5+ hours
+
+              div
+                p Please describe the compelling scientific need or interest
+                  textarea#pscientific_need=project.scientific_need
+              div
+                p What learning oppourtunities are present for newcomers to this field / project?
+                  textarea#plearning=project.learning
+            br
             div.project-links
               span.pure-button.btn-success(id='save-project', data-href='/projects/' + project.slug + '/save') Save Changes
               span.pure-button.btn-success#delete-project(data-href='/projects/' + project.slug) Delete Project
