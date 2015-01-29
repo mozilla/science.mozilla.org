@@ -82,7 +82,6 @@ ensureAuthenticated = function (req, res, next) {
   if (req.user) { return next(); }
   req.session.cookie.path = '/projects/submit';
   res.redirect('/auth/github');
-  next();
 }
 app.get('/', localQuery, function(request, response) {
   response.render('index.jade');
