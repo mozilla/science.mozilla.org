@@ -10,6 +10,7 @@ var express = require('express'),
     || 'mongodb://127.0.0.1:27017/test',
     dotenv = require('dotenv'),
     aws = require('aws-sdk'),
+    cookieParser = require('cookie-parser'),
     uuid = require('node-uuid');
 
 dotenv.load();
@@ -31,8 +32,10 @@ app.use(express.static(__dirname + '/public'));
 app.set('views', __dirname + '/views');
 // app.use(express.cookieParser());
 // app.use(express.bodyParser());
+app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
+app.engine('html', require('ejs').renderFile);
 app.use(session({
   store: new MongoStore({
     url: mongoUri
@@ -41,7 +44,6 @@ app.use(session({
   saveUninitialized: true,
   secret: process.env.MONGO_SECRET || 'secret'
 }));
-app.engine('html', require('ejs').renderFile);
 app.use(passport.initialize());
 app.use(passport.session());
 app.locals.loggedIn = true;
@@ -75,10 +77,12 @@ localQuery = function(req, res, next) {
 var routes = require("./routes");
 var projectRoutes = routes.projects();
 var postRoutes = routes.posts();
-function ensureAuthenticated(req, res, next) {
-  if (req.isAuthenticated()) { return next(); }
-  req.session.cookie.path = '/projects/new';
-  res.redirect('/auth/github')
+
+ensureAuthenticated = function (req, res, next) {
+  if (req.user) { return next(); }
+  req.session.cookie.path = '/projects/submit';
+  res.redirect('/auth/github');
+  next();
 }
 app.get('/', localQuery, function(request, response) {
   response.render('index.jade');
@@ -140,7 +144,7 @@ app.get('/projects/admin', localQuery, function(request, response) {
   response.render('collaborate/admin.jade');
 });
 
-app.get('/projects/new', localQuery, ensureAuthenticated, function(request, response) {
+app.get('/projects/submit', localQuery, ensureAuthenticated, function(request, response) {
   response.render('collaborate/project/new.jade');
 });
 
