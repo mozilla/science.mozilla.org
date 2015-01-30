@@ -30,7 +30,7 @@ h1 {
 h2 {
    font-size: 2em;
    line-height: 1.188em;
-   margin: 1em 0 0.5em 0;
+   margin: 1em 0 0.7em 0;
    font-weight: 400;
    font-style: normal;
 }
@@ -355,6 +355,10 @@ label {
     font-size: 120%;
 }
 
+.pure-button-lg {
+  font-size: 1.5em;
+}
+
 
 /* Header Menu */
 .menu-wrapper {
@@ -560,6 +564,10 @@ footer h3 {
     clear:both;
     margin:0;
     padding:1.5rem 0;
+}
+
+.splash p {
+  font-size:1.6em;
 }
 
 .header-img {
@@ -948,6 +956,18 @@ div.circle-img {
   background: url("/img/community.jpg") no-repeat;
   background-size: cover;
   background-position: center bottom;
+}
+
+#learn-img {
+  background-color:transparent;
+  background: url("/img/learn.svg") no-repeat center top / auto 100px;
+  min-height:130px;
+}
+
+#teach-img {
+  background-color:transparent;
+  background: url("/img/teach.svg") no-repeat center top / auto 120px;
+  min-height:130px;
 }
 
 a.project-img {
