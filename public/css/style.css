@@ -355,8 +355,8 @@ label {
     font-size: 120%;
 }
 
-.pure-button-lg {
-  font-size: 1.5em;
+.pure-button.pure-button-lg {
+  font-size: 1.4em;
 }
 
 
@@ -959,15 +959,18 @@ div.circle-img {
 }
 
 #learn-img {
-  background-color:transparent;
-  background: url("/img/learn.svg") no-repeat center top / auto 100px;
-  min-height:130px;
+  background-image: url("/img/learn.svg");
 }
 
 #teach-img {
-  background-color:transparent;
-  background: url("/img/teach.svg") no-repeat center top / auto 120px;
-  min-height:130px;
+  background-image: url("/img/teach.svg");
+  background-size:auto 120px;
+}
+
+.icon-img {
+  background: transparent no-repeat center top / auto 100px;
+  min-height:120px;
+  margin:0;
 }
 
 a.project-img {
