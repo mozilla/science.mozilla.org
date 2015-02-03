@@ -1,6 +1,8 @@
 'use strict';
 var mongoose = require('mongoose'),
     User = mongoose.model('User'),
+    Event = mongoose.model('Event'),
+    Project = mongoose.model('Project'),
     WP = require( 'wordpress-rest-api' ),
     wp = new WP({ endpoint: 'http://mozillascience.org/wp-json' });
 
@@ -57,16 +59,26 @@ module.exports = function() {
             res.json(u);
           } else {
 
+            Event.find({ facilitators: u._id})
+              .select('title slug')
+              .exec(function(err, events){
+              if(err) return console.error(err);
+              Project.find({lead: u._id}, function(err, projects){
+                wp.posts()
+                  .author( name )
+                  .filter( 'posts_per_page', 200 )
+                  .get(function( err, posts ) {
+                    if ( err ) {
+                        return console.log(err);
+                    }
+                    res.render('user.jade', {
+                                            posts: posts,
+                                            events: events,
+                                            user: u})
+                });
+              });
 
-            wp.posts().author( name ).get(function( err, posts ) {
-                if ( err ) {
-                    return console.log(err);
-                }
-                res.render('user.jade', {
-                                        posts: posts,
-                                        user: u})
             });
-            // res.render('user.jade', { person: user})
           }
         }
       })

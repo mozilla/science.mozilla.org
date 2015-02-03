@@ -22,10 +22,8 @@ module.exports = function() {
           if ( err ) {
               return console.log(err);
           }
-          if(post.title){
-            res.render('post.jade', {loggedIn: !!req.user,
-                                    content: post,
-                                    user : req.user || undefined})
+          if(post[0] && post[0].title){
+            res.render('post.jade', {content: post})
           } else {
             next();
           }

@@ -44,7 +44,7 @@ module.exports = function() {
       });
     },
     get: function(req, res, next){
-      Event.findOne({ username: req.params.slug }).populate('facilitators', '-email -token').exec(function(err, event){
+      Event.findOne({ slug: req.params.slug }).populate('facilitators', '-email -token').exec(function(err, event){
         if(!event){
           res.status(404).end();
         } else {

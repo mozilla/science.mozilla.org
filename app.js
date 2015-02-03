@@ -219,12 +219,12 @@ app.get('/sign_s3', function(req, res){
 });
 
 
-app.get('/blog/:author', postRoutes.author);
+app.get('/blog/:author', localQuery, postRoutes.author);
 
 app.get('/feed', postRoutes.feed);
 app.get('/rss', function(req, res){ res.redirect('/feed') });
 app.get('/feed/rss', function(req, res){ res.redirect('/feed') });
-app.get('/:slug', postRoutes.get);
+app.get('/:slug', localQuery, postRoutes.get, eventRoutes.get);
 
 // Github
 var GitHubApi = require("github");

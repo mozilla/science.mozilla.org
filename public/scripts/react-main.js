@@ -43,13 +43,13 @@ var Person = React.createClass({
     var person = this.props.person,
         slug = "/u/" + person.username;
     return (
-      <div className="pure-u-1 pure-u-md-1-6 person-card">
+      <div className="pure-u-1-2 pure-u-md-1-4 pure-u-lg-1-6 person-card">
         <div >
           <a href={ slug }>
             <img src={person.avatar_url}/>
             <h4> {person.name} </h4>
           </a>
-          <a href={"//github.com/" + person.github_id} ><i className="fa fa-github"> </i> {person.github_id} </a><br />
+          <a href={"/u/" + person.username} ><i className="fa fa-github"> </i> {person.github_id} </a><br />
           <span> {person.company} </span>
         </div>
       </div>

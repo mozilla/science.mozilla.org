@@ -15,7 +15,6 @@ p {
    font-size: 1.25em;
    line-height: 1.6em;
    margin: 0 0 1.6em 0;
-   font-weight: 400;
    font-style: normal;
 }
 
@@ -264,7 +263,6 @@ span {
 }
 
 li {
-   font-weight: 400;
    font-style: normal;
 }
 
@@ -1109,6 +1107,16 @@ span.fa.fa-chevron-right {
 
 .person-card a:hover img {
   opacity:1;
+}
+
+.user-page ul {
+  margin: 0.5em 0;
+  list-style: none;
+  padding:0;
+}
+
+.user-page li {
+  line-height: 2em;
 }
 
 
