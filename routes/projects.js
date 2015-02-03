@@ -45,7 +45,7 @@ module.exports = function() {
     getAll: function(req, res, next){
       Project
         .find()
-        .populate('lead')
+        .populate('lead', '-email -token')
         .exec(function (err, projects) {
         if (err) return console.error(err);
         res.json(projects);
@@ -58,7 +58,7 @@ module.exports = function() {
       })
     },
     edit: function(req, res, next){
-      Project.findOne({ slug: req.params.project }).populate('lead').exec(function(err, project){
+      Project.findOne({ slug: req.params.project }).populate('lead', '-email -token').exec(function(err, project){
         if (err) return console.error(err);
         if(req.xhr) {
           res.json(project);
@@ -150,7 +150,7 @@ module.exports = function() {
 
     },
     get: function(req, res, next){
-      Project.findOne({ slug: req.params.project }).populate('lead').populate('contributors').exec(function(err, project){
+      Project.findOne({ slug: req.params.project }).populate('lead', '-email -token').populate('contributors', '-email -token').exec(function(err, project){
         if(!project){
           res.status(404).end();
         } else {

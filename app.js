@@ -77,6 +77,7 @@ localQuery = function(req, res, next) {
 var routes = require("./routes");
 var projectRoutes = routes.projects();
 var postRoutes = routes.posts();
+var userRoutes = routes.users();
 
 ensureAuthenticated = function (req, res, next) {
   if (req.user) { return next(); }
@@ -161,6 +162,9 @@ app.delete("/projects/:project", localQuery, projectRoutes.remove);
 app.post("/projects/:project/save", localQuery, projectRoutes.save);
 
 app.post("/projects/:project/join", localQuery, projectRoutes.join);
+
+app.get("/api/users", userRoutes.getAll);
+app.get("/api/users/:user", userRoutes.get);
 
 app.get("/api/projects/featured", projectRoutes.featured);
 app.get("/api/projects/:project", projectRoutes.get);

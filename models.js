@@ -3,6 +3,26 @@
 var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
+/* Event Schema */
+
+var eventSchema = new Schema({
+  title: String,
+  image_url: String,
+  description: String,
+  createdAt: Date,
+  updatedAt: Date,
+  facilitators: [{ type: Schema.Types.ObjectId, ref: 'User' }]
+})
+
+eventSchema.pre('save', function(next, done){
+  if (this.isNew) {
+    this.createdAt = Date.now();
+  }
+  this.updatedAt = Date.now();
+  next();
+});
+
+mongoose.model('Event', eventSchema);
 
 /* Project Schema */
 
