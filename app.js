@@ -102,9 +102,7 @@ app.get('/community', localQuery, function(request, response) {
   response.render('community.jade');
 });
 
-app.get('/u/:username', localQuery, function(request, response) {
-  response.render('user.jade');
-});
+app.get('/u/:user', localQuery, userRoutes.get);
 
 app.get('/sso', function(request, response) {
   var ref = request.session.ref = url.parse('http://forum.mozillascience.org/');
@@ -226,7 +224,7 @@ app.get('/blog/:author', postRoutes.author);
 app.get('/feed', postRoutes.feed);
 app.get('/rss', function(req, res){ res.redirect('/feed') });
 app.get('/feed/rss', function(req, res){ res.redirect('/feed') });
-app.get('/:slug', postRoutes.get, eventRoutes.get);
+app.get('/:slug', postRoutes.get);
 
 // Github
 var GitHubApi = require("github");

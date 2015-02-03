@@ -1,6 +1,6 @@
 'use strict';
 var mongoose = require('mongoose'),
-    User = mongoose.model('Event');
+    Event = mongoose.model('Event');
 
 
 

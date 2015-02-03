@@ -1,6 +1,8 @@
 'use strict';
 var mongoose = require('mongoose'),
-    User = mongoose.model('User');
+    User = mongoose.model('User'),
+    WP = require( 'wordpress-rest-api' ),
+    wp = new WP({ endpoint: 'http://mozillascience.org/wp-json' });
 
 
 
@@ -45,12 +47,27 @@ module.exports = function() {
       });
     },
     get: function(req, res, next){
-      User.findOne({ username: req.params.user }).select('-email -token').exec(function(err, user){
-        if(!user){
+      var name = req.params.user.toLowerCase();
+      User.findOne({ username: name }).select('-email -token').exec(function(err, u){
+        if(!u){
           res.status(404).end();
         } else {
           if (err) return console.error(err);
-          res.json(user);
+          if(req.xhr) {
+            res.json(u);
+          } else {
+
+
+            wp.posts().author( name ).get(function( err, posts ) {
+                if ( err ) {
+                    return console.log(err);
+                }
+                res.render('user.jade', {
+                                        posts: posts,
+                                        user: u})
+            });
+            // res.render('user.jade', { person: user})
+          }
         }
       })
     },
