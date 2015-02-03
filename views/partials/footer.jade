@@ -9,7 +9,7 @@ mixin footer
             li
               a(href="https://www.mozilla.org/en-US/about/legal/terms/mozilla/") Terms of Service
             li
-              a(href="https://www.mozilla.org/en-US/privacy/websites") Privacy Policy
+              a(href="https://www.mozilla.org/en-US/privacy/") Privacy Policy
             li
               a(href="https://github.com/mozillascience/site/issues/new") Report a Bug
             li
@@ -78,9 +78,14 @@ mixin footer
 
 
   div#scripts
-    script(src="http://fb.me/react-0.12.2.js")
-    script(src="http://fb.me/JSXTransformer-0.12.2.js")
-    script(src="http://cdnjs.cloudflare.com/ajax/libs/showdown/0.3.1/showdown.min.js")
+    //script(src="http://fb.me/react-0.12.2.js")
+    script(src="/scripts/react-0.12.2.js")
+
+    //script(src="http://fb.me/JSXTransformer-0.12.2.js")
+    script(src="/scripts/JSXTransformer-0.12.2.js")
+
+    //script(src="http://cdnjs.cloudflare.com/ajax/libs/showdown/0.3.1/showdown.min.js")
+    script(src="/scripts/showdown.min.js")
 
     script(src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js")
     script
