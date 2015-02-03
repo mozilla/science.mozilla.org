@@ -11,7 +11,12 @@ var eventSchema = new Schema({
   description: String,
   createdAt: Date,
   updatedAt: Date,
-  facilitators: [{ type: Schema.Types.ObjectId, ref: 'User' }]
+  start: Date,
+  end: Date,
+  where: String,
+  template: String,
+  facilitators: [{ type: Schema.Types.ObjectId, ref: 'User' }],
+  slug: String
 })
 
 eventSchema.pre('save', function(next, done){

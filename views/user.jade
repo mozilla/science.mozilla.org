@@ -1,0 +1,21 @@
+include partials/head.jade
+include partials/header.jade
+include partials/footer.jade
+
+-var page = "User"
+
+doctype html5
+html
+  head
+    +head(page)
+  body
+    +header(loggedIn, page)
+    div.page-wrapper
+      div
+        div.pure-u-1.pure-u-md-3-4
+          div.post
+            h1 User:&nbsp;
+             //b #{person.username}
+          p TODO: finish this
+    +footer()
+

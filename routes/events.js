@@ -1,6 +1,6 @@
 'use strict';
 var mongoose = require('mongoose'),
-    User = mongoose.model('User');
+    User = mongoose.model('Event');
 
 
 
@@ -25,9 +25,9 @@ module.exports = function() {
   return {
     middleware: {
       hasPermissions: function(action){
-        var user = req.sessions.user;
+        var event = req.sessions.event;
 
-        if(!user) {
+        if(!event) {
           return next(errorHandlers.unauthorized());
         }
 
@@ -35,35 +35,34 @@ module.exports = function() {
       }
     },
     getAll: function(req, res, next){
-      User
+      Event
         .find()
-        .select('-email -token')
-        .sort('username')
-        .exec(function (err, users) {
-          if (err) return console.error(err);
-          res.json(users);
+        .populate('facilitators', '-email -token')
+        .exec(function (err, events) {
+        if (err) return console.error(err);
+        res.json(events);
       });
     },
     get: function(req, res, next){
-      User.findOne({ username: req.params.user }).select('-email -token').exec(function(err, user){
-        if(!user){
+      Event.findOne({ username: req.params.slug }).populate('facilitators', '-email -token').exec(function(err, event){
+        if(!event){
           res.status(404).end();
         } else {
           if (err) return console.error(err);
-          res.json(user);
+          res.json(event);
         }
       })
     },
     search: function(req, res, next){
       var query = req.params.query.replace(' ','\\s');
       var regex = new RegExp(query, 'gi')
-      User.find( { $or: [ { name: regex},
-                             { github_id: regex},
-                             { username: regex},
-                             { company: regex },
-                             { location: regex } ] }, function(err, user){
+      Event.find( { $or: [ { title: regex},
+                             { when: regex},
+                             { description: regex},
+                             { where: regex },
+                             { slug: regex } ] }, function(err, event){
         if (err) return console.error(err);
-        res.json(user);
+        res.json(event);
       })    }
   };
 

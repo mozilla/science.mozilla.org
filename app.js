@@ -74,10 +74,12 @@ localQuery = function(req, res, next) {
 };
 
 // ROUTES
-var routes = require("./routes");
-var projectRoutes = routes.projects();
-var postRoutes = routes.posts();
-var userRoutes = routes.users();
+var routes = require("./routes"),
+    projectRoutes = routes.projects(),
+    postRoutes = routes.posts(),
+    userRoutes = routes.users(),
+    eventRoutes = routes.events();
+
 
 ensureAuthenticated = function (req, res, next) {
   if (req.user) { return next(); }
@@ -224,7 +226,7 @@ app.get('/blog/:author', postRoutes.author);
 app.get('/feed', postRoutes.feed);
 app.get('/rss', function(req, res){ res.redirect('/feed') });
 app.get('/feed/rss', function(req, res){ res.redirect('/feed') });
-app.get('/:slug', postRoutes.get);
+app.get('/:slug', postRoutes.get, eventRoutes.get);
 
 // Github
 var GitHubApi = require("github");
@@ -281,7 +283,7 @@ passport.use(new GitHubStrategy({
         } else { // record not in database
           var reg = new User({
             name: profile._json.name || profile.username,
-            username: profile.username,
+            username: profile.username.toLowerCase(),
             email: profile._json.email,
             github_id: profile.username,
             company: profile._json.company,

@@ -27,7 +27,7 @@ module.exports = function() {
                                     content: post,
                                     user : req.user || undefined})
           } else {
-            res.status(404).end();
+            next();
           }
       });
     },

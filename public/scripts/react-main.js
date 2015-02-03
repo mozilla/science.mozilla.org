@@ -1,6 +1,62 @@
 
 var converter = new Showdown.converter();
 
+/* People Box */
+
+var PeopleBox = React.createClass({
+  loadUsersFromServer: function() {
+    $.ajax({
+      url: this.props.url,
+      dataType: 'json',
+      success: function(data) {
+        this.setState({data: data});
+      }.bind(this),
+      error: function(xhr, status, err) {
+        console.error(this.props.url, status, err.toString());
+      }.bind(this)
+    });
+  },
+  getInitialState: function() {
+    return {data: []};
+  },
+  componentDidMount: function() {
+    this.loadUsersFromServer();
+  },
+  render: function() {
+    var peopleNodes = this.state.data.map(function(person, index) {
+      return (
+        <Person person={person} key={person.username}>
+        </Person>
+      );
+    });
+    return (
+      <div>
+        {peopleNodes}
+      </div>
+    );
+  }
+})
+
+
+var Person = React.createClass({
+  render: function() {
+    var person = this.props.person,
+        slug = "/u/" + person.username;
+    return (
+      <div className="pure-u-1 pure-u-md-1-6 person-card">
+        <div >
+          <a href={ slug }>
+            <img src={person.avatar_url}/>
+            <h4> {person.name} </h4>
+          </a>
+          <a href={"//github.com/" + person.github_id} ><i className="fa fa-github"> </i> {person.github_id} </a><br />
+          <span> {person.company} </span>
+        </div>
+      </div>
+    );
+  }
+});
+
 
 /* Featured Projects Box */
 
@@ -209,3 +265,11 @@ if(document.getElementById('content')){
     document.getElementById('content')
   );
 }
+
+if(document.getElementById('msl-people')){
+  React.render(
+    <PeopleBox url="/api/users"/>,
+    document.getElementById('msl-people')
+  );
+}
+

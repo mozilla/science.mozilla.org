@@ -43,6 +43,19 @@ h3 {
    font-style: normal;
 }
 
+h4 {
+   font-size: 1.2em;
+   line-height: 1.4em;
+   margin: 0.5em 0 0 0;
+   font-weight: 400;
+   font-style: normal;
+}
+
+a h4:hover {
+  text-decoration: underline;
+}
+
+
 ul {
    font-size: 1.25em;
    line-height: 1.6em;
@@ -775,11 +788,6 @@ i.bigIcon{
 .project a .crop {
   max-height:12em;
 }
-/*
-.project-img {
-  height: 165px;
-  overflow:hidden;
-}*/
 
 section.project {
   padding-top:20px;
@@ -868,6 +876,10 @@ section.project ul {
 
 section.project ul ul {
   font-size: 1em;
+}
+
+section.project textarea, section.project input {
+  padding:0.5em;
 }
 
 div.project h3 {
@@ -1086,6 +1098,18 @@ span.fa.fa-chevron-right {
   border:1px solid #AAA;
 }
 
+.person-card {
+  margin: 1em 0;
+  padding:0.5em 1em 0.5em 0;
+}
+
+.person-card img {
+  opacity: 0.8;
+}
+
+.person-card a:hover img {
+  opacity:1;
+}
 
 
 
