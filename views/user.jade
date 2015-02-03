@@ -39,7 +39,16 @@ html
                       i.fa.fa-calendar
                       a(href="/" + ev.slug)!=ev.title
                 - }
-            h3 PROJECTS
+
+            if(projects.length > 0)
+              h3 PROJECTS
+              ul#projects
+                - for(var i=0; i<projects.length; i++){
+                  -var project = projects[i];
+                    li
+                      i.fa.fa-cogs
+                      a(href="/projects/" + project.slug)!=project.title
+                - }
 
             if(posts.length > 0)
               h3 ARTICLES BY #{user.name.toUpperCase()}

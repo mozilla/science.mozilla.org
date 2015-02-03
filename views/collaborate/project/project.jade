@@ -24,7 +24,7 @@ html
               h3 PARTICIPANTS
             if(contributors)
               each contrib in contributors
-                a(href= contrib.html_url).tooltips.pure-u-1-4.contributor
+                a(href='/u/' + contrib.login).tooltips.pure-u-1-4.contributor
                   img(src= contrib.avatar_url)
                   span= contrib.login
             if(local_contrib)

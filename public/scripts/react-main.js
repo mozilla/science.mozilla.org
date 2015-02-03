@@ -49,7 +49,7 @@ var Person = React.createClass({
             <img src={person.avatar_url}/>
             <h4> {person.name} </h4>
           </a>
-          <a href={"/u/" + person.username} ><i className="fa fa-github"> </i> {person.github_id} </a><br />
+          <a href={"/u/" + person.username} > {person.github_id} </a><br />
           <span> {person.company} </span>
         </div>
       </div>

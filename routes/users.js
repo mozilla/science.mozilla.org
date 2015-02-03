@@ -63,19 +63,20 @@ module.exports = function() {
               .select('title slug')
               .exec(function(err, events){
               if(err) return console.error(err);
-              Project.find({lead: u._id}, function(err, projects){
-                wp.posts()
-                  .author( name )
-                  .filter( 'posts_per_page', 200 )
-                  .get(function( err, posts ) {
-                    if ( err ) {
-                        return console.log(err);
-                    }
-                    res.render('user.jade', {
-                                            posts: posts,
-                                            events: events,
-                                            user: u})
-                });
+              Project.find({ $or: [{lead: u._id}, {contributors: u._id}] }, function(err, projects){
+                  wp.posts()
+                    .author( name )
+                    .filter( 'posts_per_page', 200 )
+                    .get(function( err, posts ) {
+                      if ( err ) {
+                          return console.log(err);
+                      }
+                      res.render('user.jade', {
+                                              posts: posts,
+                                              projects: projects,
+                                              events: events,
+                                              user: u})
+                  });
               });
 
             });
