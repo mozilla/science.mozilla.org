@@ -64,8 +64,9 @@ module.exports = function() {
               .exec(function(err, events){
               if(err) return console.error(err);
               Project.find({ $and: [ { $or: [{lead: u._id}, {contributors: u._id}] }, { status: "active"}] }, function(err, projects){
+                  var wp_name = (name === 'acabunoc') ? 'abbycabs' : name;
                   wp.posts()
-                    .author( name )
+                    .author( wp_name )
                     .filter( 'posts_per_page', 200 )
                     .get(function( err, posts ) {
                       if ( err ) {
