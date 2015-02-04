@@ -44,12 +44,24 @@ module.exports = function() {
       });
     },
     get: function(req, res, next){
-      Event.findOne({ slug: req.params.slug }).populate('facilitators', '-email -token').exec(function(err, event){
-        if(!event){
+      Event.findOne({ slug: req.params.slug }).exec(function(err, ev){
+        if(!ev){
           res.status(404).end();
         } else {
           if (err) return console.error(err);
-          res.json(event);
+          if(req.xhr) res.json(ev);
+
+          res.render('event.jade', { ev:ev });
+        }
+      })
+    },
+    getPeople: function(req, res, next){
+      Event.findOne({ slug: req.params.slug }).populate('facilitators', '-email -token').exec(function(err, ev){
+        if(!ev){
+          res.status(404).end();
+        } else {
+          if (err) return console.error(err);
+          res.json(ev.facilitators);
         }
       })
     },

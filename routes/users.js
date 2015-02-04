@@ -63,7 +63,7 @@ module.exports = function() {
               .select('title slug')
               .exec(function(err, events){
               if(err) return console.error(err);
-              Project.find({ $or: [{lead: u._id}, {contributors: u._id}] }, function(err, projects){
+              Project.find({ $and: [ { $or: [{lead: u._id}, {contributors: u._id}] }, { status: "active"}] }, function(err, projects){
                   wp.posts()
                     .author( name )
                     .filter( 'posts_per_page', 200 )
@@ -75,7 +75,7 @@ module.exports = function() {
                                               posts: posts,
                                               projects: projects,
                                               events: events,
-                                              user: u})
+                                              person: u})
                   });
               });
 

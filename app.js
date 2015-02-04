@@ -169,6 +169,8 @@ app.get("/api/users/:user", userRoutes.get);
 app.get("/api/projects/featured", projectRoutes.featured);
 app.get("/api/projects/:project", projectRoutes.get);
 app.get("/api/projects", projectRoutes.getAll);
+app.get("/api/events/:slug/people", eventRoutes.getPeople);
+
 app.get("/blog", postRoutes.getAll);
 
 app.get("/api/projects/search/:query", projectRoutes.search);

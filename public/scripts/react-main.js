@@ -5,8 +5,9 @@ var converter = new Showdown.converter();
 
 var PeopleBox = React.createClass({
   loadUsersFromServer: function() {
+    var url = $('#event-people').data('url');
     $.ajax({
-      url: this.props.url,
+      url: url || this.props.url,
       dataType: 'json',
       success: function(data) {
         this.setState({data: data});
@@ -270,6 +271,13 @@ if(document.getElementById('msl-people')){
   React.render(
     <PeopleBox url="/api/users"/>,
     document.getElementById('msl-people')
+  );
+}
+
+if(document.getElementById('event-people')){
+  React.render(
+    <PeopleBox url="/api/events/x/people" />,
+    document.getElementById('event-people')
   );
 }
 
