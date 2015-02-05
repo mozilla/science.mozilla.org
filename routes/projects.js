@@ -160,7 +160,7 @@ module.exports = function() {
           } else {
               var args = (project.github.repo) ? {user: project.github.user } : {org: project.github.user},
                   vars = {
-                            lead: project.lead.map(function(item){ return item.name}),
+                            lead: project.lead.map(function(item){ return {name: item.name, username: item.username}}),
                             type: (project.github.repo) ? 'repo' : 'org',
                             loggedIn: !!req.user,
                             user: req.user,

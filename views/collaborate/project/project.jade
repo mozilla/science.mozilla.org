@@ -35,7 +35,12 @@ html
           div.pure-u-md-3-4
             div.pure-u-1.pure-u-lg-1-3
                 i.fa.fa-user
-                label= lead.join(', ')
+                each l, ind in lead
+                  label
+                    a(href='/u/' + l.username)=l.name
+                    if ind != lead.length-1
+                      | ,&nbsp;
+
             div.pure-u-1.pure-u-lg-1-3
                 i.fa.fa-map-marker
                 label= project.institute
