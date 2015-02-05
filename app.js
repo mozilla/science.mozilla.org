@@ -94,6 +94,10 @@ app.get('/about', localQuery, function(request, response) {
   response.render('about.jade');
 });
 
+app.get('/education', function(request,response) {
+  response.redirect('/training');
+});
+
 app.get('/training', localQuery, function(request, response) {
   response.render('training.jade');
 });
