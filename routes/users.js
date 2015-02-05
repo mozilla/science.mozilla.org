@@ -64,6 +64,9 @@ module.exports = function() {
               .exec(function(err, events){
               if(err) return console.error(err);
               Project.find({ $and: [ { $or: [{lead: u._id}, {contributors: u._id}] }, { status: "active"}] }, function(err, projects){
+
+                  // Because I'm the only one who has a different wp login than github login....
+                  // Remove when we switch to github blogging
                   var wp_name = (name === 'acabunoc') ? 'abbycabs' : name;
                   wp.posts()
                     .author( wp_name )

@@ -78,6 +78,7 @@ var userSchema = new Schema({
   name: String,
   username: String,
   github_id: String,
+  twitter_id: String,
   avatar_url: String,
   createdAt: Date,
   updatedAt: Date,
