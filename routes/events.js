@@ -56,7 +56,7 @@ module.exports = function() {
       })
     },
     getPeople: function(req, res, next){
-      Event.findOne({ slug: req.params.slug }).populate('facilitators', '-email -token').exec(function(err, ev){
+      Event.findOne({ slug: req.params.slug }).populate({ path: 'facilitators', select: '-email -token', options: { sort: 'username'}}).exec(function(err, ev){
         if(!ev){
           res.status(404).end();
         } else {
