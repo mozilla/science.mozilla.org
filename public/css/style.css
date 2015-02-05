@@ -588,6 +588,11 @@ footer h3 {
   margin-bottom: 1.5rem;
 }
 
+#about-header {
+  background-image:url(/img/about.jpg);
+  opacity:0.8;
+}
+
 #home-banner .bg {
   padding:4rem 0 8rem;
   background: -moz-linear-gradient(-45deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.84) 14%, rgba(255,255,255,0.54) 26%, rgba(255,255,255,0.4) 42%, rgba(255,255,255,0.1) 61%, rgba(255,255,255,0) 70%, rgba(255,255,255,0) 100%); /* FF3.6+ */
@@ -1123,6 +1128,11 @@ span.fa.fa-chevron-right {
 
 .user-page li {
   line-height: 2em;
+}
+
+.fa-li {
+  top:0.25em;
+  font-size:1.1em;
 }
 
 
