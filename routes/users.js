@@ -52,18 +52,22 @@ module.exports = function() {
       var name = req.params.user.toLowerCase();
       User.findOne({ username: name }).select('-email -token').exec(function(err, u){
         if(!u){
-          res.status(404).end();
+          // res.status(404).end();
+          res.redirect('//github.com/' + name)
         } else {
           if (err) return console.error(err);
           if(req.xhr) {
             res.json(u);
           } else {
 
+            // Find events for this User
             Event.find({ facilitators: u._id})
               .select('title slug')
               .exec(function(err, events){
               if(err) return console.error(err);
-              Project.find({ $and: [ { $or: [{lead: u._id}, {contributors: u._id}] }, { status: "active"}] }, function(err, projects){
+
+              // Find projects for this user
+              Project.find({ $and: [ { $or: [{lead: u._id}, {contributors: u._id}] }, { status: "active"}] }).select('title slug').exec(function(err, projects){
 
                   // Because I'm the only one who has a different wp login than github login....
                   // Remove when we switch to github blogging
