@@ -137,7 +137,9 @@ var Project = React.createClass({
         <div className="pure-u-md-3-4">
           <div className="pure-u-1 pure-u-lg-1-3">
             <i className="fa fa-user" />
-            <label> {project.lead.map(function(item){return item.name }).join(', ') } </label>
+            <label>
+            {project.lead.map(function(item, i){return <a href={'/u/' + item.username }>{item.name}{(i==project.lead.length-1) ? "" : ","} </a>}) }
+            </label>
           </div>
           <div className="pure-u-1 pure-u-lg-1-3">
             <i className="fa fa-map-marker" />

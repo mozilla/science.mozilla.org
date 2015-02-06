@@ -63,6 +63,7 @@ module.exports = function() {
             // Find events for this User
             Event.find({ facilitators: u._id})
               .select('title slug')
+              .sort('-start')
               .exec(function(err, events){
               if(err) return console.error(err);
 
