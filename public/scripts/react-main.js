@@ -1,6 +1,60 @@
 
 var converter = new Showdown.converter();
 
+/* Event Box */
+var EventBox = React.createClass({
+  loadUsersFromServer: function() {
+    $.ajax({
+      url: this.props.url,
+      dataType: 'json',
+      success: function(data) {
+        this.setState({data: data});
+      }.bind(this),
+      error: function(xhr, status, err) {
+        console.error(this.props.url, status, err.toString());
+      }.bind(this)
+    });
+  },
+  getInitialState: function() {
+    return {data: []};
+  },
+  componentDidMount: function() {
+    this.loadUsersFromServer();
+  },
+  render: function() {
+    var eventNodes = this.state.data.map(function(ev, index) {
+      return (
+        <Event ev={ev} key={ev.slug}>
+        </Event>
+      );
+    });
+    return (
+      <ul className="fa-ul">
+        {eventNodes}
+      </ul>
+    );
+  }
+})
+
+
+
+var Event = React.createClass({
+  render: function() {
+    var ev = this.props.ev;
+    return (
+      <li>
+        <i className="fa-li fa fa-calendar"></i>
+        <a href={ ev.slug }>
+          {ev.title}
+        </a>,&nbsp;
+        { moment(ev.start).format("MMM Do YYYY")}
+      </li>
+    );
+  }
+});
+
+
+
 /* People Box */
 
 var PeopleBox = React.createClass({
@@ -255,6 +309,8 @@ var ProjectList = React.createClass({
 });
 
 
+/* Set up */
+
 if(document.getElementById('featured-projects')){
   React.render(
     <FeatureBox url="/api/projects/featured"/>,
@@ -268,6 +324,7 @@ if(document.getElementById('content')){
     document.getElementById('content')
   );
 }
+
 
 if(document.getElementById('msl-people')){
   React.render(
@@ -283,3 +340,9 @@ if(document.getElementById('event-people')){
   );
 }
 
+if(document.getElementById('msl-events')){
+  React.render(
+    <EventBox url="/api/events/" />,
+    document.getElementById('msl-events')
+  );
+}

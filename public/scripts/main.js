@@ -47,7 +47,7 @@
       $('.pure-menu ul').toggleClass('display');
     })
 
-
+    $('#collaborate-admin-table').dataTable();
 
     $('#leave').click(function(){
       $.ajax({

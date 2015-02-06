@@ -974,7 +974,7 @@ div.circle-img {
 }
 
 #community-banner {
-  background: url("/img/community.jpg") no-repeat;
+  /*background: url("/img/community.jpg") no-repeat;*/
   background-size: cover;
   background-position: center bottom;
 }

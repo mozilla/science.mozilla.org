@@ -68,7 +68,7 @@ module.exports = function() {
               if(err) return console.error(err);
 
               // Find projects for this user
-              Project.find({ $and: [ { $or: [{lead: u._id}, {contributors: u._id}] }, { status: "active"}] }).select('title slug').exec(function(err, projects){
+              Project.find({ $and: [ { $or: [{lead: u._id}, {contributors: u._id}] }, { $or: [{status: "active"}, {status:"closed"}]}] }).select('title slug').exec(function(err, projects){
 
                   // Because I'm the only one who has a different wp login than github login....
                   // Remove when we switch to github blogging

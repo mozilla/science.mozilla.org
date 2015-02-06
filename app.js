@@ -139,13 +139,10 @@ app.get('/collaborate', localQuery, function(request, response) {
   response.render('collaborate/collaborate.jade');
 });
 
+app.get('/collaborate/admin', localQuery, projectRoutes.admin);
+
 app.get('/collaborate/about', localQuery, function(request, response) {
   response.render('collaborate/about.jade');
-});
-
-
-app.get('/projects/admin', localQuery, function(request, response) {
-  response.render('collaborate/admin.jade');
 });
 
 app.get('/projects/new', function(req, res){
@@ -171,9 +168,12 @@ app.get("/api/users", userRoutes.getAll);
 app.get("/api/users/:user", userRoutes.get);
 
 app.get("/api/projects/featured", projectRoutes.featured);
+app.get("/api/projects/admin", projectRoutes.admin);
 app.get("/api/projects/:project", projectRoutes.get);
 app.get("/api/projects", projectRoutes.getAll);
+
 app.get("/api/events/:slug/people", eventRoutes.getPeople);
+app.get("/api/events", eventRoutes.getAll);
 
 app.get("/blog", postRoutes.getAll);
 

@@ -45,10 +45,21 @@ module.exports = function() {
     getAll: function(req, res, next){
       Project
         .find()
-        .populate('lead', '-email -token')
+        .where('status').equals('active')
+        .populate('lead', 'name username')
         .exec(function (err, projects) {
         if (err) return console.error(err);
         res.json(projects);
+      });
+    },
+    admin: function(req, res, next){
+      Project
+        .find()
+        .populate('lead', 'name username')
+        .exec(function (err, projects) {
+        if (err) return console.error(err);
+        // res.json(projects);
+        res.render('collaborate/admin.jade', {projects: projects});
       });
     },
     featured: function(req, res, next){

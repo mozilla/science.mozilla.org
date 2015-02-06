@@ -27,6 +27,7 @@
     "passport-github": "^0.1.5",
     "passport-local": "^1.0.0",
     "path": "^0.4.9",
+    "react": "^0.12.2",
     "url": "^0.10.2",
     "wordpress-rest-api": "^0.4.0"
   },
