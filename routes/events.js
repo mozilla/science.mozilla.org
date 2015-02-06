@@ -38,6 +38,7 @@ module.exports = function() {
       Event
         .find()
         .populate('facilitators', '-email -token')
+        .sort('-start')
         .exec(function (err, events) {
         if (err) return console.error(err);
         res.json(events);

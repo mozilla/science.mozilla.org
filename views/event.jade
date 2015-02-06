@@ -19,9 +19,9 @@ html
 
 
           div.pure-u-1
-            div
-              img(src=ev.image_url)
-              br
+            if(ev.image_url)
+              div(style="padding-bottom:2em")
+                img(src=ev.image_url)
             p=ev.description
 
           h3 FACILITATORS
