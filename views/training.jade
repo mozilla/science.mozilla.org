@@ -79,7 +79,11 @@ html
                     p We'll contact you if there are any events in your area.
                   div.modal-footer
                     button.pure-button.light(type="button" data-dismiss="modal") Close
-                    a.pure-button(type="button" href="/api/users/badge/mentor") Join
+                    a.pure-button(type="button" href="/api/users/badge/mentor")
+                      if(user)
+                        | Join
+                      else
+                        | Sign-in to Join
 
 
         div.pure-u-1.pure-u-md-1-2

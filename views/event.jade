@@ -41,7 +41,11 @@ html
                     p Join us in the Mozilla Toronto offices March 7-8 as we build tools helping web-enabled science
                   div.modal-footer
                     button.pure-button.light(type="button" data-dismiss="modal") Close
-                    a.pure-button(type="button" href="/api/events/" + ev.slug + '/attend') Register
+                    a.pure-button(type="button" href="/api/events/" + ev.slug + '/attend')
+                      if(user)
+                        | Register
+                      else
+                        | Sign-in to Register
 
           h3 FACILITATORS
           div#event-people(data-url="/api/events/" + ev.slug + "/people")
