@@ -59,7 +59,7 @@ var Event = React.createClass({
 
 var PeopleBox = React.createClass({
   loadUsersFromServer: function() {
-    var url = $('#event-people').data('url');
+    var url = $('#' + this.props.load_id).data('url');
     $.ajax({
       url: url || this.props.url,
       dataType: 'json',
@@ -335,8 +335,15 @@ if(document.getElementById('msl-people')){
 
 if(document.getElementById('event-people')){
   React.render(
-    <PeopleBox url="/api/events/x/people" />,
+    <PeopleBox load_id="event-people" url="/api/events/x/people" />,
     document.getElementById('event-people')
+  );
+}
+
+if(document.getElementById('event-attending')){
+  React.render(
+    <PeopleBox load_id="event-attending" url="/api/events/x/attending" />,
+    document.getElementById('event-attending')
   );
 }
 

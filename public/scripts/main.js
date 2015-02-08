@@ -48,7 +48,6 @@
     })
 
     $('#collaborate-admin-table').dataTable();
-
     $('#leave').click(function(){
       $.ajax({
         url: $(this).data('href'),

@@ -70,6 +70,7 @@ var models = require('./models.js')
 localQuery = function(req, res, next) {
   res.locals.loggedIn = !!req.user;
   res.locals.user = req.user;
+  req.session.cookie.path = req.originalUrl
   next();
 };
 
@@ -83,7 +84,7 @@ var routes = require("./routes"),
 
 ensureAuthenticated = function (req, res, next) {
   if (req.user) { return next(); }
-  req.session.cookie.path = '/projects/submit';
+  //req.session.cookie.path = '/projects/submit';
   res.redirect('/auth/github');
 }
 app.get('/', localQuery, function(request, response) {
@@ -149,7 +150,7 @@ app.get('/projects/new', function(req, res){
   res.redirect('/projects/submit');
 })
 
-app.get('/projects/submit', ensureAuthenticated, localQuery, function(request, response) {
+app.get('/projects/submit', localQuery, ensureAuthenticated, function(request, response) {
   response.render('collaborate/project/new.jade');
 });
 
@@ -172,12 +173,16 @@ app.get("/api/projects/admin", projectRoutes.admin);
 app.get("/api/projects/:project", projectRoutes.get);
 app.get("/api/projects", projectRoutes.getAll);
 
+app.get("/api/events/:slug/attending", eventRoutes.getAttending);
+app.get("/api/events/:slug/attend", localQuery, ensureAuthenticated, eventRoutes.attend);
+
 app.get("/api/events/:slug/people", eventRoutes.getPeople);
 app.get("/api/events", eventRoutes.getAll);
 
 app.get("/blog", postRoutes.getAll);
 
 app.get("/api/projects/search/:query", projectRoutes.search);
+app.get("/api/users/badge/:badge", localQuery, ensureAuthenticated, userRoutes.badge);
 
 app.get('/auth/github',
   passport.authenticate('github', { scope: 'public_repo'}));

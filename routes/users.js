@@ -3,6 +3,7 @@ var mongoose = require('mongoose'),
     User = mongoose.model('User'),
     Event = mongoose.model('Event'),
     Project = mongoose.model('Project'),
+    Badge = mongoose.model('Badge'),
     WP = require( 'wordpress-rest-api' ),
     wp = new WP({ endpoint: 'http://mozillascience.org/wp-json' });
 
@@ -48,9 +49,25 @@ module.exports = function() {
           res.json(users);
       });
     },
+    badge: function(req, res, next){
+      User.findOne({ username: res.locals.user.username }).exec(function(err, user){
+
+        Badge.findOne({ slug: req.params.badge }, function(err, badge){
+          if(!user.badges){
+            user.badges = [];
+          }
+          if(user.badges.indexOf(badge._id) == -1){
+            user.badges.push(badge._id);
+          }
+          user.save(function(err){
+            res.redirect('/u/' + user.username + '?badge=Mentor');
+          });
+        });
+      });
+    },
     get: function(req, res, next){
       var name = req.params.user.toLowerCase();
-      User.findOne({ username: name }).select('-email -token').exec(function(err, u){
+      User.findOne({ username: name }).select('-email -token').populate('badges', 'title').exec(function(err, u){
         if(!u){
           // res.status(404).end();
           res.redirect('//github.com/' + name)
@@ -60,6 +77,7 @@ module.exports = function() {
             res.json(u);
           } else {
 
+            var badges = u.badges.map(function(item){ return item.title});
             // Find events for this User
             Event.find({ facilitators: u._id})
               .select('title slug')
@@ -69,7 +87,6 @@ module.exports = function() {
 
               // Find projects for this user
               Project.find({ $and: [ { $or: [{lead: u._id}, {contributors: u._id}] }, { $or: [{status: "active"}, {status:"closed"}]}] }).select('title slug').exec(function(err, projects){
-
                   // Because I'm the only one who has a different wp login than github login....
                   // Remove when we switch to github blogging
                   var wp_name = (name === 'acabunoc') ? 'abbycabs' : name;
@@ -83,6 +100,7 @@ module.exports = function() {
                       res.render('user.jade', {
                                               posts: posts,
                                               projects: projects,
+                                              badges: badges,
                                               events: events,
                                               person: u})
                   });

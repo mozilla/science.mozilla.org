@@ -1,6 +1,7 @@
 'use strict';
 var mongoose = require('mongoose'),
-    Event = mongoose.model('Event');
+    Event = mongoose.model('Event'),
+    User = mongoose.model('User');
 
 
 
@@ -56,6 +57,22 @@ module.exports = function() {
         }
       })
     },
+    attend: function(req, res, next){
+      User.findOne({ username: res.locals.user.username }).exec(function(err, user){
+
+        Event.findOne({ slug: req.params.slug }, function(err, ev){
+          if(!ev.attending){
+            ev.attending = [];
+          }
+          if(ev.attending.indexOf(user._id) == -1){
+            ev.attending.push(user._id);
+          }
+          ev.save(function(err){
+            res.redirect('/' + ev.slug);
+          });
+        });
+      });
+    },
     getPeople: function(req, res, next){
       Event.findOne({ slug: req.params.slug }).populate({ path: 'facilitators', select: '-email -token', options: { sort: 'username'}}).exec(function(err, ev){
         if(!ev){
@@ -63,6 +80,16 @@ module.exports = function() {
         } else {
           if (err) return console.error(err);
           res.json(ev.facilitators);
+        }
+      })
+    },
+    getAttending: function(req, res, next){
+      Event.findOne({ slug: req.params.slug }).populate({ path: 'attending', select: '-email -token', options: { sort: 'username'}}).exec(function(err, ev){
+        if(!ev){
+          res.status(404).end();
+        } else {
+          if (err) return console.error(err);
+          res.json(ev.attending);
         }
       })
     },

@@ -15,12 +15,12 @@ mixin header(loggedIn, page)
         ul.pull-right
           if(loggedIn)
             li
-              a(href='#')='Welcome ' + user.name
+              a(href='/u/' + user.username)='Welcome ' + user.name
             li
               a(href='/logout') Logout
           else
             li
-              a(href='/community').pure-button JOIN US
+              a(data-toggle="modal" data-target="#joinUsModal").pure-button JOIN US
             li
               a(href='/auth/github')
                 i.fa.fa-github
@@ -32,10 +32,32 @@ mixin header(loggedIn, page)
             a(href='/blog') Blog
           li(class=page === 'Training' ? "pure-menu-selected" : "")
             a(href='/training') Training
+          li(class=page === 'Community' ? "pure-menu-selected" : "")
+            a(href='/community') Community
           li(class=page === 'Collaborate' ? "pure-menu-selected" : "")
             a(href='/collaborate') Collaborate
-          if(loggedIn)
-            li(class=page === 'Community' ? "pure-menu-selected" : "")
-              a(href='/community') Community
-
+        if(!loggedIn)
+          div.modal.fade#joinUsModal(tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true")
+            div.modal-dialog
+              div.modal-content
+                div.modal-header
+                  button.close(type="button" data-dismiss="modal" aria-label="Close")
+                    span(aria-hidden="true") &times;
+                  h3.modal-title#modalLabel Join Us
+                div.modal-body
+                  p We are a community of peers that work, learn and build together to
+                    br
+                    | help research thrive on the open web.
+                  div.pure-u-1
+                    div.pure-u-1-3
+                      h4 BUILDING
+                      div.circle-img#circle-exp
+                    div.pure-u-1-3
+                      h4 TRAINING
+                      div.circle-img#circle-innovate
+                    div.pure-u-1-3
+                      h4 EMPOWERING
+                      div.circle-img#circle-collab
+                div.modal-footer
+                  a.pure-button.pure-button-lg(type="button" href='/auth/github') Sign up via GitHub
 

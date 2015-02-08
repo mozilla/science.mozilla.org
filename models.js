@@ -3,6 +3,18 @@
 var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
+/* Badge Schema */
+
+var badgeSchema = new Schema({
+  title: String,
+  image_url: String,
+  description: String,
+  slug: String
+})
+
+mongoose.model('Badge', badgeSchema);
+
+
 /* Event Schema */
 
 var eventSchema = new Schema({
@@ -16,6 +28,7 @@ var eventSchema = new Schema({
   where: String,
   template: String,
   facilitators: [{ type: Schema.Types.ObjectId, ref: 'User' }],
+  attending: [{ type: Schema.Types.ObjectId, ref: 'User' }],
   slug: String
 })
 
@@ -84,7 +97,9 @@ var userSchema = new Schema({
   updatedAt: Date,
   token: String,
   company: String,
+  bio: String,
   email: String,
+  badges: [{ type: Schema.Types.ObjectId, ref: 'Badge' }],
   location: String
 })
 

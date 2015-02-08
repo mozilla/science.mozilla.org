@@ -16,7 +16,7 @@ html
           h1 #{ev.title + '  '}
           p
             i= ev.where
-
+            span= ' | ' + moment(ev.start).format("MMM D") + ' - ' + moment(ev.end).format("MMM D YYYY")
 
           div.pure-u-1
             if(ev.image_url)
@@ -24,8 +24,33 @@ html
                 img(src=ev.image_url)
             p=ev.description
 
+          button.pure-button.pure-button-lg(data-toggle="modal" data-target="#registerModal") Register
+
+          div.modal.fade#registerModal(tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true")
+              div.modal-dialog
+                div.modal-content
+                  div.modal-header
+                    button.close(type="button" data-dismiss="modal" aria-label="Close")
+                      span(aria-hidden="true") &times;
+                    h3.modal-title#modalLabel
+                      if(user)
+                        | Register for the Toronto Open Science Code Sprint
+                      else
+                        | Sign-in to Register
+                  div.modal-body
+                    p Join us in the Mozilla Toronto offices March 7-8 as we build tools helping web-enabled science
+                  div.modal-footer
+                    button.pure-button.light(type="button" data-dismiss="modal") Close
+                    a.pure-button(type="button" href="/api/events/" + ev.slug + '/attend') Register
+
           h3 FACILITATORS
           div#event-people(data-url="/api/events/" + ev.slug + "/people")
+
+          if(ev.attending.length > 0)
+            h3 PARTICIPANTS
+            div#event-attending(data-url="/api/events/" + ev.slug + "/attending")
+
+          button.pure-button.pure-button-lg(data-toggle="modal" data-target="#registerModal") Register
 
 
     +footer()

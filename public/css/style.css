@@ -961,6 +961,10 @@ div.circle-img {
   background: transparent no-repeat center top / auto 100px;
 }
 
+.modal-body div.circle-img {
+  margin-top:10px;
+}
+
 #circle-exp {
   background-image: url("/img/experiment.svg");
 }
@@ -1133,6 +1137,16 @@ span.fa.fa-chevron-right {
 .fa-li {
   top:0.3em;
   font-size:1.1em;
+}
+
+button.close {
+  float:right;
+  border:none;
+  padding:0;
+}
+
+.modal-footer button {
+  margin: 0 10px;
 }
 
 

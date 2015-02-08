@@ -31,12 +31,6 @@ html
                 a(href="/fellows")  Mozilla Open Science Fellowship
                 |  enables early-career researchers to spend 10 months working on open, web-enabled research and further open science as mentors within the community.
               li
-                i.fa-li.fa.fa-group
-                b Study groups:
-                |  Start a local coding study group with your colleagues where you can share and practice new skills. Have a look at our
-                a(href="https://github.com/mozillascience/studyGroupLessons")  tutorial lessons
-                | .
-              li
                 i.fa-li.fa.fa-pencil
                 b Resources:
                 |  Join us as we create resources to help others learn and teach open research practices. Contributions are
@@ -59,9 +53,33 @@ html
                 |  runs a
                 a(href="http://teaching.software-carpentry.org/")  free online training course
                 |  for those interested in becoming a workshop instructor.
+              li
+                i.fa-li.fa.fa-group
+                b Study groups:
+                |  Start a local coding study group with your colleagues where you can share and practice new skills. Have a look at our
+                a(href="https://github.com/mozillascience/studyGroupLessons")  tutorial lessons
+                | .
 
             div.is-center.l-box-lg
-              a(href="http://software-carpentry.org/pages/register.html").pure-button.pure-button-lg Sign Up for Instructor Training
+              a(data-toggle="modal" data-target="#joinModal").pure-button.pure-button-lg Join our Mentor Network
+
+            div.modal.fade#joinModal(tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true")
+              div.modal-dialog
+                div.modal-content
+                  div.modal-header
+                    button.close(type="button" data-dismiss="modal" aria-label="Close")
+                      span(aria-hidden="true") &times;
+                    h3.modal-title#modalLabel
+                      if(user)
+                        | Join Our Mentor Network
+                      else
+                        | Sign-in to Join Our Mentor Network
+                  div.modal-body
+                    p Our mentor network gives you access to resources and people to help you share open research skills in the community.
+                    p We'll contact you if there are any events in your area.
+                  div.modal-footer
+                    button.pure-button.light(type="button" data-dismiss="modal") Close
+                    a.pure-button(type="button" href="/api/users/badge/mentor") Join
 
 
         div.pure-u-1.pure-u-md-1-2
