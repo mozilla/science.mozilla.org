@@ -206,8 +206,8 @@ app.get('/auth/github/callback',
     if(!req.user.status) {
       res.render('profile.jade', { user: req.user, loggedIn: !!req.user, return_path: return_path });
     } else {
-      // res.redirect('http://forum.mozillascience.org/session/sso?return_path=' + return_path);
-      res.redirect(return_path);
+      res.redirect('http://forum.mozillascience.org/session/sso?return_path=' + return_path);
+      // res.redirect(return_path);
     }
   });
 
