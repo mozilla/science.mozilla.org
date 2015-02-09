@@ -65,6 +65,20 @@ module.exports = function() {
         });
       });
     },
+    create: function(req, res, next){
+      User.findOne({ username: req.user.username }).exec(function(err, user){
+
+        if(err || !user){
+          return console.error(err);
+        }
+        user.status = "active";
+        user.bio = req.body.bio;
+        user.save();
+        req.logout();
+        res.send();
+
+      });
+    },
     get: function(req, res, next){
       var name = req.params.user.toLowerCase();
       User.findOne({ username: name }).select('-email -token').populate('badges', 'title').exec(function(err, u){

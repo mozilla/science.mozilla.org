@@ -12,19 +12,20 @@ mixin header(loggedIn, page)
         a(id="menu-button").fa.fa-bars.pull-left
         a(href='/' id="logo").pull-left
           img(src='/img/logo.png').MSLlogo
-        ul.pull-right
-          if(loggedIn)
-            li
-              a(href='/u/' + user.username)='Welcome ' + user.name
-            li
-              a(href='/logout') Logout
-          else
-            li
-              a(data-toggle="modal" data-target="#joinUsModal").pure-button JOIN US
-            li
-              a(href='/auth/github')
-                i.fa.fa-github
-                span  Sign In
+        if(page != 'Create Account')
+          ul.pull-right
+            if(loggedIn)
+              li
+                a(href='/u/' + user.username)='Welcome ' + user.name
+              li
+                a(href='/logout') Logout
+            else
+              li
+                a(data-toggle="modal" data-target="#joinUsModal").pure-button JOIN US
+              li
+                a(href='/auth/github')
+                  i.fa.fa-github
+                  span  Sign In
         ul.pull-left
           li(class=page === 'About' ? "pure-menu-selected" : "")
               a(href='/about') About
@@ -59,5 +60,5 @@ mixin header(loggedIn, page)
                 div.modal-footer
                   a.pure-button.pure-button-lg(type="button" href='/auth/github')
                     i.fa.fa-github
-                    |  Sign Up via GitHub
+                    |  Sign p via GitHub
 

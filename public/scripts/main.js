@@ -67,6 +67,32 @@
       $(this).hide();
     });
 
+    $('#createaccount').click(function(){
+      var tos = $('#tos');
+      if(tos.prop('checked') === false){
+        tos.parent().addClass('error');
+        tos.focus();
+      } else {
+        var bio = $('#ubio').val();
+        var return_to = $(this).data('return-to');
+        $.ajax({
+          url: $(this).data('href'),
+          type:'POST',
+          data: {
+            bio: bio,
+          },
+          success: function(msg){
+            // window.location.href = 'http://forum.mozillascience.org/session/sso?return_path=' + return_to;
+            // window.location.href = return_to;
+            window.location.href = '/auth/github';
+          },
+          error: function(xhr,status,error) {
+            console.log(xhr);
+          }
+        });
+      }
+    })
+
 
     $('#submit-project').click(function(){
       var text = $('#helptext').val(),

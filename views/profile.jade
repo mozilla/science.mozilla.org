@@ -1,0 +1,47 @@
+include partials/head.jade
+include partials/header.jade
+include partials/footer.jade
+include partials/connect.jade
+
+-var page = "Create Account"
+
+doctype html5
+html
+  head
+    +head(page)
+  body
+    +header(loggedIn, page)
+
+    div.page-wrapper
+      div.splash
+          h1 You're almost done!
+
+      section.project(style="margin-top:0")
+        div.pure-u-1.pure-u-md-1-4.sidebar
+          div
+            img(src= user.avatar_url)
+        div.pure-u-1.pure-u-md-3-4
+            h1=user.name
+            if(user.company)
+              h3(style="margin:0 0 0.5em")=user.company
+
+            p
+              textarea#ubio(placeholder="Tell us about yourself")=user.bio
+            div.fade#legal
+              div By proceeding, I agree to the&nbsp;
+                a(href="https://www.mozilla.org/en-US/about/legal/terms/mozilla/") Mozilla Websites & Communications Terms of Use
+                |  and the&nbsp;
+                a(href="https://www.mozilla.org/en-US/privacy/") Mozilla Privacy Policy
+                | .
+                br
+                | In addition, I understand and agree that:
+
+                small
+                  ul
+                    li My name, affiliation, and bio will be publicly displayed.
+                    li Projects that I submit may not be selected for Collaborate. Mozilla reserves the right in its sole discretion to accept certain projects and reject others. Mozilla may promote an active project as a 'Featured Project' or retire a project at any time for any reason.
+            br
+            button.pure-button.pure-button-lg#createaccount(data-href="/api/users/create" data-return-to=return_path) Create Account
+
+    +footer()
+

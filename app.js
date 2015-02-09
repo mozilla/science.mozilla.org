@@ -68,6 +68,9 @@ db.once('open', function callback () {
 var models = require('./models.js')
 
 localQuery = function(req, res, next) {
+  if(req.user && !req.user.status){
+    req.logout();
+  }
   res.locals.loggedIn = !!req.user;
   res.locals.user = req.user;
   req.session.cookie.path = req.originalUrl
@@ -144,6 +147,8 @@ app.get('/fellows', localQuery, function(request, response) {
   response.render('fellows.jade');
 });
 
+
+
 app.get('/collaborate/admin', localQuery, projectRoutes.admin);
 
 app.get('/collaborate/about', localQuery, function(request, response) {
@@ -170,6 +175,8 @@ app.post("/projects/:project/save", localQuery, projectRoutes.save);
 app.post("/projects/:project/join", localQuery, projectRoutes.join);
 
 app.get("/api/users", userRoutes.getAll);
+app.post("/api/users/create", userRoutes.create);
+
 app.get("/api/users/:user", userRoutes.get);
 
 app.get("/api/projects/featured", projectRoutes.featured);
@@ -196,8 +203,12 @@ app.get('/auth/github/callback',
   function(req, res) {
     var return_path = req.session.cookie.path || (req.headers && req.headers.referer) || '/';
 
-    // res.redirect('http://forum.mozillascience.org/session/sso?return_path=' + return_path);
-    res.redirect(req.session.cookie.path || (req.headers && req.headers.referer) || '/');
+    if(!req.user.status) {
+      res.render('profile.jade', { user: req.user, loggedIn: !!req.user, return_path: return_path });
+    } else {
+      // res.redirect('http://forum.mozillascience.org/session/sso?return_path=' + return_path);
+      res.redirect(return_path);
+    }
   });
 
 //logout
@@ -306,6 +317,7 @@ passport.use(new GitHubStrategy({
           });
           reg.save();
           return done(null, reg);
+
         }
       })
     });

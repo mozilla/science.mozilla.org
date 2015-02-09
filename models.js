@@ -97,6 +97,7 @@ var userSchema = new Schema({
   updatedAt: Date,
   token: String,
   company: String,
+  status: String,
   bio: String,
   email: String,
   badges: [{ type: Schema.Types.ObjectId, ref: 'Badge' }],

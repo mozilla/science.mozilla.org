@@ -710,6 +710,10 @@ i.bigIcon{
   font-size: 1000%
 }
 
+#legal {
+  font-size:0.9em;
+}
+
 /* Form Customizations */
 
 .pure-form input[type="checkbox"], .pure-form input[type="radio"] {
@@ -880,6 +884,10 @@ section.project ul.repo li {
 
 section.project ul.repo li:last-child {
   border:none;
+}
+
+section.project h1 {
+  margin-top:0;
 }
 
 section.project ul {

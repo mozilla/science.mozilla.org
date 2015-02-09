@@ -25,9 +25,9 @@ html
             div
               img(src= person.avatar_url)
           div.pure-u-1.pure-u-md-3-4
+            if(person.bio)
+              p=person.bio
             ul
-              if(person.bio)
-                p=person.bio
 
               if(badges.length > 0)
                 li
