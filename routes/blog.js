@@ -1,7 +1,7 @@
 // var ObjectID = require('mongodb').ObjectID;
 'use strict';
 var WP = require( 'wordpress-rest-api' ),
-    wp = new WP({ endpoint: 'http://mozillascience.org/wp-json' });
+    wp = new WP({ endpoint: 'http://wp.mozillascience.org/wp-json' });
 
 module.exports = function() {
 
