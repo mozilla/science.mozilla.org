@@ -77,7 +77,7 @@ html
                       p Sign up to receive notifications for resources or mentoring opportunities in your area.
 
                       p
-                        input(type="email" value=user.email name="EMAIL" class="required email" id="mce-EMAIL" style="font-size:1.4em;line-height:1.6em;" placeholder="Email address")
+                        input(type="email" value=(user ? user.email : "") name="EMAIL" class="required email" id="mce-EMAIL" style="font-size:1.4em;line-height:1.6em;" placeholder="Email address")
 
                         div.clear#mce-responses
                           div.response#mce-error-response(style="display:none")
