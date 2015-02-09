@@ -1211,6 +1211,9 @@ button.close {
   a.project-img {
     margin:1em;
   }
+  a.project-img div {
+    background-size: cover;
+  }
   a.project-img:first-child {
     margin-left:0;
   }

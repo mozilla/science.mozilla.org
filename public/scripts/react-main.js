@@ -154,13 +154,13 @@ var FeatureBox = React.createClass({
 var ProjectImg = React.createClass({
   render: function() {
     var project = this.props.project,
-        slug = "/projects/" + project.slug;
+        slug = "/projects/" + project.slug,
+        divStyle = { backgroundImage: 'url(' + project.image_url + ')',
+                     height:'160px'};
     return (
       <div className="pure-u-1 pure-u-md-1-4">
         <a href={ slug } className="project-img">
-          <div >
-            <img src={project.image_url} height="100%"/>
-            <span> {project.title} </span>
+          <div style={ divStyle }>
           </div>
         </a>
       </div>
