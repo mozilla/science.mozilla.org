@@ -58,7 +58,8 @@ html
             h3 PARTICIPANTS
             div#event-attending(data-url="/api/events/" + ev.slug + "/attending")
 
-          button.pure-button.pure-button-lg(data-toggle="modal" data-target="#registerModal") Register
+          if(ev.start > moment())
+            button.pure-button.pure-button-lg(data-toggle="modal" data-target="#registerModal") Register
 
 
     +footer()
