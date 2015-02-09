@@ -41,7 +41,7 @@ module.exports = function() {
     },
     getAll: function(req, res, next){
       User
-        .find()
+        .find({featured:true})
         .select('-email -token')
         .sort('username')
         .exec(function (err, users) {
@@ -100,7 +100,7 @@ module.exports = function() {
               if(err) return console.error(err);
 
               // Find projects for this user
-              Project.find({ $and: [ { $or: [{lead: u._id}, {contributors: u._id}] }, { $or: [{status: "active"}, {status:"closed"}]}] }).select('title slug').exec(function(err, projects){
+              Project.find({ $and: [ { $or: [{lead: u._id}, {contributors: u._id}] }, { $or: [{status: "active"}, {status:"complete"}]}] }).select('title slug').exec(function(err, projects){
                   // Because I'm the only one who has a different wp login than github login....
                   // Remove when we switch to github blogging
                   var wp_name = (name === 'acabunoc') ? 'abbycabs' : name;

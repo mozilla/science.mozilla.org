@@ -97,6 +97,7 @@ var userSchema = new Schema({
   updatedAt: Date,
   token: String,
   company: String,
+  feature: Boolean,
   status: String,
   bio: String,
   email: String,
