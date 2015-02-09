@@ -5,7 +5,7 @@ var mongoose = require('mongoose'),
     Project = mongoose.model('Project'),
     Badge = mongoose.model('Badge'),
     WP = require( 'wordpress-rest-api' ),
-    wp = new WP({ endpoint: 'http://mozillascience.org/wp-json' });
+    wp = new WP({ endpoint: 'http://wp.mozillascience.org/wp-json' });
 
 
 
