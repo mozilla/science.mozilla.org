@@ -11,7 +11,7 @@ mixin post(p, excerpt)
       if(excerpt)
         a(href=link)!=p.title
       else
-        span=p.title
+        span!=p.title
     div
       | Posted on &nbsp;
       a(href=link) #{moment(p.date).format('LL')}

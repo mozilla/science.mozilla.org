@@ -140,6 +140,10 @@ app.get('/collaborate', localQuery, function(request, response) {
   response.render('collaborate/collaborate.jade');
 });
 
+app.get('/fellows', localQuery, function(request, response) {
+  response.render('fellows.jade');
+});
+
 app.get('/collaborate/admin', localQuery, projectRoutes.admin);
 
 app.get('/collaborate/about', localQuery, function(request, response) {

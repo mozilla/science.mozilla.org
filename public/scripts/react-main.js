@@ -47,7 +47,8 @@ var Event = React.createClass({
         <a href={ ev.slug }>
           {ev.title}
         </a>,&nbsp;
-        { moment(ev.start).format("MMM Do YYYY")}
+        { moment(ev.start).format("MMM Do") } -&nbsp;
+        { moment(ev.end).format("MMM Do YYYY") }
       </li>
     );
   }

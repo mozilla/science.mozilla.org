@@ -465,7 +465,7 @@ a:hover {
 footer {
   color: #FFF;
   background:#D9615B;
-  margin: 130px 0 0;
+  margin: 150px 0 0;
   border-top:12px solid #c9e3f6;
   position:relative;
 }
@@ -494,20 +494,23 @@ footer .social-icons {
   color: #55ACEE;
 }
 
-footer .email input {
+.email input {
   padding: 0.5em;
   border:none;
   margin:0;
 }
 
-footer .email .pure-button {
+.email .pure-button {
   padding: 0.5em 1em 0.6em;
   margin:0 0.5em;
   border: none;
-  background: #c9e3f6;
-  color:#D9615B;
   font-size:1em;
   line-height:1em;
+}
+
+footer .email .pure-button {
+  background: #c9e3f6;
+  color:#D9615B;
 }
 
 footer ul {
@@ -1063,6 +1066,7 @@ span.fa.fa-chevron-right {
   font-size:0.7em;
 }
 
+
 .post {
   padding: 40px 0;
   border-bottom:1px solid #DEDEDE;
@@ -1081,6 +1085,14 @@ span.fa.fa-chevron-right {
 
 #blog .sidebar h3 {
   margin:0.8em 0;
+}
+
+#blog .post:first-child {
+  padding-top:0;
+}
+
+#blog .post:first-child h1 {
+  margin-top:0;
 }
 
 .edit-page input {
