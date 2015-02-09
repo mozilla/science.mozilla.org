@@ -17,7 +17,7 @@ html
           p
             i= ev.where
             span= ' | ' + moment(ev.start).format("MMM D") + ' - ' + moment(ev.end).format("MMM D YYYY")
-          if(ev.start > moment())
+          //if(ev.start > moment())
             div(style="padding-bottom:2em")
               button.pure-button.pure-button-lg(data-toggle="modal" data-target="#registerModal") Register
 
@@ -58,7 +58,7 @@ html
             h3 PARTICIPANTS
             div#event-attending(data-url="/api/events/" + ev.slug + "/attending")
 
-          if(ev.start > moment())
+          //if(ev.start > moment())
             button.pure-button.pure-button-lg(data-toggle="modal" data-target="#registerModal") Register
 
 
