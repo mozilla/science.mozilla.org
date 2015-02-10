@@ -52,12 +52,12 @@ html
                 textarea(id='pdescription' placeholder="Description")= project.description
 
 
-            div.project-links
-              span.pure-button.projectLink Website:
-                input(value=project.project_url, id='pproject_url', placeholder="Website url")
-              span.pure-button.projectLink Go to the Repo:
-                input(value='https://github.com/' + project.github.user + '/' + project.github.repo, id='prepo', placeholder="GitHub url")
-
+            span Website:
+            input(placeholder="Link to project", id='pproject_url' value=project.project_url)
+            br
+            br
+            span GitHub Repository:
+            input(placeholder="GitHub url", id='prepo', value='https://github.com/' + project.github.user + '/' + project.github.repo)
 
 
           div.pure-u-1.pure-u-md-1-4
