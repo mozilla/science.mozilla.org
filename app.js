@@ -170,6 +170,9 @@ app.get("/projects/:project", localQuery, projectRoutes.get);
 app.get("/projects/:project/edit", localQuery, projectRoutes.edit);
 app.delete("/projects/:project", localQuery, projectRoutes.remove);
 
+app.get("/collaborate/projects/:project", function(req, res, next){
+  res.redirect('/projects/' + req.params.project);
+})
 app.post("/projects/:project/save", localQuery, projectRoutes.save);
 
 app.post("/projects/:project/join", localQuery, projectRoutes.join);
