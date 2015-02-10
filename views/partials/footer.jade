@@ -1,4 +1,4 @@
-mixin footer
+mixin footer(page)
   footer
     img(src='/img/footer-design.png').footer-design
     div.page-wrapper
@@ -104,4 +104,9 @@ mixin footer
 
       | ga('create', 'UA-55172412-1', 'auto');
       | ga('send', 'pageview');
+    if(page == 'Event')
+      link(rel="stylesheet" type="text/css" href='https://css.tito.io/v1')
+      script(src='https://js.tito.io/v1')
+
+
 
