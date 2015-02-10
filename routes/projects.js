@@ -10,7 +10,7 @@ function isUser(element, id){
 
 function canEdit(project, user){
   var lead = false;
-  project.lead.map(function(item){ if(item.github_id == user.github_id) lead = true});
+  if (user) project.lead.map(function(item){ if(item.github_id == user.github_id) lead = true});
   return (user && (lead || (user.github_id == process.env.ADMIN)));
 }
 
