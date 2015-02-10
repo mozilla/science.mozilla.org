@@ -17,9 +17,9 @@ html
           p
             i= ev.where
             span= ' | ' + moment(ev.start).format("MMM D") + ' - ' + moment(ev.end).format("MMM D YYYY")
-          //if(ev.start > moment())
+          if(ev.start > moment())
             div(style="padding-bottom:2em")
-              button.pure-button.pure-button-lg(data-toggle="modal" data-target="#registerModal") Register
+              button.pure-button.pure-button-lg(data-toggle="modal" data-target="#register") Register
 
           div.pure-u-1
             if(ev.image_url)
@@ -27,10 +27,10 @@ html
                 img(src=ev.image_url)
 
           div.pure-u-1
-            p=ev.description
+            p!=ev.description
 
 
-          div.modal.fade#registerModal(tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true")
+          div.modal.fade#register(tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true")
               div.modal-dialog
                 div.modal-content
                   div.modal-header
@@ -43,13 +43,13 @@ html
                         | Sign in to Register
                   div.modal-body
                     p Join us in the Mozilla Toronto offices March 7-8 as we build tools helping web-enabled science
+                    tito-widget(event="mozilla-science/toronto-open-science-code-sprint")
                   div.modal-footer
                     button.pure-button.light(type="button" data-dismiss="modal") Close
-                    a.pure-button(type="button" href="/api/events/" + ev.slug + '/attend')
-                      if(user)
-                        | Register
-                      else
-                        | Sign in to Register
+                    //if(user)
+                      a.pure-button(type="button" href="/api/events/" + ev.slug + '/attend') Register
+                    //else
+                      a.pure-button(type="button" href="/auth/github") Sign in to Register
 
           h3 FACILITATORS
           div#event-people(data-url="/api/events/" + ev.slug + "/people")
@@ -58,8 +58,8 @@ html
             h3 PARTICIPANTS
             div#event-attending(data-url="/api/events/" + ev.slug + "/attending")
 
-          //if(ev.start > moment())
-            button.pure-button.pure-button-lg(data-toggle="modal" data-target="#registerModal") Register
+          if(ev.start > moment())
+            button.pure-button.pure-button-lg(data-toggle="modal" data-target="#register") Register
 
 
-    +footer()
+    +footer(page)

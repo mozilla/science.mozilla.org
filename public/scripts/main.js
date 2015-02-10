@@ -47,6 +47,9 @@
       $('.pure-menu ul').toggleClass('display');
     })
 
+    if(window.location.href.indexOf('#register') != -1) {
+      $('#register').modal('show');
+    }
     $('#collaborate-admin-table').dataTable();
     $('#leave').click(function(){
       $.ajax({
