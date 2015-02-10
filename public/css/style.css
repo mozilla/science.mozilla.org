@@ -119,8 +119,9 @@ a:focus {
 }
 
 em {
-   font-style: normal;
+   font-style: italic;
    font-weight: 400;
+   color:#888;
 }
 
 strong {
