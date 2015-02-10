@@ -9,7 +9,9 @@ function isUser(element, id){
 }
 
 function canEdit(project, user){
-  return (user && ((user.github_id == project.lead.github_id) || (user.github_id == process.env.ADMIN)));
+  var lead = false;
+  project.lead.map(function(item){ if(item.github_id == user.github_id) lead = true});
+  return (user && (lead || (user.github_id == process.env.ADMIN)));
 }
 
 module.exports = function() {
