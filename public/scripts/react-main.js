@@ -256,7 +256,8 @@ var ProjectImg = React.createClass({
     var project = this.props.project,
         slug = "/projects/" + project.slug,
         divStyle = { backgroundImage: 'url(' + project.image_url + ')',
-                     height:'160px'};
+                     height:'160px',
+                     margin:'0 0.5em 0 0'};
     return (
       <div className="pure-u-1 pure-u-md-1-5">
         <a href={ slug } className="project-img">
