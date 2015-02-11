@@ -270,30 +270,22 @@ module.exports = function() {
       var query = req.params.query.replace(' ','\\s');
       var regex = new RegExp(query, 'gi')
       Project.find( { $or: [ { slug: regex},
-                             { who: regex},
-                             { what: regex},
-                             { pageURL: regex },
-                             { description: regex },
-                             { tweetable: regex },
-                             { institution: regex },
+                             { short_description: regex},
+                             { description: regex},
+                             { project_url: regex },
+                             { institute: regex },
                              { 'github.user': regex },
                              { 'github.repo': regex },
                              { wanted: regex },
                              { goals: regex },
-                             { imageName: regex },
                              { languages: regex },
                              { subjects: regex },
                              { 'lead.name': regex },
                              { 'lead.github_id': regex },
-                             // { contributors.name: regex },
-                             // { contributors.github_id: regex },
-                             // { contributors.avatar_url: regex },
-                             { moreinfo: regex },
-                             { slug: regex },
-                             { whoIsGoingToUseThis: regex },
-                             { dependencies: regex },
-                             // { hoursyouspendonproject: regex },
-                             {title: regex} ] }, function(err, project){
+                             { 'links.link': regex },
+                             { 'links.title': regex },
+                             { title: regex },
+                             { license: regex } ] }).where('status').equals('active').populate('lead', 'name username').exec(function(err, project){
         if (err) return console.error(err);
         res.json(project);
       })    }
