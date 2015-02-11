@@ -1142,11 +1142,11 @@ span.fa.fa-chevron-right {
   padding:0.5em 1em 0.5em 0;
 }
 
-.person-card img {
+.person-card {
   opacity: 0.8;
 }
 
-.person-card a:hover img {
+.person-card:hover {
   opacity:1;
 }
 
