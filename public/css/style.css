@@ -1150,6 +1150,11 @@ span.fa.fa-chevron-right {
   opacity:1;
 }
 
+#featured-projects .person-card {
+  margin:0;
+  padding:0 1em 0 0;
+}
+
 .user-page ul {
   margin: 0.5em 0;
   list-style: none;
