@@ -43,8 +43,9 @@ html
               td=project.languages.join(', ')
               td=project.wanted.join(', ')
               td
-                a(href='//github.com/' + project.github.user + '/' + project.github.repo)
-                  i.fa.fa-github
+                if(project.github.repo)
+                  a(href='//github.com/' + project.github.user + '/' + project.github.repo)
+                    i.fa.fa-github
               td
                 a(href=project.project_url) website
               td=project.hours
