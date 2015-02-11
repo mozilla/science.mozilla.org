@@ -258,10 +258,11 @@ var ProjectImg = React.createClass({
         divStyle = { backgroundImage: 'url(' + project.image_url + ')',
                      height:'160px'};
     return (
-      <div className="pure-u-1 pure-u-md-1-4">
+      <div className="pure-u-1 pure-u-md-1-5">
         <a href={ slug } className="project-img">
           <div style={ divStyle }>
           </div>
+          <span> {project.title}</span>
         </a>
       </div>
     );
