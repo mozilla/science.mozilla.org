@@ -4,9 +4,9 @@ mixin post(p, excerpt)
     if(p.featured_image)
       if(excerpt)
         a(href=link)
-          img(src=p.featured_image.guid)
+          img(src=p.featured_image.guid style="padding-bottom:1em")
       else
-        img(src=p.featured_image.guid)
+        img(src=p.featured_image.guid style="padding-bottom:2em")
     h1
       if(excerpt)
         a(href=link)!=p.title
