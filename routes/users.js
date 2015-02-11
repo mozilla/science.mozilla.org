@@ -49,6 +49,25 @@ module.exports = function() {
           res.json(users);
       });
     },
+    getOrgs: function(req, res, next){
+      github.orgs.getFromUser({user: req.user.github_id}, function(err, orgs){
+        if(err) console.error(err);
+        res.json(orgs);
+      });
+    },
+    getRepos: function(req, res, next){
+      if(req.params.org){
+        github.repos.getFromOrg({org: req.params.org}, function(err, orgs){
+          if(err) console.error(err);
+          res.json(orgs);
+        });
+      } else {
+        github.repos.getFromUser({user: req.user.github_id}, function(err, orgs){
+          if(err) console.error(err);
+          res.json(orgs);
+        });
+      }
+    },
     badge: function(req, res, next){
       User.findOne({ username: res.locals.user.username }).exec(function(err, user){
 

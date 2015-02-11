@@ -726,8 +726,13 @@ i.bigIcon{
   font-weight: bold;
   font-size: 100%;
 }
-
-
+#github-select {
+  font-size: 1.2em;
+}
+#github-select select option{
+  padding:0.5em;
+  color:#000;
+}
 
 /* pilot study styles */
 

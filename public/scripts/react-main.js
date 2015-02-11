@@ -1,6 +1,106 @@
 
 var converter = new Showdown.converter();
 
+
+
+/* Event Box */
+var RepoList = React.createClass({
+  loadRepoFromServer: function(args) {
+    $.ajax({
+      url: (args && args.query) ? this.props.url + '/' + args.query : this.props.url,
+      dataType: 'json',
+      success: function(data) {
+        this.setState({data: data});
+      }.bind(this),
+      error: function(xhr, status, err) {
+        console.error(this.props.url, status, err.toString());
+      }.bind(this)
+    });
+    $.ajax({
+      url: '/api/auth/orgs/',
+      dataType: 'json',
+      success: function(data) {
+        data.unshift({login:''});
+        this.setState({orgs: data});
+      }.bind(this),
+      error: function(xhr, status, err) {
+        console.error(status, err.toString());
+      }.bind(this)
+    });
+  },
+  getInitialState: function() {
+    return {data: [], orgs:[]};
+  },
+  componentDidMount: function() {
+    this.loadRepoFromServer();
+  },
+  handleOrgChange: function(e) {
+    var org = this.refs.orgs.getDOMNode().value;
+    this.setState({data:[]});
+    this.loadRepoFromServer({query: org});
+    return;
+  },
+  render: function() {
+    var repoNodes = this.state.data.map(function(repo, index) {
+      return (
+        <Repo repo={repo} key={repo.id}>
+        </Repo>
+      );
+    });
+    var orgNodes = this.state.orgs.map(function(org, index) {
+      return (
+        <Org org={org} key={org.login}>
+        </Org>
+      );
+    });
+    return (
+      <div id="github-select">
+        <div>
+          <label>Organization</label><br />
+          <select onChange={this.handleOrgChange} ref="orgs">
+            {orgNodes}
+          </select>
+        </div>
+        <div>
+          <label>Repository</label><br />
+          <select name="full_name">
+            {repoNodes}
+          </select>
+        </div>
+      </div>
+    );
+  }
+});
+
+
+var Repo = React.createClass({
+  render: function() {
+    var repo = this.props.repo;
+    return (
+      <option value={repo.full_name}>
+          {repo.full_name}
+      </option>
+    );
+  }
+});
+
+var Org = React.createClass({
+  render: function() {
+    var org = this.props.org;
+    return (
+      <option value={org.login}>
+          {org.login}
+      </option>
+    );
+  }
+});
+
+
+
+
+
+
+
 /* Event Box */
 var EventBox = React.createClass({
   loadUsersFromServer: function() {
@@ -352,5 +452,12 @@ if(document.getElementById('msl-events')){
   React.render(
     <EventBox url="/api/events/" />,
     document.getElementById('msl-events')
+  );
+}
+
+if(document.getElementById('repo-list')){
+  React.render(
+    <RepoList url="/api/auth/repos" />,
+    document.getElementById('repo-list')
   );
 }

@@ -104,13 +104,36 @@ module.exports = function() {
       });
     },
     insert: function(req, res, next){
-      var project = req.body.project;
-      project.lead = [];
-      project.lead.push(req.user._id);
-      var p = new Project(project);
-      p.save(function(){
-        res.redirect('/projects/' + project.slug + '/edit');
-      });
+      if(req.body.project){
+        var project = req.body.project;
+        project.lead = [];
+        project.lead.push(req.user._id);
+        var p = new Project(project);
+        p.save(function(){
+          res.redirect('/projects/' + project.slug + '/edit');
+        });
+      } else {
+        var full_name = req.body.full_name.split('/'),
+            user = full_name[0],
+            r = full_name[1];
+        github.repos.get({user: user, repo: r}, function(err, repo){
+          var project = {
+            slug: user + '-' + r,
+            github: { user: repo.owner.login,
+                      repo: repo.name },
+            project_url: repo.homepage || repo.html_url,
+            title: repo.description || r,
+            short_description: repo.description,
+            status: "started",
+            lead: [req.user._id],
+            institute: req.user.company
+          };
+          var p = new Project(project);
+          p.save(function(){
+            res.redirect('/projects/' + project.slug + '/edit');
+          })
+        });
+      }
     },
     join: function(req, res, next){
       Project.findOne({ slug: req.params.project }).exec(function(err, project){

@@ -165,7 +165,6 @@ app.get('/projects/submit', localQuery, ensureAuthenticated, function(request, r
 
 app.post('/projects', localQuery, projectRoutes.insert);
 
-
 app.get("/projects/:project", localQuery, projectRoutes.get);
 app.get("/projects/:project/edit", localQuery, projectRoutes.edit);
 app.delete("/projects/:project", localQuery, projectRoutes.remove);
@@ -182,6 +181,9 @@ app.get("/api/users", userRoutes.getAll);
 app.post("/api/users/create", userRoutes.create);
 
 app.get("/api/users/:user", userRoutes.get);
+app.get("/api/auth/orgs", ensureAuthenticated, userRoutes.getOrgs);
+app.get("/api/auth/repos", ensureAuthenticated, userRoutes.getRepos);
+app.get("/api/auth/repos/:org", ensureAuthenticated, userRoutes.getRepos);
 
 app.get("/api/projects/featured", projectRoutes.featured);
 app.get("/api/projects/admin", projectRoutes.admin);
