@@ -263,7 +263,7 @@ var ProjectImg = React.createClass({
         <a href={ slug } className="project-img">
           <div style={ divStyle }>
           </div>
-          <span> {project.title}</span>
+          <h4> {project.title}</h4>
         </a>
       </div>
     );
