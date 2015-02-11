@@ -75,7 +75,7 @@ var projectSchema = new Schema({
 projectSchema.pre('save', function(next, done){
   if (this.isNew) {
     this.createdAt = Date.now();
-    this.status = 'Submitted';
+    this.status = 'created';
   }
   this.updatedAt = Date.now();
   next();
@@ -102,7 +102,8 @@ var userSchema = new Schema({
   bio: String,
   email: String,
   badges: [{ type: Schema.Types.ObjectId, ref: 'Badge' }],
-  location: String
+  location: String,
+  role: String
 })
 
 userSchema.pre('save', function(next, done){

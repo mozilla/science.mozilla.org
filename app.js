@@ -87,9 +87,14 @@ var routes = require("./routes"),
 
 ensureAuthenticated = function (req, res, next) {
   if (req.user) { return next(); }
-  //req.session.cookie.path = '/projects/submit';
   res.redirect('/auth/github');
 }
+
+requireAdmin = function (req, res, next) {
+  if (req.user.role == 'admin') { return next(); }
+  res.redirect('/');
+}
+
 app.get('/', localQuery, function(request, response) {
   response.render('index.jade');
 });
@@ -149,7 +154,7 @@ app.get('/fellows', localQuery, function(request, response) {
 
 
 
-app.get('/collaborate/admin', localQuery, projectRoutes.admin);
+app.get('/collaborate/admin', localQuery, ensureAuthenticated, requireAdmin, projectRoutes.admin);
 
 app.get('/collaborate/about', localQuery, function(request, response) {
   response.render('collaborate/about.jade');

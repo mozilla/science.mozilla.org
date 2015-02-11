@@ -11,7 +11,7 @@ function isUser(element, id){
 function canEdit(project, user){
   var lead = false;
   if (user) project.lead.map(function(item){ if(item.github_id == user.github_id) lead = true});
-  return (user && (lead || (user.github_id == process.env.ADMIN)));
+  return (user && (lead || (user.role == 'admin')));
 }
 
 module.exports = function() {
@@ -60,7 +60,6 @@ module.exports = function() {
         .populate('lead', 'name username')
         .exec(function (err, projects) {
         if (err) return console.error(err);
-        // res.json(projects);
         res.render('collaborate/admin.jade', {projects: projects});
       });
     },
@@ -128,10 +127,19 @@ module.exports = function() {
             lead: [req.user._id],
             institute: req.user.company
           };
-          var p = new Project(project);
-          p.save(function(){
-            res.redirect('/projects/' + project.slug + '/edit');
-          })
+
+          github.repos.getContent({user:repo.owner.login, repo:repo.name, path:'README.md'}, function(err, file){
+            if(err) console.error(err);
+            if(file){
+              var b = new Buffer(file.content, 'base64')
+              var content = b.toString();
+              project.description = content;
+            }
+            var p = new Project(project);
+            p.save(function(){
+              res.redirect('/projects/' + project.slug + '/edit');
+            })
+          });
         });
       }
     },
