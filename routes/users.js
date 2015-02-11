@@ -81,6 +81,10 @@ module.exports = function() {
     },
     get: function(req, res, next){
       var name = req.params.user.toLowerCase();
+
+      //hardcoding my different blog vs github ids... so sad :(. Pls remember to remove later.
+      if(name == 'abbycabs') name = 'acabunoc';
+
       User.findOne({ username: name }).select('-email -token').populate('badges', 'title').exec(function(err, u){
         if(!u){
           // res.status(404).end();
