@@ -18,8 +18,12 @@ html
           div.pure-u-1.pure-u-md-1-2
             h3 We believe a community of peers that work, learn and build together can make research thrive on the open web.
           div
-            a(data-toggle="modal" data-target="#joinUsModal")
-              div.pure-button JOIN US
+            if(user)
+              a(href="/community")
+                div.pure-button JOIN US
+            else
+              a(data-toggle="modal" data-target="#joinUsModal")
+                div.pure-button JOIN US
             a(href="/about")
               div.pure-button.light LEARN MORE
     div.pure-u-1.is-center.callout
