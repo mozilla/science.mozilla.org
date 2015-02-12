@@ -200,7 +200,8 @@ module.exports = function() {
           return;
         } else {
           if (err) return console.error(err);
-          if(project.status != 'active' || project.status != 'complete'){
+          console.log(project.status)
+          if(!(project.status == 'active' || project.status == 'complete')){
             if(!req.user || (!canEdit(project, req.user))){
               res.status(403).end();
               return;
