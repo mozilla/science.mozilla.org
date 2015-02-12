@@ -55,9 +55,10 @@ html
                       a(href="/" + ev.slug)!=ev.title
                 - }
 
-
             if(projects.length > 0)
               h3 PROJECTS
+                if(is_self)
+                  |  (accepted)
               ul#projects
                 - for(var i=0; i<projects.length; i++){
                   -var project = projects[i];
@@ -66,6 +67,16 @@ html
                       a(href="/projects/" + project.slug)!=project.title
                 - }
 
+            if(is_self && projects_review.length > 0)
+              h3 MY PROJECTS (under review)
+              ul#projects
+                - for(var i=0; i<projects_review.length; i++){
+                  -var project = projects_review[i];
+                    li
+                      i.fa.fa-cogs
+                      a(href="/projects/" + project.slug)!=project.title
+                      span= " (" + project.status + ")"
+                - }
             if(posts.length > 0)
               h3 ARTICLES BY #{person.name.toUpperCase()}
               ul#posts

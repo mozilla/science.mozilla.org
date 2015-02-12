@@ -99,7 +99,8 @@ module.exports = function() {
       });
     },
     get: function(req, res, next){
-      var name = req.params.user.toLowerCase();
+      var name = req.params.user.toLowerCase(),
+          is_self = (req.user && name == req.user.username);
 
       //hardcoding my different blog vs github ids... so sad :(. Pls remember to remove later.
       if(name == 'abbycabs') name = 'acabunoc';
@@ -124,6 +125,7 @@ module.exports = function() {
 
               // Find projects for this user
               Project.find({ $and: [ { $or: [{lead: u._id}, {contributors: u._id}] }, { $or: [{status: "active"}, {status:"complete"}]}] }).select('title slug').exec(function(err, projects){
+
                   // Because I'm the only one who has a different wp login than github login....
                   // Remove when we switch to github blogging
                   var wp_name = (name === 'acabunoc') ? 'abbycabs' : name;
@@ -134,12 +136,30 @@ module.exports = function() {
                       if ( err ) {
                           return console.log(err);
                       }
-                      res.render('user.jade', {
-                                              posts: posts,
-                                              projects: projects,
-                                              badges: badges,
-                                              events: events,
-                                              person: u})
+
+                      if(!is_self){
+                        res.render('user.jade', {
+                                                posts: posts,
+                                                projects: projects,
+                                                badges: badges,
+                                                events: events,
+                                                person: u,
+                                                is_self: is_self})
+                      } else {
+
+                        Project.find({ $and: [ {lead: u._id}, { $or: [{status: "created"}, {status:"Submitted"}, {status:"closed"}]}] }).select('title slug status').exec(function(err, projects_review){
+
+                        res.render('user.jade', {
+                                                posts: posts,
+                                                projects: projects,
+                                                badges: badges,
+                                                events: events,
+                                                person: u,
+                                                projects_review: projects_review,
+                                                is_self: is_self});
+
+                        });
+                      }
                   });
               });
 
