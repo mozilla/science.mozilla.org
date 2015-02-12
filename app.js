@@ -189,6 +189,7 @@ app.get("/api/users/:user", userRoutes.get);
 app.get("/api/auth/orgs", ensureAuthenticated, userRoutes.getOrgs);
 app.get("/api/auth/repos", ensureAuthenticated, userRoutes.getRepos);
 app.get("/api/auth/repos/:org", ensureAuthenticated, userRoutes.getRepos);
+app.get("/api/auth/projects", ensureAuthenticated, projectRoutes.getAllUser);
 
 app.get("/api/projects/featured", projectRoutes.featured);
 app.get("/api/projects/admin", projectRoutes.admin);

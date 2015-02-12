@@ -267,6 +267,15 @@ module.exports = function() {
         }
       })
     },
+    getAllUser:function(req,res,next){
+      var id = req.user._id;
+      Project.find({$or:[{lead:id}, {contributors:id}]})
+        .populate('lead', 'name username')
+        .exec( function(err, projects){
+          if(err) return console.error(err);
+          res.json(projects);
+      });
+    },
     search: function(req, res, next){
       var query = req.params.query.replace(' ','\\s');
       var regex = new RegExp(query, 'gi')

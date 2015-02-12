@@ -16,6 +16,15 @@ html
       section
         +welcome()
 
+      if(user)
+        section.projectList
+          div.pure-g
+            div.pure-u-1.pure-u-1-4
+              h2 MY PROJECTS
+              i Here are the projects you are participating in
+            div.pure-u-1.pure-u-3-4
+
+          div#my-projects
 
 
       section.projectList

@@ -147,7 +147,7 @@ module.exports = function() {
                                                 is_self: is_self})
                       } else {
 
-                        Project.find({ $and: [ {lead: u._id}, { $or: [{status: "created"}, {status:"Submitted"}, {status:"closed"}]}] }).select('title slug status').exec(function(err, projects_review){
+                        Project.find({lead: u._id}).select('title slug status').exec(function(err, projects_review){
 
                         res.render('user.jade', {
                                                 posts: posts,

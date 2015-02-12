@@ -276,7 +276,10 @@ var Project = React.createClass({
   render: function() {
     var project = this.props.project,
         slug = "/projects/" + project.slug,
-        summary = project.short_description || project.description;
+        summary = project.short_description || project.description,
+        status = this.props.status,
+        statusClass = "fa fa-circle ";
+    statusClass += project.status == 'active' ? 'text-success' : (project.status == 'closed' || project.status == 'complate') ? 'text-danger' : 'text-warning';
     summary = converter.makeHtml(summary);
     return (
       <div className="project pure-g">
@@ -291,25 +294,29 @@ var Project = React.createClass({
           </div>
         </div>
         <div className="pure-u-md-3-4">
-          <div className="pure-u-1 pure-u-lg-1-3">
+          <div className="pure-u-1 pure-u-lg-1-4">
             <i className="fa fa-user" />
             <label>
             {project.lead.map(function(item, i){return <a href={'/u/' + item.username }>{item.name}{(i==project.lead.length-1) ? "" : ","} </a>}) }
             </label>
           </div>
-          <div className="pure-u-1 pure-u-lg-1-3">
+          <div className="pure-u-1 pure-u-lg-1-4">
             <i className="fa fa-map-marker" />
             <label> { project.institute} </label>
           </div>
-          <div className="pure-u-1 pure-u-lg-1-3">
+          <div className="pure-u-1 pure-u-lg-1-4">
             <i className="fa fa-tag" />
             <label> { project.languages.join(', ')} </label>
+          </div>
+          <div className="pure-u-1 pure-u-lg-1-4">
+            <i className={statusClass}/>
+            <label> {project.status} </label>
           </div>
         </div>
         <div className="pure-u-1 pure-u-md-1-4 sidebar">
           <a href={ slug }>
             <div className="crop">
-              <img src={project.image_url} />
+              <img src={project.image_url || '/img/placeholder.png'} />
             </div>
           </a>
         </div>
@@ -328,7 +335,7 @@ var Project = React.createClass({
 var ProjectBox = React.createClass({
   loadProjectsFromServer: function(args) {
     $.ajax({
-      url: (args && args.query) ? '/api/projects/search/' + args.query : this.props.url,
+      url: (args && args.query) ? this.props.url + '/search/' + args.query : this.props.url,
       dataType: 'json',
       success: function(data) {
         this.setState({data: data});
@@ -364,15 +371,22 @@ var ProjectBox = React.createClass({
   },
   componentDidMount: function() {
     this.loadProjectsFromServer();
-    // setInterval(this.loadProjectsFromServer, this.props.pollInterval);
   },
   render: function() {
-    return (
-      <div id="projectbox">
-        <SearchForm onSearchSubmit={this.loadProjectsFromServer} />
-        <ProjectList data={this.state.data} />
-      </div>
-    );
+    if(this.props.data-status){
+      return (
+        <div id="projectbox">
+          <SearchForm onSearchSubmit={this.loadProjectsFromServer} />
+          <ProjectList data={this.state.data} status={false}/>
+        </div>
+      );
+    } else {
+      return (
+        <div id="projectbox">
+          <ProjectList data={this.state.data} status={true}/>
+        </div>
+      );
+    }
   }
 });
 
@@ -396,19 +410,31 @@ var SearchForm = React.createClass({
 
 var ProjectList = React.createClass({
   render: function() {
+    var status = this.props.status;
     var projectNodes = this.props.data.map(function(project, index) {
       return (
-        <Project project={project} key={project.slug}>
+        <Project project={project} key={project.slug} status={status}>
         </Project>
       );
     });
-    return (
-      <div id="project-list">
-        {projectNodes}
-      </div>
-    );
+    if(projectNodes.length >0) {
+      return (
+        <div id="project-list">
+          {projectNodes}
+        </div>
+      );
+    } else {
+      return (
+        <p>
+          {"You don't have any projects yet. "}
+          <a href="/projects/submit">{"Click here to submit a project"}</a>
+        </p>
+      );
+    }
   }
 });
+
+
 
 
 /* Set up */
@@ -427,6 +453,12 @@ if(document.getElementById('content')){
   );
 }
 
+if(document.getElementById('my-projects')){
+  React.render(
+    <ProjectBox url="/api/auth/projects" data-status="true"/>,
+    document.getElementById('my-projects')
+  );
+}
 
 if(document.getElementById('msl-people')){
   React.render(
