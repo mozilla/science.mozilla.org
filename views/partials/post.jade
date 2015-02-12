@@ -13,7 +13,7 @@ mixin post(p, excerpt)
       else
         span!=p.title
     div
-      | Posted on &nbsp;
+      | Posted on&nbsp;
       a(href=link) #{moment(p.date).format('LL')}
       |  by &nbsp;
       a(href='/u/' + p.author.username) #{ p.author.name }
