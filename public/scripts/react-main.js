@@ -373,16 +373,16 @@ var ProjectBox = React.createClass({
     this.loadProjectsFromServer();
   },
   render: function() {
-    if(this.props.data-status){
+    if(this.props.status == "myproject"){
       return (
         <div id="projectbox">
-          <SearchForm onSearchSubmit={this.loadProjectsFromServer} />
           <ProjectList data={this.state.data} status={false}/>
         </div>
       );
     } else {
       return (
         <div id="projectbox">
+          <SearchForm onSearchSubmit={this.loadProjectsFromServer} />
           <ProjectList data={this.state.data} status={true}/>
         </div>
       );
@@ -455,7 +455,7 @@ if(document.getElementById('content')){
 
 if(document.getElementById('my-projects')){
   React.render(
-    <ProjectBox url="/api/auth/projects" data-status="true"/>,
+    <ProjectBox url="/api/auth/projects" status="myproject"/>,
     document.getElementById('my-projects')
   );
 }
