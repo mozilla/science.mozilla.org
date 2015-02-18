@@ -14,6 +14,14 @@ function canEdit(project, user){
   return (user && (lead || (user.role == 'admin')));
 }
 
+function removeUser(array, id){
+  var match = array.filter(isUser, id);
+  if(match){
+    array.splice(array.indexOf(match[0]), 1);
+  }
+  return match;
+}
+
 module.exports = function() {
    // Error messages
   var errorHandlers = {
@@ -143,6 +151,21 @@ module.exports = function() {
         });
       }
     },
+    leave: function(req, res, next){
+      Project.findOne({ slug: req.params.project }).exec(function(err, project){
+        if (err) return console.error(err);
+        if(project.contributors){
+          removeUser(project.contributors, req.user.githubId);
+          project.save(function(){
+            res.send();
+          })
+        }else{
+          res.send();
+        }
+
+
+      });
+    },
     join: function(req, res, next){
       Project.findOne({ slug: req.params.project }).exec(function(err, project){
         if (err) return console.error(err);
@@ -200,7 +223,6 @@ module.exports = function() {
           return;
         } else {
           if (err) return console.error(err);
-          console.log(project.status)
           if(!(project.status == 'active' || project.status == 'complete')){
             if(!req.user || (!canEdit(project, req.user))){
               res.status(403).end();

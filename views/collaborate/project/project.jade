@@ -100,7 +100,7 @@ html
                 if(!member && (project.status == 'active'))
                     span.pure-button.btn-success(id='join', data-href='/projects/' + project.slug + '/join') Join Project!
                 else if(canLeave)
-                    span.pure-button.btn-danger(id='leave', data-href='/projects/' + project.slug + '/leave') Leave Project
+                    span.pure-button.btn-danger(id='leave', data-href='/api/projects/' + project.slug + '/leave') Leave Project
                 if(canEdit)
                   a.pure-button.btn-danger(href='/projects/' + project.slug + '/edit') Edit Project
               else if(project.status == 'active')

@@ -194,6 +194,7 @@ app.get("/api/auth/projects", ensureAuthenticated, projectRoutes.getAllUser);
 app.get("/api/projects/featured", projectRoutes.featured);
 app.get("/api/projects/admin", projectRoutes.admin);
 app.get("/api/projects/:project", projectRoutes.get);
+app.get("/api/projects/:project/leave", ensureAuthenticated, projectRoutes.leave);
 app.get("/api/projects", projectRoutes.getAll);
 
 app.get("/api/events/:slug/attending", eventRoutes.getAttending);
