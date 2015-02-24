@@ -142,6 +142,13 @@ html
                   p
                     span.tag What learning oppourtunities are present for newcomers to this field / project?
                   p=project.learning
+                  p
+                    span.tag Contact email
+                  p
+                    each l, ind in lead
+                        a(href='mailto:' + l.email)=l.email
+                        if ind != lead.length-1
+                          | ,&nbsp;
 
               if(content)
                 h3 REPO PREVIEW

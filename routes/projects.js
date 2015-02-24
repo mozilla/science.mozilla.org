@@ -217,7 +217,11 @@ module.exports = function() {
 
     },
     get: function(req, res, next){
-      Project.findOne({ slug: req.params.project }).populate('lead', '-email -token').populate('contributors', '-email -token').exec(function(err, project){
+      var pop = '-token';
+      if(!(req.user && req.user.role == 'admin')) {
+        pop += ' -email';
+      }
+      Project.findOne({ slug: req.params.project }).populate('lead', pop).populate('contributors', '-email -token').exec(function(err, project){
         if(!project){
           res.status(404).end();
           return;
@@ -234,7 +238,7 @@ module.exports = function() {
           } else {
               var args = (project.github.repo) ? {user: project.github.user } : {org: project.github.user},
                   vars = {
-                            lead: project.lead.map(function(item){ return {name: item.name, username: item.username}}),
+                            lead: project.lead.map(function(item){ return {name: item.name, username: item.username, email: item.email}}),
                             type: (project.github.repo) ? 'repo' : 'org',
                             loggedIn: !!req.user,
                             user: req.user,
