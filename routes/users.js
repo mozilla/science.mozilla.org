@@ -98,6 +98,56 @@ module.exports = function() {
 
       });
     },
+    remove: function(req, res, next){
+      var name = req.params.user.toLowerCase();
+
+      if(req.user.username == name || req.user.role == 'admin'){
+        User.findOneAndRemove({username:name}, function(){
+          req.logout();
+          res.send();
+        });
+      } else {
+        res.status(403).end();
+      }
+    },
+    save: function(req, res, next){
+      var name = req.params.user.toLowerCase();
+
+      if(req.user.username == name || req.user.role == 'admin'){
+        User.where({username: name}).update(req.body.user, function(){
+            res.send();
+        });
+      } else {
+        res.status(403).end();
+      }
+    },
+    edit: function(req, res, next){
+     var name = req.params.user.toLowerCase(),
+          is_self = (req.user && name == req.user.username);
+
+      if(!is_self){
+        res.status(403).end();
+      }
+
+      //hardcoding my different blog vs github ids... so sad :(. Pls remember to remove later.
+      if(name == 'abbycabs') name = 'acabunoc';
+
+      User.findOne({ username: name }).select('-email -token').exec(function(err, u){
+        if(!u){
+          res.status(404).end();
+        } else {
+          if (err) return console.error(err);
+          if(req.xhr) {
+            res.json(u);
+          } else {
+            res.render('user/edit.jade', {
+                        person: u,
+                        is_self: is_self})
+          }
+
+        }
+      });
+    },
     get: function(req, res, next){
       var name = req.params.user.toLowerCase(),
           is_self = (req.user && name == req.user.username);
@@ -138,7 +188,7 @@ module.exports = function() {
                       }
 
                       if(!is_self){
-                        res.render('user.jade', {
+                        res.render('user/user.jade', {
                                                 posts: posts,
                                                 projects: projects,
                                                 badges: badges,
@@ -149,7 +199,7 @@ module.exports = function() {
 
                         Project.find({lead: u._id}).select('title slug status').exec(function(err, projects_review){
 
-                        res.render('user.jade', {
+                        res.render('user/user.jade', {
                                                 posts: posts,
                                                 projects: projects,
                                                 badges: badges,

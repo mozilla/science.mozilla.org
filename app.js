@@ -116,6 +116,7 @@ app.get('/community', localQuery, function(request, response) {
 });
 
 app.get('/u/:user', localQuery, userRoutes.get);
+app.get('/u/:user/edit', localQuery, ensureAuthenticated, userRoutes.edit);
 
 app.get('/sso', function(request, response) {
   var ref = request.session.ref = url.parse('http://forum.mozillascience.org/');
@@ -172,7 +173,7 @@ app.post('/projects', localQuery, projectRoutes.insert);
 
 app.get("/projects/:project", localQuery, projectRoutes.get);
 app.get("/projects/:project/edit", localQuery, projectRoutes.edit);
-app.delete("/projects/:project", localQuery, projectRoutes.remove);
+app.delete("/projects/:project", localQuery, ensureAuthenticated, projectRoutes.remove);
 
 //redirection for the old project page links
 app.get("/collaborate/projects/:project", function(req, res, next){
@@ -186,6 +187,9 @@ app.get("/api/users", userRoutes.getAll);
 app.post("/api/users/create", userRoutes.create);
 
 app.get("/api/users/:user", userRoutes.get);
+app.delete('/api/users/:user', ensureAuthenticated, userRoutes.remove);
+app.put('/api/users/:user', ensureAuthenticated, userRoutes.save);
+
 app.get("/api/auth/orgs", ensureAuthenticated, userRoutes.getOrgs);
 app.get("/api/auth/repos", ensureAuthenticated, userRoutes.getRepos);
 app.get("/api/auth/repos/:org", ensureAuthenticated, userRoutes.getRepos);

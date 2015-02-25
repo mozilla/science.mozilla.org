@@ -119,12 +119,35 @@
       });
     })
 
-    $('#delete-project').click(function(){
+    $('#delete').click(function(){
+      var redirect = $(this).data('redirect') || "/collaborate";
       $.ajax({
         url: $(this).data('href'),
         type:'DELETE',
         success: function(msg){
-          window.location.href = "/collaborate";
+          window.location.href = redirect;
+        },
+        error: function(xhr,status,error) {
+          console.log(xhr);
+        }
+      });
+    });
+
+    $('#save-profile').click(function(){
+      var bio = $('#bio').val(),
+          user = $(this).data('person'),
+          redirect = $(this).data('redirect') || "/";
+
+      user.bio = bio;
+
+      $.ajax({
+        url: $(this).data('href'),
+        type:'PUT',
+        data: {
+          user: user
+        },
+        success: function(msg){
+          window.location.href = redirect;
         },
         error: function(xhr,status,error) {
           console.log(xhr);

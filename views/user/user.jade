@@ -1,6 +1,6 @@
-include partials/head.jade
-include partials/header.jade
-include partials/footer.jade
+include ../partials/head.jade
+include ../partials/header.jade
+include ../partials/footer.jade
 
 -var page = "User"
 
@@ -15,7 +15,7 @@ html
         div
           h1 #{person.name + '  '}
 
-          //if(user && person.username == user.username)
+          if(user && person.username == user.username)
             span.pull-right
               i.fa.fa-pencil
               a(href="/u/" + user.username + "/edit") Edit Profile

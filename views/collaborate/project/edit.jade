@@ -139,7 +139,7 @@ html
                   | Submit Project
                 else
                   | Save Project
-              span.pure-button.btn-success#delete-project(data-href='/projects/' + project.slug) Delete Project
+              span.pure-button.btn-success#delete(data-href='/projects/' + project.slug data-redirect='/collaborate') Delete Project
               a.pure-button(href='/projects/' + project.slug) View Project
 
 
