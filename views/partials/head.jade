@@ -3,7 +3,7 @@ mixin head(title)
   meta(charset='utf-8')
   meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
   meta(name='description', content='Mozilla Science Lab: Helping Research Thrive on the Open Web')
-  title= title
+  title!= title
   meta(name='viewport', content="width=device-width, initial-scale=1")
   link(rel='icon', type='image/ico', href='/img/favicon.ico')
 
