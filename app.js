@@ -68,12 +68,12 @@ db.once('open', function callback () {
 var models = require('./models.js')
 
 localQuery = function(req, res, next) {
+  req.session.cookie.path = req.originalUrl
   if(req.user && !req.user.status){
     req.logout();
   }
   res.locals.loggedIn = !!req.user;
-  if(req.user) res.locals.user = req.user;
-  req.session.cookie.path = req.originalUrl
+  res.locals.user = req.user;
   next();
 };
 
