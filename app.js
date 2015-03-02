@@ -69,6 +69,14 @@ var models = require('./models.js')
 
 localQuery = function(req, res, next) {
   req.session.cookie.path = req.originalUrl
+  console.log("localQuery");
+  console.log(req.session.cookie.path);
+  if(req.user){
+    console.log(req.user.username);
+  } else {
+    console.log('no user');
+  }
+  console.log("end localQuery");
   if(req.user && !req.user.status){
     req.logout();
   }
