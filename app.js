@@ -72,7 +72,7 @@ localQuery = function(req, res, next) {
     req.logout();
   }
   res.locals.loggedIn = !!req.user;
-  res.locals.user = req.user;
+  if(req.user) res.locals.user = req.user;
   req.session.cookie.path = req.originalUrl
   next();
 };
@@ -155,7 +155,7 @@ app.get('/fellows', localQuery, function(request, response) {
 
 
 
-app.get('/collaborate/admin', ensureAuthenticated, requireAdmin, localQuery, projectRoutes.admin);
+app.get('/collaborate/admin', localQuery, ensureAuthenticated, requireAdmin, projectRoutes.admin);
 
 app.get('/collaborate/about', localQuery, function(request, response) {
   response.render('collaborate/about.jade');
