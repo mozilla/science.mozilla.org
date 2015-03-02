@@ -155,7 +155,7 @@ app.get('/fellows', localQuery, function(request, response) {
 
 
 
-app.get('/collaborate/admin', localQuery, ensureAuthenticated, requireAdmin, projectRoutes.admin);
+app.get('/collaborate/admin', ensureAuthenticated, requireAdmin, localQuery, projectRoutes.admin);
 
 app.get('/collaborate/about', localQuery, function(request, response) {
   response.render('collaborate/about.jade');
