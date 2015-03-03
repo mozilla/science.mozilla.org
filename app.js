@@ -69,14 +69,6 @@ var models = require('./models.js')
 
 localQuery = function(req, res, next) {
   req.session.cookie.path = req.originalUrl
-  console.log("localQuery");
-  console.log(req.session.cookie.path);
-  if(req.user){
-    console.log(req.user.username);
-  } else {
-    console.log('no user');
-  }
-  console.log("end localQuery");
   if(req.user && !req.user.status){
     req.logout();
   }
@@ -163,7 +155,7 @@ app.get('/fellows', localQuery, function(request, response) {
 
 
 
-app.get('/collaborate/dashboard', localQuery, ensureAuthenticated, requireAdmin, projectRoutes.all);
+app.get('/collaborate/dashboard', localQuery, ensureAuthenticated, requireAdmin, projectRoutes.admin);
 
 app.get('/collaborate/about', localQuery, function(request, response) {
   response.render('collaborate/about.jade');
