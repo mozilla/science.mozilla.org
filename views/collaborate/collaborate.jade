@@ -16,6 +16,9 @@ html
       section
         +welcome()
 
+      if(user && user.role == 'admin')
+        div
+          a(href="/collaborate/admin") Admin view
       if(user)
         section.projectList
           div.pure-g
