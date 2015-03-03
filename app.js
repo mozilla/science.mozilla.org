@@ -11,6 +11,7 @@ var express = require('express'),
     dotenv = require('dotenv'),
     aws = require('aws-sdk'),
     cookieParser = require('cookie-parser'),
+    helpers = require('express-helpers')(),
     uuid = require('node-uuid');
 
 dotenv.load();
@@ -48,6 +49,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.locals.loggedIn = true;
 app.locals.moment = require('moment');
+app.locals.marked = require('marked');
 
 var discourse_sso = require('discourse-sso');
 var sso = new discourse_sso(process.env.SSOSECRET || 'abigail');
