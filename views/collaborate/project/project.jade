@@ -63,7 +63,7 @@ html
                 br
                 small= 'Looking for: ' + project.wanted.join(', ')
             div.pure-u-1
-              p.summary!= project.short_description
+              p.summary!= marked(project.short_description)
               if(project.description)
                 h3 WHAT WE'RE DOING
                 p.summary !{marked(project.description)}
