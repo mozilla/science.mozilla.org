@@ -163,7 +163,7 @@ app.get('/fellows', localQuery, function(request, response) {
 
 
 
-app.get('/collaborate/admin', localQuery, ensureAuthenticated, requireAdmin, projectRoutes.admin);
+app.get('/collaborate/all', localQuery, ensureAuthenticated, requireAdmin, projectRoutes.all);
 
 app.get('/collaborate/about', localQuery, function(request, response) {
   response.render('collaborate/about.jade');
@@ -208,7 +208,7 @@ app.get("/api/auth/repos/:org", ensureAuthenticated, userRoutes.getRepos);
 app.get("/api/auth/projects", ensureAuthenticated, projectRoutes.getAllUser);
 
 app.get("/api/projects/featured", projectRoutes.featured);
-app.get("/api/projects/admin", projectRoutes.admin);
+// app.get("/api/projects/admin", projectRoutes.admin);
 app.get("/api/projects/:project", projectRoutes.get);
 app.get("/api/projects/:project/leave", ensureAuthenticated, projectRoutes.leave);
 app.get("/api/projects", projectRoutes.getAll);

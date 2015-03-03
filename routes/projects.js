@@ -62,7 +62,7 @@ module.exports = function() {
         res.json(projects);
       });
     },
-    admin: function(req, res, next){
+    all: function(req, res, next){
       Project
         .find()
         .populate('lead', 'name username')
