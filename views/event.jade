@@ -29,30 +29,7 @@ html
           div.pure-u-1
             p!=ev.description
 
-          if(ev.slug == 'toronto-open-science-code-sprint-2015')
-            h3 SCHEDULE
-            h4 Saturday, March 7
-            p
-              span 9:00 - 9:15am: Registration / Coffee
-              br
-              span 9:15 - 10:00am: Quick overview of all the projects + questions
-              br
-              span 10:00 - 12:30pm: Form groups - begin working
-              br
-              span 12:30 - 1:30pm: Rolling Lunch
-              br
-              span 1:30 - 5:00pm: Working in groups
-              br
-            h4 Sunday, March 8
-            p
-              span 10:00 - 12:30pm: Working in groups
-              br
-              span 12:30 - 1:30pm: Rolling Lunch
-              br
-              span 1:30 - 3:00pm: Working in groups
-              br
-              span 3:00 - 5:00pm: Final demos!
-              br
+
 
           div.modal.fade#register(tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true")
               div.modal-dialog
@@ -88,6 +65,31 @@ html
 
           if(ev.start > moment())
             button.pure-button.pure-button-lg(data-toggle="modal" data-target="#register") Register
+
+         if(ev.slug == 'toronto-open-science-code-sprint-2015')
+            h3 SCHEDULE
+            h4 Saturday, March 7
+            p
+              span 9:00 - 9:15am: Registration / Coffee
+              br
+              span 9:15 - 10:00am: Quick overview of all the projects + questions
+              br
+              span 10:00 - 12:30pm: Form groups - begin working
+              br
+              span 12:30 - 1:30pm: Rolling Lunch
+              br
+              span 1:30 - 5:00pm: Working in groups
+              br
+            h4 Sunday, March 8
+            p
+              span 10:00 - 12:30pm: Working in groups
+              br
+              span 12:30 - 1:30pm: Rolling Lunch
+              br
+              span 1:30 - 3:00pm: Working in groups
+              br
+              span 3:00 - 5:00pm: Final demos!
+              br
 
 
     +footer(page)
