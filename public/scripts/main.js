@@ -190,10 +190,10 @@
 
       $.map(info, function(val, i){
         var values = $(val).children('input'),
-            title = $(values[0]).val();
+            title = $(values[1]).val();
         if(title){
           links.push({
-            link: $(values[1]).val(),
+            link: $(values[0]).val(),
             title: title
           });
         }
