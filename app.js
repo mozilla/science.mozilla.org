@@ -105,6 +105,10 @@ app.get('/about', localQuery, function(request, response) {
   response.render('about.jade');
 });
 
+app.get('/code-of-conduct', localQuery, function(request, response) {
+  response.render('coc.jade');
+});
+
 app.get('/education', function(request,response) {
   response.redirect('/training');
 });
