@@ -1,23 +1,33 @@
 doctype xml
 
-rss(version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:wfw="http://wellformedweb.org/CommentAPI/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:sy="http://purl.org/rss/1.0/modules/syndication/" xmlns:slash="http://purl.org/rss/1.0/modules/slash/")
-    channel
-        title Mozilla Science Lab
-        link http://mozillascience.org
-        atom:link(href='http://mozillascience.org/feed/', rel='self', type='application/rss+xml')
-        description Helping research thrive on the open web
-        language en-US
+rss(version="2.0"
+    xmlns:content="http://purl.org/rss/1.0/modules/content/"
+    xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:atom="http://www.w3.org/2005/Atom"
+    xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+    xmlns:slash="http://purl.org/rss/1.0/modules/slash/")
+        channel
+            title Mozilla Science Lab
+            link http://mozillascience.org
+            atom:link(href='http://mozillascience.org/feed/', rel='self', type='application/rss+xml')
+            description Helping research thrive on the open web
+            language en-US
 
-        if posts.length
-            lastBuildDate= new Date(posts[0].date).toUTCString()
-        each post in posts
-            item
-                title!= post.title
-                link http://mozillascience.org/#{post.slug}/
-                comments http://mozillascience.org/#{post.slug}#comments
-                description
-                    | <![CDATA[!{post.excerpt}]]>
-                content:encoded
-                    | <![CDATA[!{post.content}]]>
-                pubDate= new Date(post.date).toUTCString()
-                guid(isPermaLink='false') <a href="http://mozillascience.org/#{post.slug}" rel="nofollow">http://mozillascience.org/#{post.slug}</a>
+            if posts.length
+                lastBuildDate= new Date(posts[0].date).toUTCString()
+            each post in posts
+                item
+                    title!= post.title
+                    link http://mozillascience.org/#{post.slug}/
+                    comments http://mozillascience.org/#{post.slug}#comments
+                    description
+                        | <![CDATA[
+                        | !{post.excerpt}
+                        | ]]>
+                    content:encoded
+                        | <![CDATA[
+                        | !{post.content}
+                        | ]]>
+                    pubDate= new Date(post.date).toUTCString()
+                    guid(isPermaLink='false') http://mozillascience.org/#{post.slug}
