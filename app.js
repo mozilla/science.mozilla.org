@@ -222,7 +222,7 @@ app.get("/api/projects/search/:query", projectRoutes.search);
 app.get("/api/users/badge/:badge", localQuery, ensureAuthenticated, userRoutes.badge);
 
 app.get('/auth/github',
-  passport.authenticate('github', { scope: 'public_repo'}));
+  passport.authenticate('github', { scope: 'public_repo user:email'}));
 
 app.get('/auth/github/callback',
   passport.authenticate('github', { failureRedirect: '/' }),
