@@ -45,7 +45,8 @@ module.exports = function() {
           if ( err ) {
               return console.log(err);
           }
-          res.render('rss.jade', {posts: posts})
+          res.header('Content-Type','application/rss+xml');
+          res.render('rss.jade', {posts: posts});
       });
     }
   };
