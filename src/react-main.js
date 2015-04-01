@@ -4,7 +4,7 @@ var converter = new Showdown.converter();
 
 
 /* Event Box */
-var RepoList = React.createClass({displayName: "RepoList",
+var RepoList = React.createClass({
   loadRepoFromServer: function(args) {
     $.ajax({
       url: (args && args.query) ? this.props.url + '/' + args.query : this.props.url,
@@ -43,54 +43,54 @@ var RepoList = React.createClass({displayName: "RepoList",
   render: function() {
     var repoNodes = this.state.data.map(function(repo, index) {
       return (
-        React.createElement(Repo, {repo: repo, key: repo.id}
-        )
+        <Repo repo={repo} key={repo.id}>
+        </Repo>
       );
     });
     var orgNodes = this.state.orgs.map(function(org, index) {
       return (
-        React.createElement(Org, {org: org, key: org.login}
-        )
+        <Org org={org} key={org.login}>
+        </Org>
       );
     });
     return (
-      React.createElement("div", {id: "github-select"}, 
-        React.createElement("div", null, 
-          React.createElement("label", null, "Organization"), React.createElement("br", null), 
-          React.createElement("select", {onChange: this.handleOrgChange, ref: "orgs"}, 
-            orgNodes
-          )
-        ), 
-        React.createElement("div", null, 
-          React.createElement("label", null, "Repository"), React.createElement("br", null), 
-          React.createElement("select", {name: "full_name"}, 
-            repoNodes
-          )
-        )
-      )
+      <div id="github-select">
+        <div>
+          <label>Organization</label><br />
+          <select onChange={this.handleOrgChange} ref="orgs">
+            {orgNodes}
+          </select>
+        </div>
+        <div>
+          <label>Repository</label><br />
+          <select name="full_name">
+            {repoNodes}
+          </select>
+        </div>
+      </div>
     );
   }
 });
 
 
-var Repo = React.createClass({displayName: "Repo",
+var Repo = React.createClass({
   render: function() {
     var repo = this.props.repo;
     return (
-      React.createElement("option", {value: repo.full_name}, 
-          repo.full_name
-      )
+      <option value={repo.full_name}>
+          {repo.full_name}
+      </option>
     );
   }
 });
 
-var Org = React.createClass({displayName: "Org",
+var Org = React.createClass({
   render: function() {
     var org = this.props.org;
     return (
-      React.createElement("option", {value: org.login}, 
-          org.login
-      )
+      <option value={org.login}>
+          {org.login}
+      </option>
     );
   }
 });
@@ -102,7 +102,7 @@ var Org = React.createClass({displayName: "Org",
 
 
 /* Event Box */
-var EventBox = React.createClass({displayName: "EventBox",
+var EventBox = React.createClass({
   loadUsersFromServer: function() {
     $.ajax({
       url: this.props.url,
@@ -124,32 +124,32 @@ var EventBox = React.createClass({displayName: "EventBox",
   render: function() {
     var eventNodes = this.state.data.map(function(ev, index) {
       return (
-        React.createElement(Event, {ev: ev, key: ev.slug}
-        )
+        <Event ev={ev} key={ev.slug}>
+        </Event>
       );
     });
     return (
-      React.createElement("ul", {className: "fa-ul"}, 
-        eventNodes
-      )
+      <ul className="fa-ul">
+        {eventNodes}
+      </ul>
     );
   }
 })
 
 
 
-var Event = React.createClass({displayName: "Event",
+var Event = React.createClass({
   render: function() {
     var ev = this.props.ev;
     return (
-      React.createElement("li", null, 
-        React.createElement("i", {className: "fa-li fa fa-calendar"}), 
-        React.createElement("a", {href:  ev.slug}, 
-          ev.title
-        ), ", ", 
-         moment(ev.start).format("MMM Do"), " - ", 
-         moment(ev.end).format("MMM Do YYYY") 
-      )
+      <li>
+        <i className="fa-li fa fa-calendar"></i>
+        <a href={ ev.slug }>
+          {ev.title}
+        </a>,&nbsp;
+        { moment(ev.start).format("MMM Do") } -&nbsp;
+        { moment(ev.end).format("MMM Do YYYY") }
+      </li>
     );
   }
 });
@@ -158,7 +158,7 @@ var Event = React.createClass({displayName: "Event",
 
 /* People Box */
 
-var PeopleBox = React.createClass({displayName: "PeopleBox",
+var PeopleBox = React.createClass({
   loadUsersFromServer: function() {
     var url = $('#' + this.props.load_id).data('url');
     $.ajax({
@@ -181,34 +181,34 @@ var PeopleBox = React.createClass({displayName: "PeopleBox",
   render: function() {
     var peopleNodes = this.state.data.map(function(person, index) {
       return (
-        React.createElement(Person, {person: person, key: person.username}
-        )
+        <Person person={person} key={person.username}>
+        </Person>
       );
     });
     return (
-      React.createElement("div", null, 
-        peopleNodes
-      )
+      <div>
+        {peopleNodes}
+      </div>
     );
   }
 })
 
 
-var Person = React.createClass({displayName: "Person",
+var Person = React.createClass({
   render: function() {
     var person = this.props.person,
         slug = "/u/" + person.username;
     return (
-      React.createElement("div", {className: "pure-u-1-2 pure-u-md-1-4 pure-u-lg-1-6 person-card"}, 
-        React.createElement("div", null, 
-          React.createElement("a", {href:  slug }, 
-            React.createElement("img", {src: person.avatar_url}), 
-            React.createElement("h4", null, " ", person.name, " ")
-          ), 
-          React.createElement("a", {href: "/u/" + person.username}, " ", person.github_id, " "), React.createElement("br", null), 
-          React.createElement("span", null, " ", person.company, " ")
-        )
-      )
+      <div className="pure-u-1-2 pure-u-md-1-4 pure-u-lg-1-6 person-card">
+        <div >
+          <a href={ slug }>
+            <img src={person.avatar_url}/>
+            <h4> {person.name} </h4>
+          </a>
+          <a href={"/u/" + person.username} > {person.github_id} </a><br />
+          <span> {person.company} </span>
+        </div>
+      </div>
     );
   }
 });
@@ -216,7 +216,7 @@ var Person = React.createClass({displayName: "Person",
 
 /* Featured Projects Box */
 
-var FeatureBox = React.createClass({displayName: "FeatureBox",
+var FeatureBox = React.createClass({
   loadProjectsFromServer: function() {
     $.ajax({
       url: this.props.url,
@@ -238,33 +238,33 @@ var FeatureBox = React.createClass({displayName: "FeatureBox",
   render: function() {
     var projectNodes = this.state.data.map(function(project, index) {
       return (
-        React.createElement(ProjectImg, {project: project, key: project.slug}
-        )
+        <ProjectImg project={project} key={project.slug}>
+        </ProjectImg>
       );
     });
     return (
-      React.createElement("div", null, 
-        projectNodes
-      )
+      <div>
+        {projectNodes}
+      </div>
     );
   }
 })
 
 
-var ProjectImg = React.createClass({displayName: "ProjectImg",
+var ProjectImg = React.createClass({
   render: function() {
     var project = this.props.project,
         slug = "/projects/" + project.slug,
         divStyle = { backgroundImage: 'url(' + project.image_url + ')',
                      height:'160px'};
     return (
-      React.createElement("div", {className: "pure-u-1 pure-u-md-1-5 person-card"}, 
-        React.createElement("a", {href:  slug, className: "project-img"}, 
-          React.createElement("div", {style:  divStyle }
-          ), 
-          React.createElement("h4", null, " ", project.title)
-        )
-      )
+      <div className="pure-u-1 pure-u-md-1-5 person-card">
+        <a href={ slug } className="project-img">
+          <div style={ divStyle }>
+          </div>
+          <h4> {project.title}</h4>
+        </a>
+      </div>
     );
   }
 });
@@ -272,7 +272,7 @@ var ProjectImg = React.createClass({displayName: "ProjectImg",
 
 /* Project List */
 
-var Project = React.createClass({displayName: "Project",
+var Project = React.createClass({
   render: function() {
     var project = this.props.project,
         slug = "/projects/" + project.slug,
@@ -282,48 +282,48 @@ var Project = React.createClass({displayName: "Project",
     statusClass += project.status == 'active' ? 'text-success' : (project.status == 'closed' || project.status == 'complate') ? 'text-danger' : 'text-warning';
     summary = converter.makeHtml(summary);
     return (
-      React.createElement("div", {className: "project pure-g"}, 
-        React.createElement("div", {className: "pure-u-1 pure-u-md-1-4"}, 
-          React.createElement("h3", null, 
-            React.createElement("a", {href: slug}, 
-              project.title
-            )
-          ), 
-          React.createElement("div", null, 
-              project.subjects.join(', ')
-          )
-        ), 
-        React.createElement("div", {className: "pure-u-md-3-4"}, 
-          React.createElement("div", {className: "pure-u-1 pure-u-lg-1-4"}, 
-            React.createElement("i", {className: "fa fa-user"}), 
-            React.createElement("label", null, 
-            project.lead.map(function(item, i){return React.createElement("a", {href: '/u/' + item.username}, item.name, (i==project.lead.length-1) ? "" : ",", " ")}) 
-            )
-          ), 
-          React.createElement("div", {className: "pure-u-1 pure-u-lg-1-4"}, 
-            React.createElement("i", {className: "fa fa-map-marker"}), 
-            React.createElement("label", null, " ",  project.institute, " ")
-          ), 
-          React.createElement("div", {className: "pure-u-1 pure-u-lg-1-4"}, 
-            React.createElement("i", {className: "fa fa-tag"}), 
-            React.createElement("label", null, " ",  project.languages.join(', '), " ")
-          ), 
-          React.createElement("div", {className: "pure-u-1 pure-u-lg-1-4"}, 
-            React.createElement("i", {className: statusClass}), 
-            React.createElement("label", null, " ", project.status, " ")
-          )
-        ), 
-        React.createElement("div", {className: "pure-u-1 pure-u-md-1-4 sidebar"}, 
-          React.createElement("a", {href:  slug }, 
-            React.createElement("div", {className: "crop"}, 
-              React.createElement("img", {src: project.image_url || '/img/placeholder.png'})
-            )
-          )
-        ), 
-        React.createElement("div", {className: "pure-u-1 pure-u-md-3-4"}, 
-          React.createElement("p", {dangerouslySetInnerHTML: {__html: summary}})
-        )
-      )
+      <div className="project pure-g">
+        <div className="pure-u-1 pure-u-md-1-4">
+          <h3>
+            <a href={slug}>
+              {project.title}
+            </a>
+          </h3>
+          <div>
+              {project.subjects.join(', ')}
+          </div>
+        </div>
+        <div className="pure-u-md-3-4">
+          <div className="pure-u-1 pure-u-lg-1-4">
+            <i className="fa fa-user" />
+            <label>
+            {project.lead.map(function(item, i){return <a href={'/u/' + item.username }>{item.name}{(i==project.lead.length-1) ? "" : ","} </a>}) }
+            </label>
+          </div>
+          <div className="pure-u-1 pure-u-lg-1-4">
+            <i className="fa fa-map-marker" />
+            <label> { project.institute} </label>
+          </div>
+          <div className="pure-u-1 pure-u-lg-1-4">
+            <i className="fa fa-tag" />
+            <label> { project.languages.join(', ')} </label>
+          </div>
+          <div className="pure-u-1 pure-u-lg-1-4">
+            <i className={statusClass}/>
+            <label> {project.status} </label>
+          </div>
+        </div>
+        <div className="pure-u-1 pure-u-md-1-4 sidebar">
+          <a href={ slug }>
+            <div className="crop">
+              <img src={project.image_url || '/img/placeholder.png'} />
+            </div>
+          </a>
+        </div>
+        <div className="pure-u-1 pure-u-md-3-4">
+          <p dangerouslySetInnerHTML={{__html: summary}} />
+        </div>
+      </div>
     );
   }
 });
@@ -332,7 +332,7 @@ var Project = React.createClass({displayName: "Project",
 
 
 
-var ProjectBox = React.createClass({displayName: "ProjectBox",
+var ProjectBox = React.createClass({
   loadProjectsFromServer: function(args) {
     $.ajax({
       url: (args && args.query) ? this.props.url + '/search/' + args.query : this.props.url,
@@ -375,22 +375,22 @@ var ProjectBox = React.createClass({displayName: "ProjectBox",
   render: function() {
     if(this.props.status == "myproject"){
       return (
-        React.createElement("div", {id: "projectbox"}, 
-          React.createElement(ProjectList, {data: this.state.data, status: false})
-        )
+        <div id="projectbox">
+          <ProjectList data={this.state.data} status={false}/>
+        </div>
       );
     } else {
       return (
-        React.createElement("div", {id: "projectbox"}, 
-          React.createElement(SearchForm, {onSearchSubmit: this.loadProjectsFromServer}), 
-          React.createElement(ProjectList, {data: this.state.data, status: true})
-        )
+        <div id="projectbox">
+          <SearchForm onSearchSubmit={this.loadProjectsFromServer} />
+          <ProjectList data={this.state.data} status={true}/>
+        </div>
       );
     }
   }
 });
 
-var SearchForm = React.createClass({displayName: "SearchForm",
+var SearchForm = React.createClass({
   handleSubmit: function(e) {
     e.preventDefault();
     var query = this.refs.query.getDOMNode().value.trim();
@@ -399,36 +399,36 @@ var SearchForm = React.createClass({displayName: "SearchForm",
   },
   render: function() {
     return (
-      React.createElement("form", {className: "searchForm", onSubmit: this.handleSubmit}, 
-      React.createElement("input", {type: "text", placeholder: "query", ref: "query"}), 
-      React.createElement("input", {type: "submit", value: "Search"})
-      )
+      <form className="searchForm" onSubmit={this.handleSubmit}>
+      <input type="text" placeholder="query" ref="query" />
+      <input type="submit" value="Search" />
+      </form>
     );
   }
 });
 
 
-var ProjectList = React.createClass({displayName: "ProjectList",
+var ProjectList = React.createClass({
   render: function() {
     var status = this.props.status;
     var projectNodes = this.props.data.map(function(project, index) {
       return (
-        React.createElement(Project, {project: project, key: project.slug, status: status}
-        )
+        <Project project={project} key={project.slug} status={status}>
+        </Project>
       );
     });
     if(projectNodes.length >0) {
       return (
-        React.createElement("div", {id: "project-list"}, 
-          projectNodes
-        )
+        <div id="project-list">
+          {projectNodes}
+        </div>
       );
     } else {
       return (
-        React.createElement("p", null, 
-          "No projects here yet. ", 
-          React.createElement("a", {href: "/projects/submit"}, "Click here to submit a project")
-        )
+        <p>
+          {"No projects here yet. "}
+          <a href="/projects/submit">{"Click here to submit a project"}</a>
+        </p>
       );
     }
   }
@@ -441,56 +441,56 @@ var ProjectList = React.createClass({displayName: "ProjectList",
 
 if(document.getElementById('featured-projects')){
   React.render(
-    React.createElement(FeatureBox, {url: "/api/projects/featured"}),
+    <FeatureBox url="/api/projects/featured"/>,
     document.getElementById('featured-projects')
   );
 }
 
 if(document.getElementById('content')){
   React.render(
-    React.createElement(ProjectBox, {url: "/api/projects"}),
+    <ProjectBox url="/api/projects"/>,
     document.getElementById('content')
   );
 }
 
 if(document.getElementById('my-projects')){
   React.render(
-    React.createElement(ProjectBox, {url: "/api/auth/projects", status: "myproject"}),
+    <ProjectBox url="/api/auth/projects" status="myproject"/>,
     document.getElementById('my-projects')
   );
 }
 
 if(document.getElementById('msl-people')){
   React.render(
-    React.createElement(PeopleBox, {url: "/api/users"}),
+    <PeopleBox url="/api/users"/>,
     document.getElementById('msl-people')
   );
 }
 
 if(document.getElementById('event-people')){
   React.render(
-    React.createElement(PeopleBox, {load_id: "event-people", url: "/api/events/x/people"}),
+    <PeopleBox load_id="event-people" url="/api/events/x/people" />,
     document.getElementById('event-people')
   );
 }
 
 if(document.getElementById('event-attending')){
   React.render(
-    React.createElement(PeopleBox, {load_id: "event-attending", url: "/api/events/x/attending"}),
+    <PeopleBox load_id="event-attending" url="/api/events/x/attending" />,
     document.getElementById('event-attending')
   );
 }
 
 if(document.getElementById('msl-events')){
   React.render(
-    React.createElement(EventBox, {url: "/api/events/"}),
+    <EventBox url="/api/events/" />,
     document.getElementById('msl-events')
   );
 }
 
 if(document.getElementById('repo-list')){
   React.render(
-    React.createElement(RepoList, {url: "/api/auth/repos"}),
+    <RepoList url="/api/auth/repos" />,
     document.getElementById('repo-list')
   );
 }
