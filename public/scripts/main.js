@@ -164,6 +164,7 @@
           description = $('#pdescription').val(),
           short_description = $('#pshort_description').val(),
           project_url = $('#pproject_url').val(),
+          status = $(this).val(),
           info = $('#plinks').children(),
           g = $('#pgoals').find('textarea'),
           wanted = $('#pwanted').val().split(', '),
@@ -187,6 +188,8 @@
       }
 
       if(license === "Other") license = $('#license').val();
+
+      if(status == "created") status = "submitted";
 
       $.map(info, function(val, i){
         var values = $(val).children('input'),
@@ -226,7 +229,8 @@
             learning: learning,
             hours: hours,
             license: license,
-            slug: slug
+            slug: slug,
+            status: status
           }
         },
         success: function(msg){

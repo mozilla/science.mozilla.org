@@ -54,6 +54,9 @@ html
               else if(project.status == 'complete')
                 i.fa.fa-circle.text-danger
                 label Complete Project
+              else if(project.status == 'created')
+                i.fa.fa-circle.text-warning
+                label Created
               else
                 i.fa.fa-circle.text-warning
                 label Under Review
