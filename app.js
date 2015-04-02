@@ -117,7 +117,7 @@ app.get('/training', localQuery, function(request, response) {
   response.render('training.jade');
 });
 
-app.get('/training/request', localQuery, ensureAuthenticated, function(request, response) {
+app.get('/training/request', localQuery, function(request, response) {
   response.render('training/request.jade');
 });
 
