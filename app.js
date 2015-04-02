@@ -117,6 +117,14 @@ app.get('/training', localQuery, function(request, response) {
   response.render('training.jade');
 });
 
+app.get('/training/request', localQuery, ensureAuthenticated, function(request, response) {
+  response.render('training/request.jade');
+});
+
+app.get('/training/confirm', localQuery, function(request, response) {
+  response.render('training/confirm.jade');
+});
+
 app.get('/community', localQuery, function(request, response) {
   response.render('community.jade');
 });

@@ -1181,6 +1181,60 @@ button.close {
 }
 
 
+/* Google forms */
+
+/* For the Request a Workshop form */
+#ss-form label {
+   font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
+}
+
+#ss-form .ss-q-title {
+    display: block;
+}
+.ss-required-asterisk {
+    color: #c43b1d;
+}
+#ss-form label {
+    display:inline;
+    cursor: default;
+}
+#ss-form .ss-secondary-text {
+    color: #666;
+    padding:0.2em 0;
+}
+#ss-form .ss-form-entry {
+    margin-bottom: 1.5em;
+}
+#ss-form ul {
+    margin:0;
+    padding:0;
+    list-style: none;
+}
+#ss-form ol {
+    margin:0;
+}
+#ss-form .ss-choice-item {
+    /*padding-bottom: em;*/
+    font-size:0.7em;
+}
+
+#ss-form .ss-q-long {
+    resize: vertical;
+    width: 70%;
+}
+#ss-form .error-message, .required-message {
+    display: none;
+}
+#ss-form .ss-form-entry input {
+  vertical-align: middle;
+  margin: 0;
+  padding:0.4em 0.6em;
+  font-size:1em;
+}
+#ss-form .ss-choice-item-control {
+  padding-right: 0.3em;
+}
+
 
 /*
  * Media Queries
