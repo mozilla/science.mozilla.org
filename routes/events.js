@@ -52,8 +52,8 @@ module.exports = function() {
         } else {
           if (err) return console.error(err);
           if(req.xhr) res.json(ev);
-
-          res.render('event.jade', { ev:ev });
+          var template = ev.template ? 'events/' + ev.template : 'event.jade';
+          res.render(template, { ev:ev });
         }
       })
     },
