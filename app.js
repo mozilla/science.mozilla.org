@@ -117,6 +117,14 @@ app.get('/training', localQuery, function(request, response) {
   response.render('training.jade');
 });
 
+app.get('/training/request_form', localQuery, function(request, response) {
+  response.render('training/request.jade');
+});
+
+app.get('/training/confirm', localQuery, function(request, response) {
+  response.render('training/confirm.jade');
+});
+
 app.get('/community', localQuery, function(request, response) {
   response.render('community.jade');
 });
@@ -228,7 +236,6 @@ app.get('/auth/github/callback',
   passport.authenticate('github', { failureRedirect: '/' }),
   function(req, res) {
     var return_path = req.session.cookie.path || (req.headers && req.headers.referer) || '/';
-
     if(!req.user.status) {
       res.render('profile.jade', { user: req.user, loggedIn: !!req.user, return_path: return_path });
     } else {

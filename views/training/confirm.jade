@@ -1,0 +1,28 @@
+include ../partials/head.jade
+include ../partials/header.jade
+include ../partials/connect.jade
+include ../partials/footer.jade
+
+-var page = "Workshop Request"
+
+doctype html5
+html
+  head
+    +head(page)
+  body
+    +header(loggedIn, page)
+    div.page-wrapper
+
+      div.splash
+        h2 Thank you for your interest in a workshop!
+      div.header-img#about-header
+
+      div.pure-u-1
+        p We'll be in touch shortly
+
+
+
+
+
+    +footer()
+
