@@ -1,0 +1,77 @@
+include ../partials/head.jade
+include ../partials/header.jade
+include ../partials/footer.jade
+
+-var page = "Event"
+
+doctype html5
+html
+  head
+    +head(ev.title || page)
+  body
+    +header(loggedIn, page)
+    div.page-wrapper.user-page
+      section.project
+        div
+          h1 #{ev.title + '  '}
+          p
+            i= ev.where
+            span= ' | ' + moment(ev.start).format("MMM D") + ' - ' + moment(ev.end).format("MMM D YYYY")
+
+          div.pure-u-1
+            div(style="padding-bottom:2em")
+              img(src="/img/globalsprint.jpg")
+
+          div.pure-u-1
+            p Join us as we collaborate on projects helping further science on the open web! We're back with our second global sprint June 4-5, 2015. We could use your help to make this year's event bigger and better than last.
+
+            p
+              | Our
+              a(href="http://www.mozillascience.org/the-mozsprint-heard-round-the-world/")  inaugural sprint last July
+              |  (#mozsprint, for short) brought together over 100 members of the community, from librarians to developers to bench scientists to hack for two-days on open science projects. Over 22 cities around the world were represented (53 hours of consecutive hacking!), and we need your help to do it again this June.
+
+          h3 CALL FOR PROJECT IDEAS
+          p
+            | Anything related to doing or teaching open science is a fit for this sprint. These can be tool-based, open educational resources or any other project ideas that
+            ol
+              li further open science,
+              li have ways for folks to get involved and make some progress over the course of the sprint and
+              li have someone available to coordinate the work before and at the sprint.
+            p
+              | You can browse some of our featured projects below or
+              a(href="https://etherpad.mozilla.org/sciencelab-2015globalsprint")  see the full list and propose your own on the planning etherpad.
+          div#featured-projects
+
+          h3 CALL FOR SITES HOSTS
+          p Want to host a sprint site in your city? It could be for 3 people or 30 - you tell us. All you need is to provide a space for people to gather and work, a strong wifi connection, and perhaps some coffee. We'll help with the rest. The sprint only runs through normal business hours, so no overnight coverage needed.
+          p
+            a(href="https://etherpad.mozilla.org/sciencelab-2015globalsprint") See a full list of sites or host your own on this etherpad
+          br
+          iframe(src="https://www.google.com/maps/d/embed?mid=zAWZqMb9K6q4.klFrcnY20Du8" width="640" height="480")
+
+          if(ev.facilitators.length > 0)
+            h3 FACILITATORS
+            div#event-people(data-url="/api/events/" + ev.slug + "/people")
+
+          if(ev.attending.length > 0)
+            h3 PARTICIPANTS
+            div#event-attending(data-url="/api/events/" + ev.slug + "/attending")
+
+          //if(ev.start > moment())
+            button.pure-button.pure-button-lg(data-toggle="modal" data-target="#register") Register
+
+
+
+          br
+          br
+          br
+          br
+          p
+            | Interested? Head on over to
+            a(href="https://etherpad.mozilla.org/sciencelab-2015globalsprint")  our planning etherpad
+            |  and add your details, or drop us a note at
+            a(href="mailto:sciencelab@mozillafoundation.org")  sciencelab@mozillafoundation.org
+            | . We hope you'll come and collaborate with us as we help research thrive on the open web.
+
+
+    +footer(page)
