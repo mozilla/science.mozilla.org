@@ -49,7 +49,7 @@ module.exports = function() {
       Event
         .find({"start" : {$gt :  Date.now() }})
         .populate('facilitators', '-email -token')
-        .sort('-start')
+        .sort('start')
         .limit(5)
         .exec(function (err, events) {
         if (err) return console.error(err);
