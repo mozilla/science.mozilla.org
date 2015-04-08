@@ -488,6 +488,13 @@ if(document.getElementById('msl-events')){
   );
 }
 
+if(document.getElementById('upcoming-events')){
+  React.render(
+    React.createElement(EventBox, {url: "/api/events/upcoming"}),
+    document.getElementById('upcoming-events')
+  );
+}
+
 if(document.getElementById('repo-list')){
   React.render(
     React.createElement(RepoList, {url: "/api/auth/repos"}),

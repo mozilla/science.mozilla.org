@@ -223,6 +223,7 @@ app.get("/api/events/:slug/attend", localQuery, ensureAuthenticated, eventRoutes
 
 app.get("/api/events/:slug/people", eventRoutes.getPeople);
 app.get("/api/events", eventRoutes.getAll);
+app.get("/api/events/upcoming", eventRoutes.upcoming);
 
 app.get("/blog", postRoutes.getAll);
 

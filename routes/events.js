@@ -45,6 +45,17 @@ module.exports = function() {
         res.json(events);
       });
     },
+    upcoming: function(req, res, next){
+      Event
+        .find({"start" : {$gt :  Date.now() }})
+        .populate('facilitators', '-email -token')
+        .sort('-start')
+        .limit(5)
+        .exec(function (err, events) {
+        if (err) return console.error(err);
+        res.json(events);
+      });
+    },
     get: function(req, res, next){
       Event.findOne({ slug: req.params.slug }).exec(function(err, ev){
         if(!ev){
