@@ -1,0 +1,65 @@
+include ../partials/head.jade
+include ../partials/header.jade
+include ../partials/footer.jade
+
+
+doctype html5
+html
+  head
+    +head('Getting Started | Collaborate')
+  body
+    +header(loggedIn, "Collaborate")
+    div.page-wrapper
+
+
+
+      section.about.no-image.splash
+        h1 Getting Started
+        p Submit a project to Collaborate
+      div
+        p
+          | Here are a few tips to help you get the most out of Collaborate. Already have a thriving project on GitHub?&nbsp;
+          a(href="/projects/create") Submit your project now
+          | .
+        h2 1. Put your project on GitHub
+        p
+          | GitHub encourages collaboration, versioning and sharing on all types of projects. Need help? Here's a guide to
+          a(href="https://guides.github.com/introduction/getting-your-project-on-github/" target="_blank")  getting your project on GitHub
+          | .
+
+        h2 2. Add content to your project
+        p
+          | This gives us (and potential collaborators!) an overview of your project. Help us understand your idea, how this benefits open science and how others can contribute. You can read more in&nbsp;
+          a(href="/collaborate/about#FAQ") our FAQ
+          |.
+        ol(type="A")
+          li
+            b Describe your project in a file called README.md
+            br
+            | What are you building? The text you place in README.md will be many potential collaborators' first introduction to your project.
+          li
+            b Pick a license
+            br
+            | Let's make sure your project is open and ready for community contributions (we recommend MIT or BSD). Need help choosing? Take a look at
+            a(href="http://choosealicense.com/" target="_blank")  choosealicense.com
+            | .
+          li
+            b Make some issues
+            br
+            | Issues are a good way to communicate specific needs or questions to contributors. An issue is a note on anything that needs attention, from questions to bugs to features. Take time to tease out tasks or questions around your project to list in your issue tracker. New to GitHub issues? Here's a guide on&nbsp;
+            a(href="https://guides.github.com/features/issues/" target="_blank") mastering issues
+            | .
+
+        h2 3. You're ready!
+        p
+          a.pure-button.pure-button-lg(href="/projects/create") Submit your project
+
+        i
+          | Have a question? Read more
+          a(href="/collaborate/about")  about this program
+          |  or
+          a(href='mailto:sciencelab@mozillafoundation.org')  get in touch
+          | .
+
+    +footer()
+

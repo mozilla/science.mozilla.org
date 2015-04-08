@@ -183,7 +183,11 @@ app.get('/toronto', function(req, res){
   res.redirect('/toronto-open-science-code-sprint-2015');
 });
 
-app.get('/projects/submit', localQuery, ensureAuthenticated, function(request, response) {
+app.get('/projects/submit', localQuery, function(request, response) {
+  response.render('collaborate/guidelines.jade');
+});
+
+app.get('/projects/create', localQuery, ensureAuthenticated, function(request, response) {
   response.render('collaborate/project/new.jade');
 });
 
