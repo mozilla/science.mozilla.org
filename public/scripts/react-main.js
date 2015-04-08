@@ -254,11 +254,11 @@ var FeatureBox = React.createClass({displayName: "FeatureBox",
 var ProjectImg = React.createClass({displayName: "ProjectImg",
   render: function() {
     var project = this.props.project,
-        slug = "/projects/" + project.slug,
+        slug = project.lead ? "/projects/" + project.slug : project.slug,
         divStyle = { backgroundImage: 'url(' + project.image_url + ')',
                      height:'160px'};
     return (
-      React.createElement("div", {className: "pure-u-1 pure-u-md-1-5 person-card"}, 
+      React.createElement("div", {className: "pure-u-1 pure-u-md-1-3 person-card"}, 
         React.createElement("a", {href:  slug, className: "project-img"}, 
           React.createElement("div", {style:  divStyle }
           ), 
@@ -490,7 +490,7 @@ if(document.getElementById('msl-events')){
 
 if(document.getElementById('upcoming-events')){
   React.render(
-    React.createElement(EventBox, {url: "/api/events/upcoming"}),
+    React.createElement(FeatureBox, {url: "/api/events/upcoming"}),
     document.getElementById('upcoming-events')
   );
 }

@@ -254,11 +254,11 @@ var FeatureBox = React.createClass({
 var ProjectImg = React.createClass({
   render: function() {
     var project = this.props.project,
-        slug = "/projects/" + project.slug,
+        slug = project.lead ? "/projects/" + project.slug : project.slug,
         divStyle = { backgroundImage: 'url(' + project.image_url + ')',
                      height:'160px'};
     return (
-      <div className="pure-u-1 pure-u-md-1-5 person-card">
+      <div className="pure-u-1 pure-u-md-1-3 person-card">
         <a href={ slug } className="project-img">
           <div style={ divStyle }>
           </div>
@@ -490,7 +490,7 @@ if(document.getElementById('msl-events')){
 
 if(document.getElementById('upcoming-events')){
   React.render(
-    <EventBox url="/api/events/upcoming" />,
+    <FeatureBox url="/api/events/upcoming" />,
     document.getElementById('upcoming-events')
   );
 }
