@@ -146,8 +146,6 @@ html
             a(href='mailto:sciencelab@mozillafoundation.org')  get in touch
             | .
     script(type="text/javascript" src="/scripts/s3upload.js")
-    +footer()
-
 
     div.modal.fade#githubModal(tabindex="-1" role="dialog" aria-labelledby="githubModal" aria-hidden="true")
       form(action="/projects" method="post" id="github-select-form" name="mc-embedded-subscribe-form" class="validate" novalidate)
@@ -164,3 +162,5 @@ html
             div.modal-footer
               button.pure-button.light(type="button" data-dismiss="modal") I don't have a repo right now
               input.pure-button(type="submit" value="Use this repo")
+
+    +footer()
