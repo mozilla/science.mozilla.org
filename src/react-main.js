@@ -264,6 +264,7 @@ var ProjectImg = React.createClass({
           </div>
           <h4> {project.title}</h4>
         </a>
+        <span> {project.where} </span>
       </div>
     );
   }

@@ -263,7 +263,8 @@ var ProjectImg = React.createClass({displayName: "ProjectImg",
           React.createElement("div", {style:  divStyle }
           ), 
           React.createElement("h4", null, " ", project.title)
-        )
+        ), 
+        React.createElement("span", null, " ", project.where, " ")
       )
     );
   }

@@ -1276,9 +1276,6 @@ button.close {
       cursor:pointer;
   }
 
-  a.project-img {
-    margin:1em;
-  }
   a.project-img div {
     background-size: cover;
   }
