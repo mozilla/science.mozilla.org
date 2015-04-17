@@ -164,7 +164,7 @@
           description = $('#pdescription').val(),
           short_description = $('#pshort_description').val(),
           project_url = $('#pproject_url').val(),
-          status = $(this).val(),
+          status = $(this).data('value');
           info = $('#plinks').children(),
           g = $('#pgoals').find('textarea'),
           wanted = $('#pwanted').val().split(', '),
@@ -228,7 +228,7 @@
       };
 
       if(status) {
-        project.status = status;
+        project['status'] = status;
       }
 
       $.ajax({

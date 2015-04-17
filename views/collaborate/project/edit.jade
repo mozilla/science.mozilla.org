@@ -134,7 +134,7 @@ html
                   textarea#plearning=project.learning
             br
             div.project-links
-              span.pure-button.btn-success(id='save-project', data-href='/projects/' + project.slug + '/save')
+              span.pure-button.btn-success(id='save-project', data-href='/projects/' + project.slug + '/save', data-value=project.status)
                 if(project.status == 'created')
                   | Submit Project
                 else
