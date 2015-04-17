@@ -207,12 +207,7 @@
         }
       })
 
-
-      $.ajax({
-        url: $(this).data('href'),
-        type:'POST',
-        data: {
-          project: {
+      var project = {
             title: title,
             subjects: subjects,
             languages: languages,
@@ -229,9 +224,18 @@
             learning: learning,
             hours: hours,
             license: license,
-            slug: slug,
-            status: status
-          }
+            slug: slug
+      };
+
+      if(status) {
+        project.status = status;
+      }
+
+      $.ajax({
+        url: $(this).data('href'),
+        type:'POST',
+        data: {
+          project: project
         },
         success: function(msg){
           redirect ? window.location.href = redirect : window.location.reload();
