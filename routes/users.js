@@ -181,7 +181,7 @@ module.exports = function() {
                   var wp_name = (name === 'acabunoc') ? 'abbycabs' : name;
                   wp.posts()
                     .author( wp_name )
-                    .filter( 'posts_per_page', 200 )
+                    .filter( 'posts_per_page', 65 )
                     .get(function( err, posts ) {
                       if ( err ) {
                           return console.log(err);
