@@ -2,6 +2,7 @@
 'use strict';
 var mongoose = require('mongoose'),
     Project = mongoose.model('Project'),
+    Event = mongoose.model('Event'),
     User = mongoose.model('User');
 
 function isUser(element, id){
@@ -83,20 +84,25 @@ module.exports = function() {
         if(req.xhr) {
           res.json(project);
         } else {
-            var args = (project.github.repo) ? {user: project.github.user } : {org: project.github.user},
-                vars = {
-                          lead: project.lead.map(function(item){ return item.name}),
-                          type: (project.github.repo) ? 'repo' : 'org',
-                          loggedIn: !!req.user,
-                          user: req.user,
-                          project: project,
-                          canEdit: canEdit(project, req.user)
-                        };
-          if(canEdit(project, req.user)){
-            res.render('collaborate/project/edit.jade', vars);
-          } else {
-            res.status(403).end();
-          }
+            if(!canEdit(project, req.user)){
+              res.status(403).end();
+            } else {
+              Event.find()
+                .select('title _id')
+                .exec(function(err, events){
+                var args = (project.github.repo) ? {user: project.github.user } : {org: project.github.user},
+                    vars = {
+                              lead: project.lead.map(function(item){ return item.name}),
+                              type: (project.github.repo) ? 'repo' : 'org',
+                              loggedIn: !!req.user,
+                              user: req.user,
+                              project: project,
+                              canEdit: canEdit(project, req.user),
+                              events: events
+                            };
+                res.render('collaborate/project/edit.jade', vars);
+              });
+            }
         }
       });
     },
@@ -221,7 +227,12 @@ module.exports = function() {
       if(!(req.user && req.user.role == 'admin')) {
         pop += ' -email';
       }
-      Project.findOne({ slug: req.params.project }).populate('lead', pop).populate('contributors', '-email -token').exec(function(err, project){
+      Project
+        .findOne({ slug: req.params.project })
+        .populate('lead', pop)
+        .populate('events', 'slug title')
+        .populate('contributors', '-email -token')
+        .exec(function(err, project){
         if(!project){
           res.status(404).end();
           return;

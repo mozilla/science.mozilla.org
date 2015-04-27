@@ -1129,6 +1129,9 @@ span.fa.fa-chevron-right {
   width: 20px;
 }
 
+.edit-page input[type='checkbox'] {
+  width: 20px;
+}
 #programs {
   margin:0;
   padding:0;

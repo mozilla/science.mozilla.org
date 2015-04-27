@@ -178,6 +178,7 @@
           license = $('input[name="license"]:checked').val(),
           hours = $('input[name="hours"]:checked').val(),
           scientific_need = $('#pscientific_need').val(),
+          events = $('input[name="events"]:checked'),
           learning = $('#plearning').val(),
           goals = [];
       $(this).text('Saving...');
@@ -190,6 +191,12 @@
       if(license === "Other") license = $('#license').val();
 
       if(status == "created") status = "submitted";
+      status = $('input[name="status"]:checked').val() || status;
+
+      events = $.map(events, function(val, i){
+        return $(val).val();
+      });
+
 
       $.map(info, function(val, i){
         var values = $(val).children('input'),
@@ -229,6 +236,10 @@
 
       if(status) {
         project['status'] = status;
+      }
+
+      if(events){
+        project['events'] = events;
       }
 
       $.ajax({

@@ -1,6 +1,7 @@
 'use strict';
 var mongoose = require('mongoose'),
     Event = mongoose.model('Event'),
+    Project = mongoose.model('Project'),
     User = mongoose.model('User');
 
 
@@ -91,6 +92,21 @@ module.exports = function() {
         } else {
           if (err) return console.error(err);
           res.json(ev.facilitators);
+        }
+      })
+    },
+    getProjects: function(req, res, next){
+      Event.findOne({slug: req.params.slug}).exec(function(err, ev){
+        if(!ev){
+          res.status(404).end();
+        } else {
+          Project.find({events: ev._id}).exec(function(err, projects){
+            if(!projects){
+              res.status(404).end()
+            } else {
+              res.json(projects);
+            }
+          });
         }
       })
     },

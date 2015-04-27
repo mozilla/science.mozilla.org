@@ -90,7 +90,6 @@ html
                   br
                   br
 
-
               h3 LICENSE
               div
                 label
@@ -107,6 +106,50 @@ html
                   input#license(type="text" style="width:150px" value=(((project.license != 'MIT') && (project.license != 'BSD')) ? project.license : ''))
               br
               br
+
+              if(user.role == 'admin')
+                div.content-contrast.l-box-lg
+                  p
+                    i Only administrators can view and edit this section
+                  h3 EVENTS
+                  each event in events
+                    div
+                      label
+                        input(type="checkbox", name="events", option=event._id, value=event._id, checked=(project.events.indexOf(event._id)>-1))
+                        span=event.title
+                  h3 STATUS
+                  div
+                    label
+                      input(type="radio" name="status" value="created"  checked=(project.status == 'created'))
+                      | Created&nbsp;
+                      i.fa.fa-circle.text-warning
+                  div
+                    label
+                      input(type="radio" name="status" value="submitted" checked=(project.status == 'submitted'))
+                      | Submitted&nbsp;
+                      i.fa.fa-circle.text-warning
+                  div
+                    label
+                      input(type="radio" name="status" value="review" checked=(project.status == 'review'))
+                      | Under review&nbsp;
+                      i.fa.fa-circle.text-warning
+                  div
+                    label
+                      input(type="radio" name="status" value="active" checked=(project.status == 'active'))
+                      | Active&nbsp;
+                      i.fa.fa-circle.text-success
+                  div
+                    label
+                      input(type="radio" name="status" value="complete" checked=(project.status == 'complete'))
+                      | Complete&nbsp;
+                      i.fa.fa-circle.text-danger
+                  div
+                    label
+                      input(type="radio" name="status" value="closed" checked=(project.status == 'closed'))
+                      | Closed&nbsp;
+                      i.fa.fa-circle.text-danger
+                br
+                br
 
             div.content-contrast.l-box-lg
               p

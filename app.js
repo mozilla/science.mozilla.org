@@ -226,6 +226,8 @@ app.get("/api/events/:slug/attending", eventRoutes.getAttending);
 app.get("/api/events/:slug/attend", localQuery, ensureAuthenticated, eventRoutes.attend);
 
 app.get("/api/events/:slug/people", eventRoutes.getPeople);
+app.get("/api/events/:slug/projects", eventRoutes.getProjects);
+
 app.get("/api/events", eventRoutes.getAll);
 app.get("/api/events/upcoming", eventRoutes.upcoming);
 

@@ -218,8 +218,9 @@ var Person = React.createClass({
 
 var FeatureBox = React.createClass({
   loadProjectsFromServer: function() {
+    var url = $('#' + this.props.load_id).data('url');
     $.ajax({
-      url: this.props.url,
+      url: url || this.props.url,
       dataType: 'json',
       success: function(data) {
         this.setState({data: data});
@@ -472,6 +473,13 @@ if(document.getElementById('event-people')){
   React.render(
     <PeopleBox load_id="event-people" url="/api/events/x/people" />,
     document.getElementById('event-people')
+  );
+}
+
+if(document.getElementById('event-projects')){
+  React.render(
+    <FeatureBox load_id="event-projects" url="/api/events/x/projects" />,
+    document.getElementById('event-projects')
   );
 }
 

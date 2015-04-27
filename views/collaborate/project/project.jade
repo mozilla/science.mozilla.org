@@ -120,6 +120,13 @@ html
                   li
                     a(href= info.link)= info.title
             //h3 RELATED PROJECTS
+            if(project.events.length > 0)
+              h3 EVENTS
+              ul.infolink
+                each event in project.events
+                  li
+                    a(href="/" + event.slug)= event.title
+
             if(project.license)
               h3 LICENSE
               p=project.license

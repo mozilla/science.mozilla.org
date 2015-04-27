@@ -68,6 +68,7 @@ var projectSchema = new Schema({
   hours: String,
   scientific_need: String,
   learning: String,
+  events: [{ type: Schema.Types.ObjectId, ref: 'Event' }],
   status: String
 });
 

@@ -40,7 +40,7 @@ html
             p
               | You can browse some of our featured projects below or
               a(href="https://etherpad.mozilla.org/sciencelab-2015globalsprint")  see the full list and propose your own on the planning etherpad.
-          div#featured-projects
+          div#event-projects(data-url="/api/events/" + ev.slug + "/projects")
 
           h3(id="sites") CALL FOR SITES HOSTS
           p Want to host a sprint site in your city? It could be for 3 people or 30 - you tell us. All you need is to provide a space for people to gather and work, a strong wifi connection, and perhaps some coffee. We'll help with the rest. The sprint only runs through normal business hours, so no overnight coverage needed.
