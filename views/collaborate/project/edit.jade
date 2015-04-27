@@ -117,6 +117,11 @@ html
                       label
                         input(type="checkbox", name="events", option=event._id, value=event._id, checked=(project.events.indexOf(event._id)>-1))
                         span=event.title
+                  h3 FEATURED
+                  div
+                    label
+                      input(type="checkbox", name="featured", checked=(project.featured == true))
+                      | Featured
                   h3 STATUS
                   div
                     label

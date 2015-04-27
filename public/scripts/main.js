@@ -180,6 +180,7 @@
           scientific_need = $('#pscientific_need').val(),
           events = $('input[name="events"]:checked'),
           learning = $('#plearning').val(),
+          featured = $('input[name="featured"]'),
           goals = [];
       $(this).text('Saving...');
 
@@ -240,6 +241,10 @@
 
       if(events){
         project['events'] = events;
+      }
+
+      if(featured) {
+        project['featured'] = featured.is(':checked');
       }
 
       $.ajax({
