@@ -45,35 +45,35 @@ html
                 | .
 
             div.is-center.l-box-lg
-              a(data-toggle="modal" data-target="#joinModal").pure-button.pure-button-lg Join our Mentor Network
+              a(data-toggle="modal" data-target="#joinModal").pure-button.pure-button-lg Start a Study Group
 
             div.modal.fade#joinModal(tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true")
-              form(action="//mozillascience.us10.list-manage.com/subscribe/post?u=9d708def57acf99c1fb0bc9c4&amp;id=79f44f6b34" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate)
+              form(action="" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate)
                 div.modal-dialog
                   div.modal-content
                     div.modal-header
                       button.close(type="button" data-dismiss="modal" aria-label="Close")
                         span(aria-hidden="true") &times;
                       h3.modal-title#modalLabel
-                        Join Our Mentor Network
+                        | Start a Study Group
                     div.modal-body.edit-page
-                      p Our mentor network gives you access to resources and people to help you share open research skills in the community.
-                      p Sign up to receive notifications for resources or mentoring opportunities in your area.
+                      p Mozilla Study Groups are a fun and informal way to meet up with friends and colleagues to share coding skills, get help with programming problems and work together.
+                      p
+                        | Take a look at the
+                        a(href="http://mozillascience.github.io/studyGroupHandbook/")  Mozilla Study Group Handbook
+                        |  or look through some of the
+                        a(href="http://mozillascience.github.io/studyGroupHandbook/lessons.html#lessons")  lesson materials
+                        | .
+                      p Let us know if you're starting a group in your area:
 
                       p
                         input(type="email" value=(user ? user.email : "") name="EMAIL" class="required email" id="mce-EMAIL" style="font-size:1.4em;line-height:1.6em;" placeholder="Email address")
-
-                        div.clear#mce-responses
-                          div.response#mce-error-response(style="display:none")
-                          div.response#mce-success-response(style="display:none")
-                        div(style="position: absolute; left: -5000px;")
-                          input(type="text" name="b_9d708def57acf99c1fb0bc9c4_79f44f6b34" tabindex="-1" value="")
-                        //div.clear
-                          input(type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button")
+                      p
+                        input(type="text" value=(user ? user.location : "") name="LOCATION" id="mce-LOCATION" style="font-size:1.4em;line-height:1.6em;" placeholder="Location")
 
                     div.modal-footer
                       button.pure-button.light(type="button" data-dismiss="modal") Close
-                      input.pure-button(type="submit" href="/api/users/badge/mentor" value="Join")
+                      input.pure-button(type="submit" value="Submit")
                     //div
                       if(user)
                         | Join
