@@ -41,8 +41,6 @@ app.use(session({
   store: new MongoStore({
     url: mongoUri
   }),
-  resave: true,
-  saveUninitialized: true,
   secret: process.env.MONGO_SECRET || 'secret'
 }));
 app.use(passport.initialize());
@@ -88,7 +86,7 @@ var routes = require("./routes"),
 
 
 ensureAuthenticated = function (req, res, next) {
-  if (req.user) { return next(); }
+  if (req.isAuthenticated) { return next(); }
   res.redirect('/auth/github');
 }
 
@@ -133,7 +131,7 @@ app.get('/u/:user', localQuery, userRoutes.get);
 app.get('/u/:user/edit', localQuery, ensureAuthenticated, userRoutes.edit);
 
 app.get('/sso', function(request, response) {
-  var ref = request.session.ref = url.parse('http://forum.mozillascience.org/');
+  var ref = request.session.ref = url.parse('https://forum.mozillascience.org/');
   var payload = request.query.sso;
   var sig = request.query.sig;
 
@@ -149,7 +147,7 @@ app.get('/sso', function(request, response) {
           email: request.user.email
         };
 
-        response.redirect('http://forum.mozillascience.org/' + 'session/sso_login?' + sso.buildLoginString(userparams));
+        response.redirect('https://forum.mozillascience.org/' + 'session/sso_login?' + sso.buildLoginString(userparams));
     } else {
       // response.render('login.jade', { ref: ref.hostname });
       response.redirect('/auth/github');
@@ -253,8 +251,10 @@ app.get('/auth/github/callback',
 
 //logout
 app.get('/logout', function(req, res){
-  req.logout();
-  res.redirect('/');
+  //http://stackoverflow.com/questions/13758207/why-is-passportjs-in-node-not-removing-session-on-logout
+  req.session.destroy(function (err) {
+    res.redirect('/');
+  });
 });
 
 
