@@ -378,8 +378,17 @@ passport.deserializeUser(function(obj, done) {
       type: "oauth",
       token: obj.token
     });
+
+    User = mongoose.model('User');
+    User.findOne({'github_id': obj.github_id}, function(err, user) {
+      if(err) { // OAuth error
+        console.log(err);
+        return done(err);
+      } else if (user) { // User record in the database
+        done(null, user);
+      }
+    });
   }
-  done(null, obj);
 });
 
 
