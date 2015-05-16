@@ -369,21 +369,20 @@ passport.use(new GitHubStrategy({
 
 // Passport session setup.
 passport.serializeUser(function(user, done) {
-  done(null, user);
+  done(null, user.github_id);
 });
 passport.deserializeUser(function(obj, done) {
   if(obj){
-    github.authenticate({
-      type: "oauth",
-      token: obj.token
-    });
-
     User = mongoose.model('User');
-    User.findOne({'github_id': obj.github_id}, function(err, user) {
+    User.findOne({'github_id': obj}, function(err, user) {
       if(err) { // OAuth error
         console.log(err);
         return done(err);
       } else if (user) { // User record in the database
+        github.authenticate({
+          type: "oauth",
+          token: user.token
+        });
         done(null, user);
       }
     });
