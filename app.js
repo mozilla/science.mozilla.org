@@ -37,23 +37,15 @@ app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 app.engine('html', require('ejs').renderFile);
-
-var sess = {
+app.set('trust proxy', 1);
+app.use(session({
   store: new MongoStore({
     url: mongoUri
   }),
   resave: true,
   saveUninitialized: true,
   secret: process.env.MONGO_SECRET || 'secret'
-}
-
-if (process.env.APP === 'production') {
-  app.set('trust proxy', 1) // trust first proxy
-  sess.cookie = { secure: true } // serve secure cookies
-}
-
-app.use(session(sess));
-
+}));
 app.use(passport.initialize());
 app.use(passport.session());
 app.locals.loggedIn = true;
