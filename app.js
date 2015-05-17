@@ -38,14 +38,31 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 app.engine('html', require('ejs').renderFile);
 app.set('trust proxy', 1);
-app.use(session({
+
+var sessionConfig = {
   store: new MongoStore({
-    url: mongoUri
+    url: mongoUri,
+    autoReconnect: true
   }),
+  name: 'sid',      // Generic - don't leak information
+  proxy: true,      // Trust the reverse proxy for HTTPS/SSL
+  cookie: {
+    httpOnly: true, // Reduce XSS attack vector
+    secure: true,   // Cookies via SSL
+  },
   resave: true,
   saveUninitialized: true,
   secret: process.env.MONGO_SECRET || 'secret'
-}));
+};
+
+if(process.env.APP !== 'production') {
+    // Allow non-SSL cookies when not in production
+  sessionConfig.proxy = false;
+  sessionConfig.cookie.secure = false;
+}
+
+app.use(session(sessionConfig));
+
 app.use(passport.initialize());
 app.use(passport.session());
 app.locals.moment = require('moment');
