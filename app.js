@@ -385,12 +385,12 @@ passport.use(new GitHubStrategy({
 
 // Passport session setup.
 passport.serializeUser(function(user, done) {
-  done(null, user.github_id);
+  done(null, user && user.username);
 });
 passport.deserializeUser(function(obj, done) {
   if(obj){
     User = mongoose.model('User');
-    User.findOne({'github_id': obj}, function(err, user) {
+    User.findOne({'username': obj}, function(err, user) {
       if(err) { // OAuth error
         console.log(err);
         return done(err);
