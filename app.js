@@ -37,8 +37,7 @@ app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 app.engine('html', require('ejs').renderFile);
-app.set('trust proxy', 1);
-
+app.enable('trust proxy');
 var sessionConfig = {
   store: new MongoStore({
     url: mongoUri,
