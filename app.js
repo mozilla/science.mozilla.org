@@ -107,7 +107,7 @@ var routes = require("./routes"),
 
 
 ensureAuthenticated = function (req, res, next) {
-  if (req.isAuthenticated) { return next(); }
+  if (req.user) { return next(); }
   res.redirect('/auth/github');
 }
 
