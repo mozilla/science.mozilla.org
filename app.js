@@ -31,8 +31,6 @@ var S3_BUCKET = process.env.S3_BUCKET
 app.set('port', (process.env.PORT || 5000));
 app.use(express.static(__dirname + '/public'));
 app.set('views', __dirname + '/views');
-// app.use(express.cookieParser());
-// app.use(express.bodyParser());
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
@@ -70,6 +68,11 @@ app.locals.marked = require('marked');
 var discourse_sso = require('discourse-sso');
 var sso = new discourse_sso(process.env.SSOSECRET || 'abigail');
 var url = require('url');
+
+app.use(function(req, res, next) {
+  res.header('Cache-Control', 'private, no-cache, no-store, must-revalidate');
+  next();
+});
 
 app.listen(app.get('port'), function() {
   console.log("Node app is running at localhost:" + app.get('port'))
