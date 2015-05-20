@@ -1,0 +1,20 @@
+include ../partials/head.jade
+include ../partials/header.jade
+include ../partials/footer.jade
+
+-var page = "403"
+
+doctype html5
+html
+  head
+    +head(page)
+  body
+    +header(loggedIn, page)
+    div.page-wrapper.user-page
+      section.project
+        div
+          h1 403
+          p You are not authorized to access this area. If you think you are supposed to have permissions, try logging out and in again, or contact sciencelab@mozillafoundation.org
+
+
+    +footer()
