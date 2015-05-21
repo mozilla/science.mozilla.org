@@ -3,12 +3,15 @@ include partials/header.jade
 include partials/connect.jade
 include partials/footer.jade
 
+
+
 -var page = "Training"
 
 doctype html5
 html
   head
     +head(page)
+
   body
     +header(loggedIn, page)
     div.page-wrapper
@@ -47,8 +50,14 @@ html
             div.is-center.l-box-lg
               a(data-toggle="modal" data-target="#joinModal").pure-button.pure-button-lg Start a Mozilla Study Group
 
+
             div.modal.fade#joinModal(tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true")
-              form(action="" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate)
+
+              script(type='text/javascript').
+                var submitted=false;
+              iframe#hidden_iframe(name='hidden_iframe', style='display:none;', onload="if(submitted)\
+              {window.location='/training/confirm';}")
+              form(action='https://docs.google.com/a/mozillafoundation.org/forms/d/159lhGW4hquReK7mloScofQYIu5rKon_1mKdIGEqSgK4/formResponse', method='POST', target='hidden_iframe', onsubmit='submitted=true;')
                 div.modal-dialog
                   div.modal-content
                     div.modal-header
@@ -67,18 +76,20 @@ html
                       p Let us know if you're starting a group in your area:
 
                       p
-                        input(type="email" value=(user ? user.email : "") name="EMAIL" class="required email" id="mce-EMAIL" style="font-size:1.4em;line-height:1.6em;" placeholder="Email address")
+                        input#entry_2074052885(type="email" value=(user ? user.email : "") name='entry.2074052885' class="required email" style="font-size:1.4em;line-height:1.6em;" placeholder="Email address")
                       p
-                        input(type="text" value=(user ? user.location : "") name="LOCATION" id="mce-LOCATION" style="font-size:1.4em;line-height:1.6em;" placeholder="Location")
+                        input#entry_1150935299(type="text" value=(user ? user.location : "") name='entry.1150935299' style="font-size:1.4em;line-height:1.6em;" placeholder="Location")
+
+                      p
+                        input(name='draftResponse', value='[,,"-4449977981512752635"]\
+                        ', type='hidden')
+                        input(name='pageHistory', value='0', type='hidden')
+                        input(name='fbzx', value='-4449977981512752635', type='hidden')
+
 
                     div.modal-footer
                       button.pure-button.light(type="button" data-dismiss="modal") Close
-                      input.pure-button(type="submit" value="Submit")
-                    //div
-                      if(user)
-                        | Join
-                      else
-                        | Sign-in to Join
+                      input#ss-submit.jfk-button.jfk-button-action(name='submit', value='Submit', type='submit').pure-button.
 
 
         div.pure-u-1.pure-u-md-1-2
