@@ -31,29 +31,48 @@ var S3_BUCKET = process.env.S3_BUCKET
 app.set('port', (process.env.PORT || 5000));
 app.use(express.static(__dirname + '/public'));
 app.set('views', __dirname + '/views');
-// app.use(express.cookieParser());
-// app.use(express.bodyParser());
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 app.engine('html', require('ejs').renderFile);
-app.use(session({
+app.enable('trust proxy');
+var sessionConfig = {
   store: new MongoStore({
-    url: mongoUri
+    url: mongoUri,
+    autoReconnect: true
   }),
+  name: 'sid',      // Generic - don't leak information
+  proxy: true,      // Trust the reverse proxy for HTTPS/SSL
+  cookie: {
+    httpOnly: true, // Reduce XSS attack vector
+    secure: true,   // Cookies via SSL
+  },
   resave: true,
   saveUninitialized: true,
   secret: process.env.MONGO_SECRET || 'secret'
-}));
+};
+
+if(process.env.APP !== 'production') {
+    // Allow non-SSL cookies when not in production
+  sessionConfig.proxy = false;
+  sessionConfig.cookie.secure = false;
+}
+
+app.use(session(sessionConfig));
+
 app.use(passport.initialize());
 app.use(passport.session());
-app.locals.loggedIn = true;
 app.locals.moment = require('moment');
 app.locals.marked = require('marked');
 
 var discourse_sso = require('discourse-sso');
 var sso = new discourse_sso(process.env.SSOSECRET || 'abigail');
 var url = require('url');
+
+app.use(function(req, res, next) {
+  res.header('Cache-Control', 'private, no-cache, no-store, must-revalidate');
+  next();
+});
 
 app.listen(app.get('port'), function() {
   console.log("Node app is running at localhost:" + app.get('port'))
@@ -133,7 +152,7 @@ app.get('/u/:user', localQuery, userRoutes.get);
 app.get('/u/:user/edit', localQuery, ensureAuthenticated, userRoutes.edit);
 
 app.get('/sso', function(request, response) {
-  var ref = request.session.ref = url.parse('http://forum.mozillascience.org/');
+  var ref = request.session.ref = url.parse('https://forum.mozillascience.org/');
   var payload = request.query.sso;
   var sig = request.query.sig;
 
@@ -149,7 +168,7 @@ app.get('/sso', function(request, response) {
           email: request.user.email
         };
 
-        response.redirect('http://forum.mozillascience.org/' + 'session/sso_login?' + sso.buildLoginString(userparams));
+        response.redirect('https://forum.mozillascience.org/' + 'session/sso_login?' + sso.buildLoginString(userparams));
     } else {
       // response.render('login.jade', { ref: ref.hostname });
       response.redirect('/auth/github');
@@ -253,8 +272,10 @@ app.get('/auth/github/callback',
 
 //logout
 app.get('/logout', function(req, res){
-  req.logout();
-  res.redirect('/');
+  //http://stackoverflow.com/questions/13758207/why-is-passportjs-in-node-not-removing-session-on-logout
+  req.session.destroy(function (err) {
+    res.redirect('/');
+  });
 });
 
 
@@ -367,16 +388,24 @@ passport.use(new GitHubStrategy({
 
 // Passport session setup.
 passport.serializeUser(function(user, done) {
-  done(null, user);
+  done(null, user && user.username);
 });
 passport.deserializeUser(function(obj, done) {
   if(obj){
-    github.authenticate({
-      type: "oauth",
-      token: obj.token
+    User = mongoose.model('User');
+    User.findOne({'username': obj}, function(err, user) {
+      if(err) { // OAuth error
+        console.log(err);
+        return done(err);
+      } else if (user) { // User record in the database
+        github.authenticate({
+          type: "oauth",
+          token: user.token
+        });
+        done(null, user);
+      }
     });
   }
-  done(null, obj);
 });
 
 

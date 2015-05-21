@@ -85,7 +85,8 @@ module.exports = function() {
           res.json(project);
         } else {
             if(!canEdit(project, req.user)){
-              res.status(403).end();
+              var status = req.user ? 403 : 401;
+              res.render('status/' + status + '.jade');
             } else {
               Event.find()
                 .select('title _id')
@@ -234,13 +235,14 @@ module.exports = function() {
         .populate('contributors', '-email -token')
         .exec(function(err, project){
         if(!project){
-          res.status(404).end();
+          req.xhr ? res.status(404).end() : res.render('status/404.jade');
           return;
         } else {
           if (err) return console.error(err);
           if(!(project.status == 'active' || project.status == 'complete')){
             if(!req.user || (!canEdit(project, req.user))){
-              res.status(403).end();
+              var status = req.user ? 403 : 401;
+              req.xhr ? res.status(status).end() : res.render('status/' + status + '.jade');
               return;
             }
           }

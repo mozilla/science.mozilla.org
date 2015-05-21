@@ -35,10 +35,11 @@ html
               td
                 a(href='/projects/' + project.slug)=project.title
               td
-                each l, ind in project.lead
-                  a(href='/u/' + l.username)=l.name
-                  if ind != project.lead.length-1
-                    | ,&nbsp;
+                if project.lead
+                  each l, ind in project.lead
+                    a(href='/u/' + l.username)=l.name
+                    if ind != project.lead.length-1
+                      | ,&nbsp;
               td=project.institute
               td=project.languages.join(', ')
               td=project.wanted.join(', ')

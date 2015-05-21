@@ -107,7 +107,7 @@ module.exports = function() {
           res.send();
         });
       } else {
-        res.status(403).end();
+        res.status(req.user ? 403 : 401).end();
       }
     },
     save: function(req, res, next){
@@ -118,7 +118,7 @@ module.exports = function() {
             res.send();
         });
       } else {
-        res.status(403).end();
+        res.status(req.user ? 403 : 401).end();
       }
     },
     edit: function(req, res, next){
@@ -126,7 +126,7 @@ module.exports = function() {
           is_self = (req.user && name == req.user.username);
 
       if(!is_self){
-        res.status(403).end();
+        res.render('status/' + (req.user ? '403' : '401') + '.jade');
       }
 
       //hardcoding my different blog vs github ids... so sad :(. Pls remember to remove later.
@@ -134,7 +134,7 @@ module.exports = function() {
 
       User.findOne({ username: name }).select('-email -token').exec(function(err, u){
         if(!u){
-          res.status(404).end();
+          res.render('status/404.jade');
         } else {
           if (err) return console.error(err);
           if(req.xhr) {

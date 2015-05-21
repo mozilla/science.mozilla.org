@@ -90,7 +90,7 @@ mixin footer(page)
     script(src="/scripts/showdown.min.js")
     script(src="/scripts/moment.min.js")
 
-    script(src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js")
+    script(src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js")
     script
       window.jQuery || document.write('<script src="/static/js/vendor/jquery-1.11.1.min.js"><\/script>')
 
@@ -106,9 +106,7 @@ mixin footer(page)
 
       | ga('create', 'UA-35433268-51', 'auto');
       | ga('send', 'pageview');
-    if(page == 'Event')
-      link(rel="stylesheet" type="text/css" href='https://css.tito.io/v1')
-      script(src='https://js.tito.io/v1')
+
 
 
 
