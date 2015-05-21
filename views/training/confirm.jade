@@ -1,0 +1,30 @@
+include ../partials/head.jade
+include ../partials/header.jade
+include ../partials/connect.jade
+include ../partials/footer.jade
+
+-var page = "Study Group"
+
+doctype html5
+html
+  head
+    +head(page)
+  body
+    +header(loggedIn, page)
+    div.page-wrapper
+
+      div.splash
+        h2 Thank you for your interest in starting a study group!
+      div.header-img#about-header
+
+      div.pure-u-1
+        p
+          | We'll be in touch shortly. In the meantime, have a look at our
+          a(href="http://mozillascience.github.io/studyGroupHandbook/")  Mozilla Study Group Handbook
+          | .
+
+
+
+
+    +footer()
+
