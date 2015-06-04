@@ -10,7 +10,7 @@ html
     +head(ev.title || page)
   body
     +header(loggedIn, page)
-    div.page-wrapper.user-page
+    div.page-wrapper
       section.project
         div
           h1 #{ev.title + '  '}
@@ -48,6 +48,15 @@ html
             b  'Remote Participants'
             |  at the bottom of the pad
 
+          h3(id="pick") PICK A PROJECT
+
+          p
+            | Look through our
+            a(href="https://forum.mozillascience.org/t/mozsprint-projects-where-to-start/239")  summary of participating projects
+            |  or browse through the
+            a(href="https://etherpad.mozilla.org/sciencelab-2015globalsprint" target="_blank")  full list on the etherpad
+            | .
+
 
           h3(id="sites") SITES
           p We have >30 sites from all over the world participating in our #mozsprint this year! Check the map to find a site near you, or join us remotely.
@@ -62,6 +71,8 @@ html
             p
               | Here are some featured tools, lessons and other projects furthering open science that will be a part of this #mozsprint. Find out more about each project to see how you can get involved.
               a(href="https://etherpad.mozilla.org/sciencelab-2015globalsprint")  See the full list of projects on the planning etherpad.
+
+
           div#event-projects(data-url="/api/events/" + ev.slug + "/projects")
 
           br
