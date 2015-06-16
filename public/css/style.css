@@ -766,9 +766,6 @@ i.bigIcon{
 .btn-danger:hover {
   background: #bd362f;
 }
-.pure-g {
-  letter-spacing: normal; /* no idea why letter spacing gets messed up in  upper .content */
-}
 
 .content-contrast {
   background-color: #c9e3f6;
