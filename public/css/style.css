@@ -595,6 +595,11 @@ footer h3 {
   margin-bottom: 1.5rem;
 }
 
+#fellow-header {
+  background-image:url(/img/fellows.jpg);
+  opacity:0.8;
+}
+
 #about-header {
   background-image:url(/img/about.jpg);
   opacity:0.8;
