@@ -182,6 +182,9 @@ app.get('/fellows', localQuery, function(request, response) {
   response.render('fellows.jade');
 });
 
+app.get('/fellows/faq', localQuery, function(request, response) {
+  response.render('fellows/faq.jade');
+});
 
 
 app.get('/collaborate/dashboard', localQuery, ensureAuthenticated, requireAdmin, projectRoutes.admin);
