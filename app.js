@@ -202,7 +202,7 @@ app.get('/toronto', function(req, res){
 });
 
 app.get('/projects/submit', localQuery, function(request, response) {
-  response.render('collaborate/guidelines.jade');
+  response.render('collaborate/closed.jade');
 });
 
 app.get('/projects/create', localQuery, ensureAuthenticated, function(request, response) {

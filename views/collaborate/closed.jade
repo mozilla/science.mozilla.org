@@ -1,0 +1,32 @@
+include ../partials/head.jade
+include ../partials/header.jade
+include ../partials/footer.jade
+
+
+doctype html5
+html
+  head
+    +head('Submissions Closed | Collaborate')
+  body
+    +header(loggedIn, "Collaborate")
+    div.page-wrapper
+
+
+
+      section.about.no-image.splash
+        h1 Submissions Closed
+        p Submissions are currently closed for Collaborate.
+      div
+        p
+          | Submissions will open again with a new round of Collaborate.
+
+
+        i
+          | Have a question? Read more
+          a(href="/collaborate/about")  about this program
+          |  or
+          a(href='mailto:sciencelab@mozillafoundation.org')  get in touch
+          | .
+
+    +footer()
+
