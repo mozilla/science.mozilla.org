@@ -74,6 +74,14 @@ app.use(function(req, res, next) {
   next();
 });
 
+// remove trailing slash for disqus -- http://stackoverflow.com/a/13443359/1366746
+app.use(function(req, res, next) {
+   if(req.url.substr(-1) == '/' && req.url.length > 1)
+       res.redirect(301, req.url.slice(0, -1));
+   else
+       next();
+});
+
 app.listen(app.get('port'), function() {
   console.log("Node app is running at localhost:" + app.get('port'))
 });
