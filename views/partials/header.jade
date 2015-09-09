@@ -5,9 +5,9 @@ mixin header(loggedIn, page)
 
     div.menu-wrapper
       div.pure-menu.pure-menu-open.pure-menu-horizontal
-        a(href="https://www.mozilla.org/" id="tabzilla") mozilla
-        link(href="//mozorg.cdn.mozilla.net/media/css/tabzilla-min.css" rel="stylesheet")
-        script(async src="//mozorg.cdn.mozilla.net/tabzilla/tabzilla.js")
+        link(href="/css/tabzilla.css" rel="stylesheet")
+        div#tabzilla
+          a(href="https://www.mozilla.org/") mozilla
 
         a(id="menu-button").fa.fa-bars.pull-left
         a(href='/' id="logo").pull-left
