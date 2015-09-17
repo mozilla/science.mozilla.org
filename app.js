@@ -257,7 +257,7 @@ app.get("/api/events/:slug/projects", eventRoutes.getProjects);
 app.get("/api/events", eventRoutes.getAll);
 app.get("/api/events/upcoming", eventRoutes.upcoming);
 
-app.get("/blog", postRoutes.getAll);
+app.get("/blog/:page?", postRoutes.getAll);
 
 app.get("/api/projects/search/:query", projectRoutes.search);
 app.get("/api/users/badge/:badge", localQuery, ensureAuthenticated, userRoutes.badge);

@@ -28,7 +28,18 @@ html
           div.sidebar(style="margin-top:0")
             p(style="margin-bottom:10px") Join the Conversation
             +connect()
+      -var pg=Number(p);
 
+      div.pure-u-1.pure-u-md-3-4
+        - if(pg > 1) {
+          div.pull-left
+            a(href="/blog/" + (pg - 1)) < previous page
+        - }
+
+        div.pull-right
+          a(href="/blog/" + (pg + 1)) next page >
+        br
+        br
 
     +footer()
 
