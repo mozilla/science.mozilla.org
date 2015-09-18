@@ -1,0 +1,294 @@
+include ../partials/head.jade
+include ../partials/header.jade
+include ../partials/footer.jade
+
+-var page = "Event"
+
+doctype html5
+html
+  head
+    +head(ev.title || page)
+  body
+    +header(loggedIn, page)
+    div.page-wrapper
+      section.project
+        div
+          h1 #{ev.title + '  '}
+          p
+            i= ev.where
+            span= ' | ' + moment(ev.start).format("MMM D") + ' - ' + moment(ev.end).format("MMM D YYYY")
+
+          div.pure-u-1
+            p
+              | We’ve been exploring ways to further open practice and collaboration in  science, through
+              a(href="https://www.mozillascience.org/you-did-this-mozilla-science-global-sprint-2015")  code sprints
+              | ,
+              a(href="https://mozillascience.github.io/studyGroupHandbook/setting-up.html")  study groups
+              | , and
+              a(href="http://mozillascience.github.io/leadership-training/")  best practice guides for open source contributorship
+              |  for project leads. On September 21-23, 2015, we’ll be running a small, invite only event with contributors in Toronto help workshop resources and supports for our community leaders.
+
+            p
+              | This work is part of a bigger plan called
+              a(href="http://marksurman.commons.ca/2015/07/15/web-literacy-and-leadership/")  “Mozilla Learning”
+              |  - which is focusing on
+              b  growing a network of leaders furthering open practice
+              |  in communities we care about. For the Science Lab’s work, that takes the form of encouraging  and supporting community events (study groups, code sprints), providing  platforms and tools for collaboration (Collaborate, Badges, Software Citation), producing learning resources (Working Open guide), and empowering open science leaders (Fellowships).
+
+
+            p The Summit will take place over 2.5 days and include a mix of project work,  workshopping,  group skillshare, and mingling with other open science  advocates
+
+            p
+              ul
+                li
+                  a(href="#agenda") AGENDA
+                li
+                  a(href="#schedule") SCHEDULE
+                li
+                  a(href="#participants") PARTICIPANTS
+
+          h3(id="agenda") Why this agenda?
+          p We looked at the responses you sent us along with your RSVPs and mapped this agenda to those responses as best we could. Of course, we can’t meet all needs and requests in this two-day meeting, please know we’ll use your input to help shape future trainings, materials, and events.
+
+          h3 This training is designed for participation
+          p We’ve gathered together a group of truly amazing scientists, researchers, and educators, and we want to use your skills and experience as best we can. We’re framing each session with a short presentation, but we want to get you talking, problem-solving, working, and making things together right away. In each of the sessions there’s time to share your successes and challenges, work on real stuff, and solve problems as a group.
+
+          h3 This training is designed to be social and network-y
+          p We’ve built in breaks, evening activities, and long lunches so you have free time to mix, get to know each other, and have those unexpected conversations that we’re pretty sure will lead to amazing open science projects and initiatives.
+
+          p(id="schedule") Schedule is as follows:
+
+          h3 MONDAY, SEPTEMBER 21st
+          p
+            b Location:
+            br
+            | Mozilla Offices
+            br
+            | 366 Adelaide St W. - Suite 500 (5th Floor)
+            br
+            | Toronto ON M5V 1R9
+            br
+            b Room:
+            |  Union
+
+          p
+            | Arrive throughout the day.
+            br
+            b Official Kickoff Social/Co-Working Time/Dinner:
+            |  3pm to 6:30pm
+            br
+            b Walk to Evening Event:
+            |  6:30 - 7:00
+            br
+            b Evening Event:
+            |  7:15 - 8:15pm
+
+
+          hr
+          h3 TUESDAY, SEPTEMBER 22nd
+
+          p
+            b Location:
+            |  Mozilla Offices
+            br
+            b Room:
+            |  Osgoode
+
+          p
+            b Coffee/Breakfast & Arrivals:
+            |  9:00 am - 9:30 am
+
+          hr
+
+          p
+            b Introductory Session
+            |  9:30 am -10:15 am  (about 45 minutes)
+
+          p Goals:
+            ul
+              li Meet each other!
+              li Get a short intro to the training/workshop format
+              li Hear about Mozilla’s approach to open science and The Working Open Guide
+              li Experiment with jargon-free communication about open science/open science tools
+
+          p Schedule:
+            ul
+              li
+                b Welcome
+                |  from Kaitlin (about 2 minutes)
+              li
+                b Go-around
+                |  Introductions (about 25 mins/2 mins each)
+              li
+                b Intro
+                |  to Working Open with Kaitlin (about 5 minutes)
+              li
+                b Jargon-Busting
+                |  Exercise (about 10 minutes)
+
+          hr
+
+          p
+            b BREAK:
+            |  Coffee, snacks, conversation (about 20 mins)
+
+          hr
+
+          p
+            b SESSION 1: Setting up an Open Project/Group
+            br
+            | 10:45-12:30, with a short break TBA (about an 1 hour and 45 mins)
+
+          p Goals:
+            ul
+              li Make an effective, useful roadmap for your project or study group OR write/revise your readme and contributor guidelines for your group or project
+              li Be able to communicate your project mission clearly, in jargon-free language
+              li Add to/hack on Working Open Guide
+
+          p Schedule:
+            ul
+              li
+                b Roadmapping & Documentation
+                |  with Abby ( around 10-15mins)
+              li
+                b Successes/Struggles
+                |  Group Sharing  (around 25 mins)
+              li
+                b Small group exercise on clear communication
+                |  ( around 15 mins)
+              li
+                b Work on/hack on materials
+                |  (around 30 mins)
+              li
+                b CRISP session feedback
+                |  (10 mins)
+
+          hr
+          p
+            b BREAK:
+            |  Lunch provided on-site 12:30-2:00pm
+
+          hr
+
+          p
+            b SESSION 2: Bringing On Contributors
+            br
+            | 2:00pm- 4:00pm, with a short break around 3:15pm
+
+            p Goals:
+              ul
+                li Learn how effectively bring new contributors to an open source project or group
+                li Get some tips for facilitating learning and working sessions successfully
+                li Add to/hack on Working Open Guide
+
+            p Schedule
+              ul
+                li
+                  b Mentoring on an open project + leading code learning sessions
+                  |  with Josh & Abby, 10-15 minutes)
+                li
+                  b Successes/Struggles
+                  |  (around 20 minutes)
+                li
+                  b Work on/hack on materials
+                  |  (around 40mins)
+                li
+                  b CRISP Session feedback
+                  |  (around 10 mins)
+          hr
+          p
+            b OPTIONAL DINNER
+            | , 6pm
+
+          hr
+          h3 WEDNESDAY, SEPTEMBER 23rd
+
+          p
+            b Location:
+            |  Mozilla Offices
+            br
+            b Room:
+            |  Osgoode
+
+          p
+            b Coffee/Breakfast & Arrivals:
+            |  9:00 am - 10:00 am
+
+          hr
+
+          p
+            b SESSION 3: Managing Community and Building Momentum
+            br
+            | 10:00-12:30, with a nice break around 11:15
+
+            p Goals:
+              ul
+                li Understand how communities of contributors can grow
+                li Get tips and tools to help grow your own community
+                li Get insight on how to troubleshoot problems in your community
+                li Add to/hack on Working Open Guide
+
+            p Schedule:
+              ul
+                li
+                  b Growing a Community
+                  |  (Emma Irwin, focus on Mozilla Story, 10-15 minutes)
+                li
+                  b Successes/Struggles
+                  |  (15 minutes)
+                li
+                  b Supercharge Your Community Workshop Activity
+                  |  (Emma)
+                li
+                  b Work on/hack on materials
+                  |  (25mins)
+                li
+                  b CRISP Session feedback
+                  |  (10 mins)
+          hr
+          p
+            b BREAK:
+            |  Lunch 12:30-2:00pm
+          hr
+
+
+          p
+            b SESSION 4 (OPTIONAL): Breakout Sessions and Work Time
+            br
+            | 2:00 pm to 4:00 pm
+            br
+            b Location:
+            |  Osgoode
+
+            p Goals:
+              ul
+                li Get some crash-course training on-site
+                li Have time to work on your own or someone else’s project as needed
+                li Hack into the Working Open Guide
+
+            p Options:
+              ul
+                li GitHub Training Q & A w/ Abby +  volunteers
+                li Open Source Licensing overview w/ Kaitlin
+                li Organizing a Sprint w/ Arliss
+                li Sign up for a skillshares, add your own
+                li Hack our Stuff OR Your Stuff!
+
+          h3(id="participants") PARTICIPANTS
+
+
+
+          if(ev.facilitators.length > 0)
+            h3 FACILITATORS
+            div#event-people(data-url="/api/events/" + ev.slug + "/people")
+
+          if(ev.attending.length > 0)
+            h3 PARTICIPANTS
+            div#event-attending(data-url="/api/events/" + ev.slug + "/attending")
+
+
+
+
+
+
+    +footer(page)
