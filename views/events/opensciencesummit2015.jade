@@ -276,11 +276,11 @@ html
 
 
           if(ev.facilitators.length > 0)
-            h3(id="participants") PARTICIPANTS
+            h3 MOZILLA SCIENCE LAB
             div#event-people(data-url="/api/events/" + ev.slug + "/people")
 
           if(ev.attending.length > 0)
-            h3 PARTICIPANTS
+            h3(id="participants") PARTICIPANTS
             div#event-attending(data-url="/api/events/" + ev.slug + "/attending")
 
 
