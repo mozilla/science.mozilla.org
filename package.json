@@ -24,7 +24,7 @@
     "jade": "^1.7.0",
     "marked": "^0.3.3",
     "moment": "^2.9.0",
-    "mongoose": "^4.0.0",
+    "mongoose": "^4.1.4",
     "node-uuid": "^1.4.2",
     "normalize.css": "^3.0.2",
     "passport": "^0.2.1",
