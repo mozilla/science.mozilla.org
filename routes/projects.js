@@ -58,6 +58,7 @@ module.exports = function() {
         .find()
         .where('status').equals('active')
         .populate('lead', 'name username')
+        .sort('-updatedAt')
         .exec(function (err, projects) {
         if (err) return console.error(err);
         res.json(projects);
