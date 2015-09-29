@@ -549,6 +549,7 @@ footer ul.footer-links li a {
 
 footer ul a:hover, footer ul.footer-links li a:hover {
   color:f47e3c;
+  text-decoration:none;
 }
 
 footer h3 {
