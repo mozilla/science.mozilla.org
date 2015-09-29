@@ -522,7 +522,6 @@ footer ul {
 
 footer ul a {
   color:white;
-  text-decoration:none;
 }
 
 footer ul.footer-links {
@@ -546,7 +545,6 @@ footer ul.footer-links li a {
   text-transform: uppercase;
   color: #FFF;
   font-size:0.8em;
-  text-decoration:none;
 }
 
 footer ul a:hover, footer ul.footer-links li a:hover {
