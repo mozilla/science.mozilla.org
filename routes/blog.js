@@ -36,6 +36,8 @@ module.exports = function() {
           } else {
             next();
           }
+      }).catch(function(ex){
+          next();
       });
     },
     author: function(req, res, next){
