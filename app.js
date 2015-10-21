@@ -5,6 +5,7 @@ var express = require('express'),
     MongoStore = require('connect-mongo')(session),
     bodyParser = require('body-parser'),
     path = require('path'),
+    fs = require('fs'),
     mongoUri = process.env.MONGOLAB_URI
     || process.env.MONGOHQ_URL
     || 'mongodb://127.0.0.1:27017/test',
@@ -190,10 +191,16 @@ app.get('/fellows', localQuery, function(request, response) {
   response.render('fellows.jade');
 });
 
-app.get('/fellows/faq', localQuery, function(request, response) {
-  response.render('fellows/faq.jade');
+app.get('/fellows/:slug', localQuery, function(request, response) {
+  var p = 'fellows/' + request.params.slug + '.jade'
+  fs.stat(p, function(err, stat) {
+    if(err == null || err.code == 'ENOENT') {
+      response.render(p);
+    } else {
+      response.status(404).end();
+    }
+  });
 });
-
 
 app.get('/collaborate/dashboard', localQuery, ensureAuthenticated, requireAdmin, projectRoutes.admin);
 
