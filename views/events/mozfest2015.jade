@@ -1,0 +1,57 @@
+include ../partials/head.jade
+include ../partials/header.jade
+include ../partials/footer.jade
+
+-var page = "MozFest 2015"
+
+doctype html5
+html
+  head
+    +head(ev.title || page)
+  body
+    +header(loggedIn, page)
+    div.page-wrapper
+      section.project
+        div
+          h1 #{ev.title + '  '}
+          p
+            i= ev.where
+            span= ' | ' + moment(ev.start).format("MMM D") + ' - ' + moment(ev.end).format("MMM D YYYY")
+          if(ev.start > moment())
+            div(style="padding-bottom:2em")
+              a(href="https://2015.mozillafestival.org/tickets")
+                button.pure-button.pure-button-lg Register
+          div.pure-u-1
+            div(style="padding-bottom:2em")
+              img(src="/img/mozfest2015.png")
+
+          div.pure-u-1
+
+            h2 The Open Science Track
+            p Science is for everyone, and helps us understand the world around us. The Open Science track offers a space to be curious, tinker, learn new tools and skills, and hack together on projects and data. Interested in citizen science, open data, learning or research? Join us to get help with your project, learn new data and collaboration skills, and get your hands dirty playing with tools to apply to your work.
+
+            p This track is for science hobbyists, researchers, librarians, and those working with data. There will be participatory sessions focusing on specific tools and projects, as well as trainings on tools like GitHub, citizen science, open mapping, and skills to help you get your hands dirty with data.
+
+            p Have a project you'd like help with? We'll be running an Open Research Accelerator at the Festival, to provide 1-on-1 mentorship around open source and project skills to help you run your very own session at the Festival.
+
+            p Participants will interact with educators, researchers, tinkerers, developers and data scientists, as well as learn tangible skills to apply to their own projects. Our target participants are those who are curious about science, looking to learn about open source, data, and tools to advance their work on the web. This encompasses researchers, but also youth interested in astronomy or citizen science, educators looking to fold learning back into their work, data journalists and more.
+
+            h2 The Festival
+            p MozFest runs for three days beginning on Friday evening with a 'Science Fair', where we demo exciting projects from across the web. Saturday and Sunday are full days of sessions, hacking and good coffee. There is a party on Saturday night, and the festival ends on Sunday evening with a closing demo party, showcasing what we made together.
+
+
+
+          if(ev.facilitators.length > 0)
+            h3 FACILITATORS
+            div#event-people(data-url="/api/events/" + ev.slug + "/people")
+
+          if(ev.attending.length > 0)
+            h3 PARTICIPANTS
+            div#event-attending(data-url="/api/events/" + ev.slug + "/attending")
+
+          if(ev.start > moment())
+            a(href="https://2015.mozillafestival.org/tickets")
+              button.pure-button.pure-button-lg Register
+
+
+    +footer(page)
