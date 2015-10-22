@@ -153,6 +153,24 @@ app.get('/community', localQuery, function(request, response) {
   response.render('community.jade');
 });
 
+app.get('/community/join/:ev/:key', localQuery, ensureAuthenticated, function(request, response){
+  if(request.params.key == process.env.EVENT_KEY){
+    var Event = mongoose.model('Event');
+
+      Event.findOne({ slug: request.params.ev }).exec(function(err, ev){
+        if (err) return console.error(err);
+        var facilitators = ev.facilitators || [];
+        facilitators.push(request.user._id);
+        ev.facilitators = facilitators;
+        ev.save();
+        response.redirect('/' + request.params.ev);
+      });
+
+  } else {
+    response.redirect('/' + request.params.ev);
+  }
+})
+
 app.get('/u/:user', localQuery, userRoutes.get);
 app.get('/u/:user/edit', localQuery, ensureAuthenticated, userRoutes.edit);
 
