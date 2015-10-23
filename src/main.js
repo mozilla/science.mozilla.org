@@ -79,7 +79,6 @@
       } else {
         var bio = $('#ubio').val();
         var return_to = $('#createaccount').data('return-to');
-        console.log(return_to);
         $.ajax({
           url: $(this).data('href'),
           type:'POST',
