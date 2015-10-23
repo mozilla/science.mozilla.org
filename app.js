@@ -36,11 +36,19 @@ app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 app.engine('html', require('ejs').renderFile);
+
+mongoose.connect(mongoUri);
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function callback () {
+  console.log('connection!');
+});
+
+
 app.enable('trust proxy');
 var sessionConfig = {
   store: new MongoStore({
-    url: mongoUri,
-    autoReconnect: true
+    mongooseConnection: mongoose.connection
   }),
   name: 'sid',      // Generic - don't leak information
   proxy: true,      // Trust the reverse proxy for HTTPS/SSL
@@ -88,12 +96,6 @@ app.listen(app.get('port'), function() {
 });
 
 
-mongoose.connect(mongoUri);
-var db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function callback () {
-  console.log('connection!');
-});
 
 var models = require('./models.js')
 
