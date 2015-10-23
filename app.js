@@ -155,16 +155,22 @@ app.get('/community', localQuery, function(request, response) {
 
 app.get('/community/join/:ev/:key', localQuery, ensureAuthenticated, function(request, response){
   if(request.params.key == process.env.EVENT_KEY){
-    var Event = mongoose.model('Event');
+    var Event = mongoose.model('Event'),
+        User = mongoose.model('User');
 
-      Event.findOne({ slug: request.params.ev }).exec(function(err, ev){
-        if (err) return console.error(err);
-        var facilitators = ev.facilitators || [];
-        facilitators.push(request.user._id);
-        ev.facilitators = facilitators;
-        ev.save();
+    Event.findOne({ slug: request.params.ev }).exec(function(err, ev){
+      if (err) return console.error(err);
+      var facilitators = ev.facilitators || [];
+      facilitators.push(request.user._id);
+      ev.facilitators = facilitators;
+      ev.save();
+
+      User.findOne({ github_id: request.user.github_id }).exec(function(err, user){
+        user.featured = true;
+        user.save();
         response.redirect('/' + request.params.ev);
-      });
+      })
+    });
 
   } else {
     response.redirect('/' + request.params.ev);
