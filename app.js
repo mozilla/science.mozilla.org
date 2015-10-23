@@ -48,7 +48,7 @@ var sessionConfig = {
     httpOnly: true, // Reduce XSS attack vector
     secure: true,   // Cookies via SSL
   },
-  resave: true,
+  resave: false,
   saveUninitialized: true,
   secret: process.env.MONGO_SECRET || 'secret'
 };
