@@ -120,7 +120,7 @@ var routes = require("./routes"),
 
 ensureAuthenticated = function (req, res, next) {
   if (req.user) { return next(); }
-  res.redirect('/auth/github');
+  res.redirect('/auth/github/?redirect_to=' + req.session.redirect_to);
 }
 
 requireAdmin = function (req, res, next) {
@@ -128,7 +128,7 @@ requireAdmin = function (req, res, next) {
   res.redirect('/');
 }
 
-app.get('/', localQuery, function(request, response) {
+app.get('/',localQuery, function(request, response) {
   response.render('index.jade');
 });
 
@@ -300,13 +300,16 @@ app.get("/blog/:page?", postRoutes.getAll);
 app.get("/api/projects/search/:query", projectRoutes.search);
 app.get("/api/users/badge/:badge", localQuery, ensureAuthenticated, userRoutes.badge);
 
-app.get('/auth/github',
+app.get('/auth/github', function(req, res, next) {
+    req.session.redirect_to = req.query.redirect_to;
+    next();
+  },
   passport.authenticate('github', { scope: 'public_repo user:email'}));
 
 app.get('/auth/github/callback',
   passport.authenticate('github', { failureRedirect: '/' }),
   function(req, res) {
-    var return_path = req.session.cookie.path || req.session.redirect_to || (req.headers && req.headers.referer) || '/';
+    var return_path =  req.session.redirect_to || req.session.cookie.path || (req.headers && req.headers.referer) || '/';
     if(!req.user.status) {
       res.render('profile.jade', { user: req.user, loggedIn: !!req.user, return_path: return_path });
     } else {
