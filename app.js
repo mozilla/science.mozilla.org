@@ -98,7 +98,8 @@ db.once('open', function callback () {
 var models = require('./models.js')
 
 localQuery = function(req, res, next) {
-  req.session.cookie.path = req.originalUrl
+  req.session.cookie.path = req.originalUrl;
+  req.session.redirect_to = req.originalUrl;
   if(req.user && !req.user.status){
     req.logout();
   }
@@ -303,7 +304,7 @@ app.get('/auth/github',
 app.get('/auth/github/callback',
   passport.authenticate('github', { failureRedirect: '/' }),
   function(req, res) {
-    var return_path = req.session.cookie.path || (req.headers && req.headers.referer) || '/';
+    var return_path = req.session.cookie.path || req.session.redirect_to || (req.headers && req.headers.referer) || '/';
     if(!req.user.status) {
       res.render('profile.jade', { user: req.user, loggedIn: !!req.user, return_path: return_path });
     } else {
