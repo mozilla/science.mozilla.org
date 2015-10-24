@@ -163,7 +163,7 @@ app.get('/community', localQuery, function(request, response) {
 
 app.get('/community/join/:ev/:key', function(request, response){
   response.redirect('/community/facilitator/' + request.params.ev + '/' + request.params.key);
-}
+});
 
 app.get('/community/facilitator/:ev/:key', localQuery, ensureAuthenticated, function(request, response){
   if(request.params.key == process.env.EVENT_KEY){
