@@ -119,7 +119,7 @@ var routes = require("./routes"),
 
 
 ensureAuthenticated = function (req, res, next) {
-  if (req.user || req.session.passport.user) {
+  if (req.user) {
     return next();
   } else if (!req.query.redirect) {
     res.redirect('/auth/github?redirect_to=' + (req.session.redirect_to || '/') + '%3Fredirect%3Dtrue');
@@ -161,7 +161,7 @@ app.get('/community', localQuery, function(request, response) {
   response.render('community.jade');
 });
 
-app.get('/community/join/:ev/:key', localQuery, ensureAuthenticated, function(request, response){
+app.get('/community/facilitator/:ev/:key', localQuery, ensureAuthenticated, function(request, response){
   if(request.params.key == process.env.EVENT_KEY){
     var Event = mongoose.model('Event'),
         User = mongoose.model('User');
