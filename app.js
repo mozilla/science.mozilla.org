@@ -119,10 +119,12 @@ var routes = require("./routes"),
 
 
 ensureAuthenticated = function (req, res, next) {
-  if (req.user) {
+  if (req.user || req.session.passport.user) {
     return next();
-  } else {
+  } else if (!req.query.redirect) {
     res.redirect('/auth/github?redirect_to=' + (req.session.redirect_to || '/') + '%3Fredirect%3Dtrue');
+  } else {
+    res.redirect('/');
   }
 }
 
