@@ -100,8 +100,12 @@ app.listen(app.get('port'), function() {
 var models = require('./models.js')
 
 localQuery = function(req, res, next) {
-  req.session.cookie.path = req.originalUrl;
-  req.session.redirect_to = req.originalUrl;
+  var url = req.originalUrl;
+  console.log('before:' + url);
+  url = url.replace(/^\/community\/join/, "/community/facilitator");
+  console.log(url);
+  req.session.cookie.path = url;
+  req.session.redirect_to = url;
   if(req.user && !req.user.status){
     req.logout();
   }
@@ -119,6 +123,8 @@ var routes = require("./routes"),
 
 
 ensureAuthenticated = function (req, res, next) {
+  console.log('ensureAuthenticated');
+  console.log(req.user);
   if (req.user) {
     return next();
   } else if (!req.query.redirect) {
@@ -161,7 +167,7 @@ app.get('/community', localQuery, function(request, response) {
   response.render('community.jade');
 });
 
-app.get('/community/join/:ev/:key', function(request, response){
+app.get('/community/join/:ev/:key', localQuery, ensureAuthenticated, function(request, response){
   response.redirect('/community/facilitator/' + request.params.ev + '/' + request.params.key);
 });
 

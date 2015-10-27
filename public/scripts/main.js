@@ -50,7 +50,9 @@
     if(window.location.href.indexOf('#register') != -1) {
       $('#register').modal('show');
     }
-
+    if(window.location.href.indexOf('#facilitator') != -1) {
+      $('#facilitator').modal('show');
+    }
     $('#githubModal').modal('show');
     $('#collaborate-admin-table').dataTable();
     $('#leave').click(function(){

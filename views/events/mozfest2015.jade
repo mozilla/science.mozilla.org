@@ -406,7 +406,9 @@ html
           if(ev.facilitators.length > 0)
             h3 FACILITATORS
             p
-              | Look out for these friendly faces running our sessions at MozFest this year!
+              | Look out for these friendly faces running our sessions at MozFest this year! Are you a facilitator?
+              a(data-toggle="modal" data-target="#facilitator")  Add yourself to this list.
+            div#event-people(data-url="/api/events/" + ev.slug + "/people")
 
           if(ev.attending.length > 0)
             h3 PARTICIPANTS
@@ -416,4 +418,24 @@ html
             a(href="https://2015.mozillafestival.org/tickets")
               button.pure-button.pure-button-lg Register
 
+         div.modal.fade#facilitator(tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true")
+              div.modal-dialog
+                div.modal-content
+                  div.modal-header
+                    button.close(type="button" data-dismiss="modal" aria-label="Close")
+                      span(aria-hidden="true") &times;
+                    h3.modal-title#modalLabel
+                      if(user)
+                        | Add yourself as a MozFest facilitator
+                      else
+                        | Sign in to add yourself as a facilitator
+                  div.modal-body
+                    p Join us in the Mozilla Toronto offices March 7-8 as we build tools helping web-enabled science
+                    tito-widget(event="mozilla-science/toronto-open-science-code-sprint")
+                  div.modal-footer
+                    button.pure-button.light(type="button" data-dismiss="modal") Close
+                    if(user)
+                      a.pure-button(type="button" href="/api/events/" + ev.slug + '/attend') Add
+                    else
+                      a.pure-button(type="button" href="/auth/github") Sign in
     +footer(page)
