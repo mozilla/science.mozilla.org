@@ -68,7 +68,6 @@ if(process.env.APP !== 'production') {
 }
 
 app.use(session(sessionConfig));
-
 app.use(passport.initialize());
 app.use(passport.session());
 app.locals.moment = require('moment');
@@ -101,9 +100,6 @@ var models = require('./models.js')
 
 localQuery = function(req, res, next) {
   var url = req.originalUrl;
-  console.log('before:' + url);
-  url = url.replace(/^\/community\/join/, "/community/facilitator");
-  console.log(url);
   req.session.cookie.path = url;
   req.session.redirect_to = url;
   if(req.user && !req.user.status){
@@ -123,8 +119,6 @@ var routes = require("./routes"),
 
 
 ensureAuthenticated = function (req, res, next) {
-  console.log('ensureAuthenticated');
-  console.log(req.user);
   if (req.user) {
     return next();
   } else if (!req.query.redirect) {
@@ -167,7 +161,7 @@ app.get('/community', localQuery, function(request, response) {
   response.render('community.jade');
 });
 
-app.get('/community/join/:ev/:key', localQuery, ensureAuthenticated, function(request, response){
+app.get('/community/join/:ev/:key', function(request, response){
   response.redirect('/community/facilitator/' + request.params.ev + '/' + request.params.key);
 });
 
