@@ -403,12 +403,12 @@ html
 
           p Check back here as we add more Pathways to our space. Coming soon: Science Communication, Open Data and Citizen Science!
 
-          if(ev.facilitators.length > 0)
-            h3 FACILITATORS
-            p
-              | Look out for these friendly faces running our sessions at MozFest this year! Are you a facilitator?
-              a(data-toggle="modal" data-target="#facilitator")  Add yourself to this list.
-            div#event-people(data-url="/api/events/" + ev.slug + "/people")
+          //if(ev.facilitators.length > 0)
+          h3 FACILITATORS
+          p
+            | Look out for these friendly faces running our sessions at MozFest this year! Are you a facilitator?
+            a(data-toggle="modal" data-target="#facilitator")  Add yourself to this list.
+          div#event-people(data-url="/api/events/" + ev.slug + "/people")
 
           if(ev.attending.length > 0)
             h3 PARTICIPANTS
@@ -424,18 +424,11 @@ html
                   div.modal-header
                     button.close(type="button" data-dismiss="modal" aria-label="Close")
                       span(aria-hidden="true") &times;
-                    h3.modal-title#modalLabel
-                      if(user)
-                        | Add yourself as a MozFest facilitator
-                      else
-                        | Sign in to add yourself as a facilitator
+                    h3.modal-title#modalLabel Add yourself as a MozFest facilitator
                   div.modal-body
-                    p Join us in the Mozilla Toronto offices March 7-8 as we build tools helping web-enabled science
-                    tito-widget(event="mozilla-science/toronto-open-science-code-sprint")
+                    p Check your email for the code to add yourself as a facilitator
+                    input(id="evcode" type="text" placeholder="CODE")
                   div.modal-footer
                     button.pure-button.light(type="button" data-dismiss="modal") Close
-                    if(user)
-                      a.pure-button(type="button" href="/api/events/" + ev.slug + '/attend') Add
-                    else
-                      a.pure-button(type="button" href="/auth/github") Sign in
+                    a.pure-button(type="button" href="/community/join/" + ev.slug + '/' + 'FACILITATOR' onClick='var code=$("#evcode").value(); window.location.href="/community/join/mozfest-2015/"+code;') Add
     +footer(page)
