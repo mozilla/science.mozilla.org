@@ -119,4 +119,31 @@ html
                   div.modal-footer
                     button.pure-button.light(type="button" data-dismiss="modal") Close
                     a.pure-button(type="button" href="/community/join/" + ev.slug + '/' + 'FACILITATOR' onClick='var code=$("#evcode").value(); window.location.href="/community/join/mozfest-2015/"+code;') Add
+
+        h3 VENUE INFORMATION
+
+        p Mozilla Festival is taking place at:
+        p
+          | Ravensbourne,
+          br
+          | 6 Penrose Way,
+          br
+          | Greenwich Peninsula,
+          br
+          | London SE10 0EW.
+          br
+
+        h3 WHAT TO BRING
+        p Equipment to bring for the festival weekend, if possible:
+          ul
+            li A laptop, if you’re able to bring one. Tablets and smartphones are also good.
+            li UK power converter, the UK uses Type G.
+            li AV adaptors. If your computer requires a special adapter to connect to monitors and projectors, please bring it. Usually Apple computers need adaptors for VGA and HDMI.
+            li Cell phone coverage is very weak in Ravensbourne, so please be aware of that if you need to make calls. If you are making a call, the International dialling code for the UK is +44.
+
+        br
+        div
+          if(ev.start > moment())
+            a(href="https://2015.mozillafestival.org/tickets")
+              button.pure-button.pure-button-lg Register
     +footer(page)
