@@ -21,6 +21,13 @@ html
         padding:0.7em;
       }
 
+      .pthwy span {
+        padding:5px;border:1px solid rgb(0, 0, 0);
+      }
+      .pthwy {
+        margin-top:2em;
+      }
+
   body
     +header(loggedIn, page)
     div.page-wrapper
@@ -136,31 +143,66 @@ html
 
           h3 PATHWAYS
 
-          p#ora
-            span(style="padding:5px;border:1px solid rgb(0, 0, 0);background-color:rgb(244, 204, 204)") Open Research Accelerator
+          p#ora.pthwy
+            span(style="background-color:rgb(244, 204, 204)") Open Research Accelerator
           p
             | Have a project you'd like help with? We'll be running an
             a(href="http://beta.briefideas.org/open-research-accelerator")  Open Research Accelerator
             |  at the Festival, to provide 1-on-1 mentorship around open source and project skills to help you run your very own session at the Festival.
+          p
+            b Pathfinders
+          p
+            | Robert Davey (
+            a(href="https://twitter.com/froggleston") @froggleston
+            | ),
+            i  The Genome Analysis Centre
+            br
+            | Billy Meinke (
+            a(href="https://twitter.com/billymeinke") @billymeinke
+            | ),
+            i  The University of Hawaii
+          p
+            b Mentors
+          p
+            | Abigail Cabunoc Mayes (
+            a(href="https://twitter.com/abbycabs") @abbycabs
+            | ),
+            i  Mozilla Science Lab
+            br
+            | Richard Smith-Unna (
+            a(href="https://twitter.com/blahah404") @blahah404
+            | ),
+            i  Cambridge University
 
-          p#pthwy-open-data
-            span(style="padding:5px;border:1px solid rgb(0, 0, 0);background-color:rgb(201, 218, 248)") Open Data
+          p#pthwy-open-data.pthwy
+            span(style="background-color:rgb(201, 218, 248)") Open Data
 
           p
             | Do you like data? Do you like data out in the open? Then the
             a(href="https://github.com/mozilla/mozfest-program/labels/%5BPathway%5D%20Open%20Data")  Open Data Pathway
             |  is for you! This pathway for all things open data- creating, curating, sharing, and using data out in the open! We'll be exploring ideas around using open data, open data ethics, open science, reproducibility, and collaboration.
+          p
+            b Pathfinder
+          p
+            | Christie Bahlai (
+            a(href="https://twitter.com/cbahlai") @cbahlai
+            | ),
+            i  Michigan State University
 
-
-          p#pthwy-cit-sci
-            span(style="padding:5px;border:1px solid rgb(0, 0, 0);background-color:rgb(217, 210, 233)")  Citizen Science
+          p#pthwy-cit-sci.pthwy
+            span(style="background-color:rgb(217, 210, 233)")  Citizen Science
 
           p We all need a little science in our lives. If you celebrate that notion, then you'll love this pathway which is designed to highlight sessions that might be useful to individuals looking to roll-up their sleeves and engage with or lead a scientific research project.
+          p
+            b Pathfinder
+          p
+            | Jason Bobe (
+            a(href="https://twitter.com/jasonbobe") @jasonbobe
+            | ),
+            i  Icahn Institute for Genomics and Multiscale Biology at Mount Sinai
 
-
-          p#pthwy-sci-comm
-            span(style="padding:5px;border:1px solid rgb(0, 0, 0);background-color:rgb(217, 234, 211)") Science Communication
-
+          p#pthwy-sci-comm.pthwy
+            span(style="background-color:rgb(217, 234, 211)") Science Communication
           p
             | The
             a(href="https://github.com/mozilla/mozfest-program/labels/%5BPathway%5D%20Science%20communication")  Science Communication Pathway
@@ -171,6 +213,15 @@ html
             | , and
             b  community building and outreach
             | .
+          p
+            b Pathfinder
+          p
+            | Joey Lee (
+            a(href="https://twitter.com/leejoeyk") @leejoeyk
+            | ),
+            i  University of British Columbia
+
+
           //if(ev.facilitators.length > 0)
           h3 FACILITATORS
           p
