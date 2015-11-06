@@ -48,7 +48,7 @@ module.exports = function() {
     },
     upcoming: function(req, res, next){
       Event
-        .find({"start" : {$gt :  Date.now() }})
+        .find({"end" : {$gt :  Date.now() }})
         .populate('facilitators', '-email -token')
         .sort('start')
         .limit(5)
