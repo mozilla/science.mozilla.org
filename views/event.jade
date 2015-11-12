@@ -56,8 +56,9 @@ html
             h3 PROJECTS
             div#featured-projects
 
-          h3 FACILITATORS
-          div#event-people(data-url="/api/events/" + ev.slug + "/people")
+          if(ev.facilitators.length > 0)
+            h3 FACILITATORS
+            div#event-people(data-url="/api/events/" + ev.slug + "/people")
 
           if(ev.attending.length > 0)
             h3 PARTICIPANTS
