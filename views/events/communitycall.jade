@@ -1,0 +1,32 @@
+include ../partials/head.jade
+include ../partials/header.jade
+include ../partials/footer.jade
+
+-var page = "Event"
+
+doctype html5
+html
+  head
+    +head(ev.title || page)
+  body
+    +header(loggedIn, page)
+    div.page-wrapper.user-page
+      section.project
+        div
+          h1 #{ev.title + '  '}
+          p
+            i= ev.where
+            span= ' | ' + moment(ev.start).format("MMM D, h:mm") + ' - ' + moment(ev.end).format("h:mm")
+          div.pure-u-1
+            div(style="padding-bottom:2em")
+              img(src=(ev.image_url || '/img/communitycall.jpg'))
+
+          div.pure-u-1
+            p!=ev.description
+
+          if(ev.facilitators.length > 0)
+            h3 FACILITATORS
+            div#event-people(data-url="/api/events/" + ev.slug + "/people")
+
+
+    +footer(page)
