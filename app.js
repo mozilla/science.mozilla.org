@@ -2,7 +2,7 @@ var express = require('express'),
     session = require('express-session'),
     app = express(),
     mongoose = require('mongoose'),
-    MongoStore = require('connect-mongo')(session),
+    RedisStore = require('connect-redis')(session),
     bodyParser = require('body-parser'),
     path = require('path'),
     fs = require('fs'),
@@ -47,8 +47,8 @@ db.once('open', function callback () {
 
 app.enable('trust proxy');
 var sessionConfig = {
-  store: new MongoStore({
-    mongooseConnection: mongoose.connection
+  store: new RedisStore({
+    url: process.env.REDISCLOUD_URL || "redis://127.0.0.1:6379/0"
   }),
   name: 'sid',      // Generic - don't leak information
   proxy: true,      // Trust the reverse proxy for HTTPS/SSL
