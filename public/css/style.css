@@ -520,7 +520,7 @@ footer ul {
   font-size:1em;
 }
 
-footer ul a {
+footer ul a, footer ul a:visited {
   color:white;
 }
 
@@ -547,7 +547,7 @@ footer ul.footer-links li a {
   font-size:0.8em;
 }
 
-footer ul a:hover, footer ul.footer-links li a:hover {
+footer ul a:hover, footer ul.footer-links li a:hover, footer ul a:visited:hover {
   color:f47e3c;
   text-decoration:none;
 }
