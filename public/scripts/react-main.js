@@ -462,12 +462,20 @@ if(document.getElementById('my-projects')){
   );
 }
 
+if(document.getElementById('msl-staffs')){
+  React.render(
+      React.createElement(PeopleBox, {url: "/api/staffs"}),
+      document.getElementById('msl-staffs')
+  );
+}
+
 if(document.getElementById('msl-people')){
   React.render(
     React.createElement(PeopleBox, {url: "/api/users"}),
     document.getElementById('msl-people')
   );
 }
+
 
 if(document.getElementById('event-people')){
   React.render(

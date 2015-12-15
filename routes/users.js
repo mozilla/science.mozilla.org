@@ -228,7 +228,27 @@ module.exports = function() {
                              { location: regex } ] }, function(err, user){
         if (err) return console.error(err);
         res.json(user);
-      })    }
+      })
+    },
+    getStaffs : function(req, res, next){
+
+        User.find({
+            'username': { $in: [
+                'kaythaney',
+                'arlissc',
+                'zee-moz',
+                'stephwright',
+                'acabunoc',
+                'auremoser'
+            ]}
+        },function(err, staffs){
+            if(err){
+                return console.error(err);
+            }
+            res.json(staffs);
+        });
+    }
   };
+
 
 };
