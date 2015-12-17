@@ -156,6 +156,8 @@ module.exports = function() {
 
       //hardcoding my different blog vs github ids... so sad :(. Pls remember to remove later.
       if(name == 'abbycabs') name = 'acabunoc';
+      if(name == 'stephw') name = 'stephwright';
+      if(name == 'zannah') name = 'zee-moz';
 
       User.findOne({ username: name }).select('-email -token').populate('badges', 'title').exec(function(err, u){
         if(!u){
@@ -178,9 +180,12 @@ module.exports = function() {
               // Find projects for this user
               Project.find({ $and: [ { $or: [{lead: u._id}, {contributors: u._id}] }, { $or: [{status: "active"}, {status:"complete"}]}] }).select('title slug').exec(function(err, projects){
 
-                  // Because I'm the only one who has a different wp login than github login....
+                  // Because some of us have a different wp login than github login....
                   // Remove when we switch to github blogging
                   var wp_name = (name === 'acabunoc') ? 'abbycabs' : name;
+                  if(wp_name == 'stephwright') wp_name = 'stephw';
+                  if(wp_name == 'zee-moz') wp_name = 'zannah';
+
                   wp.posts()
                     .author( wp_name )
                     .filter( 'posts_per_page', 50 )
