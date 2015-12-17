@@ -101,7 +101,7 @@ module.exports = function() {
     remove: function(req, res, next){
       var name = req.params.user.toLowerCase();
 
-      if(req.user.username == name || req.user.role == 'admin'){
+      if(req.user.username == name || req.user.role == 'staff'){
         User.findOneAndRemove({username:name}, function(){
           req.logout();
           res.send();
@@ -113,7 +113,7 @@ module.exports = function() {
     save: function(req, res, next){
       var name = req.params.user.toLowerCase();
 
-      if(req.user.username == name || req.user.role == 'admin'){
+      if(req.user.username == name || req.user.role == 'staff'){
         User.where({username: name}).update(req.body.user, function(){
             res.send();
         });
@@ -131,6 +131,8 @@ module.exports = function() {
 
       //hardcoding my different blog vs github ids... so sad :(. Pls remember to remove later.
       if(name == 'abbycabs') name = 'acabunoc';
+      if(name == 'stephw') name = 'stephwright';
+      if(name == 'zannah') name = 'zee-moz';
 
       User.findOne({ username: name }).select('-email -token').exec(function(err, u){
         if(!u){

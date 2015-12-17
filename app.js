@@ -129,7 +129,7 @@ ensureAuthenticated = function (req, res, next) {
 }
 
 requireAdmin = function (req, res, next) {
-  if (req.user.role == 'admin') { return next(); }
+  if (req.user.role == 'staff') { return next(); }
   res.redirect('/');
 }
 
