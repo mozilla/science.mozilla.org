@@ -101,7 +101,7 @@ module.exports = function() {
     remove: function(req, res, next){
       var name = req.params.user.toLowerCase();
 
-      if(req.user.username == name || req.user.role == 'admin'){
+      if(req.user.username == name || req.user.role == 'staff'){
         User.findOneAndRemove({username:name}, function(){
           req.logout();
           res.send();
@@ -113,7 +113,7 @@ module.exports = function() {
     save: function(req, res, next){
       var name = req.params.user.toLowerCase();
 
-      if(req.user.username == name || req.user.role == 'admin'){
+      if(req.user.username == name || req.user.role == 'staff'){
         User.where({username: name}).update(req.body.user, function(){
             res.send();
         });
@@ -131,6 +131,8 @@ module.exports = function() {
 
       //hardcoding my different blog vs github ids... so sad :(. Pls remember to remove later.
       if(name == 'abbycabs') name = 'acabunoc';
+      if(name == 'stephw') name = 'stephwright';
+      if(name == 'zannah') name = 'zee-moz';
 
       User.findOne({ username: name }).select('-email -token').exec(function(err, u){
         if(!u){
@@ -154,6 +156,8 @@ module.exports = function() {
 
       //hardcoding my different blog vs github ids... so sad :(. Pls remember to remove later.
       if(name == 'abbycabs') name = 'acabunoc';
+      if(name == 'stephw') name = 'stephwright';
+      if(name == 'zannah') name = 'zee-moz';
 
       User.findOne({ username: name }).select('-email -token').populate('badges', 'title').exec(function(err, u){
         if(!u){
@@ -176,9 +180,12 @@ module.exports = function() {
               // Find projects for this user
               Project.find({ $and: [ { $or: [{lead: u._id}, {contributors: u._id}] }, { $or: [{status: "active"}, {status:"complete"}]}] }).select('title slug').exec(function(err, projects){
 
-                  // Because I'm the only one who has a different wp login than github login....
+                  // Because some of us have a different wp login than github login....
                   // Remove when we switch to github blogging
                   var wp_name = (name === 'acabunoc') ? 'abbycabs' : name;
+                  if(wp_name == 'stephwright') wp_name = 'stephw';
+                  if(wp_name == 'zee-moz') wp_name = 'zannah';
+
                   wp.posts()
                     .author( wp_name )
                     .filter( 'posts_per_page', 50 )
@@ -228,7 +235,19 @@ module.exports = function() {
                              { location: regex } ] }, function(err, user){
         if (err) return console.error(err);
         res.json(user);
-      })    }
+      })
+    },
+    getStaff : function(req, res, next){
+
+        User.find({role:"staff"})
+        .select('-email -token')
+        .sort('username')
+        .exec(function (err, staff) {
+            if (err) return console.error(err);
+            res.json(staff);
+        });
+    }
   };
+
 
 };

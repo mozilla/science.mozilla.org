@@ -12,7 +12,7 @@ function isUser(element, id){
 function canEdit(project, user){
   var lead = false;
   if (user) project.lead.map(function(item){ if(item.github_id == user.github_id) lead = true});
-  return (user && (lead || (user.role == 'admin')));
+  return (user && (lead || (user.role == 'staff')));
 }
 
 function removeUser(array, id){
@@ -226,7 +226,7 @@ module.exports = function() {
     },
     get: function(req, res, next){
       var pop = '-token';
-      if(!(req.user && req.user.role == 'admin')) {
+      if(!(req.user && req.user.role == 'staff')) {
         pop += ' -email';
       }
       Project

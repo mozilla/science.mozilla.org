@@ -129,7 +129,7 @@ ensureAuthenticated = function (req, res, next) {
 }
 
 requireAdmin = function (req, res, next) {
-  if (req.user.role == 'admin') { return next(); }
+  if (req.user.role == 'staff') { return next(); }
   res.redirect('/');
 }
 
@@ -280,6 +280,10 @@ app.post("/projects/:project/join", localQuery, projectRoutes.join);
 
 app.get("/api/users", userRoutes.getAll);
 app.post("/api/users/create", userRoutes.create);
+
+//start
+app.get("/api/staff", userRoutes.getStaff);
+//end
 
 app.get("/api/users/:user", userRoutes.get);
 app.delete('/api/users/:user', ensureAuthenticated, userRoutes.remove);
