@@ -228,7 +228,18 @@ module.exports = function() {
                              { location: regex } ] }, function(err, user){
         if (err) return console.error(err);
         res.json(user);
-      })    }
+      })
+    },
+    getStaff : function(req, res, next){
+
+        User.find({role:"staff"})
+        .select('-email -token')
+        .exec(function (err, staff) {
+            if (err) return console.error(err);
+            res.json(staff);
+        });
+    }
   };
+
 
 };
