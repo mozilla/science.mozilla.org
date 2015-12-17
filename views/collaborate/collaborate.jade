@@ -16,7 +16,7 @@ html
       section
         +welcome()
 
-      if(user && user.role == 'admin')
+      if(user && user.role == 'staff')
         div
           a(href="/collaborate/dashboard") Admin view
       if(user)
