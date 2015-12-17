@@ -6,9 +6,6 @@ var express = require('express'),
     bodyParser = require('body-parser'),
     path = require('path'),
     fs = require('fs'),
-    mongoUri = process.env.MONGOLAB_URI
-    || process.env.MONGOHQ_URL
-    || 'mongodb://127.0.0.1:27017/test',
     dotenv = require('dotenv'),
     aws = require('aws-sdk'),
     cookieParser = require('cookie-parser'),
@@ -16,6 +13,11 @@ var express = require('express'),
     uuid = require('node-uuid');
 
 dotenv.load();
+
+var mongoUri = process.env.MONGOLAB_URI
+    || process.env.MONGOHQ_URL
+    || 'mongodb://127.0.0.1:27017/test';
+
 passport = require('passport');        // user authentication
 // LocalStrategy = require('passport-local').Strategy;
 GitHubStrategy = require('passport-github').Strategy;
