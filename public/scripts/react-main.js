@@ -462,10 +462,10 @@ if(document.getElementById('my-projects')){
   );
 }
 
-if(document.getElementById('msl-staffs')){
+if(document.getElementById('msl-staff')){
   React.render(
-      React.createElement(PeopleBox, {url: "/api/staffs"}),
-      document.getElementById('msl-staffs')
+      React.createElement(PeopleBox, {url: "/api/staff"}),
+      document.getElementById('msl-staff')
   );
 }
 

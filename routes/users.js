@@ -230,22 +230,13 @@ module.exports = function() {
         res.json(user);
       })
     },
-    getStaffs : function(req, res, next){
+    getStaff : function(req, res, next){
 
-        User.find({
-            'username': { $in: [
-                'kaythaney',
-                'arlissc',
-                'zee-moz',
-                'stephwright',
-                'acabunoc',
-                'auremoser'
-            ]}
-        },function(err, staffs){
-            if(err){
-                return console.error(err);
-            }
-            res.json(staffs);
+        User.find({role:"staff"})
+        .select('-email -token')
+        .exec(function (err, staff) {
+            if (err) return console.error(err);
+            res.json(staff);
         });
     }
   };

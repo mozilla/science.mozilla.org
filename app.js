@@ -282,7 +282,7 @@ app.get("/api/users", userRoutes.getAll);
 app.post("/api/users/create", userRoutes.create);
 
 //start
-app.get("/api/staffs", userRoutes.getStaffs);
+app.get("/api/staff", userRoutes.getStaff);
 //end
 
 app.get("/api/users/:user", userRoutes.get);
