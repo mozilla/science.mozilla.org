@@ -241,6 +241,7 @@ module.exports = function() {
 
         User.find({role:"staff"})
         .select('-email -token')
+        .sort('username')
         .exec(function (err, staff) {
             if (err) return console.error(err);
             res.json(staff);
