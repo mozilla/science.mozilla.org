@@ -12,11 +12,13 @@ html
     div(id="home-banner")
       div.bg
         div.page-wrapper
-          h1 Helping Research Thrive
+          h1 Making research collaborative,
             br
-            | on the Open Web
+            | accessible, and usable
           div.pure-u-1.pure-u-md-1-2
-            h3 We believe a community of peers that work, learn and build together can make research thrive on the open web.
+            //h3 We do this by: Empowering the next generation of leaders through fellowships and mentorship; Facilitating project-based learning around open data and open source; And supporting and advocating for a growing community of researchers working openly.
+
+            h3 Join a community of peers working, learning and building together to make research thrive on the open web.
           div
             if(user)
               a(href="/community")
@@ -28,65 +30,37 @@ html
               div.pure-button.light LEARN MORE
     div.pure-u-1.is-center.callout
       div.page-wrapper
-        | The Mozilla Science Lab helps a global network of researchers, tool developers,
+        | The Mozilla Science Lab facilitates learning around open source, open data
         br
-        | librarians and publishers collaborate to further science on the web.
+        | and offers fellowships for early career researchers.
     div.page-wrapper
       div.pure-u-1.pure-u-md-1-3
         div.l-box-lg
-          div.circle-img(id="circle-exp")
-          h3.is-center EXPERIMENT
+          div.circle-img(id="circle-collab")
+          h3.is-center CONNECT
           p
-            | Partner with coders, designers and researchers to collaborate to build new tools for science.
+            | Join a network of researchers, developers, librarians and publishers collaborating openly to further science on the web.
+          a(href="/community").next
+            span Work openly with our community &nbsp;
+              span.fa.fa-chevron-right
+      div.pure-u-1.pure-u-md-1-3
+        div.l-box-lg
+          div.circle-img(id="circle-exp")
+          h3.is-center PARTICIPATE
+          p
+            | Learn new skills by collaborating with coders, designers and researchers to build new tools for science.
           a(href="/collaborate").next
             span Collaborate on code for science &nbsp;
               span.fa.fa-chevron-right
       div.pure-u-1.pure-u-md-1-3
         div.l-box-lg
           div.circle-img(id="circle-innovate")
-          h3.is-center INNOVATE
+          h3.is-center LEAD
           p
-            | Learn and teach new and innovative methodologies in our training programs cultivating skills for open research.
+            | Leverage our fellowship programs and learning resources to join the next generation of open research leaders.
           a(href="/training").next
-            span Training open research skills &nbsp;
+            span Mentoring open research skills &nbsp;
               span.fa.fa-chevron-right
-      div.pure-u-1.pure-u-md-1-3
-        div.l-box-lg
-          div.circle-img(id="circle-collab")
-          h3.is-center PARTICIPATE
-          p
-            | Join a network of researchers, developers, librarians and publishers collaborating to further science on the web.
-          a(href="/community").next
-            span Build and learn with our community &nbsp;
-              span.fa.fa-chevron-right
-
-
-      div.pure-u-1
-          h3.pull-left UPCOMING EVENTS
-          h3
-          span.pull-right
-            a(href="/community")
-              | See more events &nbsp;
-              span.fa.fa-chevron-right
-          div.pure-u-1(id="upcoming-events")
-
-
-      div.pure-u-1
-          h3.pull-left FEATURED PROJECTS
-          h3
-          span.pull-right
-            a(href="/collaborate")
-              | See more projects &nbsp;
-              span.fa.fa-chevron-right
-          div.pure-u-1(id="featured-projects")
-            a.pure-u-1.pure-u-md-1-4.tooltips.project-img
-              img(src='')
-            a.pure-u-1.pure-u-md-1-4.tooltips.project-img
-              img(src='')
-            a.pure-u-1.pure-u-md-1-4.tooltips.project-img
-              img(src='')
-            a.pure-u-1.pure-u-md-1-4.tooltips.project-img
-              img(src='')
 
       div.pure-u-1
         h3.pull-left MEET THE FELLOWS
@@ -106,6 +80,34 @@ html
             div.pure-u-1-2.pure-u-md-1-4.person-card
               img(src="https://s3.amazonaws.com/mozillascience/fellows/jason_bobe.jpg")
 
+      div.pure-u-1
+          h3.pull-left FEATURED PROJECTS
+          h3
+          span.pull-right
+            a(href="/collaborate")
+              | See more projects &nbsp;
+              span.fa.fa-chevron-right
+          div.pure-u-1(id="featured-projects")
+            a.pure-u-1.pure-u-md-1-4.tooltips.project-img
+              img(src='')
+            a.pure-u-1.pure-u-md-1-4.tooltips.project-img
+              img(src='')
+            a.pure-u-1.pure-u-md-1-4.tooltips.project-img
+              img(src='')
+            a.pure-u-1.pure-u-md-1-4.tooltips.project-img
+              img(src='')
+
+      div.pure-u-1
+          h3.pull-left UPCOMING EVENTS
+          h3
+          span.pull-right
+            a(href="/community")
+              | See more events &nbsp;
+              span.fa.fa-chevron-right
+          div.pure-u-1(id="upcoming-events")
+
+
+
       div
         div.pure-u-1.pure-u-md-1-2.spaced-columns
           h3 TWEETS
@@ -114,9 +116,15 @@ html
 
         div.pure-u-1.pure-u-md-1-2.spaced-columns
           h3 SUPPORTED BY
-          div.pure-u-1.pure-u-md-1-4
-            img(src='/img/Sloan-Logo-DW.png')
-          div.pure-u-1.pure-u-md-3-4.spaced-columns
-            p The Alfred P. Sloan Foundation is a philanthropic, not-for-profit grantmaking institution. They believe that a carefully reasoned and systematic understanding of the forces of nature and society, when applied inventively and wisely, can lead to a better world for all.
+          div.pure-u-1
+            div.pure-u-1.pure-u-md-1-4
+              img(src='/img/Sloan-Logo-DW.png')
+            div.pure-u-1.pure-u-md-3-4.spaced-columns
+              p The Alfred P. Sloan Foundation is a philanthropic, not-for-profit grantmaking institution. They believe that a carefully reasoned and systematic understanding of the forces of nature and society, when applied inventively and wisely, can lead to a better world for all.
+          div.pure-u-1
+            div.pure-u-1.pure-u-md-1-4
+              img(src='/img/helmsley.jpg')
+            div.pure-u-1.pure-u-md-3-4.spaced-columns
+              p The Helmsley Charitable Trust aspires to improve lives by supporting exceptional nonprofits and other mission-aligned organizations in the U.S. and around the world in health, selected place-based initiatives, and education and human services.
     +footer()
 
