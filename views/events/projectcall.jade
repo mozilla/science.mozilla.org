@@ -1,0 +1,64 @@
+include ../partials/head.jade
+include ../partials/header.jade
+include ../partials/footer.jade
+
+-var page = "Event"
+
+doctype html5
+html
+  head
+    +head(ev.title || page)
+  body
+    +header(loggedIn, page)
+    div.page-wrapper.user-page
+      section.project
+        div
+          h1 #{ev.title + '  '}
+          p
+            i= ev.where
+            span= ' | ' + moment(ev.start).format("MMM D, h:mm") + ' - ' + moment(ev.end).format("h:mm")
+          div.pure-u-1
+            div(style="padding-bottom:2em")
+              img(src=(ev.image_url || '/img/projectcall.jpg'))
+
+          div.pure-u-1
+            p!=ev.description
+
+            h2 What is the Science Lab Project Call?
+
+            p
+              | Featuring the open source projects for science in our
+              a(href="/collaborate")  Collaborate platform
+              | , this call is a forum where we:
+            ol
+              li highlight new or outstanding contributors,
+              li share updates and invite new contributors to our Collaborate projects and
+              li learn and discuss best practices in open source.
+
+            p
+              em Everyone
+              |  is welcome to join in! Designers, developers, researchers, publishers — pretty much anyone interested in participating and learning how to get involved in an open science project. We could use all sorts of input (beyond just code), so if you’re new to open source, come join us! We’d love to have you involved. We want to give researchers a painless way to experience open, iterative workflow and learn how open source can help their community.
+
+            p Join us on the fourth Thursday of every month // 11 am Eastern .
+
+            h2 Mozilla Science Lab Project Call Details
+            p
+              | Fourth Thursday of every month
+              br
+              | 8:00 am PT / 11:00 am ET / 4:00 pm BT / 7:00 pm East Africa
+              br
+              | Email:
+              a(href="mailto:sciencelab@mozillafoundation.org")  sciencelab@mozillafoundation.org
+
+            ul
+              li Phone Number: +1 800 707 2533, password 369
+              li Room code (conference number): 7677
+              li Note:  you can call the 1-800 number free of charge using Skype or other VoIP clients
+
+
+          if(ev.facilitators.length > 0)
+            h3 ON THIS CALL
+            div#event-people(data-url="/api/events/" + ev.slug + "/people")
+
+
+    +footer(page)
