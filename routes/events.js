@@ -63,6 +63,9 @@ module.exports = function() {
           res.status(404).end();
         } else {
           if (err) return console.error(err);
+          console.log('==================')
+          console.log(JSON.stringify(ev, null, 4))
+          console.log('==================')
           if(req.xhr) res.json(ev);
           var template = ev.template ? 'events/' + ev.template : 'event.jade';
           res.render(template, { ev:ev });
