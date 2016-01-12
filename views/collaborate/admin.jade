@@ -22,6 +22,7 @@ html
           th Project
           th Lead
           th Institution
+          th Email
           th Tags
           th Looking for
           th GitHub
@@ -41,6 +42,12 @@ html
                     if ind != project.lead.length-1
                       | ,&nbsp;
               td=project.institute
+              td
+                if project.lead
+                  each l, ind in project.lead
+                    a(href='mailto:' + l.email)=l.email
+                    if ind != project.lead.length-1
+                      | ,&nbsp;
               td=project.languages.join(', ')
               td=project.wanted.join(', ')
               td
