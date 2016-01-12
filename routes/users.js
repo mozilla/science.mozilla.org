@@ -159,7 +159,7 @@ module.exports = function() {
       if(name == 'stephw') name = 'stephwright';
       if(name == 'zannah') name = 'zee-moz';
 
-      User.findOne({ username: name }).select('-email -token').populate('badges', 'title').exec(function(err, u){
+      User.findOne({ username: name }).select('-email -token').populate('badges', 'title link').exec(function(err, u){
         if(!u){
           // res.status(404).end();
           res.redirect('//github.com/' + name)
@@ -169,7 +169,6 @@ module.exports = function() {
             res.json(u);
           } else {
 
-            var badges = u.badges.map(function(item){ return item.title});
             // Find events for this User
             Event.find({ facilitators: u._id})
               .select('title slug')
@@ -198,7 +197,7 @@ module.exports = function() {
                         res.render('user/user.jade', {
                                                 posts: posts,
                                                 projects: projects,
-                                                badges: badges,
+                                                badges: u.badges,
                                                 events: events,
                                                 person: u,
                                                 is_self: is_self})

@@ -32,7 +32,11 @@ html
               if(badges.length > 0)
                 li
                   i.fa.fa-cube
-                  i= badges.join(', ')
+                  each val, ind in badges
+                    i
+                      a(href=val.link)= val.title
+                      if(ind != badges.length-1)
+                        | ,&nbsp;
               li
                 i.fa.fa-github
                 a(href='//github.com/' + person.github_id)

@@ -9,6 +9,7 @@ var badgeSchema = new Schema({
   title: String,
   image_url: String,
   description: String,
+  link: String,
   slug: String
 })
 
