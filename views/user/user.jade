@@ -42,6 +42,11 @@ html
                   i.fa.fa-twitter
                   a(href='//twitter.com/' + person.twitter_id)
                     span= person.twitter_id
+              if(person.blog)
+                li
+                  i.fa.fa-external-link
+                  a(href=person.blog)
+                    span="Blog"
 
           div.pure-u-1
 
