@@ -67,7 +67,7 @@ module.exports = function() {
     admin: function(req, res, next){
       Project
         .find()
-        .populate('lead', 'name username')
+        .populate('lead', 'name username email')
         .exec(function (err, projects) {
         if (err) return console.error(err);
         res.render('collaborate/admin.jade', {projects: projects});
