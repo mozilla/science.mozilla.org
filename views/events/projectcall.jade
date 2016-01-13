@@ -55,6 +55,10 @@ html
               li Room code (conference number): 7677
               li Note:  you can call the 1-800 number free of charge using Skype or other VoIP clients
 
+          if(ev.notes)
+            h2 Notes
+            p The notes can be found in the
+              a(href=ev.notes)  Etherpad
 
           if(ev.facilitators.length > 0)
             h3 ON THIS CALL
