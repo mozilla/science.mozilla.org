@@ -316,7 +316,6 @@ app.get("/api/projects/search/:query", projectRoutes.search);
 app.get("/api/users/badge/:badge", localQuery, ensureAuthenticated, userRoutes.badge);
 
 app.get('/auth/github', function(req, res, next) {
-    req.session.redirect_to = req.query.redirect_to;
     next();
   },
   passport.authenticate('github', { scope: 'public_repo user:email'}));
