@@ -38,7 +38,7 @@ module.exports = function() {
     },
     getAll: function(req, res, next){
       Event
-        .find()
+        .find({ _id: { $ne: null }})
         .populate('facilitators', '-email -token')
         .sort('-start')
         .exec(function (err, events) {
@@ -58,12 +58,13 @@ module.exports = function() {
       });
     },
     get: function(req, res, next){
-      Event.findOne({ slug: req.params.slug }).exec(function(err, ev){
+      Event.find({slug: req.params.slug}).exec(function(err, ev){
         if(!ev){
           res.status(404).end();
         } else {
           if (err) return console.error(err);
           if(req.xhr) res.json(ev);
+          ev = ev.pop();
           var template = ev.template ? 'events/' + ev.template : 'event.jade';
           res.render(template, { ev:ev });
         }
