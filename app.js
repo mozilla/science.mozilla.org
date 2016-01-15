@@ -373,6 +373,10 @@ app.get('/blog/:author', localQuery, postRoutes.author);
 app.get('/feed', postRoutes.feed);
 app.get('/rss', function(req, res){ res.redirect('/feed') });
 app.get('/feed/rss', function(req, res){ res.redirect('/feed') });
+app.get('/robots.txt', function (req, res) {
+    res.type('text/plain');
+    res.send("User-agent: *\nDisallow: /");
+});
 app.get('/:slug', localQuery, postRoutes.get, eventRoutes.get);
 
 // Github
