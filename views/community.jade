@@ -30,6 +30,16 @@ html
           h3 ALL EVENTS
           div#msl-events
 
+          if(user && user.role == 'staff')
+            h3 CREATE EVENT
+            ul.fa-ul
+              li
+                i.fa-li.fa.fa-plus
+                a(href="/community/new")
+                  span="New event"
+
+
+
         div.pure-u-1.pure-u-md-1-4.spaced-columns
           +connect()
 
