@@ -163,6 +163,10 @@ app.get('/community', localQuery, function(request, response) {
   response.render('community.jade');
 });
 
+app.get('/community/new', localQuery, ensureAuthenticated, requireAdmin, function(request, response) {
+  response.render('events/new.jade');
+});
+
 app.get('/community/join/:ev/:key', function(request, response){
   response.redirect('/community/facilitator/' + request.params.ev + '/' + request.params.key);
 });
@@ -309,6 +313,7 @@ app.get("/api/events/:slug/projects", eventRoutes.getProjects);
 
 app.get("/api/events", eventRoutes.getAll);
 app.get("/api/events/upcoming", eventRoutes.upcoming);
+app.post('/api/events', localQuery, eventRoutes.insert);
 
 app.get("/blog/:page?", postRoutes.getAll);
 

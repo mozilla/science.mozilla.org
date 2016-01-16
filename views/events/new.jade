@@ -1,0 +1,114 @@
+include ../partials/head.jade
+include ../partials/header.jade
+include ../partials/footer.jade
+
+doctype html5
+html
+  head
+    +head()
+  body
+    +header(loggedIn)
+    div.page-wrapper.edit-page
+
+
+
+
+      section.project
+        div
+          h1
+            input(placeholder="Event Title", id='e-title')
+          div.pure-u-1
+            div.pure-u-1
+                i.fa.fa-map-marker
+                input(placeholder= "Location", id='e-location', style="width:90%")
+                br
+                br
+            div.pure-u-1
+              i.fa.fa-calendar
+              span#datepair.
+                  <input id="e-date-start" type="text" class="date start" style="width:20%" />
+                  <input id="e-time-start" type="text" class="time start" style="width:20%" /> to
+                  <input id="e-time-end" type="text" class="time end" style="width:20%"/>
+                  <input id="e-date-end" type="text" class="date end" style="width:20%"/>
+
+          div.pure-u-1
+            div.pure-u-1
+              br
+
+            div.pure-u-1
+              p.summary
+                textarea(id='e-description' placeholder="Short description. HTML allowed.")
+
+              h3 TEMPLATE
+              select#e-template
+                option default
+                option(value="communitycall.jade") community call
+                option(value="projectcall.jade") project call
+
+              h3 NOTES
+              div.pure-u-1
+                p This is only valid for Community and Project call events
+              input(placeholder="Etherpad link", id="e-notes")
+
+
+              h3 LINK EVENT DIRECTLY TO BLOG POST
+              div.pure-u-1
+                p Don't want to create an event page? Just write a blog post and add the url here! The event will appear in Upcoming events but link directly to the blog post when clicked.
+              input(placeholder="blog post url", id="e-slug")
+
+              h3 HEADER IMAGE
+              div.pure-u-1
+                p Not needed for Community and Project call templates
+              div.pure-u-1-4
+                div#preview.crop
+                  img(src="/img/placeholder.png")
+
+                input#pimage_url(type="hidden" name="eimage_url" value="/img/placeholder.png")
+                input#files(type="file")
+                p#status Please select a file
+
+              br
+              br
+            br
+            div.project-links
+              span.pure-button.btn-success(id='save-event', data-href='/api/events') Save Event
+
+
+    script(type="text/javascript" src="/scripts/s3upload.js")
+
+    +footer()
+
+    link(rel='stylesheet', type='text/css', href='/css/jquery.timepicker.css')
+    script(type="text/javascript" src="/scripts/jquery.timepicker.min.js")
+    link(rel='stylesheet', type='text/css', href='/css/pikaday.css')
+    script(type="text/javascript" src="/scripts/pikaday.js")
+
+
+    div.
+      <script type="text/javascript" src="/scripts/datepair.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.1/js/bootstrap-datepicker.js"></script>
+
+      <script>
+          $('#datepair .time').timepicker({
+              'showDuration': true,
+              'timeFormat': 'H:i'
+          });
+          var pstart = new Pikaday({
+            field: $('#datepair .date.start')[0],
+            format: 'YYYY-MM-DD'
+          });
+          var pend = new Pikaday({
+            field: $('#datepair .date.end')[0],
+            format: 'YYYY-MM-DD'
+          });
+
+          var datepairEl = document.getElementById('datepair');
+          var alternateWidgetsDatepair = new Datepair(datepairEl, {
+            parseDate: function(input){
+                return pstart.getDate();
+            },
+            updateDate: function(input, dateObj){
+                return pend.setDate(dateObj);
+            }
+          });
+      </script>

@@ -266,6 +266,60 @@
     })
 
 
+    $('#save-event').click(function(){
+      var title = $('#e-title').val(),
+          description = $('#e-description').val(),
+          location = $('#e-location').val(),
+          date_start = $('#e-date-start').val(),
+          time_end = $('#e-time-end').val(),
+          time_start = $('#e-time-start').val(),
+          date_end = $('#e-date-end').val(),
+          template = $('#e-template option:selected').val(),
+          notes = $('#e-notes').val(),
+          slug = $('#e-slug').val(),
+          img = $('#pimage_url').val();
+      $(this).text('Saving...');
+
+      if(!slug){
+        slug = slugify(title);
+      }
+
+      var start = new Date(date_start + "T" + time_start);
+      var end = new Date(date_end + "T" + time_end);
+
+      var event = {
+        title: title,
+        description: description,
+        where: location,
+        template: template,
+        notes: notes,
+        slug: slug,
+        start: start.toISOString(),
+        end: end.toISOString()
+      }
+
+      if(img != "/img/placeholder.png") {
+        event.image_url = img
+      } else {
+        if(template == "communitycall.jade") event.image_url = '/img/communitycall.jpg';
+        if(template == "projectcall.jade") event.image_url = '/img/projectcall.jpg';
+      }
+
+      $.ajax({
+        url: $(this).data('href'),
+        type:'POST',
+        data: {
+          event: event
+        },
+        success: function(msg){
+          window.location.href = "/" + slug;
+        },
+        error: function(xhr,status,error) {
+          console.log(xhr);
+        }
+      });
+    })
+
   });
 
 })(window, document);
