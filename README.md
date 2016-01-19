@@ -1,9 +1,13 @@
 Mozilla Science
 ===============
 
-Helping researchers leverage the open web.
+Making research collaborative, accessible, and usable.
 
-The Mozilla Science Lab, an initiative of the Mozilla Foundation, helps researchers leverage the open web. We facilitate learning around open source and data sharing, as well as offer fellowships that empower researchers to lead in their communities.
+The Mozilla Science Lab, an initiative of the Mozilla Foundation, works to make research collaborative, accessible, and usable. We do this by:
+
+* Empowering the next generation of leaders through fellowships and mentorship;
+* Facilitating project-based learning around open data and open source;
+* And supporting and advocating for a growing community of researchers working openly.
 
 ##Report a Problem
 Find a problem with any of Mozilla Science's websites?  Open a new issue in the Issue Tracker on the right, and we'll jump on it as soon as we can!
