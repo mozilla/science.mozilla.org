@@ -45,7 +45,7 @@
     "wordpress-rest-api": "^0.4.0"
   },
   "engines": {
-    "node": "0.10.x"
+    "node": "0.12.2"
   },
   "repository": {
     "type": "git",
