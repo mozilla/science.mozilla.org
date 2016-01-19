@@ -468,6 +468,13 @@ if(document.getElementById('msl-people')){
   );
 }
 
+if(document.getElementById('msl-staff')){
+  React.render(
+    <PeopleBox url="/api/staff"/>,
+    document.getElementById('msl-staff')
+  );
+}
+
 if(document.getElementById('event-people')){
   React.render(
     <PeopleBox load_id="event-people" url="/api/events/x/people" />,
