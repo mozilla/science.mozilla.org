@@ -122,9 +122,10 @@ module.exports = function() {
     },
     edit: function(req, res, next){
      var name = req.params.user.toLowerCase(),
-          is_self = (req.user && name == req.user.username);
+          is_self = (req.user && name == req.user.username),
+          is_admin = (req.user && req.user.role == 'staff');
 
-      if(!is_self){
+      if(!is_self && !is_admin){
         res.render('status/' + (req.user ? '403' : '401') + '.jade');
       }
 
