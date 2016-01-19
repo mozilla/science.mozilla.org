@@ -2,9 +2,15 @@
   "name": "mozscilab",
   "version": "0.0.1",
   "description": "Mozilla Science Lab: Helping Research Thrive on the Open Web",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "npm-run-all --parallel server watch:js",
+    "build:js": "webpack --config webpack.config.js --progress --profile --colors",
+    "watch:js": "npm run build:js -- --watch",
+    "clean": "rm -rf public/js",
+    "build:production": "npm run build:js -- --optimize-minimize --optimize-dedupe",
+    "server": "node app.js",
+    "start:production": "npm-run-all build:production server"
   },
   "dependencies": {
     "aws-sdk": "^2.1.7",
@@ -19,21 +25,23 @@
     "express": "^4.12.4",
     "express-helpers": "^1.3.2",
     "express-session": "^1.12.0",
-    "forever": "^0.13.0",
     "github": "^0.2.3",
     "isomorphic-fetch": "^2.1.1",
     "jade": "^1.7.0",
+    "jsx-loader": "^0.13.2",
     "marked": "^0.3.3",
     "moment": "^2.9.0",
     "mongoose": "^4.1.4",
     "node-uuid": "^1.4.2",
     "normalize.css": "^3.0.2",
+    "npm-run-all": "^1.5.0",
     "passport": "^0.2.1",
     "passport-github": "^0.1.5",
     "passport-local": "^1.0.0",
     "path": "^0.4.9",
     "react": "^0.12.2",
     "url": "^0.10.2",
+    "webpack": "^1.12.11",
     "wordpress-rest-api": "^0.4.0"
   },
   "engines": {

@@ -1,1 +1,1 @@
-web: ./node_modules/.bin/forever app.js
+web: npm run start:production
