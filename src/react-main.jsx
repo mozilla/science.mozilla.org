@@ -279,7 +279,6 @@ var Project = React.createClass({
     var project = this.props.project,
         slug = "/projects/" + project.slug,
         summary = project.short_description || project.description,
-        status = this.props.status,
         statusClass = "fa fa-circle ";
     statusClass += project.status == 'active' ? 'text-success' : (project.status == 'closed' || project.status == 'complate') ? 'text-danger' : 'text-warning';
     summary = converter.makeHtml(summary);
