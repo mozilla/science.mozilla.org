@@ -208,7 +208,7 @@ module.exports = function() {
                         res.render('user/user.jade', {
                                                 posts: posts,
                                                 projects: projects,
-                                                badges: badges,
+                                                badges: u.badges,
                                                 events: events,
                                                 person: u,
                                                 projects_review: projects_review,
