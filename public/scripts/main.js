@@ -137,11 +137,17 @@
     });
 
     $('#save-profile').click(function(){
-      var bio = $('#bio').val(),
-          user = $(this).data('person'),
+      var user = $(this).data('person'),
+          twitter_id = $('#p_twitter_id').val(),
           redirect = $(this).data('redirect') || "/";
+          user.blog = $('#p_blog').val();
+          user.bio = $('#bio').val();
 
-      user.bio = bio;
+      twitter_id = twitter_id.replace(/^[\@]?(\S*)$/, "$1");
+      user.twitter_id = twitter_id;
+
+      if(user.blog)
+        user.blog = user.blog.replace(/^(\S*[\/\/])?(\S*)$/, "\/\/$2");
 
       $.ajax({
         url: $(this).data('href'),

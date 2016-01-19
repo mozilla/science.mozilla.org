@@ -112,7 +112,6 @@ module.exports = function() {
     },
     save: function(req, res, next){
       var name = req.params.user.toLowerCase();
-
       if(req.user.username == name || req.user.role == 'staff'){
         User.where({username: name}).update(req.body.user, function(){
             res.send();

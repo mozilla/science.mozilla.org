@@ -22,10 +22,13 @@ html
               img(src= person.avatar_url)
           div.pure-u-1.pure-u-md-3-4
             textarea#bio(placeholder="Tell us about yourself")=person.bio
-            //ul
+            ul
               li
                 i.fa.fa-twitter
-                  input(placeholder="Twitter")= person.twitter_id
+                  input#p_twitter_id(placeholder="Twitter" value=person.twitter_id)
+              li
+                i.fa.fa-external-link
+                  input#p_blog(placeholder="Blog" value=person.blog)
             br
             br
             div.project-links

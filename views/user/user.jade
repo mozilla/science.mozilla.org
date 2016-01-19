@@ -34,7 +34,10 @@ html
                   i.fa.fa-cube
                   each val, ind in badges
                     i
-                      a(href=val.link)= val.title
+                      if(val.link)
+                        a(href=val.link)= val.title
+                      else
+                        spna=val.title
                       if(ind != badges.length-1)
                         | ,&nbsp;
               li
