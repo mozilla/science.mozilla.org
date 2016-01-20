@@ -283,26 +283,38 @@
           template = $('#e-template option:selected').val(),
           notes = $('#e-notes').val(),
           slug = $('#e-slug').val(),
-          img = $('#pimage_url').val();
+          timezone = $('#e-timezone').val(),
+          img = $('#pimage_url').val(),
+          start,
+          end;
+
       $(this).text('Saving...');
 
       if(!slug){
         slug = slugify(title);
       }
 
-      var start = new Date(date_start + "T" + time_start);
-      var end = new Date(date_end + "T" + time_end);
+      if(timezone) {
+        start = moment.tz(date_start + "T" + time_start, timezone);
+        end = moment.tz(date_end + "T" + time_end, timezone);
+      } else {
+        start = new moment(date_start + "T" + time_start);
+        end = new moment(date_end + "T" + time_end);
+      }
+
 
       var event = {
         title: title,
         description: description,
         where: location,
-        template: template,
         notes: notes,
         slug: slug,
         start: start.toISOString(),
-        end: end.toISOString()
+        end: end.toISOString(),
+        timezone: timezone
       }
+
+      if(template != 'default') event.template = template;
 
       if(img != "/img/placeholder.png") {
         event.image_url = img

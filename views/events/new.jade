@@ -30,6 +30,11 @@ html
                   <input id="e-time-start" type="text" class="time start" style="width:20%" /> to
                   <input id="e-time-end" type="text" class="time end" style="width:20%"/>
                   <input id="e-date-end" type="text" class="date end" style="width:20%"/>
+              br
+              br
+            div.pure-u-1
+              i.fa.fa-clock-o
+              input(placeholder= "Timezone to display (e.g. America/Toronto, Europe/Berlin)" id="e-timezone" style="width:90%")
 
           div.pure-u-1
             div.pure-u-1
@@ -83,6 +88,7 @@ html
     link(rel='stylesheet', type='text/css', href='/css/pikaday.css')
     script(type="text/javascript" src="/scripts/pikaday.js")
 
+    script(src="/scripts/moment-timezone-with-data-2010-2020.min.js")
 
     div.
       <script type="text/javascript" src="/scripts/datepair.js"></script>
