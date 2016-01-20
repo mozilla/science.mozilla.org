@@ -73,6 +73,7 @@ app.use(session(sessionConfig));
 app.use(passport.initialize());
 app.use(passport.session());
 app.locals.moment = require('moment');
+app.locals.moment_timezone = require('moment-timezone');
 app.locals.marked = require('marked');
 
 var discourse_sso = require('discourse-sso');

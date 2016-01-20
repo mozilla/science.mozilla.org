@@ -17,9 +17,9 @@ html
           p
             i= ev.where
             if(moment(ev.start).format("MMM D") == moment(ev.end).format("MMM D"))
-              span=' | ' + moment(ev.start).format("MMM D, hh:mm") + ' - ' + moment(ev.end).format("hh:mm")
+              span=' | ' + moment(ev.start).tz(ev.timezone || 'America/Toronto').format("MMM D, HH:mm") + ' - ' + moment(ev.end).tz(ev.timezone || 'America/Toronto').format("HH:mm a z")
             else
-              span=' | ' + moment(ev.start).format("MMM D") + ' - ' + moment(ev.end).format("MMM D YYYY")
+              span=' | ' + moment(ev.start).format("MMM D") + ' - ' + moment(ev.end).tz(ev.timezone || 'America/Toronto').format("MMM D YYYY")
           if(ev.register && (ev.start > moment()))
             div(style="padding-bottom:2em")
               button.pure-button.pure-button-lg(data-toggle="modal" data-target="#register") Register

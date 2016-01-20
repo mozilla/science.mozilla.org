@@ -16,7 +16,7 @@ html
           h1 #{ev.title + '  '}
           p
             i= ev.where
-            span= ' | ' + moment(ev.start).format("MMM D, h:mm") + ' - ' + moment(ev.end).format("h:mm")
+            span=' | ' + moment(ev.start).tz(ev.timezone || 'America/Toronto').format("MMM D, HH:mm") + ' - ' + moment(ev.end).tz(ev.timezone || 'America/Toronto').format("HH:mm a z")
           div.pure-u-1
             div(style="padding-bottom:2em")
               img(src=(ev.image_url || '/img/communitycall.jpg'))
@@ -57,8 +57,8 @@ html
             h2 Notes
             p The notes can be found in the
               a(href=ev.notes)  Etherpad
-          else 
-            h2 No Notes :( 
+          else
+            h2 No Notes :(
 
           if(ev.facilitators.length > 0)
             h3 ON THIS CALL

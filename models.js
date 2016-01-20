@@ -29,6 +29,7 @@ var eventSchema = new Schema({
   where: String,
   template: String,
   notes: String,
+  timezone: String,
   facilitators: [{ type: Schema.Types.ObjectId, ref: 'User' }],
   attending: [{ type: Schema.Types.ObjectId, ref: 'User' }],
   slug: String
