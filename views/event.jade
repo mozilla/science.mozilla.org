@@ -16,7 +16,10 @@ html
           h1 #{ev.title + '  '}
           p
             i= ev.where
-            span= ' | ' + moment(ev.start).format("MMM D") + ' - ' + moment(ev.end).format("MMM D YYYY")
+            if(moment(ev.start).format("MMM D") == moment(ev.end).format("MMM D"))
+              span=' | ' + moment(ev.start).format("MMM D, hh:mm") + ' - ' + moment(ev.end).format("hh:mm")
+            else
+              span=' | ' + moment(ev.start).format("MMM D") + ' - ' + moment(ev.end).format("MMM D YYYY")
           if(ev.register && (ev.start > moment()))
             div(style="padding-bottom:2em")
               button.pure-button.pure-button-lg(data-toggle="modal" data-target="#register") Register
