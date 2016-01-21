@@ -108,7 +108,8 @@ var userSchema = new Schema({
   badges: [{ type: Schema.Types.ObjectId, ref: 'Badge' }],
   location: String,
   role: String,
-  blog: String
+  blog: String,
+  title: String
 })
 
 userSchema.pre('save', function(next, done){
