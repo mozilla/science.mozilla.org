@@ -2,6 +2,12 @@ include ../partials/head.jade
 include ../partials/header.jade
 include ../partials/footer.jade
 
+-var page = "Event"
+-var start_date = ev ? moment(ev.start).tz(ev.timezone || 'America/Toronto').format("YYYY-MM-DD") : '';
+-var start_time = ev ? moment(ev.start).tz(ev.timezone || 'America/Toronto').format("HH:mm") : '';
+-var end_date = ev ? moment(ev.end).tz(ev.timezone || 'America/Toronto').format("YYYY-MM-DD") : '';
+-var end_time = ev ? moment(ev.end).tz(ev.timezone || 'America/Toronto').format("HH:mm") : '';
+
 doctype html5
 html
   head
@@ -16,25 +22,28 @@ html
       section.project
         div
           h1
-            input(placeholder="Event Title", id='e-title')
+            input(placeholder="Event Title", id='e-title' value=(ev?ev.title:''))
           div.pure-u-1
             div.pure-u-1
                 i.fa.fa-map-marker
-                input(placeholder= "Location", id='e-location', style="width:90%")
+                input(placeholder= "Location", id='e-location', style="width:90%" value=(ev?ev.where:''))
                 br
                 br
             div.pure-u-1
               i.fa.fa-calendar
-              span#datepair.
-                  <input id="e-date-start" type="text" class="date start" style="width:20%" />
-                  <input id="e-time-start" type="text" class="time start" style="width:20%" /> to
-                  <input id="e-time-end" type="text" class="time end" style="width:20%"/>
-                  <input id="e-date-end" type="text" class="date end" style="width:20%"/>
+              span#datepair
+                  input#e-date-start(type="text" class="date start" style="width:20%" value=start_date)
+                  | &nbsp;
+                  input#e-time-start(type="text" class="time start" style="width:20%" value=start_time)
+                  |  to&nbsp;
+                  input#e-time-end(type="text" class="time end" style="width:20%" value=end_time)
+                  | &nbsp;
+                  input#e-date-end(type="text" class="date end" style="width:20%" value=end_date)
               br
               br
             div.pure-u-1
               i.fa.fa-clock-o
-              input(placeholder= "Timezone to display (e.g. America/Toronto, Europe/Berlin)" id="e-timezone" style="width:90%")
+              input(placeholder= "Timezone to display (e.g. America/Toronto, Europe/Berlin)" id="e-timezone" style="width:90%" value=(ev?ev.timezone:''))
 
           div.pure-u-1
             div.pure-u-1
@@ -42,7 +51,7 @@ html
 
             div.pure-u-1
               p.summary
-                textarea(id='e-description' placeholder="Short description. HTML allowed.")
+                textarea(id='e-description' placeholder="Short description. HTML allowed.")=(ev?ev.description:'')
 
               h3 TEMPLATE
               select#e-template
@@ -53,20 +62,20 @@ html
               h3 NOTES
               div.pure-u-1
                 p This is only valid for Community and Project call events
-              input(placeholder="Etherpad link", id="e-notes")
+              input(placeholder="Etherpad link", id="e-notes" value=(ev?ev.notes:''))
 
 
               h3 LINK EVENT DIRECTLY TO BLOG POST
               div.pure-u-1
                 p Don't want to create an event page? Just write a blog post and add the url here! The event will appear in Upcoming events but link directly to the blog post when clicked.
-              input(placeholder="blog post url", id="e-slug")
+              input(placeholder="blog post url", id="e-slug", value=(ev?ev.slug:''))
 
               h3 HEADER IMAGE
               div.pure-u-1
                 p Not needed for Community and Project call templates
               div.pure-u-1-4
                 div#preview.crop
-                  img(src="/img/placeholder.png")
+                  img(src=(ev? ev.image_url || "/img/placeholder.png" : "/img/placeholder.png"))
 
                 input#pimage_url(type="hidden" name="eimage_url" value="/img/placeholder.png")
                 input#files(type="file")
@@ -101,7 +110,9 @@ html
           });
           var pstart = new Pikaday({
             field: $('#datepair .date.start')[0],
-            format: 'YYYY-MM-DD'
+            format: 'YYYY-MM-DD',
+            defaultDate: '2016-02-01',
+            setDefaultDate: true
           });
           var pend = new Pikaday({
             field: $('#datepair .date.end')[0],
