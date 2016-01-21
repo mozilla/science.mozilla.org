@@ -206,7 +206,7 @@ var Person = React.createClass({
             <h4> {person.name} </h4>
           </a>
           <a href={"/u/" + person.username} > {person.github_id} </a><br />
-          <span> {person.title || person.company} </span>
+          <span> {person.title ? person.title + ", Mozilla Science Lab" : person.company} </span>
         </div>
       </div>
     );
