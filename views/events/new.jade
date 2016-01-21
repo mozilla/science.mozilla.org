@@ -56,8 +56,8 @@ html
               h3 TEMPLATE
               select#e-template
                 option default
-                option(value="communitycall.jade") community call
-                option(value="projectcall.jade") project call
+                option(value="communitycall.jade" selected=(ev && ev.template=="communitycall.jade" ? true : false )) community call
+                option(value="projectcall.jade" selected=(ev && ev.template=="projectcall.jade" ? true : false )) project call
 
               h3 NOTES
               div.pure-u-1
@@ -85,8 +85,11 @@ html
               br
             br
             div.project-links
+
               span.pure-button.btn-success(id='save-event', data-href='/api/events') Save Event
 
+              if(ev)
+                span.pure-button.btn-error(id='delete', data-href='/api/events/' + ev.slug, data-redirect='/community') Delete Event
 
     script(type="text/javascript" src="/scripts/s3upload.js")
 
