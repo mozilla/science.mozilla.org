@@ -91,6 +91,8 @@ html
               if(ev)
                 span.pure-button.btn-error(id='delete', data-href='/api/events/' + ev.slug, data-redirect='/community') Delete Event
 
+                a.pure-button(href='/' + ev.slug) View Event
+
     script(type="text/javascript" src="/scripts/s3upload.js")
 
     +footer()
