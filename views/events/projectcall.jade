@@ -16,6 +16,10 @@ html
           h1 #{ev.title + '  '}
           p
             i= ev.where
+            if(user && user.role == 'staff')
+              span.pull-right
+                i.fa.fa-pencil
+                a(href="/community/" + ev.slug + "/edit") Edit Event
             span=' | ' + moment(ev.start).tz(ev.timezone || 'America/Toronto').format("MMM D, HH:mm") + ' - ' + moment(ev.end).tz(ev.timezone || 'America/Toronto').format("HH:mm a z")
           div.pure-u-1
             div(style="padding-bottom:2em")
