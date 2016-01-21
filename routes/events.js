@@ -104,6 +104,15 @@ module.exports = function() {
         });
       });
     },
+    remove: function(req, res, next){
+      if( req.user.role == 'staff'){
+        Event.findOneAndRemove({slug:req.params.slug}, function(){
+          res.send();
+        });
+      } else {
+        res.status(req.user ? 403 : 401).end();
+      }
+    },
     getPeople: function(req, res, next){
       Event.findOne({ slug: req.params.slug }).populate({ path: 'facilitators', select: '-email -token', options: { sort: 'username'}}).exec(function(err, ev){
         if(!ev){
