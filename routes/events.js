@@ -49,10 +49,9 @@ module.exports = function() {
     insert: function(req, res, next){
       if(req.body.event) {
         var event = req.body.event;
-        var e = new Event(event);
-        e.save(function(){
+        Event.findOneAndUpdate({slug:event.slug}, event, {new:true, upsert:true, setDefaultsOnInsert:true}, function(err, event){
           res.redirect('/' + event.slug);
-        });
+        })
       }
     },
     upcoming: function(req, res, next){
@@ -75,6 +74,17 @@ module.exports = function() {
           if(req.xhr) res.json(ev);
           var template = ev.template ? 'events/' + ev.template : 'event.jade';
           res.render(template, { ev:ev });
+        }
+      })
+    },
+    edit: function(req, res, next){
+      Event.findOne({slug: req.params.ev}).exec(function(err, ev){
+        if(!ev){
+          res.status(404).end();
+        } else {
+          if (err) return console.error(err);
+          if(req.xhr) res.json(ev);
+          res.render('events/new.jade', { ev:ev });
         }
       })
     },

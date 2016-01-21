@@ -168,6 +168,9 @@ app.get('/community/new', localQuery, ensureAuthenticated, requireAdmin, functio
   response.render('events/new.jade');
 });
 
+app.get('/community/:ev/edit', localQuery, ensureAuthenticated, eventRoutes.edit);
+
+
 app.get('/community/join/:ev/:key', function(request, response){
   response.redirect('/community/facilitator/' + request.params.ev + '/' + request.params.key);
 });
