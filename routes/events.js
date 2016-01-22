@@ -46,11 +46,11 @@ module.exports = function() {
         res.json(events);
       });
     },
-    insert: function(req, res, next){
+    save: function(req, res, next){
       if(req.body.event) {
         var event = req.body.event;
         Event.findOneAndUpdate({slug:event.slug}, event, {new:true, upsert:true, setDefaultsOnInsert:true}, function(err, event){
-          res.redirect('/' + event.slug);
+          res.json(event);
         })
       }
     },
@@ -84,7 +84,7 @@ module.exports = function() {
         } else {
           if (err) return console.error(err);
           if(req.xhr) res.json(ev);
-          res.render('events/new.jade', { ev:ev });
+          res.render('events/edit.jade', { ev:ev });
         }
       })
     },

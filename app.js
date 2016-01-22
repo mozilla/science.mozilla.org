@@ -165,7 +165,7 @@ app.get('/community', localQuery, function(request, response) {
 });
 
 app.get('/community/new', localQuery, ensureAuthenticated, requireAdmin, function(request, response) {
-  response.render('events/new.jade');
+  response.render('events/edit.jade');
 });
 
 app.get('/community/:ev/edit', localQuery, ensureAuthenticated, eventRoutes.edit);
@@ -319,7 +319,7 @@ app.delete("/api/events/:slug", localQuery, ensureAuthenticated, eventRoutes.rem
 
 app.get("/api/events", eventRoutes.getAll);
 app.get("/api/events/upcoming", eventRoutes.upcoming);
-app.post('/api/events', localQuery, eventRoutes.insert);
+app.post('/api/events', localQuery, eventRoutes.save);
 
 app.get("/blog/:page?", postRoutes.getAll);
 
