@@ -1,0 +1,156 @@
+include ../partials/head.jade
+include ../partials/header.jade
+include ../partials/footer.jade
+
+-var page = "Event"
+
+doctype html5
+html
+  head
+    +head(ev.title || page)
+  body
+    +header(loggedIn, page)
+    div.page-wrapper
+      section.project
+        div
+          h1 #{ev.title + '  '}
+          p
+            i= ev.where
+            span= ' | ' + moment(ev.start).format("MMM D") + ' - ' + moment(ev.end).format("MMM D YYYY")
+          //if(ev.start > moment())
+            div(style="padding-bottom:2em")
+              button.pure-button.pure-button-lg(data-toggle="modal" data-target="#register") Register
+          div.pure-u-1
+            div(style="padding-bottom:2em")
+              img(src=ev.image_url)
+
+          div.pure-u-1
+            p Join us as we learn to collaboratively build projects transforming science on the web! This two-day sprint event brings together researchers, coders, librarians and the public from around the globe to hack on open science and open data projects in their communities.
+
+            p
+              a(href="https://mozillascience.org/global-sprint-2015") Our 2015 Global Sprint
+              |  brought together over 200+ members of the community to hack for two-days on open science projects. Over 30 cities around the world were represented (53 hours of consecutive hacking!), and we need your help to do it again this June.
+
+            p We'll be updating this page as we get closer the sprint. Check back for more info!
+
+
+          //h3 HOW TO REGISTER
+          //p Ready to join us for two days of learning and building together? To register:
+            ol
+              li
+                | Go to our
+                a(href="https://etherpad.mozilla.org/sciencelab-2015globalsprint" target="_blank")  Planning Etherpad
+              li Find a listed site near you (sites start after line 162)
+              li
+                | Add your name/twitter/github under
+                b  'Participants'
+                |  for that site
+          //p
+            | Can't find a site near you? You can still join us remotely! Add your name under
+            b  'Remote Participants'
+            |  at the bottom of the pad
+
+          //h3(id="pick") PICK A PROJECT
+
+          //p
+            | Look through our
+            a(href="https://forum.mozillascience.org/t/mozsprint-projects-where-to-start/239")  summary of participating projects
+            |  or browse through the
+            a(href="https://etherpad.mozilla.org/sciencelab-2015globalsprint" target="_blank")  full list on the etherpad
+            | .
+
+
+          //h3(id="sites") SITES
+
+          //p We have >30 sites from all over the world participating in our #mozsprint this year! Check the map to find a site near you, or join us remotely.
+          //p
+            a(href="https://etherpad.mozilla.org/sciencelab-2015globalsprint") See the full list of sites and details on this etherpad
+          //br
+          //iframe(src="https://www.google.com/maps/d/embed?mid=zAWZqMb9K6q4.klFrcnY20Du8" width="640" height="480")
+
+
+          h3(id="projects") PROJECTS
+          p
+            p
+              | This year, we have four tracks of projects you can contribute to:
+              ul
+                li
+                  b tools
+                  | ,
+                li
+                  b citizen science
+                  | ,
+                li
+                  b open educational resources
+                  | , and
+                li
+                  b open data
+
+            p
+              | Here are some featured tools, lessons and other projects furthering open science that will be a part of this #mozsprint. Find out more about each project to see how you can get involved.
+
+
+          div#event-projects(data-url="/api/events/" + ev.slug + "/projects")
+
+          br
+          br
+
+
+
+
+          if(ev.facilitators.length > 0)
+            h3 FACILITATORS
+            div#event-people(data-url="/api/events/" + ev.slug + "/people")
+
+          if(ev.attending.length > 0)
+            h3 PARTICIPANTS
+            div#event-attending(data-url="/api/events/" + ev.slug + "/attending")
+
+          //if(ev.start > moment())
+            button.pure-button.pure-button-lg(data-toggle="modal" data-target="#register") Register
+
+
+
+          br
+          br
+          br
+          br
+          p
+            | Interested? Drop us a note at
+            a(href="mailto:sciencelab@mozillafoundation.org")  sciencelab@mozillafoundation.org
+            | . We hope you'll come and collaborate with us as we transform science on the web.
+
+
+
+
+          div.modal.fade#register(tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true")
+              div.modal-dialog
+                div.modal-content
+                  div.modal-header
+                    button.close(type="button" data-dismiss="modal" aria-label="Close")
+                      span(aria-hidden="true") &times;
+                    h3.modal-title#modalLabel
+                        | Register for the Mozilla Science Global Sprint
+                  div.modal-body
+                    p Ready to join us for two days of learning and building together? To register:
+                      ol
+                        li
+                          | Go to our
+                          a(href="https://etherpad.mozilla.org/sciencelab-2015globalsprint" target="_blank")  Planning Etherpad
+                        li Find a listed site near you (sites start after line 162)
+                        li
+                          | Add your name/twitter/github under
+                          b  'Participants'
+                          |  for that site
+                    p
+                      | Can't find a site near you? You can still join us remotely! Add your name under
+                      b  'Remote Participants'
+                      |  at the bottom of the pad
+                  div.modal-footer
+                    button.pure-button.light(type="button" data-dismiss="modal") Close
+                    //if(user)
+                      a.pure-button(type="button" href="/api/events/" + ev.slug + '/attend') Register
+                    //else
+                      a.pure-button(type="button" href="/auth/github") Sign in to Register
+
+    +footer(page)
