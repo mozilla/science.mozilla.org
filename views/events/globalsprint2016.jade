@@ -49,25 +49,32 @@ html
             | Can't find a site near you? You can still join us remotely! Add your name under
             b  'Remote Participants'
             |  at the bottom of the pad
-
           //h3(id="pick") PICK A PROJECT
-
           //p
             | Look through our
             a(href="https://forum.mozillascience.org/t/mozsprint-projects-where-to-start/239")  summary of participating projects
             |  or browse through the
             a(href="https://etherpad.mozilla.org/sciencelab-2015globalsprint" target="_blank")  full list on the etherpad
             | .
-
-
           //h3(id="sites") SITES
-
           //p We have >30 sites from all over the world participating in our #mozsprint this year! Check the map to find a site near you, or join us remotely.
           //p
             a(href="https://etherpad.mozilla.org/sciencelab-2015globalsprint") See the full list of sites and details on this etherpad
           //br
           //iframe(src="https://www.google.com/maps/d/embed?mid=zAWZqMb9K6q4.klFrcnY20Du8" width="640" height="480")
 
+          h3 HOW TO PARTICIPATE
+          p Ready to join us as a host or project collaborator? 
+
+          ol
+              li
+                | Go to our
+                a(href="https://docs.google.com/forms/d/1uN5Q535pib0YxeZWWv1VlSdLig5mdjCWm2MuEaXz8fE/viewform" target="_blank")  Site-Host Application
+                |   to apply to host a Global Sprint location.
+              li
+                | Go to our 
+                a(href="https://docs.google.com/forms/d/16M_SiiJkmrkkSONpgd0ERUHLkr1WF4WWXZJIwvurzIs/viewform" target="_blank")  Project Application
+                |  to get your project listed among the Global Sprint Projects below. 
 
           h3(id="projects") PROJECTS
           p
@@ -108,9 +115,6 @@ html
 
           //if(ev.start > moment())
             button.pure-button.pure-button-lg(data-toggle="modal" data-target="#register") Register
-
-
-
           br
           br
           br
@@ -118,7 +122,12 @@ html
           p
             | Interested? Drop us a note at
             a(href="mailto:sciencelab@mozillafoundation.org")  sciencelab@mozillafoundation.org
-            | . We hope you'll come and collaborate with us as we transform science on the web.
+            | . Apply to host a site 
+            a(href="https://docs.google.com/forms/d/1uN5Q535pib0YxeZWWv1VlSdLig5mdjCWm2MuEaXz8fE/viewform") here
+            |  or host a project 
+            a(href="https://docs.google.com/forms/d/16M_SiiJkmrkkSONpgd0ERUHLkr1WF4WWXZJIwvurzIs/viewform") here.
+          p
+            | We hope you'll come and collaborate with us as we transform science on the web.
 
 
 
@@ -152,5 +161,5 @@ html
                       a.pure-button(type="button" href="/api/events/" + ev.slug + '/attend') Register
                     //else
                       a.pure-button(type="button" href="/auth/github") Sign in to Register
-
     +footer(page)
+Status API Training Shop Blog About
