@@ -16,7 +16,7 @@ html
           h1 #{ev.title + '  '}
           p
             i= ev.where
-            if(user && user.role == 'staff')
+            if(user && (user.role == 'staff' || user.role == 'admin'))
               span.pull-right
                 i.fa.fa-pencil
                 a(href="/community/" + ev.slug + "/edit") Edit Event

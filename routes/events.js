@@ -105,7 +105,7 @@ module.exports = function() {
       });
     },
     remove: function(req, res, next){
-      if( req.user.role == 'staff'){
+      if( req.user.role == 'staff' || req.user.role == 'admin'){
         Event.findOneAndRemove({slug:req.params.slug}, function(){
           res.send();
         });

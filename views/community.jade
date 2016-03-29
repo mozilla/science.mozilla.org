@@ -30,7 +30,7 @@ html
           h3 ALL EVENTS
           div#msl-events
 
-          if(user && user.role == 'staff')
+          if(user && (user.role == 'staff' || user.role == 'admin'))
             h3 CREATE EVENT
             ul.fa-ul
               li

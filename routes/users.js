@@ -101,7 +101,7 @@ module.exports = function() {
     remove: function(req, res, next){
       var name = req.params.user.toLowerCase();
 
-      if(req.user.username == name || req.user.role == 'staff'){
+      if(req.user.username == name || req.user.role == 'staff' || req.user.role == 'admin'){
         User.findOneAndRemove({username:name}, function(){
           req.logout();
           res.send();
@@ -112,7 +112,7 @@ module.exports = function() {
     },
     save: function(req, res, next){
       var name = req.params.user.toLowerCase();
-      if(req.user.username == name || req.user.role == 'staff'){
+      if(req.user.username == name || req.user.role == 'staff' || req.user.role == 'admin'){
         User.where({username: name}).update(req.body.user, function(){
             res.send();
         });
@@ -123,7 +123,7 @@ module.exports = function() {
     edit: function(req, res, next){
      var name = req.params.user.toLowerCase(),
           is_self = (req.user && name == req.user.username),
-          is_admin = (req.user && req.user.role == 'staff');
+          is_admin = (req.user && (req.user.role == 'staff' || req.user.role == 'admin' ));
 
       if(!is_self && !is_admin){
         res.render('status/' + (req.user ? '403' : '401') + '.jade');

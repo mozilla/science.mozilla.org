@@ -15,7 +15,7 @@ html
         div
           h1 #{person.name + '  '}
 
-          if(user && ( person.username == user.username || user.role == 'staff'))
+          if(user && ( person.username == user.username || user.role == 'staff' || user.role == 'admin'))
             span.pull-right
               i.fa.fa-pencil
               a(href="/u/" + person.username + "/edit") Edit Profile
