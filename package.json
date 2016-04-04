@@ -3,15 +3,15 @@
   "version": "1.0.0",
   "description": "Mozilla Science",
   "author": "Mozilla",
-  "license": "MPL-2.0",
+  "license": "MPL",
   "scripts": {
     "start": "npm run build && npm-run-all --parallel server watch:**",
     "build": "webpack",
     "server": "live-server ./dist --port=1818",
-    "watch:js": "chokidar 'app/js/**/*' -c 'npm run build'"
+    "watch:js": "chokidar 'app/js/**/*' -c 'npm run build'",
+    "test": "npm-run-all test:**",
+    "test:js": "eslint --config ./.eslintrc.yaml app/js/**/*"
   },
-  "author": "Mozilla",
-  "license": "MPL",
   "devDependencies": {
     "babel-core": "^6.7.4",
     "babel-loader": "^6.2.4",
@@ -19,6 +19,8 @@
     "babel-preset-react": "^6.5.0",
     "chokidar": "^1.4.3",
     "chokidar-cli": "^1.2.0",
+    "eslint": "^2.6.0",
+    "eslint-plugin-react": "^4.2.3",
     "file-loader": "^0.8.5",
     "live-server": "^0.9.2",
     "mofo-style": "^2.4.0",
