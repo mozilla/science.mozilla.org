@@ -30,8 +30,9 @@
     "webpack": "^1.12.14"
   },
   "dependencies": {
-    "mozmaker": "^0.5.0",
+    "mozmaker": "0.5.0",
     "react": "0.14.8",
-    "react-dom": "0.14.8"
+    "react-dom": "0.14.8",
+    "react-router": "2.0.1"
   }
 }
