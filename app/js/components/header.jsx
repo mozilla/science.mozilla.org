@@ -5,7 +5,7 @@ export default React.createClass({
   render: function() {
     return (
       <nav className="nav nav-inline">
-        <Link className="nav-link" to="/">Home</Link>
+        <Link className="nav-link" to="/">Mozilla Science Lab</Link>
         <Link className="nav-link" to="/programs">Programs</Link>
         <Link className="nav-link" to="/resources">Resources</Link>
         <Link className="nav-link" to="/projects">Projects</Link>
