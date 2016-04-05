@@ -8,7 +8,7 @@
     "start": "npm run build && npm-run-all --parallel server watch:**",
     "build": "webpack && npm run post-build",
     "post-build": "cp -r node_modules/mozmaker/dest/css dist/",
-    "server": "live-server ./dist --port=1818",
+    "server": "live-server ./dist --port=1818 --entry-file=index.html",
     "watch:js": "chokidar 'app/js/**/*' -c 'npm run build'",
     "watch:html": "chokidar 'app/index.html' -c 'npm run build'",
     "test": "npm-run-all test:**",

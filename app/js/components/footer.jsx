@@ -4,6 +4,7 @@ export default React.createClass({
   render: function() {
     return (
       <div>
+        <hr/>
         <div className="newsletter">
           <div className="row">
             <div className="col-sm-4">Join our newsletter</div>
