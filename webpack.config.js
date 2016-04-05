@@ -1,26 +1,26 @@
 module.exports = {
-  context: __dirname + "/app",
+  context: `${__dirname}/app`,
   entry: {
-    javascript: "./js/app.js",
-    html: "./index.html"
+    javascript: `./js/main.js`,
+    html: `./index.html`
   },
   output: {
-    filename: "/js/compiled.js",
-    path: __dirname + "/dist",
+    filename: `/js/compiled.js`,
+    path: `${__dirname}/dist`
   },
   module: {
     loaders: [
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
-        loader: 'babel',
+        loader: `babel`,
         query: {
-          presets: ['es2015', 'react']
+          presets: [`es2015`, `react`]
         }
       },
       {
         test: /\.html$/,
-        loader: "file?name=[name].[ext]",
+        loader: `file?name=[name].[ext]`
       }
     ]
   }

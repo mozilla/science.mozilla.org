@@ -12,7 +12,7 @@
     "watch:js": "chokidar 'app/js/**/*' -c 'npm run build'",
     "watch:html": "chokidar 'app/index.html' -c 'npm run build'",
     "test": "npm-run-all test:**",
-    "test:js": "eslint --config ./.eslintrc.yaml app/js/**/*"
+    "test:js": "eslint --config ./.eslintrc.yaml app/js/**/* webpack.config.js"
   },
   "devDependencies": {
     "babel-core": "^6.7.4",
