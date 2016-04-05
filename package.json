@@ -6,9 +6,11 @@
   "license": "MPL",
   "scripts": {
     "start": "npm run build && npm-run-all --parallel server watch:**",
-    "build": "webpack",
+    "build": "webpack && npm run post-build",
+    "post-build": "cp -r node_modules/mozmaker/dest/css dist/",
     "server": "live-server ./dist --port=1818",
     "watch:js": "chokidar 'app/js/**/*' -c 'npm run build'",
+    "watch:html": "chokidar 'app/index.html' -c 'npm run build'",
     "test": "npm-run-all test:**",
     "test:js": "eslint --config ./.eslintrc.yaml app/js/**/*"
   },
@@ -28,6 +30,7 @@
     "webpack": "^1.12.14"
   },
   "dependencies": {
+    "mozmaker": "^0.5.0",
     "react": "0.14.8",
     "react-dom": "0.14.8"
   }
