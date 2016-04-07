@@ -4,17 +4,17 @@ import { Router, Route, browserHistory, IndexRoute } from "react-router";
 
 // Components
 
-import Header from "./components/header/header.jsx";
-import Footer from "./components/footer/footer.jsx";
+import Header from "./components/header/header.js";
+import Footer from "./components/footer/footer.js";
 
 // Pages
 
-import Blog from "./pages/blog.jsx";
-import Home from "./pages/home.jsx";
-import Members from "./pages/members.jsx";
-import Programs from "./pages/programs.jsx";
-import Projects from "./pages/projects.jsx";
-import Resources from "./pages/resources.jsx";
+import Blog from "./pages/blog.js";
+import Home from "./pages/home.js";
+import Members from "./pages/members.js";
+import Programs from "./pages/programs.js";
+import Projects from "./pages/projects.js";
+import Resources from "./pages/resources.js";
 
 const App = React.createClass({
   render() {

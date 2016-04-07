@@ -12,11 +12,12 @@
     "build:static": "cp -r node_modules/mozmaker/dest/css dist/ && cp app/index.html dist/index.html",
     "server:dev": "live-server ./dist --port=1818 --entry-file=index.html",
     "server:prod": "node server.js",
-    "watch:js": "chokidar 'app/react/**/*.jsx' 'app/react/**/*.js' -c 'npm run build:js'",
+    "watch:js": "chokidar 'app/react/**/*.js' -c 'npm run build:js'",
     "watch:scss": "chokidar 'app/scss/**/*' 'app/react/**/*.scss' -c 'npm run build:scss'",
     "watch:html": "chokidar 'app/index.html' -c 'npm run build:static'",
     "test": "npm-run-all test:**",
-    "test:js": "eslint --config ./.eslintrc.yaml app/react/**/*.js app/react/**/*.jsx webpack.config.js"
+    "test:js": "eslint --config ./.eslintrc.yaml app/react/**/*.js webpack.config.js",
+    "test:scss": "echo 'TODO'"
   },
   "devDependencies": {
     "babel-core": "^6.7.4",
