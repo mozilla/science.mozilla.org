@@ -5,10 +5,11 @@
   "author": "Mozilla",
   "license": "MPL",
   "scripts": {
-    "start": "npm run build && npm-run-all --parallel server watch:**",
+    "start": "npm run build && npm-run-all --parallel server:dev watch:**",
     "build": "webpack && npm run post-build",
     "post-build": "cp -r node_modules/mozmaker/dest/css dist/",
-    "server": "live-server ./dist --port=1818 --entry-file=index.html",
+    "server:dev": "live-server ./dist --port=1818 --entry-file=index.html",
+    "server:prod": "node server.js",
     "watch:js": "chokidar 'app/js/**/*' -c 'npm run build'",
     "watch:html": "chokidar 'app/index.html' -c 'npm run build'",
     "test": "npm-run-all test:**",
@@ -31,6 +32,7 @@
   },
   "dependencies": {
     "mozmaker": "0.5.0",
+    "pushstate-server": "1.8.1",
     "react": "0.14.8",
     "react-dom": "0.14.8",
     "react-router": "2.0.1"
