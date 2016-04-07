@@ -16,7 +16,7 @@
     "watch:scss": "chokidar 'app/scss/**/*' 'app/react/**/*.scss' -c 'npm run build:scss'",
     "watch:html": "chokidar 'app/index.html' -c 'npm run build:static'",
     "test": "npm-run-all test:**",
-    "test:js": "eslint --config ./.eslintrc.yaml app/react/**/*.js webpack.config.js",
+    "test:js": "eslint --config ./.eslintrc.yaml 'app/react/**/*.js' webpack.config.js",
     "test:scss": "echo 'TODO'"
   },
   "devDependencies": {
