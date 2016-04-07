@@ -6,12 +6,15 @@
   "license": "MPL",
   "scripts": {
     "start": "npm run build && npm-run-all --parallel server:dev watch:**",
-    "build": "webpack && npm run post-build",
-    "post-build": "cp -r node_modules/mozmaker/dest/css dist/",
+    "build": "npm run build:js && npm run build:scss && npm run build:static",
+    "build:js": "webpack",
+    "build:scss": "node-sass app/scss/main.scss dist/css/main.css",
+    "build:static": "cp -r node_modules/mozmaker/dest/css dist/ && cp app/index.html dist/index.html",
     "server:dev": "live-server ./dist --port=1818 --entry-file=index.html",
     "server:prod": "node server.js",
-    "watch:js": "chokidar 'app/js/**/*' -c 'npm run build'",
-    "watch:html": "chokidar 'app/index.html' -c 'npm run build'",
+    "watch:js": "chokidar 'app/js/**/*' -c 'npm run build:js'",
+    "watch:scss": "chokidar 'app/scss/**/*' -c 'npm run build:scss'",
+    "watch:html": "chokidar 'app/index.html' -c 'npm run build:static'",
     "test": "npm-run-all test:**",
     "test:js": "eslint --config ./.eslintrc.yaml app/js/**/* webpack.config.js"
   },
@@ -27,6 +30,7 @@
     "file-loader": "^0.8.5",
     "live-server": "^0.9.2",
     "mofo-style": "^2.4.0",
+    "node-sass": "^3.4.2",
     "npm-run-all": "^1.7.0",
     "webpack": "^1.12.14"
   },

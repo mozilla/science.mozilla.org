@@ -1,8 +1,7 @@
 module.exports = {
   context: `${__dirname}/app`,
   entry: {
-    javascript: `./js/main.js`,
-    html: `./index.html`
+    javascript: `./js/main.js`
   },
   output: {
     filename: `/js/compiled.js`,
@@ -17,10 +16,6 @@ module.exports = {
         query: {
           presets: [`es2015`, `react`]
         }
-      },
-      {
-        test: /\.html$/,
-        loader: `file?name=[name].[ext]`
       }
     ]
   }
