@@ -4,8 +4,8 @@ import { Router, Route, browserHistory, IndexRoute } from "react-router";
 
 // Components
 
-import Header from "./components/header.jsx";
-import Footer from "./components/footer.jsx";
+import Header from "./components/header/header.jsx";
+import Footer from "./components/footer/footer.jsx";
 
 // Pages
 

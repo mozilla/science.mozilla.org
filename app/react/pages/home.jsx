@@ -1,6 +1,6 @@
 import React from "react";
 
-import Greeting from "../components/greeting.jsx";
+import Greeting from "../components/greeting/greeting.jsx";
 
 export default React.createClass({
   render() {

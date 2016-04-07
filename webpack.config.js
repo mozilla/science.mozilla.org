@@ -1,7 +1,7 @@
 module.exports = {
   context: `${__dirname}/app`,
   entry: {
-    javascript: `./js/main.js`
+    javascript: `./react/main.js`
   },
   output: {
     filename: `/js/compiled.js`,
