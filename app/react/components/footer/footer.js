@@ -14,10 +14,12 @@ export default React.createClass({
                 <button className="btn btn-primary">Subscribe</button>
               </div>
             </div>
-            <div className="row checkbox">
-              <label>
-                <input type="checkbox"/> Im okay with Mozilla handling my info as explained in this <a href="#">Privacy Notice</a>
-              </label>
+            <div className="row">
+              <div className="col-sm-12 checkbox">
+                <label>
+                  <input type="checkbox"/> Im okay with Mozilla handling my info as explained in this <a href="#">Privacy Notice</a>
+                </label>
+              </div>
             </div>
           </div>
           <ul className="badged-links nav nav-inline">
