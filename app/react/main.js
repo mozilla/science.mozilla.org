@@ -21,7 +21,11 @@ const App = React.createClass({
     return (
       <div>
         <Header/>
-        {this.props.children}
+        <div id="content-wrapper">
+          <div id="content" className="container">
+            {this.props.children}
+          </div>
+        </div>
         <Footer/>
       </div>
     );

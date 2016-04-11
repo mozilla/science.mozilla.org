@@ -1,9 +1,30 @@
 // Mozmaker bits
+
 @import '../../node_modules/mozmaker/src/scss/custom/colors';
 
 // Components
+
 @import '../react/components/footer/footer';
 @import '../react/components/header/header';
 @import '../react/components/greeting/greeting';
 
 // Pages
+
+// Global
+
+html {
+  font-size: 10px; // 1rem = 10px
+}
+
+body {
+  background: $charcoal;
+}
+
+#content-wrapper {
+  background: $white;
+}
+
+#content {
+  background: $white;
+  padding: 20px 0;
+}
