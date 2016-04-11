@@ -8,7 +8,7 @@
     "start": "npm run build && npm-run-all --parallel server:dev watch:**",
     "build": "npm run build:js && npm run build:scss && npm run build:static",
     "build:js": "webpack",
-    "build:scss": "node-sass app/scss/main.scss dist/css/main.css",
+    "build:scss": "node-sass app/scss/main.scss dist/css/main.css && postcss --use autoprefixer --autoprefixer.browsers '> 5%' -o dist/css/main.css dist/css/main.css",
     "build:static": "cp -r node_modules/mozmaker/dest/css dist/ && cp app/index.html dist/index.html",
     "server:dev": "live-server ./dist --port=1818 --entry-file=index.html",
     "server:prod": "node server.js",
@@ -33,6 +33,7 @@
     "mofo-style": "^2.4.0",
     "node-sass": "^3.4.2",
     "npm-run-all": "^1.7.0",
+    "postcss-cli-simple": "^1.0.1",
     "stylelint": "^5.3.0",
     "stylelint-config-standard": "^5.0.0",
     "webpack": "^1.12.14"
