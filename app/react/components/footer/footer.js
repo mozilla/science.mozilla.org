@@ -3,15 +3,18 @@ import React from "react";
 export default React.createClass({
   render: function() {
     return (
-      <div>
-        <hr/>
-        <div id="footer">
-          <div className="newsletter">
+      <div id="footer">
+        <div className="newsletter">
+          <div className="container">
             <div className="row">
-              <div className="col-sm-4">Join our newsletter</div>
-              <div className="col-sm-8">
-                <input/>
-                <button className="btn btn-primary">Subscribe</button>
+              <div className="col-sm-6">
+                <h3>Receive our newsletter</h3>
+              </div>
+              <div className="col-sm-6">
+                <div className="one-shot">
+                  <input placeholder="your email"/>
+                  <button className="btn btn-primary">Subscribe</button>
+                </div>
               </div>
             </div>
             <div className="row">
@@ -22,6 +25,8 @@ export default React.createClass({
               </div>
             </div>
           </div>
+        </div>
+        <div className="container sub-footer">
           <ul className="badged-links nav nav-inline">
             <a className="nav-link" target="_blank" href="https://twitter.com/MozillaScience">Twitter</a>
             <a className="nav-link" href="irc://irc.mozilla.org/sciencelab">IRC</a>

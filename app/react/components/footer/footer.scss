@@ -1,4 +1,69 @@
 #footer {
-  background: lighten($aurora-purple, 15%);
-  padding: 20px;
+  .newsletter {
+    padding: 20px;
+    background: lighten($aurora-purple, 15%);
+    color: $white;
+
+    .row {
+      &:first-child {
+        padding-top: 0;
+      }
+      &:nth-child(2) {
+        text-align: center;
+      }
+
+      padding: 5px 0;
+      align-items: center;
+      justify-content: right;
+    }
+
+    h3 {
+      color: $white;
+      font-size: 2.5rem;
+      font-weight: 200;
+      letter-spacing: 0.02em;
+      text-align: right;
+    }
+
+    a {
+      color: $white;
+      text-decoration: underline;
+    }
+
+    .one-shot {
+      display: flex;
+      font-size: 1.5rem;
+
+      input {
+        &::placeholder {
+          color: $white;
+        }
+
+        padding: 5px 10px;
+        border: 1px solid $white;
+        background: rgba($white, 0.2);
+        color: $white;
+        font-style: italic;
+        font-weight: 400;
+      }
+
+      button {
+        background: none;
+        text-transform: uppercase;
+        border: 1px solid $white;
+        border-left: 0;
+        border-radius: 0;
+        font-size: 1.5rem;
+      }
+    }
+
+    label {
+      font-size: 1.5rem;
+      font-weight: 300;
+
+      span {
+        margin-left: 0.5em;
+      }
+    }
+  }
 }
