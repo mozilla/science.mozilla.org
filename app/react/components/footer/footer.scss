@@ -66,4 +66,130 @@
       }
     }
   }
+
+  .mofooter {
+    color: $white;
+    text-align: center;
+    padding: 45px 10px;
+
+    .icon-container {
+      margin: 20px 0;
+
+      .icon {
+        cursor: pointer;
+        display: inline-block;
+        font-weight: 300;
+        font-size: 16px;
+
+        img {
+          width: 20px;
+        }
+
+        .footer-icon {
+          opacity: 0.5;
+        }
+
+        a {
+          color: $white;
+          opacity: 0.5;
+          text-decoration: none;
+        }
+
+        &:hover {
+          a,
+          .footer-icon {
+            opacity: 1;
+          }
+        }
+      }
+    }
+
+    .footer-content {
+      max-width: 570px;
+      margin: 0 auto;
+
+      p {
+        font-size: 1.4rem;
+        color: rgba($white, 0.5);
+
+        a {
+          color: rgba($white, 0.8);
+
+          &:hover {
+            color: rgba($white, 1);
+          }
+        }
+      }
+    }
+
+    .icons {
+      margin-bottom: 2rem;
+    }
+
+    .logo {
+      margin-bottom: 2rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid #666;
+      display: inline-block;
+
+      @media screen and (min-width: 768px) {
+        border-bottom: 0;
+        border-right: 1px solid #666;
+        padding-bottom: 0;
+        padding-right: 2rem;
+        margin-bottom: 0;
+        margin-right: 2rem;
+      }
+    }
+
+    @media screen and (max-width: 767px) {
+      .icon-container {
+        &:first-child {
+          margin-top: 0;
+        }
+
+        &:last-child {
+          margin-bottom: 45px;
+        }
+
+        .footer-icon {
+          display: block;
+          margin: 6px auto 6px;
+        }
+      }
+    }
+
+    @media screen and (min-width: 768px) {
+      .footer-content {
+        display: flex;
+        align-items: center;
+        flex-shrink: 0;
+        justify-content: center;
+
+        .footer-icon {
+          margin-left: 10px;
+        }
+
+        p {
+          text-align: left;
+          width: calc(100% - 166px);
+        }
+      }
+      .icon-container {
+        display: inline-block;
+        margin: 0 18px;
+
+        .icon {
+          display: flex;
+          align-items: center;
+          flex-shrink: 0;
+
+          .footer-icon {
+            margin: 0 10px 0 0;
+            display: inline-block;
+          }
+        }
+      }
+    }
+  }
 }

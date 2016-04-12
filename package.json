@@ -6,15 +6,17 @@
   "license": "MPL",
   "scripts": {
     "start": "npm run build && npm-run-all --parallel server:dev watch:**",
-    "build": "npm run build:js && npm run build:scss && npm run build:static",
+    "build": "npm run build:js && npm run build:scss && npm run build:static && npm run build:assets",
     "build:js": "webpack",
     "build:scss": "node-sass app/scss/main.scss dist/css/main.css && postcss --use autoprefixer --autoprefixer.browsers '> 5%' -o dist/css/main.css dist/css/main.css",
     "build:static": "cp -r node_modules/mozmaker/dest/css dist/ && cp app/index.html dist/index.html",
+    "build:assets": "cp -r app/assets dist/",
     "server:dev": "live-server ./dist --port=1818 --entry-file=index.html",
     "server:prod": "node server.js",
     "watch:js": "chokidar 'app/react/**/*.js' -c 'npm run build:js'",
     "watch:scss": "chokidar 'app/scss/**/*' 'app/react/**/*.scss' -c 'npm run build:scss'",
     "watch:html": "chokidar 'app/index.html' -c 'npm run build:static'",
+    "watch:assets": "chokidar 'app/assets/**/*' -c 'npm run build:assets'",
     "test": "npm-run-all test:**",
     "test:js": "eslint --config ./.eslintrc.yaml 'app/react/**/*.js' webpack.config.js",
     "test:scss": "stylelint 'app/**/*.scss' --syntax scss"
