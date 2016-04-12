@@ -11,10 +11,10 @@ export default React.createClass({
                 <h3>Receive our newsletter</h3>
               </div>
               <div className="col-sm-6">
-                <div className="one-shot">
-                  <input placeholder="your email"/>
-                  <button className="btn btn-primary">Subscribe</button>
-                </div>
+                <form className="one-shot" action="https://mail.mozilla.org/subscribe/mozillascience" method="POST">
+                  <input type="email" name="email" placeholder="your email"/>
+                  <button type="submit" className="btn btn-primary">Subscribe</button>
+                </form>
               </div>
             </div>
             <div className="row">
