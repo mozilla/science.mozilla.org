@@ -41,6 +41,7 @@
     "webpack": "^1.12.14"
   },
   "dependencies": {
+    "classnames": "^2.2.3",
     "mozmaker": "0.7.0",
     "pushstate-server": "1.8.1",
     "react": "15.0.1",

@@ -1,4 +1,201 @@
-#header {
+$logoHeight: 40px;
+$logoMobilePadding: 0.8rem;
+
+header {
   background: $white;
-  padding: 20px;
+  position: relative;
+  z-index: 2;
+  .menu-button rect {
+    fill: $nightly-blue;
+  }
+  .logo-wrap {
+    display: flex;
+    justify-content: space-between;
+    padding: $logoMobilePadding;
+    background: white;
+  }
+  .site-logo {
+    background-color: white;
+    background-image: url('/assets/img/logo-mozillascience@2x.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    height: $logoHeight;
+    margin: 0;
+    width: 174px;
+    a {
+      color: inherit;
+    }
+  }
+
+  .nav {
+    background: rgba($nightly-blue, 0.96);
+    padding: 0 1em;
+    position: absolute;
+    transform: translateY(-100%);
+    transition: transform linear 0.25s;
+    width: 100%;
+    min-height: calc(100vh - #{$logoHeight} - #{$logoMobilePadding});
+    z-index: -1;
+  }
+  .isOpen {
+    transform: translateY(0%);
+  }
+  .menu-button {
+    background: none;
+    border: none;
+    right: 0;
+  }
+  .nav-link {
+    font-size: 1.5rem;
+    line-height: 2;
+    margin: 0.5em 0;
+  }
+  .slideout-menu {
+    margin-left: 2rem;
+    .nav-link {
+      font-size: 1.4rem;
+    }
+  }
+  .dropdown-menu {
+    display: block;
+  }
+  .nav-link {
+    color: white;
+    display: block;
+  }
+  .auth-links .nav-link {
+    display: inline-block;
+    & + .nav-link {
+      margin-left: 1rem;
+      &::before {
+        content: '|';
+        margin-right: 1rem;
+      }
+    }
+  }
+
+  @media(min-width: 55rem) {
+    display: flex;
+    z-index: 10;
+    .site-logo {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
+    .logo-wrap {
+      padding: 1.2rem 2rem;
+    }
+    .menu-button {
+      display: none;
+    }
+    .nav {
+      display: flex;
+      flex: 1;
+      background: white;
+      min-height: 0;
+      z-index: auto;
+      transform: none;
+      position: static;
+      justify-content: space-between;
+    }
+    .nav-item > .nav-link::after {
+      content: '';
+      background-image: url("/assets/img/icon-arrow.svg");
+      width: 10px;
+      height: 10px;
+      background-repeat: no-repeat;
+      display: inline-block;
+      background-position: center;
+      margin-left: 0.25em;
+      transition: transform 0.25s ease-out, filter 0.25s ease-out;
+      transform: rotate(0);
+      filter: contrast(0%);
+    }
+    .nav-item.open > .nav-link {
+      color: black;
+    }
+    .nav-item.open > .nav-link::after {
+      transform: rotate(180deg);
+      filter: contrast(100%);
+    }
+    .nav-links {
+      display: flex;
+      align-items: flex-end;
+    }
+    .nav-link {
+      color: #8c8b91;
+      font-weight: 300;
+      cursor: pointer;
+      margin: 1em;
+      line-height: 1;
+    }
+    .nav-link.active {
+      color: black;
+      &::after {
+        filter: contrast(100%);
+      }
+    }
+    .slideout-menu .nav-link {
+      color: white;
+    }
+    .slideout-menu {
+      color: white;
+      position: absolute;
+      //height of top nav
+      top: 60px;
+      left: 0;
+      margin: 0;
+      background: rgba($nightly-blue, 0.95);
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      z-index: -1;
+      transition: transform linear 0.25s;
+      transform: translateY(-100%);
+      justify-content: center;
+      &.active {
+        transform: translateY(0%);
+      }
+      .nav-link {
+        margin: 2.7rem;
+        flex-basis: 110px;
+        text-align: center;
+      }
+    }
+    .slideout-menu > .nav-link::before {
+      content: '';
+      background-position: center;
+      background-size: 35px;
+      background-repeat: no-repeat;
+      height: 35px;
+      display: block;
+      margin-bottom: 1.5rem;
+    }
+    .events::before {
+      background-image: url('/assets/img/icon-events.svg');
+    }
+    .study-groups::before {
+      background-image: url('/assets/img/icon-studygroups.svg');
+    }
+    .fellowships::before {
+      background-image: url('/assets/img/icon-fellowships.svg');
+    }
+    .auth-links {
+      display: flex;
+      align-self: flex-end;
+      align-items: center;
+    }
+    .auth-links .nav-link {
+      text-transform: uppercase;
+      color: $mobile-blue;
+    }
+    .auth-links .join {
+      border: 1px solid;
+      padding: 0.5em 1em;
+    }
+    .auth-links .nav-link + .nav-link::before {
+      content: none;
+    }
+  }
 }

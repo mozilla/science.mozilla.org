@@ -37,3 +37,10 @@ body {
 #content {
   padding: 1.25rem 0;
 }
+
+//Utility
+.hide-text {
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+}
