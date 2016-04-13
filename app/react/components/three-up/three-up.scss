@@ -1,0 +1,32 @@
+.three-up {
+  .col {
+    margin-bottom: 1em;
+    width: 100%;
+    text-align: center;
+
+    .copy {
+      font-size: 1.5rem;
+    }
+  }
+
+  .icon {
+    @media (min-width: $bp-md) {
+      width: 13.2rem;
+      height: 13.2rem;
+    }
+
+    border-radius: 50%;
+    background: $summit-teal;
+    width: 10rem;
+    height: 10rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 20px auto;
+
+    img {
+      max-height: 50%;
+      max-width: 50%;
+    }
+  }
+}

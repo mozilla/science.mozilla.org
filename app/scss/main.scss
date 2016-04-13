@@ -1,12 +1,22 @@
 // Mozmaker bits
 
 @import '../../node_modules/mozmaker/src/scss/custom/colors';
+@import '../../node_modules/bootstrap/scss/_variables.scss';
+
+// Breakpoints (imported from Bootstrap)
+
+$bp-xs: #{map-get($grid-breakpoints, xs)};
+$bp-sm: #{map-get($grid-breakpoints, sm)};
+$bp-md: #{map-get($grid-breakpoints, md)};
+$bp-lg: #{map-get($grid-breakpoints, lg)};
+$bp-xl: #{map-get($grid-breakpoints, xl)};
 
 // Components
 
 @import '../react/components/footer/footer';
 @import '../react/components/header/header';
 @import '../react/components/greeting/greeting';
+@import '../react/components/three-up/three-up';
 
 // Pages
 
@@ -22,6 +32,7 @@ body {
 
 #content-wrapper {
   background: $white;
+  padding: 20px;
 }
 
 #content {
