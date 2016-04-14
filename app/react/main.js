@@ -15,6 +15,7 @@ import Members from "./pages/members.js";
 import Programs from "./pages/programs.js";
 import Projects from "./pages/projects.js";
 import Resources from "./pages/resources.js";
+import StyleGuide from "./pages/style-guide.js";
 
 const App = React.createClass({
   render() {
@@ -41,6 +42,7 @@ render((
       <Route path="programs" component={Programs}/>
       <Route path="projects" component={Projects}/>
       <Route path="resources" component={Resources}/>
+      <Route path="style-guide" component={StyleGuide}/>
     </Route>
   </Router>
 ), document.querySelector(`#app`));
