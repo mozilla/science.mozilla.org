@@ -17,6 +17,7 @@ $bp-xl: #{map-get($grid-breakpoints, xl)};
 @import '../react/components/header/header';
 @import '../react/components/greeting/greeting';
 @import '../react/components/three-up/three-up';
+@import '../react/components/shadow-box';
 
 // Pages
 
@@ -33,11 +34,10 @@ body {
 }
 
 #content-wrapper {
-  background: $white;
+  background: darken($white, 5%);
   padding: 20px;
 }
 
 #content {
-  background: $white;
   padding: 20px 0;
 }
