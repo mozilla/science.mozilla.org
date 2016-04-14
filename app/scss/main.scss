@@ -20,6 +20,8 @@ $bp-xl: #{map-get($grid-breakpoints, xl)};
 
 // Pages
 
+@import '../react/pages/home/home';
+
 // Global
 
 html {

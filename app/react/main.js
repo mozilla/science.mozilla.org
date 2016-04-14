@@ -10,7 +10,7 @@ import Footer from "./components/footer/footer.js";
 // Pages
 
 import Blog from "./pages/blog.js";
-import Home from "./pages/home.js";
+import Home from "./pages/home/home.js";
 import Members from "./pages/members.js";
 import Programs from "./pages/programs.js";
 import Projects from "./pages/projects.js";

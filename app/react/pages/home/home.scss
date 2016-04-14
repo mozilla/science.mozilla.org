@@ -1,0 +1,30 @@
+#page-home {
+  @mixin join-glyph($character) {
+    font-weight: 100;
+    font-size: 6.8rem;
+    height: 7rem;
+    color: $summit-teal;
+    display: flex;
+    content: $character;
+    align-items: center;
+    justify-content: center;
+
+    @media (min-width: $bp-md) {
+      position: absolute;
+      top: 3.5rem;
+      left: calc(100% - 2rem);
+    }
+  }
+
+  .three-up .col:first-child .copy {
+    &::after {
+      @include join-glyph("+");
+    }
+  }
+
+  .three-up .col:nth-child(2) .copy {
+    &::after {
+      @include join-glyph("=");
+    }
+  }
+}
