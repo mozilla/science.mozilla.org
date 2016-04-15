@@ -1,5 +1,5 @@
 import React from "react";
-import ThreeUp from "../components/three-up/three-up";
+import ThreeUp from "../components/three-up/three-up.jsx";
 
 export default React.createClass({
   render() {
