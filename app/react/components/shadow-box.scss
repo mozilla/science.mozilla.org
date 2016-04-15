@@ -1,0 +1,11 @@
+.shadow-box {
+  > div {
+    background: $white;
+    padding: 30px;
+    position: relative;
+    top: -5px;
+    left: -5px;
+  }
+
+  background: $summit-teal;
+}
