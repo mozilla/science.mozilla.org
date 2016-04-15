@@ -5,11 +5,11 @@
 
 // Breakpoints (imported from Bootstrap)
 
-$bp-xs: #{map-get($grid-breakpoints, xs)};
-$bp-sm: #{map-get($grid-breakpoints, sm)};
-$bp-md: #{map-get($grid-breakpoints, md)};
-$bp-lg: #{map-get($grid-breakpoints, lg)};
-$bp-xl: #{map-get($grid-breakpoints, xl)};
+$bp-xs: #{map-get($grid-breakpoints, xs)}; // < 544px
+$bp-sm: #{map-get($grid-breakpoints, sm)}; // >= 544px
+$bp-md: #{map-get($grid-breakpoints, md)}; // >= 768px
+$bp-lg: #{map-get($grid-breakpoints, lg)}; // >= 992px
+$bp-xl: #{map-get($grid-breakpoints, xl)}; // >= 1200px
 
 // Components
 
@@ -24,10 +24,6 @@ $bp-xl: #{map-get($grid-breakpoints, xl)};
 @import '../react/pages/home/home';
 
 // Global
-
-html {
-  font-size: 10px; // 1rem = 10px
-}
 
 body {
   background: $charcoal;
