@@ -25,10 +25,6 @@ $bp-xl: #{map-get($grid-breakpoints, xl)};
 
 // Global
 
-html {
-  font-size: 10px; // 1rem = 10px
-}
-
 body {
   background: $charcoal;
 }
