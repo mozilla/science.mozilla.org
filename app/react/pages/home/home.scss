@@ -1,8 +1,8 @@
 #page-home {
   @mixin join-glyph($character) {
     font-weight: 100;
-    font-size: 6.8rem;
-    height: 7rem;
+    font-size: 4.25rem;
+    height: 4.375rem;
     color: $summit-teal;
     display: flex;
     content: $character;
@@ -11,8 +11,8 @@
 
     @media (min-width: $bp-md) {
       position: absolute;
-      top: 3.5rem;
-      left: calc(100% - 2rem);
+      top: 2.1875rem;
+      left: calc(100% - 1.25rem);
     }
   }
 
