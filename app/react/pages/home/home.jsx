@@ -1,7 +1,7 @@
 import React from "react";
 
-import Greeting from "../../components/greeting/greeting.js";
-import ThreeUp from "../../components/three-up/three-up";
+import Greeting from "../../components/greeting/greeting.jsx";
+import ThreeUp from "../../components/three-up/three-up.jsx";
 
 export default React.createClass({
   render() {

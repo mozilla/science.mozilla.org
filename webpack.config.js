@@ -1,7 +1,7 @@
 module.exports = {
   context: `${__dirname}/app`,
   entry: {
-    javascript: `./react/main.js`
+    javascript: `./react/main.jsx`
   },
   output: {
     filename: `/js/compiled.js`,
@@ -10,7 +10,7 @@ module.exports = {
   module: {
     loaders: [
       {
-        test: /\.js$/,
+        test: /\.js(x?)$/,
         exclude: /node_modules/,
         loader: `babel`,
         query: {
