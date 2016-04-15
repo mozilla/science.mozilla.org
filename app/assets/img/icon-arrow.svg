@@ -1,9 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 19.2.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 10 6" style="enable-background:new 0 0 10 6;" xml:space="preserve">
-<style type="text/css">
-	.st0{fill:#99999D;}
-</style>
-<polygon class="st0" points="10,0.7 9.3,0 5,4.5 0.7,0 0,0.7 5,6 5,6 5,6 "/>
+<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 6">
+    <style>
+        .st0{fill:#99999d}
+    </style>
+    <path class="st0" d="M10 .7L9.3 0 5 4.5.7 0 0 .7 5 6z"/>
 </svg>
