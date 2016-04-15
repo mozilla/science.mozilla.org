@@ -5,24 +5,24 @@
     text-align: center;
 
     .copy {
-      font-size: 1.5rem;
+      font-size: 0.9375rem;
     }
   }
 
   .icon {
     @media (min-width: $bp-md) {
-      width: 13.2rem;
-      height: 13.2rem;
+      width: 8.25rem;
+      height: 8.25rem;
     }
 
     border-radius: 50%;
     background: $summit-teal;
-    width: 10rem;
-    height: 10rem;
+    width: 6.25rem;
+    height: 6.25rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0 auto 20px auto;
+    margin: 0 auto 1.25rem auto;
 
     img {
       max-height: 50%;
