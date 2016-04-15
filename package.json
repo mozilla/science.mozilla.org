@@ -43,8 +43,8 @@
   "dependencies": {
     "mozmaker": "0.6.0",
     "pushstate-server": "1.8.1",
-    "react": "0.14.8",
-    "react-dom": "0.14.8",
-    "react-router": "2.0.1"
+    "react": "15.0.1",
+    "react-dom": "15.0.1",
+    "react-router": "2.2.4"
   }
 }
