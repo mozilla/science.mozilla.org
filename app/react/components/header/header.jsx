@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router";
 import classNames from "classnames";
-import MenuButton from "./menuButton.jsx";
+import MenuButton from "./menu-button.jsx";
 
 export default React.createClass({
   getInitialState() {
