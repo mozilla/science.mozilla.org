@@ -21,6 +21,7 @@ export default React.createClass({
         <div className="shadow-box">
           <div>
             <h2>Lorem Ipsum</h2>
+            <a href="#" className="btn">Click me</a>
           </div>
         </div>
 
