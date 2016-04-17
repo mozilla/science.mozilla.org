@@ -1,5 +1,8 @@
+@import "menu-button";
+
 $logoHeight: 40px;
 $logoMobilePadding: 0.5rem;
+$logoDesktopVerticalPadding: 0.75rem;
 
 header {
   background: $white;
@@ -12,10 +15,13 @@ header {
     display: flex;
     justify-content: space-between;
     padding: $logoMobilePadding;
-    background: white;
+    background: $white;
+    a:hover {
+      text-decoration: none;
+    }
   }
   .site-logo {
-    background-color: white;
+    background-color: $white;
     background-image: url('/assets/img/logo-mozillascience@2x.png');
     background-repeat: no-repeat;
     background-size: contain;
@@ -42,7 +48,6 @@ header {
     transform: translateY(0%);
   }
   .menu-button {
-    background: none;
     border: none;
     right: 0;
   }
@@ -61,7 +66,7 @@ header {
     display: block;
   }
   .nav-link {
-    color: white;
+    color: $white;
     display: block;
   }
   .auth-links .nav-link {
@@ -83,7 +88,7 @@ header {
       padding: 0;
     }
     .logo-wrap {
-      padding: 0.75rem 1.25rem;
+      padding: $logoDesktopVerticalPadding 1.25rem;
     }
     .menu-button {
       display: none;
@@ -91,7 +96,7 @@ header {
     .nav {
       display: flex;
       flex: 1;
-      background: white;
+      background: $white;
       min-height: 0;
       z-index: auto;
       transform: none;
@@ -101,8 +106,8 @@ header {
     .nav-item > .nav-link::after {
       content: '';
       background-image: url("/assets/img/icon-arrow.svg");
-      width: 10px;
-      height: 10px;
+      width: 0.625rem;
+      height: 0.625rem;
       background-repeat: no-repeat;
       display: inline-block;
       background-position: center;
@@ -123,26 +128,26 @@ header {
       align-items: flex-end;
     }
     .nav-link {
-      color: #8c8b91;
+      color: $gray-light;
       font-weight: 300;
       cursor: pointer;
       margin: 1em;
       line-height: 1;
     }
     .nav-link.active {
-      color: black;
+      color: $black;
       &::after {
         filter: contrast(100%);
       }
     }
     .slideout-menu .nav-link {
-      color: white;
+      color: $white;
     }
     .slideout-menu {
-      color: white;
+      color: $white;
       position: absolute;
       //height of top nav
-      top: 60px;
+      top: calc(#{$logoHeight} + #{2 * $logoDesktopVerticalPadding});
       left: 0;
       margin: 0;
       background: rgba($nightly-blue, 0.95);
@@ -150,7 +155,7 @@ header {
       display: flex;
       justify-content: center;
       z-index: -1;
-      transition: transform linear 0.25s;
+      transition: transform ease-out 200ms;
       transform: translateY(-100%);
       justify-content: center;
       &.active {
@@ -158,16 +163,16 @@ header {
       }
       .nav-link {
         margin: 1.6875rem;
-        flex-basis: 110px;
+        flex-basis: 6.875rem;
         text-align: center;
       }
     }
     .slideout-menu > .nav-link::before {
       content: '';
       background-position: center;
-      background-size: 35px;
+      background-size: 2.1875rem;
       background-repeat: no-repeat;
-      height: 35px;
+      height: 2.1875rem;
       display: block;
       margin-bottom: 0.9375rem;
     }

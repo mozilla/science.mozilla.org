@@ -1,7 +1,7 @@
-<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17.2 17.2">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17.2 17.2" width="40" height="40">
     <style>
-        .st0{fill:#8092b4}
+        .st0{fill:#5a6ba4}
     </style>
-    <path transform="rotate(-45.001 8.607 8.607)" class="st0" d="M7.6-2.6h2v22.3h-2z"/>
-    <path transform="rotate(-45.001 8.607 8.607)" class="st0" d="M-2.6 7.6h22.3v2H-2.6z"/>
+    <path class="st0" d="M-.03 1.395L1.384-.02l15.77 15.769-1.415 1.414z"/>
+    <path class="st0" d="M-.03 15.82L15.74.05l1.414 1.415L1.385 17.234z"/>
 </svg>

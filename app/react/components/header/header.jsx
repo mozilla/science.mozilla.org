@@ -4,6 +4,9 @@ import classNames from "classnames";
 import MenuButton from "./menu-button.jsx";
 
 export default React.createClass({
+  propTypes: {
+    path: React.PropTypes.string.isRequired
+  },
   getInitialState() {
     return ({
       menuOpen: false,
@@ -43,21 +46,21 @@ export default React.createClass({
     let getNavLinkClasses = (routeMatch) =>{
       return classNames({
         "nav-link": true,
-        "active": this.props.path.startsWith(routeMatch)
+        active: this.props.path.startsWith(routeMatch)
       });
     };
     let navItemClasses = classNames({
       "nav-item": true,
-      "open": this.state.slideoutVisible
+      open: this.state.slideoutVisible
     });
 
     return (
       <header id="header">
         <div className="logo-wrap">
-          <Link className="hide-text" to="/">
-            <h1 className="site-logo">Mozilla Science Lab</h1>
+          <Link to="/">
+            <h1 className="site-logo text-hide">Mozilla Science Lab</h1>
           </Link>
-          <MenuButton className="menu-button" isOpen={this.state.menuOpen} onClick={this.toggleMenu}/>
+          <MenuButton isOpen={this.state.menuOpen} onClick={this.toggleMenu}/>
         </div>
         <nav className={navClass}>
           <div className="nav-links">
