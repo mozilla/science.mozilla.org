@@ -16,12 +16,13 @@ import Programs from "./pages/programs.jsx";
 import Projects from "./pages/projects.jsx";
 import Resources from "./pages/resources.jsx";
 import StyleGuide from "./pages/style-guide.jsx";
+import Events from "./pages/events.jsx";
 
 const App = React.createClass({
   render() {
     return (
       <div>
-        <Header/>
+        <Header path={this.props.location.pathname}/>
         <div id="content-wrapper">
           <div id="content" className="container">
             {this.props.children}
@@ -39,7 +40,9 @@ render((
       <IndexRoute component={Home}/>
       <Route path="blog" component={Blog}/>
       <Route path="members" component={Members}/>
-      <Route path="programs" component={Programs}/>
+      <Route path="programs" component={Programs}>
+        <Route path="events" component={Events} />
+      </Route>
       <Route path="projects" component={Projects}/>
       <Route path="resources" component={Resources}/>
       <Route path="style-guide" component={StyleGuide}/>
