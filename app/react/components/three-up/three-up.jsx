@@ -18,18 +18,21 @@ export default React.createClass({
           <div className="icon">
             <img src={this.props.item1.icon} />
           </div>
+          <h6>{this.props.item1.title}</h6>
           <p className="copy">{this.props.item1.text}</p>
         </div>
         <div className="col col-md-4">
           <div className="icon">
             <img src={this.props.item2.icon} />
           </div>
+          <h6>{this.props.item2.title}</h6>
           <p className="copy">{this.props.item2.text}</p>
         </div>
         <div className="col col-md-4">
           <div className="icon">
             <img src={this.props.item3.icon} />
           </div>
+          <h6>{this.props.item3.title}</h6>
           <p className="copy">{this.props.item3.text}</p>
         </div>
       </div>

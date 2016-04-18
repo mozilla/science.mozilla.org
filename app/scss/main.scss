@@ -22,6 +22,7 @@ $bp-xl: #{map-get($grid-breakpoints, xl)}; // >= 1200px
 // Pages
 
 @import '../react/pages/home/home';
+@import '../react/pages/projects/projects';
 
 // Global
 
@@ -29,11 +30,12 @@ body {
   background: $charcoal;
 }
 
+// @media(min-width: 1400px) {
+//   html {
+//     font-size: 1vw;
+//   }
+// }
+
 #content-wrapper {
   background: darken($white, 5%);
-  padding: 1.25rem;
-}
-
-#content {
-  padding: 1.25rem 0;
 }
