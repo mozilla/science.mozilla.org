@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Mozilla Science",
   "author": "Mozilla",
-  "license": "MPL",
+  "license": "MIT",
   "scripts": {
     "start": "npm run build && npm-run-all --parallel server:dev watch:**",
     "build": "npm run build:js && npm run build:scss && npm run build:static && npm run build:assets",
