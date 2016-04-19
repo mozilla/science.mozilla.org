@@ -38,6 +38,10 @@
     padding-top: 12rem;
     padding-right: 0;
 
+    @media (min-width: $bp-sm) {
+      padding-top: 18rem;
+    }
+
     @media (min-width: $bp-md) {
       padding-top: 0;
       padding-right: 6.5rem;
@@ -69,7 +73,7 @@
     .shadow-box {
       margin-left: 5%;
 
-      @media (min-width: $bp-sm) {
+      @media (min-width: $bp-md) {
         width: 66%;
         margin: 4rem 0;
       }
