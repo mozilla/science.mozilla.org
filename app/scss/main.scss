@@ -2,6 +2,7 @@
 
 @import '../../node_modules/mozmaker/src/scss/custom/colors';
 @import '../../node_modules/bootstrap/scss/_variables.scss';
+@import '../../node_modules/bootstrap/scss/mixins.scss';
 
 // Breakpoints (imported from Bootstrap)
 
@@ -22,6 +23,7 @@ $bp-xl: #{map-get($grid-breakpoints, xl)}; // >= 1200px
 // Pages
 
 @import '../react/pages/home/home';
+@import '../react/pages/projects/projects';
 
 // Global
 
@@ -31,9 +33,4 @@ body {
 
 #content-wrapper {
   background: darken($white, 5%);
-  padding: 1.25rem;
-}
-
-#content {
-  padding: 1.25rem 0;
 }

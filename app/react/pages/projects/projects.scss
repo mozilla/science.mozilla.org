@@ -1,0 +1,12 @@
+#page-projects {
+  .jumbotron-fluid {
+    @include img-retina('/assets/img/projects-hero.jpg','/assets/img/projects-hero@2x.jpg', cover, null);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}
+
+.container-dynamic {
+  @include make-container();
+  max-width: $bp-xl;
+}

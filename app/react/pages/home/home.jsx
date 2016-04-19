@@ -12,6 +12,7 @@ export default React.createClass({
           subHeader="Mozilla Science Lab is a community of researchers, developers, and librarians making research open and accessible." />
 
         <ThreeUp
+          hasCircle={true}
           item1={{text: `Maximizing access to papers, data, code, and materials so anyone can read and contribute`, icon: `/assets/img/icon-access.svg`}}
           item2={{text: `A community of researchers advocating for openness and collaboration`, icon: `/assets/img/icon-community.svg`}}
           item3={{text: `Open Science: A way for science to achieve its fullest potential`, icon: `/assets/img/icon-open.svg`}}></ThreeUp>

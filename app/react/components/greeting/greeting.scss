@@ -1,3 +1,10 @@
 .jumbotron {
   background: grey;
 }
+
+.jumbotron-fluid {
+  color: $white;
+  a:link {
+    color: $mobile-blue;
+  }
+}

@@ -13,7 +13,7 @@ import Blog from "./pages/blog.jsx";
 import Home from "./pages/home/home.jsx";
 import Members from "./pages/members.jsx";
 import Programs from "./pages/programs.jsx";
-import Projects from "./pages/projects.jsx";
+import Projects from "./pages/projects/projects.jsx";
 import Resources from "./pages/resources.jsx";
 import StyleGuide from "./pages/style-guide.jsx";
 import Events from "./pages/events.jsx";
@@ -24,7 +24,7 @@ const App = React.createClass({
       <div>
         <Header path={this.props.location.pathname}/>
         <div id="content-wrapper">
-          <div id="content" className="container">
+          <div id="content">
             {this.props.children}
           </div>
         </div>
