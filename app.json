@@ -1,7 +1,6 @@
 {
   "name": "science.mozilla.org",
   "scripts": {
-    "postdeploy": "npm run build"
   },
   "env": {
   },
