@@ -79,4 +79,38 @@
       }
     }
   }
+
+  .whats-new {
+    background: url('/assets/img/home-bg-parallax@2x.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    text-align: center;
+
+    h3 {
+      font-size: 1.75rem;
+      font-weight: 100;
+      color: $white;
+    }
+
+    .shadow-box {
+      text-align: left;
+
+      h6 {
+        text-transform: uppercase;
+        font-size: 0.875rem;
+        font-weight: 400;
+      }
+
+      h4 {
+        font-size: 1.625rem;
+        font-weight: 100;
+        color: $mobile-blue;
+      }
+
+      p {
+        font-size: 0.9375rem;
+        line-height: 1.4em;
+      }
+    }
+  }
 }
