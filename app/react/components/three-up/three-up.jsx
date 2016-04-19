@@ -29,7 +29,7 @@ export default React.createClass({
       <div className="three-up row">
         <div className="col col-md-4">
           <div className={iconClass}>
-            <img className="" src={this.props.item1.icon} />
+            <img src={this.props.item1.icon} />
           </div>
           <h6>{this.props.item1.title}</h6>
           <p className="copy">{this.props.item1.text}</p>
