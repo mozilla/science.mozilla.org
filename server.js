@@ -1,7 +1,7 @@
 var server = require(`pushstate-server`);
 
 server.start({
-  port: 1818,
+  port: process.env.PORT || 1818,
   directory: `./dist`,
   file: `/index.html`
 });
