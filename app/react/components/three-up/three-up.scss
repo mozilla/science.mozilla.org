@@ -10,23 +10,32 @@
   }
 
   .icon {
-    @media (min-width: $bp-md) {
-      width: 8.25rem;
-      height: 8.25rem;
+    margin: 0 auto 1.25rem auto;
+
+    @include make-row();
+    img {
+      @include make-col();
+      @include make-col-span(4);
+      @include make-col-push(4);
+    }
+  }
+
+  .icon.circle {
+    margin-left: auto;
+    margin-right: auto;
+    img {
+      @include make-col();
+      @include make-col-span(8);
+      @include make-col-push(0);
     }
 
     border-radius: 50%;
     background: $summit-teal;
-    width: 6.25rem;
-    height: 6.25rem;
+    width: 8.25rem;
+    height: 8.25rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0 auto 1.25rem auto;
 
-    img {
-      max-height: 50%;
-      max-width: 50%;
-    }
   }
 }

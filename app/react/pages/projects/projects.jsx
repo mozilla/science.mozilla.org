@@ -9,10 +9,10 @@ export default React.createClass({
       <div id="page-projects">
         <div className="jumbotron text-xs-center jumbotron-fluid">
           <h2>Projects</h2>
-          <p className="lead">A curated collection of open source, web-based tools to help you do better science.</p>
+          <p className="lead m-t-1">A curated collection of open source, web-based tools to help you do better science.</p>
           <p>Have a project you want to add? Bring it to our <a href="#">Global Sprint</a>, <a href="#">Mozfest</a>, or <a href="#">Working Open Workshop</a>.</p>
         </div>
-        <div className="container">
+        <div className="container-dynamic">
           <ThreeUp
             item1={{title: `What is open source?`, text: `Open source describes software that can be used modified and distributed. The extent of its "openness" is determined by the license attached to the software, but in general, open source projects are collaborative in nature, with many people contributing to the source code.`, icon: `/assets/img/icon-opensource.svg`}}
             item2={{title: `How to get started`, text: `Most open source projects have a README file that provides an overview of how to get set up, and many also have a CONTRIBUTING file that details how to get started as a contributor.`, icon: `/assets/img/icon-start.svg`}}
