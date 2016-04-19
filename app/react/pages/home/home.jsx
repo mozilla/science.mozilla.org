@@ -11,13 +11,15 @@ export default React.createClass({
           header="Transforming Science"
           subHeader="Mozilla Science Lab is a community of researchers, developers, and librarians making research open and accessible." />
 
-        <ThreeUp
-          hasCircle={true}
-          item1={{text: `Maximizing access to papers, data, code, and materials so anyone can read and contribute`, icon: `/assets/img/icon-access.svg`}}
-          item2={{text: `A community of researchers advocating for openness and collaboration`, icon: `/assets/img/icon-community.svg`}}
-          item3={{text: `Open Science: A way for science to achieve its fullest potential`, icon: `/assets/img/icon-open.svg`}}></ThreeUp>
+        <div className="container-dynamic">
+          <ThreeUp
+            hasCircle={true}
+            item1={{text: `Maximizing access to papers, data, code, and materials so anyone can read and contribute`, icon: `/assets/img/icon-access.svg`}}
+            item2={{text: `A community of researchers advocating for openness and collaboration`, icon: `/assets/img/icon-community.svg`}}
+            item3={{text: `Open Science: A way for science to achieve its fullest potential`, icon: `/assets/img/icon-open.svg`}}></ThreeUp>
+        </div>
 
-        <div className="fellow-cta m-b-3">
+        <div className="container-dynamic fellow-cta m-b-3">
           <img src="/assets/img/icon-drop.svg" className="sprinkle"/>
           <img src="/assets/img/icon-droptwo.svg" className="sprinkle"/>
 
@@ -25,39 +27,41 @@ export default React.createClass({
             <div>
               <h2>Apply to be a Fellow</h2>
               <p>The Mozilla Fellowships for Science present a unique opportunity for researchers who want to influence the future of open science and data sharing within their communities.</p>
-              <a href="#" className="btn">Learn More</a>
+              <a href="/programs/fellowships" className="btn">Learn More</a>
             </div>
           </div>
         </div>
 
-        <div className="event-study-cta row">
-          <div className="col-md-6">
-            <div className="row">
-              <img src="/assets/img/home-events@2x.jpg"/>
-              <div className="col-xs-10 col-xs-push-1">
-                <h3>Events</h3>
-                <p>We offer a series of sprints and workshops that facilitate in-person collaboration and remote contribution to open source projects. We also host regular Community and Project Calls that highlight what the community is up to.</p>
-                <a className="btn m-b-2" href="#TODO">Find An Event</a>
+        <div className="container-dynamic">
+          <div className="event-study-cta row">
+            <div className="col-md-6">
+              <div className="row">
+                <img src="/assets/img/home-events@2x.jpg"/>
+                <div className="col-xs-10 col-xs-push-1">
+                  <h3>Events</h3>
+                  <p>We offer a series of sprints and workshops that facilitate in-person collaboration and remote contribution to open source projects. We also host regular Community and Project Calls that highlight what the community is up to.</p>
+                  <a className="btn m-b-2" href="/programs/events">Find An Event</a>
+                </div>
               </div>
             </div>
-          </div>
-          <div className="col-md-6">
-            <div className="row">
-              <img src="/assets/img/home-studygroups@2x.jpg"/>
-              <div className="col-xs-10 col-xs-push-1">
-                <h3>Study Groups</h3>
-                <p>Connect with like-minded researchers at a regular, recurring Study Group session on your campus. If there’s not a Study Group on your campus, help start one!</p>
-                <a className="btn m-b-2" href="#TODO">Join A Group</a>
+            <div className="col-md-6">
+              <div className="row">
+                <img src="/assets/img/home-studygroups@2x.jpg"/>
+                <div className="col-xs-10 col-xs-push-1">
+                  <h3>Study Groups</h3>
+                  <p>Connect with like-minded researchers at a regular, recurring Study Group session on your campus. If there’s not a Study Group on your campus, help start one!</p>
+                  <a className="btn m-b-2" href="/programs/studygroups">Join A Group</a>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="whats-new p-y-3">
+        <div className="whats-new p-y-3 container-dynamic">
           <h3>{`What's New`}</h3>
 
           <div className="row p-x-2">
-            <div className="col-xs-12 col-md-4 m-b-2">
+            <div className="col-xs-12 col-lg-4 m-b-2">
               <div className="shadow-box">
                 <div className="inner">
                   <h6 className="m-b-0">Resource</h6>
@@ -67,7 +71,7 @@ export default React.createClass({
               </div>
             </div>
 
-            <div className="col-xs-12 col-md-4 m-b-2">
+            <div className="col-xs-12 col-lg-4 m-b-2">
               <div className="shadow-box">
                 <div className="inner">
                   <h6 className="m-b-0">Project</h6>
@@ -78,12 +82,12 @@ export default React.createClass({
               </div>
             </div>
 
-            <div className="col-xs-12 col-md-4 m-b-2">
+            <div className="col-xs-12 col-lg-4 m-b-2">
               <div className="shadow-box">
                 <div className="inner">
                   <h6 className="m-b-0">Blog</h6>
                   <h4 className="m-y-1">Global Sprint 2016 – Site and Project Submissions Open!</h4>
-                  <p>{`Join us as we collaborate on projects helping further science on the open web! We’re back with our third annual global sprint – June 2-3, 2016. We’ve just opened our call for project ideas and site hosts ...`}</p>
+                  <p>{`Join us as we collaborate on projects helping further science on the open web! We’re back with our third annual global sprint – June 2-3, 2016. We’ve just opened our call for project ideas and site hosts ...`}</p>
                 </div>
               </div>
             </div>
