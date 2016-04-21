@@ -1,15 +1,17 @@
 import React from "react";
 
-import Greeting from "../../components/greeting/greeting.jsx";
 import ThreeUp from "../../components/three-up/three-up.jsx";
 
 export default React.createClass({
   render() {
     return (
       <div id="page-home">
-        <Greeting
-          header="Transforming Science"
-          subHeader="Mozilla Science Lab is a community of researchers, developers, and librarians making research open and accessible." />
+        <div className="jumbotron jumbotron-fluid text-xs-center">
+          <div className="container-dynamic">
+            <h2>Transforming Science</h2>
+            <p className="lead m-t-1">{`Mozilla Science Lab is a community of researchers, developers, and librarians making research open and accessible. We’re empowering open science leaders through fellowships, mentorship, and project-based learning.`}</p>
+          </div>
+        </div>
 
         <div className="container-dynamic">
           <ThreeUp
