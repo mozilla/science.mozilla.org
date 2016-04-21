@@ -12,6 +12,27 @@ $bp-md: #{map-get($grid-breakpoints, md)}; // >= 768px
 $bp-lg: #{map-get($grid-breakpoints, lg)}; // >= 992px
 $bp-xl: #{map-get($grid-breakpoints, xl)}; // >= 1200px
 
+// Resets
+
+img {
+  max-width: 100%;
+}
+
+p {
+  font-size: 0.9375rem;
+  line-height: 1.33;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: $summit-teal;
+  font-weight: 200;
+}
+
 // Components
 
 @import '../react/components/footer/footer';
@@ -24,17 +45,6 @@ $bp-xl: #{map-get($grid-breakpoints, xl)}; // >= 1200px
 
 @import '../react/pages/home/home';
 @import '../react/pages/projects/projects';
-
-// Resets
-
-img {
-  max-width: 100%;
-}
-
-p {
-  font-size: 0.9375rem;
-  line-height: 1.33;
-}
 
 // Global
 
