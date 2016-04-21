@@ -87,6 +87,7 @@
           type:'POST',
           data: {
             bio: bio,
+            _csrf: $('meta[name="csrf-token"').attr('content')
           },
           success: function(msg){
             // window.location.href = 'http://forum.mozillascience.org/session/sso?return_path=' + return_to;
