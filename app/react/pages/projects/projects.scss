@@ -4,4 +4,16 @@
     background-repeat: no-repeat;
     background-size: cover;
   }
+  .threeUp-wrapper {
+    background: $white;
+  }
+  .project-sort-radio {
+    margin: 0 auto;
+  }
+  .radio-inline input[type="radio"] {
+    visibility: hidden;
+  }
+  .radio-inline input:checked + span {
+    color: $summit-teal;
+  }
 }
