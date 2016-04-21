@@ -34,3 +34,8 @@ body {
 #content-wrapper {
   background: darken($white, 5%);
 }
+
+.container-dynamic {
+  @include make-container();
+  max-width: $bp-xl;
+}
