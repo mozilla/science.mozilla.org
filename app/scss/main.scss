@@ -25,6 +25,17 @@ $bp-xl: #{map-get($grid-breakpoints, xl)}; // >= 1200px
 @import '../react/pages/home/home';
 @import '../react/pages/projects/projects';
 
+// Resets
+
+img {
+  max-width: 100%;
+}
+
+p {
+  font-size: 0.9375rem;
+  line-height: 1.33;
+}
+
 // Global
 
 body {
