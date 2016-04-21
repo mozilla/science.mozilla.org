@@ -33,6 +33,7 @@
     "eslint": "^2.6.0",
     "eslint-plugin-react": "^4.2.3",
     "file-loader": "^0.8.5",
+    "json-loader": "^0.5.4",
     "live-server": "^0.9.2",
     "mofo-style": "^2.4.0",
     "mozmaker": "0.7.0",
