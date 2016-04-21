@@ -1,5 +1,6 @@
 var express = require('express'),
     session = require('express-session'),
+    csrf = require('csurf'),
     app = express(),
     mongoose = require('mongoose'),
     RedisStore = require('connect-redis')(session),
@@ -70,6 +71,7 @@ if(process.env.APP !== 'production') {
 }
 
 app.use(session(sessionConfig));
+app.use(csrf({ cookie: true }));
 app.use(passport.initialize());
 app.use(passport.session());
 app.locals.moment = require('moment');
@@ -82,6 +84,7 @@ var url = require('url');
 
 app.use(function(req, res, next) {
   res.header('Cache-Control', 'private, no-cache, no-store, must-revalidate');
+  res.locals.csrfToken = req.csrfToken();
   next();
 });
 
@@ -96,8 +99,6 @@ app.use(function(req, res, next) {
 app.listen(app.get('port'), function() {
   console.log("Node app is running at localhost:" + app.get('port'))
 });
-
-
 
 var models = require('./models.js')
 
