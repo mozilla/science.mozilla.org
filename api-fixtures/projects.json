@@ -5,7 +5,7 @@
     "project_url": "https://mozilla.github.io/pathogens-disease-immunity",
     "slug": "pathogens-disease-immunity",
     "github_owner": "mozilla",
-    "github_repository": "https://github.com/mozilla/pathogens-disease-immunity",
+    "github_repository": "pathogens-disease-immunity",
     "image_url": "https://imgur.com/XA1e52",
     "institution": "University of Toronto",
     "description": "Recent discoveries in the genetics of bacteria and phages (genetic material that infects bacteria) have exposed an interesting fact: bacteria retain copies of phage genes in their own DNA, for use in identifying and resisting dangerous infections. Understanding this mechanism better could substantially advance our understanding of disease immunity.",
@@ -43,7 +43,7 @@
     "id": 1,
     "name": "Everware",
     "github_owner": "cern-projects",
-    "github_repository": "https://github.com/cern-projects/everware",
+    "github_repository": "everware",
     "description": "Everware is an add-on for JupyterHub. It allows users to launch Jupyter Notebooks into a docker container simply by specifying the url of a git repository. Everware clones the repository, builds a docker image from a contained Dockerfile and launches the user into a running notebook instance inside the container.",
     "short_description": "",
     "github_contributors": [
