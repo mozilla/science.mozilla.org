@@ -13,6 +13,15 @@ $bp-lg: #{map-get($grid-breakpoints, lg)}; // >= 992px
 $bp-xl: #{map-get($grid-breakpoints, xl)}; // >= 1200px
 
 // Resets
+a:link {
+  color: $mobile-blue;
+}
+
+a:hover,
+a:focus {
+  color: lighten($mobile-blue, 15%);
+  text-decoration: none;
+}
 
 img {
   max-width: 100%;
