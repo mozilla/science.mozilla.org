@@ -116,11 +116,6 @@
         font-weight: 100;
         color: $mobile-blue;
       }
-
-      p {
-        font-size: 0.9375rem;
-        line-height: 1.4em;
-      }
     }
   }
 
@@ -137,8 +132,7 @@
     }
 
     p {
-      font-size: 0.9375rem;
-      line-height: 1.5em;
+      color: $white;
     }
 
     .btn {

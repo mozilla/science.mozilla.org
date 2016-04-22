@@ -1,12 +1,14 @@
 .three-up {
+  h6 {
+    color: $charcoal;
+    font-weight: 400;
+  }
+
   .col {
     margin-bottom: 1em;
     width: 100%;
     text-align: center;
 
-    .copy {
-      font-size: 0.9375rem;
-    }
   }
 
   .icon {
