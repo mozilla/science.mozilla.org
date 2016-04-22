@@ -42,27 +42,27 @@ export default React.createClass({
             </div>
             <div className="project-sort-radio m-y-1">
               <label className="radio-inline">
-                <input type="radio" name="contributeSort" id="inlineRadio1" value="featured" /><span>Featured Projects</span>
+                <input type="radio" name="contributeSort" id="filter-radio-featured" value="featured" /><span>Featured Projects</span>
               </label>
               <label className="radio-inline">
-                  <input type="radio" name="contributeSort" id="inlineRadio2" value="updated" /><span>Recently Updated</span>
+                  <input type="radio" name="contributeSort" id="filter-radio-updated" value="updated" /><span>Recently Updated</span>
               </label>
               <label className="radio-inline">
-                <input type="radio" name="contributeSort" id="inlineRadio3" value="added" /><span>Recently Added</span>
+                <input type="radio" name="contributeSort" id="filter-radio-added" value="added" /><span>Recently Added</span>
               </label>
               <label className="radio-inline">
-                <input type="radio" name="contributeSort" id="inlineRadio3" value="active" /><span>Most Active</span>
+                <input type="radio" name="contributeSort" id="filter-radio-active" value="active" /><span>Most Active</span>
               </label>
               <label className="radio-inline">
-                <input type="radio" name="contributeSort" id="inlineRadio3" value="contributors" /><span>Most Contributors</span>
+                <input type="radio" name="contributeSort" id="filter-radio-contributors" value="contributors" /><span>Most Contributors</span>
               </label>
             </div>
           </div>
           <div className="row">
-          <ProjectCard project={projects[0]} className="col-sm-6" isFeatured={true} />
-          <ProjectCard project={projects[1]} className="col-sm-6" isFeatured={true} />
+          <ProjectCard project={projects[0]} className="col-xs-12 col-sm-6" isFeatured={true} />
+          <ProjectCard project={projects[1]} className="col-xs-12 col-sm-6" isFeatured={true} />
           {projects.map((project) => {
-            return <ProjectCard key={project.id} className="col-md-4" isFeatured={false} project={project}/>;
+            return <ProjectCard key={project.id} className="col-md-4 col-xs-12" isFeatured={false} project={project}/>;
           })}
           </div>
         </div>

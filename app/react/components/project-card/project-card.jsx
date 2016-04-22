@@ -9,6 +9,16 @@ export default React.createClass({
   },
   render() {
     let project = this.props.project;
+    let tags = null;
+
+    if (project.tags) {
+      tags = (<div className="help-with p-y-1">Help with:&nbsp;
+        {project.tags.map((tag, index)=> {
+          return <span className="project-tag"><Link key={index} to="#">{tag}</Link></span>;
+        })}
+      </div>
+      );
+    }
 
     return (
       <div className={`project-card-wrapper ` + this.props.className}>
@@ -25,11 +35,7 @@ export default React.createClass({
           <span className="institution">{project.institution}</span>
           <Link to="#" className="project-name m-t-1">{project.name}</Link>
           <div className="project-description m-t-1">{project.short_description}</div>
-          {project.tags ? <div className="help-with p-y-1">Help with:&nbsp;
-            {project.tags.map((tag, index)=> {
-              return <span className="project-tag"><Link key={index} to="#">{tag}</Link></span>;
-            })}
-          </div> : null }
+          {tags}
         </div>
       </div>
     );
