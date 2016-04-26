@@ -1,13 +1,76 @@
 
 import React from "react";
 
-import projects from "../../../../api-fixtures/projects.json";
-
 import ThreeUp from "../../components/three-up/three-up.jsx";
-import ProjectCard from "../../components/project-card/project-card.jsx";
+import ProjectList from "../../components/project-list/project-list.jsx";
+import { Debounce } from 'react-throttle';
 
 export default React.createClass({
+  getInitialState(){
+    return {
+      filterText: ``,
+      sortBy: `date_created`
+    };
+  },
+  handleFilterInput(){
+    this.setState({
+      filterText: this.refs.projectFilter.value,
+      sortBy: this.refs.sortFilter.elements.contributeSort.value
+    }, this.getProjectList);
+  },
+  getProjectList() {
+    let xhr = new XMLHttpRequest();
+    let url = `https://api-mozillascience-staging.herokuapp.com/projects/?format=json&search=${this.state.filterText}&sort=${this.state.sortBy}`;
+
+    xhr.open(`GET`, url);
+    xhr.responseType = `json`;
+
+    xhr.onload = () => {
+      this.setState({projects: xhr.response});
+    };
+
+    xhr.onerror = () => {
+      console.log(`Error fetching projects`);
+    };
+
+    xhr.send();
+  },
+  componentWillMount() {
+    this.getProjectList();
+  },
   render() {
+
+    var sortOptions = [
+      {
+        value: `featured`,
+        label: `Featured Projects`
+      },
+      {
+        value: `date_updated`,
+        label: `Recently Updated`
+      },
+      {
+        value: `date_created`,
+        label: `Recently Added`
+      },
+      {
+        value: `active`,
+        label: `Most Active`
+      },
+      {
+        value: `contributors`,
+        label: `Most Contributors`
+      }
+    ];
+
+    let sortFilter = sortOptions.map(option => {
+      return (
+        <label key={option.value} className="radio-inline">
+          <input type="radio" name="contributeSort" id={`filter-radio-${option.value}`} value={option.value} onChange={this.handleFilterInput} checked={this.state.sortBy===option.value} /> <span>{option.label}</span>
+        </label>
+      );
+    });
+
     return (
       <div id="page-projects">
         <div className="jumbotron text-xs-center jumbotron-fluid m-b-0">
@@ -32,7 +95,9 @@ export default React.createClass({
           </div>
           <div className="row m-y-1">
             <div className="col-xs-12 col-sm-6 col-md-4 col-md-push-2">
-              <input type="search" className="form-control" placeholder="search"/>
+              <Debounce time="400" handler="onChange">
+                <input type="search" ref="projectFilter" onChange={this.handleFilterInput} className="form-control" placeholder="search"/>
+              </Debounce>
             </div>
             <div className="col-xs-12 col-sm-6 col-md-4 col-md-push-2">
               <select name="topic" id="topic" className="form-control">
@@ -40,31 +105,13 @@ export default React.createClass({
                 <option value="more">Specific Topic</option>
               </select>
             </div>
-            <div className="project-sort-radio m-y-1">
-              <label className="radio-inline">
-                <input type="radio" name="contributeSort" id="filter-radio-featured" value="featured" /><span>Featured Projects</span>
-              </label>
-              <label className="radio-inline">
-                  <input type="radio" name="contributeSort" id="filter-radio-updated" value="updated" /><span>Recently Updated</span>
-              </label>
-              <label className="radio-inline">
-                <input type="radio" name="contributeSort" id="filter-radio-added" value="added" /><span>Recently Added</span>
-              </label>
-              <label className="radio-inline">
-                <input type="radio" name="contributeSort" id="filter-radio-active" value="active" /><span>Most Active</span>
-              </label>
-              <label className="radio-inline">
-                <input type="radio" name="contributeSort" id="filter-radio-contributors" value="contributors" /><span>Most Contributors</span>
-              </label>
-            </div>
+            <form ref="sortFilter" className="project-sort-radio m-y-1">
+              {sortFilter}
+            </form>
           </div>
           <div className="row">
-          <ProjectCard project={projects[0]} className="col-xs-12 col-sm-6" isFeatured={true} />
-          <ProjectCard project={projects[1]} className="col-xs-12 col-sm-6" isFeatured={true} />
-          {projects.map((project) => {
-            return <ProjectCard key={project.id} className="col-md-4 col-xs-12" isFeatured={false} project={project}/>;
-          })}
           </div>
+          <ProjectList projects={this.state.projects}/>
         </div>
       </div>
     );
