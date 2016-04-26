@@ -112,7 +112,8 @@
         data: {
           text: text,
           fork: fork,
-          star: star
+          star: star,
+          _csrf: $('meta[name="csrf-token"').attr('content')
         },
         success: function(msg){
           window.location.reload();
@@ -154,7 +155,8 @@
         url: $(this).data('href'),
         type:'PUT',
         data: {
-          user: user
+          user: user,
+          _csrf: $('meta[name="csrf-token"').attr('content')
         },
         success: function(msg){
           window.location.href = redirect;
@@ -261,7 +263,8 @@
         url: $(this).data('href'),
         type:'POST',
         data: {
-          project: project
+          project: project,
+          _csrf: $('meta[name="csrf-token"').attr('content')
         },
         success: function(msg){
           redirect ? window.location.href = redirect : window.location.reload();
@@ -328,7 +331,8 @@
         url: $(this).data('href'),
         type:'POST',
         data: {
-          event: event
+          event: event,
+          _csrf: $('meta[name="csrf-token"').attr('content')
         },
         success: function(msg){
           window.location.href = "/" + slug;
