@@ -9,18 +9,21 @@ export default React.createClass({
   getInitialState(){
     return {
       filterText: ``,
-      sortBy: `date_created`
+      sortBy: `date_created`,
+      category: ``,
+      categories: []
     };
   },
   handleFilterInput(){
     this.setState({
       filterText: this.refs.projectFilter.value,
-      sortBy: this.refs.sortFilter.elements.contributeSort.value
+      sortBy: this.refs.sortFilter.elements.contributeSort.value,
+      category: this.refs.categorySelect.value
     }, this.getProjectList);
   },
   getProjectList() {
     let xhr = new XMLHttpRequest();
-    let url = `https://api-mozillascience-staging.herokuapp.com/projects/?format=json&search=${this.state.filterText}&sort=${this.state.sortBy}`;
+    let url = `https://api-mozillascience-staging.herokuapp.com/projects/?format=json&search=${this.state.filterText}&sort=${this.state.sortBy}&categories=${this.state.category}`;
 
     xhr.open(`GET`, url);
     xhr.responseType = `json`;
@@ -37,6 +40,24 @@ export default React.createClass({
   },
   componentWillMount() {
     this.getProjectList();
+    this.getCategories();
+  },
+  getCategories() {
+    let xhr = new XMLHttpRequest();
+    let url = `https://api-mozillascience-staging.herokuapp.com/projects/categories/?format=json`;
+
+    xhr.open(`GET`, url);
+    xhr.responseType = `json`;
+
+    xhr.onload = () => {
+      this.setState({categories: xhr.response});
+    };
+
+    xhr.onerror = () => {
+      console.log(`Error fetching categories`);
+    };
+
+    xhr.send();
   },
   render() {
 
@@ -100,9 +121,11 @@ export default React.createClass({
               </Debounce>
             </div>
             <div className="col-xs-12 col-sm-6 col-md-4 col-md-push-2">
-              <select name="topic" id="topic" className="form-control">
-                <option value="all">All Topics</option>
-                <option value="more">Specific Topic</option>
+              <select name="topic" id="topic" ref="categorySelect" onChange={this.handleFilterInput} className="form-control">
+                <option value="">All Topics</option>
+                {this.state.categories.map(category => {
+                  return <option key={category.id} value={category.name}>{category.name}</option>;
+                })}
               </select>
             </div>
             <form ref="sortFilter" className="project-sort-radio m-y-1">
