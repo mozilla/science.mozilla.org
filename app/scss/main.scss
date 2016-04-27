@@ -13,6 +13,7 @@ $bp-lg: #{map-get($grid-breakpoints, lg)}; // >= 992px
 $bp-xl: #{map-get($grid-breakpoints, xl)}; // >= 1200px
 
 // Resets
+a,
 a:link {
   color: $mobile-blue;
 }
