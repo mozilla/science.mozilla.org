@@ -65,17 +65,17 @@ export default React.createClass({
         <nav className={navClass}>
           <div className="nav-links">
             <div className={navItemClasses}>
-              <span className={getNavLinkClasses(`/programs`)} onClick={this.toggleSlideout}>Programs</span>
+              <span className={getNavLinkClasses(`programs`)} onClick={this.toggleSlideout}>Programs</span>
               <div className={slideoutNavClass}>
                 <Link className="nav-link events" to="/programs/events">Our Events</Link>
                 <Link className="nav-link study-groups" to="/programs/studygroups">Study Groups</Link>
                 <Link className="nav-link fellowships" to="/programs/fellowships">Fellowships</Link>
               </div>
             </div>
-            <Link className={getNavLinkClasses(`/resources`)} to="/resources">Resources</Link>
-            <Link className={getNavLinkClasses(`/projects`)} to="/projects">Projects</Link>
-            <Link className={getNavLinkClasses(`/blog`)} to="/blog">Blog</Link>
-            <Link className={getNavLinkClasses(`/members`)} to="/members">Members</Link>
+            <Link className={getNavLinkClasses(`resources`)} to="/resources">Resources</Link>
+            <Link className={getNavLinkClasses(`projects`)} to="/projects">Projects</Link>
+            <Link className={getNavLinkClasses(`blog`)} to="/blog">Blog</Link>
+            <Link className={getNavLinkClasses(`members`)} to="/members">Members</Link>
           </div>
           <div className="auth-links">
             <Link className="nav-link" to="/sign-in">Sign In</Link>
