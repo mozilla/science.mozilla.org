@@ -1,0 +1,12 @@
+#project-details {
+  .github-avatar {
+    border-radius: 50%;
+    margin-bottom: 1rem;
+    + .github-avatar {
+      margin-left: 1rem;
+    }
+  }
+  .visit-repo {
+    background: transparent;
+  }
+}

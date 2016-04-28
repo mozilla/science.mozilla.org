@@ -23,14 +23,14 @@
 
 .categories,
 .categories:not(:empty) ~ * {
-  transform: translateY(-1rem);
+  transform: translateY(-1.75rem);
 }
 
 .category-tag {
   display: inline-block;
-  transform: translateY(-50%);
   background: lighten($aurora-purple, 15%);
   padding: 0.25em 0.5em;
+  margin-bottom: 0.5rem;
   color: $white;
   text-transform: uppercase;
   font-size: 0.75rem;
