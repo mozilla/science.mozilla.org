@@ -1,5 +1,6 @@
 import React from "react";
 import ThreeUp from "../components/three-up/three-up.jsx";
+import TabSwitcher from "../components/tab-switcher/tab-switcher.jsx";
 
 export default React.createClass({
   render() {
@@ -8,6 +9,25 @@ export default React.createClass({
         <h1>Style Guide</h1>
 
         <h2>Components</h2>
+
+        <h3>TabSwitcher</h3>
+
+        <h4>Hero Variant</h4>
+
+        <TabSwitcher>
+          <div name="About">About content.</div>
+          <div name="Schedule">Schedule content.</div>
+          <div name="Projects">Projects content.</div>
+        </TabSwitcher>
+
+        <h4>Inline Variant (.inline)</h4>
+
+        <TabSwitcher className="inline">
+          <div name="One">One content.</div>
+          <div name="Two">Two content.</div>
+          <div name="Three">Three content.</div>
+          <div name="Four">Four content.</div>
+        </TabSwitcher>
 
         <h3>ThreeUp</h3>
 

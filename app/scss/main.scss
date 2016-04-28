@@ -4,6 +4,10 @@
 @import '../../node_modules/bootstrap/scss/_variables.scss';
 @import '../../node_modules/bootstrap/scss/mixins.scss';
 
+// Non-Mozmaker Colors
+
+$off-white: darken($white, 5%);
+
 // Breakpoints (imported from Bootstrap)
 
 $bp-xs: #{map-get($grid-breakpoints, xs)}; // < 544px
@@ -52,6 +56,7 @@ h6 {
 @import '../react/components/three-up/three-up';
 @import '../react/components/project-card/project-card';
 @import '../react/components/shadow-box';
+@import '../react/components/tab-switcher/tab-switcher';
 
 // Pages
 
@@ -65,7 +70,7 @@ body {
 }
 
 #content-wrapper {
-  background: darken($white, 5%);
+  background: $off-white;
 }
 
 .container-dynamic {
