@@ -5,7 +5,7 @@
   "author": "Mozilla",
   "license": "MIT",
   "scripts": {
-    "start": "npm run build && npm-run-all --parallel server:dev watch:**",
+    "start": "npm i && npm run build && npm-run-all --parallel server:dev watch:**",
     "build": "npm run build:js && npm run build:scss && npm run build:static && npm run build:assets",
     "build:js": "webpack",
     "build:scss": "node-sass app/scss/main.scss dist/css/main.css && postcss --use autoprefixer --autoprefixer.browsers '> 5%' -o dist/css/main.css dist/css/main.css",
