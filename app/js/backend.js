@@ -1,5 +1,8 @@
 let server = `https://api-mozillascience-staging.herokuapp.com`;
 let request = new XMLHttpRequest();
+let defaultParams = {
+  format: `json`
+};
 
 /**
  * Serialize a POJO as a URL query string fragment
@@ -18,7 +21,7 @@ function pojoToQuery(pojo) {
  * @param  {Object} params A POJO to be serialized as a query string
  * @returns {Promise} A promise to resolve an XHR request
  */
-function doXHR(route, params) {
+function doXHR(route, params = defaultParams) {
   return new Promise((resolve, reject) => {
     request.open(`GET`, `${server}/${route}${params ? pojoToQuery(params) : ``}`, true);
 
@@ -44,6 +47,11 @@ export default {
   projects: {
     get: function (params) {
       return doXHR(`projects/`, params);
+    }
+  },
+  project: {
+    get: function (id, params) {
+      return doXHR(`projects/${id}/`, params);
     }
   },
   events: {

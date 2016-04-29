@@ -40,8 +40,11 @@ h3,
 h4,
 h5,
 h6 {
-  color: $summit-teal;
-  font-weight: 200;
+  &,
+  .jumbotron & {
+    color: $summit-teal;
+    font-weight: 200;
+  }
 }
 
 // Components
@@ -51,12 +54,15 @@ h6 {
 @import '../react/components/greeting/greeting';
 @import '../react/components/three-up/three-up';
 @import '../react/components/project-card/project-card';
+@import '../react/components/github-avatar/github-avatar';
+@import '../react/components/project-card-featured/project-card-featured';
 @import '../react/components/shadow-box';
 
 // Pages
 
 @import '../react/pages/home/home';
 @import '../react/pages/projects/projects';
+@import '../react/pages/project-details/project-details';
 
 // Global
 
@@ -71,4 +77,8 @@ body {
 .container-dynamic {
   @include make-container();
   max-width: $bp-xl;
+}
+
+.jumbotron {
+  background: transparent;
 }

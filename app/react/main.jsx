@@ -14,6 +14,7 @@ import Home from "./pages/home/home.jsx";
 import Members from "./pages/members.jsx";
 import Programs from "./pages/programs.jsx";
 import Projects from "./pages/projects/projects.jsx";
+import Project from "./pages/project-details/project-details.jsx";
 import Resources from "./pages/resources.jsx";
 import StyleGuide from "./pages/style-guide.jsx";
 import Events from "./pages/events.jsx";
@@ -43,7 +44,8 @@ render((
       <Route path="programs" component={Programs}>
         <Route path="events" component={Events} />
       </Route>
-      <Route path="projects" component={Projects}/>
+      <Route path="projects/:id" component={Project} />
+      <Route path="projects" component={Projects} />
       <Route path="resources" component={Resources}/>
       <Route path="style-guide" component={StyleGuide}/>
     </Route>

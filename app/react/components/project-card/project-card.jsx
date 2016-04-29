@@ -1,6 +1,8 @@
 
 import React from "react";
 import {Link} from "react-router";
+import GithubAvatar from "../../components/github-avatar/github-avatar.jsx";
+import Categories from "../../components/categories/categories.jsx";
 
 export default React.createClass({
   propTypes: {
@@ -30,20 +32,20 @@ export default React.createClass({
       <div className={`project-card-wrapper ` + this.props.className}>
         <div className="project-card">
           {this.props.isFeatured ? <img className="featured-image" src={project.image_url} /> : null }
-          <div className="categories">
-            {project.categories.map((category) => {
-              return <span key={category} className="category-tag">{category}</span>;
-            }) }
+          <Categories categories={project.categories} />
+          <div className="project-card-details">
+            <div className="profile-photos">
+                <GithubAvatar user={project.github_contributors[project.github_contributors.length-1]} />
+            </div>
+            <div>
+              <Link to="#" className="names">User Name (awaiting API)</Link>
+              <span> for </span>
+              <span className="institution">{project.institution}</span>
+            </div>
+            <Link to={`projects/${project.id}`} className="project-name m-t-1">{project.name}</Link>
+            <div className="project-description m-t-1">{project.short_description}</div>
+            {tags}
           </div>
-          <div className="profile-photos">
-            <img className="profile-photo" src="https://avatars3.githubusercontent.com/u/1682681?v=3&s=40" srcSet="https://avatars3.githubusercontent.com/u/1682681?v=3&s=40, https://avatars3.githubusercontent.com/u/1682681?v=3&s=80 2x" width="40" height="40" alt="Contributor avatar"/>
-          </div>
-          <Link to="#" className="names">User Name (awaiting API)</Link>
-          <span> for </span>
-          <span className="institution">{project.institution}</span>
-          <Link to="#" className="project-name m-t-1">{project.name}</Link>
-          <div className="project-description m-t-1">{project.short_description}</div>
-          {tags}
         </div>
       </div>
     );

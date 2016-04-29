@@ -4,6 +4,8 @@ import React from "react";
 import ThreeUp from "../../components/three-up/three-up.jsx";
 import ProjectList from "../../components/project-list/project-list.jsx";
 import { Debounce } from 'react-throttle';
+import Service from "../../../js/backend.js";
+
 
 export default React.createClass({
   getInitialState(){
@@ -22,21 +24,15 @@ export default React.createClass({
     }, this.getProjectList);
   },
   getProjectList() {
-    let xhr = new XMLHttpRequest();
-    let url = `https://api-mozillascience-staging.herokuapp.com/projects/?format=json&search=${this.state.filterText}&sort=${this.state.sortBy}&categories=${this.state.category}`;
-
-    xhr.open(`GET`, url);
-    xhr.responseType = `json`;
-
-    xhr.onload = () => {
-      this.setState({projects: xhr.response});
-    };
-
-    xhr.onerror = () => {
-      console.log(`Error fetching projects`);
-    };
-
-    xhr.send();
+    Service.projects
+      .get({
+        format: `json`,
+        search: this.state.filterText,
+        sort: this.state.sortBy,
+        categories: this.state.category
+      })
+      .then((data) => { this.setState({projects: data}); })
+      .catch((reason) => { console.error(reason); });
   },
   componentWillMount() {
     this.getProjectList();
