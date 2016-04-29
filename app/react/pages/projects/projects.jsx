@@ -13,7 +13,8 @@ export default React.createClass({
       filterText: ``,
       sortBy: `date_created`,
       category: ``,
-      categories: []
+      categories: [],
+      projects: []
     };
   },
   handleFilterInput(){

@@ -41,11 +41,10 @@ render((
       <IndexRoute component={Home}/>
       <Route path="blog" component={Blog}/>
       <Route path="members" component={Members}/>
-      <Route path="programs" component={Programs}>
-        <Route path="events" component={Events} />
-      </Route>
       <Route path="projects/:id" component={Project} />
       <Route path="projects" component={Projects} />
+      <Route path="programs/events" component={Events} />
+      <Route path="programs" component={Programs} />
       <Route path="resources" component={Resources}/>
       <Route path="style-guide" component={StyleGuide}/>
     </Route>
