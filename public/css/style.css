@@ -1363,3 +1363,21 @@ button.close {
         white-space: normal !important;
     }
 }
+
+table.altrowstable {
+  font-size: 11px;
+  color: #333333;
+  border-width: 1px;
+  border-collapse: collapse;
+  width: 100%;
+}
+table.altrowstable th {
+  border-width: 1px;
+  padding: 8px;
+  border-style: solid;
+}
+table.altrowstable td {
+  border-width: 1px;
+  padding: 8px;
+  border-style: solid;
+}
