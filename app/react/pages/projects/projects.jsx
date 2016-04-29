@@ -25,7 +25,12 @@ export default React.createClass({
   },
   getProjectList() {
     Service.projects
-      .get()
+      .get({
+        format: `json`,
+        search: this.state.filterText,
+        sort: this.state.sortBy,
+        categories: this.state.category
+      })
       .then((data) => { this.setState({projects: data}); })
       .catch((reason) => { console.error(reason); });
   },
