@@ -1,0 +1,14 @@
+.data-card {
+  .project-name {
+    display: block;
+    font-size: 1.7rem;
+  }
+}
+
+.profile-photo {
+  border-radius: 50%;
+}
+
+.project-tag + .project-tag::before {
+  content: ', ';
+}

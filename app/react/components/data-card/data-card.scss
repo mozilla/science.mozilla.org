@@ -1,0 +1,25 @@
+.data-card-wrapper {
+  display: flex;
+}
+
+.data-card {
+  background: $white;
+  position: relative;
+  margin: 2rem 0;
+  padding: 1rem;
+  font-weight: 300;
+  width: 100%;
+  .card-image {
+    margin: 0 -1em;
+    width: calc(100% + 2em);
+    max-width: inherit;
+    transform: translateY(-1rem);
+  }
+  .categories,
+  .categories:not(:empty) ~ * {
+    transform: translateY(-1rem);
+  }
+  .category-tag {
+    transform: translateY(-50%);
+  }
+}

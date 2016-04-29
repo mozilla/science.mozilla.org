@@ -1,0 +1,12 @@
+.category-tag {
+  display: inline-block;
+  background: lighten($aurora-purple, 15%);
+  padding: 0.25em 0.5em;
+  color: $white;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  margin-bottom: 0.25rem;
+  + .category-tag {
+    margin-left: 0.5em;
+  }
+}
