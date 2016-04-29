@@ -16,7 +16,7 @@ export default React.createClass({
   render() {
 
     return (
-      <div className={`data-card-wrapper ` + this.props.className}>
+      <div className={`data-card-wrapper ${this.props.className}`}>
         <div className="data-card">
           {this.props.showPicture ? <img className="card-image" src={this.props.picture} /> : null }
           <div className="categories">
