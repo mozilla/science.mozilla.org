@@ -1,0 +1,53 @@
+.tab-switcher {
+  .tabs {
+    display: flex;
+
+    .btn {
+      border: 0;
+      flex: 1;
+      margin: 0 0.5rem;
+      text-transform: none;
+      color: $white;
+      background: rgba($off-white, 0.2);
+
+      &:first-child {
+        margin-left: 0;
+      }
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      &.active {
+        background: $off-white;
+        color: inherit;
+      }
+    }
+  }
+
+  &.inline .tabs {
+    .btn {
+      background: lighten($developer-blue, 40%);
+      color: $developer-blue;
+      border: 0.0625rem solid $off-white;
+      border-bottom: 0;
+
+      &.active {
+        border: 0.0625rem solid $developer-blue;
+        border-bottom: 1px solid #f2f2f2;
+        background: $off-white;
+        margin-bottom: -0.0625rem;
+      }
+    }
+
+    border-bottom: 0.0625rem solid $developer-blue;
+  }
+
+  .panel {
+    display: none;
+
+    &.active {
+      display: block;
+    }
+  }
+}
