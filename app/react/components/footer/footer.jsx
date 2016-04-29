@@ -12,7 +12,7 @@ export default React.createClass({
                 <h3>Receive our newsletter</h3>
               </div>
               <div className="col-sm-6">
-                <form className="one-shot" action="https://mail.mozilla.org/subscribe/mozillascience" method="POST">
+                <form target="_blank" className="one-shot" action="https://mail.mozilla.org/subscribe/mozillascience" method="POST">
                   <input type="email" name="email" placeholder="your email"/>
                   <button type="submit" className="btn btn-primary">Subscribe</button>
                 </form>
