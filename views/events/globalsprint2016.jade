@@ -33,7 +33,6 @@ html
 
             p We'll be updating this page as we get closer the sprint. Check back for more info!
 
-
           //h3 HOW TO REGISTER
           //p Ready to join us for two days of learning and building together? To register:
             ol
@@ -56,14 +55,14 @@ html
             |  or browse through the
             a(href="https://etherpad.mozilla.org/sciencelab-2015globalsprint" target="_blank")  full list on the etherpad
             | .
-          //h3(id="sites") SITES
-          //p We have >30 sites from all over the world participating in our #mozsprint this year! Check the map to find a site near you, or join us remotely.
-          //p
+          h2(id="sites") SITES
+          p We have >30 sites from all over the world participating in our #mozsprint this year! Check the map to find a site near you, or join us remotely.
+          p
             a(href="https://etherpad.mozilla.org/sciencelab-2015globalsprint") See the full list of sites and details on this etherpad
-          //br
-          //iframe(src="https://www.google.com/maps/d/embed?mid=zAWZqMb9K6q4.klFrcnY20Du8" width="640" height="480")
+            br
+          iframe(src="https://auremoser.cartodb.com/viz/ed575994-f063-11e5-a94e-0e3ff518bd15/embed_map" width="100%" height="480")
 
-          h3 HOW TO PARTICIPATE
+          h2 HOW TO PARTICIPATE
           p
             | Ready to join us as a host or project collaborator? Great! You can read more about it in our
             a(href="https://mozillascience.org/global-sprint-2016-site-and-project-applications-open")  recent blogpost
@@ -91,7 +90,7 @@ html
             a(href="https://docs.google.com/forms/d/16M_SiiJkmrkkSONpgd0ERUHLkr1WF4WWXZJIwvurzIs/viewform" target="_blank")  Project Submission form
             | .
 
-          h3(id="projects") PROJECTS
+          h2(id="projects") PROJECTS
           p
             p
               | This year, we have four tracks you can contribute to:
@@ -125,11 +124,11 @@ html
 
 
           if(ev.facilitators.length > 0)
-            h3 FACILITATORS
+            h2 FACILITATORS
             div#event-people(data-url="/api/events/" + ev.slug + "/people")
 
           if(ev.attending.length > 0)
-            h3 PARTICIPANTS
+            h2 PARTICIPANTS
             div#event-attending(data-url="/api/events/" + ev.slug + "/attending")
 
           //if(ev.start > moment())
