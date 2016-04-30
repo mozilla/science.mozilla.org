@@ -9,6 +9,8 @@ html
   head
     +head(ev.title || page)
 
+
+    link(href="/media/mapglyphs/2.0/mapglyphs.css" rel="stylesheet")
   body
     +header(loggedIn, page)
     div.page-wrapper
@@ -32,48 +34,107 @@ html
               a(href="https://mozillascience.org/global-sprint-2015") Our 2015 Global Sprint
               |  brought together over 200+ members of the community to hack for two-days on open science projects. Over 30 cities around the world were represented (53 hours of consecutive hacking!), and we need your help to do it again this June.
 
-            p We'll be updating this page as we get closer the sprint. Check back for more info!
-
-          //h3 HOW TO REGISTER
-          //p Ready to join us for two days of learning and building together? To register:
-            ol
-              li
-                | Go to our
-                a(href="https://etherpad.mozilla.org/sciencelab-2015globalsprint" target="_blank")  Planning Etherpad
-              li Find a listed site near you (sites start after line 162)
-              li
-                | Add your name/twitter/github under
-                b  'Participants'
-                |  for that site
-          //p
-            | Can't find a site near you? You can still join us remotely! Add your name under
-            b  'Remote Participants'
-            |  at the bottom of the pad
-          //h3(id="pick") PICK A PROJECT
-          //p
-            | Look through our
-            a(href="https://forum.mozillascience.org/t/mozsprint-projects-where-to-start/239")  summary of participating projects
-            |  or browse through the
-            a(href="https://etherpad.mozilla.org/sciencelab-2015globalsprint" target="_blank")  full list on the etherpad
-            | .
-
           h3(id="sites") REGISTER
-          p Find a site near you to register for the Global Sprint! We have >25 sites from all over the world participating in our #mozsprint this year!
+          p Find a site near you to register for the Global Sprint! We have >25 sites from all over the world participating in our #mozsprint this year! Don't see your site? We're still posting locations, hang tight!
           iframe(src="https://auremoser.cartodb.com/viz/ed575994-f063-11e5-a94e-0e3ff518bd15/embed_map" width="100%" height="480")
 
+          div.map-sites
+            div.pure-u-1-3
+              i.mg.mg-5x.map-us
+              hr
+              h2 USA
+              h4
+                a(href="https://ti.to/mozilla-science/gs2016-berkele") Berkeley, CA
+              h4
+                a(href="https://ti.to/mozilla-science/gs2016-charlottesville") Charlottesville, NC
+              h4
+                a(href="https://ti.to/mozilla-science/gs2016-chicago") Chicago, IL
+              h4
+                a(href="https://ti.to/mozilla-science/gs2016-newyork") New York, NY
+              h4
+                a(href="https://ti.to/mozilla-science/gs2016-seattle") Seattle, WA
+              h4
+                a(href="https://ti.to/mozilla-science/gs2016-st-paul") St Paul, MN
+
+
+
+
+            div.pure-u-1-3
+              i.mg.mg-5x.map-in
+              hr
+              h2 INDIA
+              h4
+                a(href="https://ti.to/mozilla-science/gs2016-bangalore") Bangalore
+              h4
+                a(href="https://ti.to/mozilla-science/gs2016-barasat") Barasat
+              h4
+                a(href="https://ti.to/mozilla-science/gs2016-chennai") Chennai
+              h4
+                a(href="https://ti.to/mozilla-science/gs2016-hyderabad") Hyderabad
+              h4
+                a(href="https://ti.to/mozilla-science/gs2016-madurai") Madurai
+            div.pure-u-1-3
+              i.mg.mg-5x.map-uk
+              hr
+              h2 UK
+              h4
+                a(href="https://ti.to/mozilla-science/gs2016-edinburgh ") Edinburgh
+              h4
+                a(href="https://ti.to/mozilla-science/gs2016-exeter") Exeter
+              h4
+                a(href="https://ti.to/mozilla-science/gs2016-london-uk ") London
+              h4
+                a(href="https://ti.to/mozilla-science/gs2016-norwich-uk") Norwich
+            div.pure-u-1-3
+              i.mg.mg-5x.map-au
+              hr
+              h2 AUSTRALIA
+              h4
+                a(href="https://ti.to/mozilla-science/gs2016-brisban") Brisbane
+              h4
+                a(href="https://ti.to/mozilla-science/gs2016-melbourne") Melbourne
+              h4
+                a(href="https://ti.to/mozilla-science/gs2016-perth") Perth
+
+            div.pure-u-1-3
+              i.mg.mg-5x.map-ca
+              hr
+              h2 CANADA
+              h4
+                a(href="https://ti.to/mozilla-science/gs2016-toronto") Toronto, ON
+              h4
+                a(href="https://ti.to/mozilla-science/gs2016-vancouver") Vancouver, BC
+            div.pure-u-1-3
+              i.mg.mg-5x.map-fr
+              hr
+              h2 COTE D'IVOIRE
+              h4
+                a(href="https://ti.to/mozilla-science/gs2016-abidjan") Abidjan
+            div.pure-u-1-3
+              i.mg.mg-5x.map-fr
+              hr
+              h2 FRANCE
+              h4
+                a(href="https://ti.to/mozilla-science/gs2016-villeneuve-d-Ascq") Lille
+            div.pure-u-1-3
+              i.mg.mg-5x.map-es
+              hr
+              h2 SPAIN
+              h4
+                a(href="https://ti.to/mozilla-science/gs2016-la-orotava") Orotava
+            div.pure-u-1-3
+              i.mg.mg-5x.map-ch
+              hr
+              h2 SWITZERLAND
+              h4
+                a(href="https://ti.to/mozilla-science/gs2016-geneva") Geneva
           p
             | Don't see a site near you? If you have a space for people to gather and work, a strong wifi connection, and perhaps some coffee,
             | we'd love to have you host a site. Complete our
             a(href="https://docs.google.com/forms/d/1uN5Q535pib0YxeZWWv1VlSdLig5mdjCWm2MuEaXz8fE/viewform" target="_blank")  Site Host Submission form
             |  and we'll help you get started.
 
-
-          //h3(id="sites") SITES
-          //p We have >30 sites from all over the world participating in our #mozsprint this year! Check the map to find a site near you, or join us remotely.
-          //p
-
           h2(id="projects") PROJECTS
-
           p
             p
               | This year, we have four tracks you can contribute to:
@@ -131,6 +192,8 @@ html
           p
             | We hope you'll come and collaborate with us as we transform science on the web.
 
+          p
+            a(href="http://mapglyphs.com/?ref=attr") Map Icons by MapGlyphs.com CC BY-ND 3.0
 
 
 
@@ -163,4 +226,6 @@ html
                       a.pure-button(type="button" href="/api/events/" + ev.slug + '/attend') Register
                     //else
                       a.pure-button(type="button" href="/auth/github") Sign in to Register
+
+
     +footer(page)
