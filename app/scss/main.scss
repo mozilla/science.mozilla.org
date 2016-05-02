@@ -49,6 +49,9 @@ h6 {
     color: $summit-teal;
     font-weight: 200;
   }
+  .jumbotron-fluid & {
+    color: $white;
+  }
 }
 
 // Components
