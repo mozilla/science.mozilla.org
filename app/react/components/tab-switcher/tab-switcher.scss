@@ -1,14 +1,19 @@
 .tab-switcher {
+  &.pull-up {
+    margin-top: -2.0625rem;
+  }
+
   .tabs {
     display: flex;
 
     .btn {
+      line-height: 1.33rem;
       border: 0;
       flex: 1;
       margin: 0 0.5rem;
       text-transform: none;
       color: $white;
-      background: rgba($off-white, 0.2);
+      background: rgba($developer-blue, 0.5);
 
       &:first-child {
         margin-left: 0;
