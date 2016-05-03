@@ -69,11 +69,20 @@ h6 {
 @import '../react/components/shadow-box';
 @import '../react/components/tab-switcher/tab-switcher';
 
+// Mozmaker Extensions
+
+.btn.btn-white {
+  border-color: $white;
+  color: $white;
+  background: none;
+}
+
 // Pages
 
 @import '../react/pages/home/home';
 @import '../react/pages/projects/projects';
 @import '../react/pages/project-details/project-details';
+@import '../react/pages/fellowships/fellowships';
 
 // Global
 
