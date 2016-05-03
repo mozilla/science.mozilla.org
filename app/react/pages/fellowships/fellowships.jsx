@@ -55,7 +55,7 @@ export default React.createClass({
                 <IconItem imgSrc="/assets/img/fellowships/icon-life.svg" copy="Specializing in the life sciences or natural sciences."></IconItem>
                 <IconItem imgSrc="/assets/img/fellowships/icon-travel.svg" copy="Able to travel."></IconItem>
                 <IconItem imgSrc="/assets/img/fellowships/icon-approve.svg" copy="Supported by their supervisors. As fellows will be based at their home institutions and a letter of support from their supervisor is mandatory."></IconItem>
-                <IconItem imgSrc="/assets/img/fellowships/icon-open.svg" copy="Have experience participating in open communities."></IconItem>
+                <IconItem imgSrc="/assets/img/fellowships/icon-open.svg" copy="Have experience participating in open communities."></IconItem>
               </div>
             </div>
             <div className="p-y-3" name="Financial Terms">Schedule content.</div>
@@ -65,7 +65,7 @@ export default React.createClass({
                 <dd>{`Unfortunately, for the first year, we're limiting the call to those in the U.S., UK, and Canada, and to life/natural sciences. That's not because we don't *want* to expand the reach and pool of Fellows - we just need to start somewhere. Our aim is to extend this in subsequent years, so do stay tuned.`}</dd>
 
                 <dt>{`What disciplines are included in "life and natural sciences"?`}</dt>
-                <dd>{`Biology, chemistry, earth science, physics, astronomy, ecology, etc.<`}</dd>
+                <dd>{`Biology, chemistry, earth science, physics, astronomy, ecology, etc.`}</dd>
                 <dd>{`For our first year, our call is limited to the disciplines listed above. Our plans are to extend in future years, as we know open research is as important there as it is in other disciplines, but need to unfortunately limit the scope for this first year due to grant obligations.`}</dd>
 
                 <dt>{`I work at a research institution but not a "university" - can I still apply?`}</dt>
