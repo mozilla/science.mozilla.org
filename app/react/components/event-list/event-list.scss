@@ -1,0 +1,50 @@
+.event-card {
+  .event-title {
+    color: $mobile-blue;
+    margin: 0;
+    font-size: 2rem;
+  }
+  .event-details {
+    margin: 0.5rem 0;
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 1.2rem;
+  }
+  .event-location,
+  .event-time {
+    &::before {
+      content: '';
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      width: 1em;
+      height: 0.7em;
+      margin-right: 0.1em;
+      display: inline-block;
+    }
+  }
+  .event-location {
+    margin-right: 0.75rem;
+  }
+  .event-location::before {
+    background-image: url('/assets/img/icon-location.svg');
+  }
+  .event-time::before {
+    background-image: url('/assets/img/icon-time.svg');
+  }
+  &.archive {
+    .event-location {
+      margin-right: 0;
+    }
+    .event-location::before {
+      content: none;
+    }
+    .event-time::before {
+      content: '|';
+      background: none;
+      color: $aurora-purple;
+      width: auto;
+      margin: 0 0 0 0.25rem;
+    }
+  }
+}

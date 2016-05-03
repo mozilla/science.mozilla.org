@@ -1,3 +1,5 @@
+$cardPadding: 1.25rem;
+
 .data-card-wrapper {
   display: flex;
 }
@@ -6,17 +8,17 @@
   background: $white;
   position: relative;
   margin: 2rem 0;
-  padding: 1rem;
+  padding: $cardPadding;
   font-weight: 300;
   .card-image {
-    margin: 0 -1em;
-    width: calc(100% + 2em);
+    margin: 0 -1*$cardPadding;
+    width: calc(100% + #{$cardPadding*2});
     max-width: inherit;
-    transform: translateY(-1rem);
+    transform: translateY(-1*$cardPadding);
   }
   .categories,
   .categories:not(:empty) ~ * {
-    transform: translateY(-1rem);
+    transform: translateY(-1*$cardPadding);
   }
   .category-tag {
     transform: translateY(-50%);
