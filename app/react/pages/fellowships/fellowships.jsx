@@ -1,6 +1,17 @@
 import React from "react";
 import TabSwitcher from "../../components/tab-switcher/tab-switcher.jsx";
 
+let IconItem = React.createClass({
+  render() {
+    return (
+      <div className="row m-b-2 icon-item">
+        <div className="col-xs-2 text-xs-center"><img className="icon" src={this.props.imgSrc}/></div>
+        <div className="col-xs-10"><p className="m-b-0"><em>{this.props.copy}</em></p></div>
+      </div>
+    );
+  }
+});
+
 export default React.createClass({
   getInitialState(){
     return {
@@ -19,7 +30,34 @@ export default React.createClass({
 
         <div className="container">
           <TabSwitcher className="pull-up">
-            <div className="p-y-3" name="Overview">About content.</div>
+            <div className="p-y-3" name="Overview">
+              <p><em>The Mozilla Fellowships for Science present a unique opportunity for researchers who want to influence the future of open science and data sharing within their communities.</em></p>
+              <p>We're looking for researchers with a passion for open source and data sharing, already working to shift research practice to be more collaborative, iterative and open. Fellows will spend 10 months starting September 2015 as community catalysts at their institutions, mentoring the next generation of open data practitioners and researchers and building lasting change in the global open science community.</p>
+              <p>Throughout their fellowship year, chosen fellows will receive training and support from Mozilla to hone their skills around open source and data sharing. They will also craft code, curriculum and other learning resources that help their local communities learn open data practices, and teach forward to their peers.</p>
+
+              <h3 className="m-b-3">Fellow Responsibilities</h3>
+
+              <div className="m-b-3">
+                <IconItem imgSrc="/assets/img/fellowships/icon-share.svg" copy="Champion change within their university around open source and data sharing."></IconItem>
+                <IconItem imgSrc="/assets/img/fellowships/icon-curriculum.svg" copy="Create code, curriculum and other learning resources that help others learn open science practices."></IconItem>
+                <IconItem imgSrc="/assets/img/fellowships/icon-events.svg" copy="Participate in Mozilla workweeks, trainings and community events (MozFest, code sprints, Working Open Workshops)."></IconItem>
+                <IconItem imgSrc="/assets/img/fellowships/icon-lead.svg" copy="Serve as mentors and leaders within their communities."></IconItem>
+                <IconItem imgSrc="/assets/img/fellowships/icon-communicate.svg" copy="Communicate and share openly their work on an ongoing basis (e.g., through GitHub repositories, scholarly preprints and blog posts)."></IconItem>
+              </div>
+
+              <p className="m-b-3">{`Note: Fellows are encouraged to continue their personal research for up to 20% of their time during the course of their fellowship (i.e., one day a week). Fellowship applicants must have buy in from their supervisors in advance, and include supervisors' contact information on the application. Advisers will be interviewed separately should applicants move on to the second round, and their support will be a critical consideration for acceptance of fellows.`}</p>
+
+              <h3 className="m-b-3">Who can become a Fellow?</h3>
+
+              <div className="m-b-3">
+                <IconItem imgSrc="/assets/img/fellowships/icon-institution.svg" copy="Currently working at a research institution in the US, UK or Canada."></IconItem>
+                <IconItem imgSrc="/assets/img/fellowships/icon-research.svg" copy="Currently an early-career researcher (i.e, graduate students, post-docs, research scientists, lecturers)."></IconItem>
+                <IconItem imgSrc="/assets/img/fellowships/icon-life.svg" copy="Specializing in the life sciences or natural sciences."></IconItem>
+                <IconItem imgSrc="/assets/img/fellowships/icon-travel.svg" copy="Able to travel."></IconItem>
+                <IconItem imgSrc="/assets/img/fellowships/icon-approve.svg" copy="Supported by their supervisors. As fellows will be based at their home institutions and a letter of support from their supervisor is mandatory."></IconItem>
+                <IconItem imgSrc="/assets/img/fellowships/icon-open.svg" copy="Have experience participating in open communities."></IconItem>
+              </div>
+            </div>
             <div className="p-y-3" name="Financial Terms">Schedule content.</div>
             <div className="p-y-3" name="FAQ">
               <dl>
