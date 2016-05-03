@@ -4,7 +4,6 @@ import Moment from "moment-timezone";
 import {Link} from "react-router";
 
 export default React.createClass({
-  timeZone: ``,
   propTypes: {
     events: React.PropTypes.array,
     pictures: React.PropTypes.bool,
@@ -17,8 +16,13 @@ export default React.createClass({
       cardClass: `col-sm-6`
     };
   },
+  getInitialState() {
+    return {
+      timeZone: ``
+    };
+  },
   componentDidMount() {
-    this.timeZone = Moment.tz.guess();
+    this.setState({timeZone: Moment.tz.guess()});
   },
   calculateDate(timeStart, timeEnd) {
     let start = new Moment(timeStart);

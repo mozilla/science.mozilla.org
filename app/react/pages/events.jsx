@@ -9,7 +9,7 @@ export default React.createClass({
   getEventList() {
     Service.events
       .get()
-      .then((events) => { this.setState({events}); })
+      .then((events) => { this.setState({events: events.results}); })
       .catch((reason) => { console.error(reason); });
   },
   getInitialState() {
