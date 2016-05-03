@@ -58,7 +58,121 @@ export default React.createClass({
                 <IconItem imgSrc="/assets/img/fellowships/icon-open.svg" copy="Have experience participating in open communities."></IconItem>
               </div>
             </div>
-            <div className="p-y-3" name="Financial Terms">Schedule content.</div>
+            <div className="p-y-3" name="Financial Terms">
+              <p><em>{`To The Fellowships are designed to allow for flexibility for both Fellows and their families. The fellowship offers a stipend of USD$60,000 paid in 10 monthly installments. Fellows are responsible for remitting all applicable taxes and other government payments required.`}</em></p>
+              <p>{`To help offset cost of living, the fellowship also provides supplements for childcare and health insurance, and helps pay for research/equipment and books. The fellowship also covers the costs of required travel for fellowship activities.`}</p>
+              <p>{`Salary and benefits are allocated to the individual directly by monthly stipend pre-tax, not run through institutions - and fellows are responsible for managing the tax aspect of that (that trips people up, we've found). no university overhead-like arrangements - the funding goes straight to the fellow themselves.`}</p>
+
+              <div className="row">
+                <div className="col-sm-6">
+                  <h4>Housing Supplement</h4>
+
+                  <ul className="list-group">
+                    <li className="list-group-item">
+                      <span className="pull-xs-right">$5,000</span>
+                      Single, married or partnered fellow
+                    </li>
+                    <li className="list-group-item">
+                      <span className="pull-xs-right">$7,000</span>
+                      Fellow with 1 child
+                    </li>
+                    <li className="list-group-item">
+                      <span className="pull-xs-right">$8,500</span>
+                      Fellow with 2 children
+                    </li>
+                    <li className="list-group-item">
+                      <span className="pull-xs-right">$10,000</span>
+                      Fellow with 3 or more children
+                    </li>
+                  </ul>
+                </div>
+
+                <div className="col-sm-6">
+                  <h4>Moving Allowance</h4>
+
+                  <ul className="list-group">
+                    <li className="list-group-item">
+                      <span className="pull-xs-right">$2,000</span>
+                      Fellow moving cities in the same country
+                    </li>
+                    <li className="list-group-item">
+                      <span className="pull-xs-right">$4,000</span>
+                      Fellow moving countries
+                    </li>
+                    <li className="list-group-item">
+                      <span className="pull-xs-right">Additional $2,000</span>
+                      Fellow with children
+                    </li>
+                  </ul>
+                </div>
+
+                <div className="col-sm-6">
+                  <h4>Health Insurance Supplement</h4>
+
+                  <ul className="list-group">
+                    <li className="list-group-item">
+                      <span className="pull-xs-right">$3,500</span>
+                      Single fellow
+                    </li>
+                    <li className="list-group-item">
+                      <span className="pull-xs-right">$5,000</span>
+                      Fellow with partner
+                    </li>
+                    <li className="list-group-item">
+                      <span className="pull-xs-right">$5,500</span>
+                      Fellow with 1 child
+                    </li>
+                    <li className="list-group-item">
+                      <span className="pull-xs-right">$6,000</span>
+                      Fellow with partner and 1 child
+                    </li>
+                    <li className="list-group-item">
+                      <span className="pull-xs-right">$6,500</span>
+                      Fellow with 2+ children
+                    </li>
+                    <li className="list-group-item">
+                      <span className="pull-xs-right">$7,000</span>
+                      Fellow with partner and 2+ children
+                    </li>
+                  </ul>
+                </div>
+
+                <div className="col-sm-6">
+                  <h4>Childcare Supplement*</h4>
+
+                  <ul className="list-group">
+                    <li className="list-group-item">
+                      <span className="pull-xs-right">$5,600</span>
+                      1 child age 12 or youngerX
+                    </li>
+                    <li className="list-group-item">
+                      <span className="pull-xs-right">$6,000</span>
+                      2 children ages 12 or younger
+                    </li>
+                    <li className="list-group-item">
+                      <span className="pull-xs-right">$6,400</span>
+                      3 children ages 12 or younger
+                    </li>
+                    <li className="list-group-item">
+                      <span className="pull-xs-right">$7,200</span>
+                      4 or more children ages 12 or younger
+                    </li>
+                    <li className="list-group-item">
+                      <span className="pull-xs-right">$6,400</span>
+                      Additional allowance for child 3 yrs or younger
+                    </li>
+                  </ul>
+
+                  <p className="m-t-1"><em>*Age defined on June 1 of fellowship year</em></p>
+                </div>
+              </div>
+
+              <h3>Research & Equipment</h3>
+              <p>Allowance of up to $3,000 towards the purchase of laptop computer, digital cameras, recorders and computer software; fees for continuing studies or other courses, research fees or payments, to the extent related to the fellowship.</p>
+
+              <h3>Travel Allowance</h3>
+              <p>All approved fellowship trips – domestic and international – are covered.</p>
+            </div>
             <div className="p-y-3" name="FAQ">
               <dl>
                 <dt>{`I live outside of the US, UK or Canada - am I eligible?`}</dt>
