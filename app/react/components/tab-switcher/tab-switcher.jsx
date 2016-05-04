@@ -22,7 +22,8 @@ export default React.createClass({
         <button
           className={`btn ${index === this.state.activeTab ? `active` : ``}`}
           onClick={this.tabClick.bind(null, index)}
-          key={index}>
+          key={index}
+          hidden={this.props.children[index].props.hidden}>
             {element.props.name}
         </button>
       );
