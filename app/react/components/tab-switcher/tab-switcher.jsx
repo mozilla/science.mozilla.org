@@ -17,16 +17,20 @@ export default React.createClass({
   },
   render: function() {
     let buttons = this.props.children.map((element, index) => {
+      if(this.props.children[index].props.hidden) { return; }
       return (
         <button
           className={`btn ${index === this.state.activeTab ? `active` : ``}`}
           onClick={this.tabClick.bind(null, index)}
-          key={index}
-          hidden={this.props.children[index].props.hidden}>
+          key={index}>
             {element.props.name}
         </button>
       );
     });
+
+    // Remove undefined values from buttons
+    buttons = buttons.filter(Boolean);
+
 
     let panels = this.props.children.map((element, index) => {
       return (
@@ -40,7 +44,7 @@ export default React.createClass({
 
     return (
       <div className={`tab-switcher${this.props.className ? ` ${this.props.className}` : ``}`}>
-        <div className="tabs">{buttons}</div>
+        <div className="tabs" hidden={buttons.length < 2}>{buttons}</div>
         <div className="panels">{panels}</div>
       </div>
     );
