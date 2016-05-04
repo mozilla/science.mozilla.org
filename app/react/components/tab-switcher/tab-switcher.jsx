@@ -32,7 +32,6 @@ export default React.createClass({
     // Remove undefined values from buttons
     buttons = buttons.filter(Boolean);
 
-
     let panels = this.props.children.map((element, index) => {
       return (
         <div
