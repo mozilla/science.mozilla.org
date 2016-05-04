@@ -1,0 +1,65 @@
+.event-location,
+.event-time {
+  &::before {
+    content: '';
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 1em;
+    height: 0.7em;
+    margin-right: 0.1em;
+    display: inline-block;
+  }
+}
+
+.event-location + .event-time {
+  margin-left: 1rem;
+}
+
+.event-location::before {
+  background-image: url('/assets/img/icon-location.svg');
+}
+
+.event-time::before {
+  background-image: url('/assets/img/icon-time.svg');
+}
+
+#event-details .event-details {
+  font-size: 1.75rem;
+  font-weight: 200;
+}
+
+.event-description {
+  @extend p;
+  font-weight: 300;
+  margin-bottom: 2rem;
+  ul {
+    margin-left: 1em;
+    font-size: 0.9375rem;
+    li {
+      margin: 0;
+      font-size: 1em;
+    }
+  }
+  h2 {
+    margin-top: 1em;
+    font-size: 2rem;
+  }
+}
+
+#event-details .tab-switcher {
+  &.inline .tabs {
+    border-bottom-color: $nightly-blue;
+  }
+  .tabs .btn {
+    background-color: #e4e6ef;
+    font-weight: 200;
+    font-size: 1.25rem;
+  }
+  .tabs .btn.active {
+    border-top-color: $nightly-blue;
+    border-left-color: $nightly-blue;
+    border-right-color: $nightly-blue;
+    background: transparent;
+  }
+}

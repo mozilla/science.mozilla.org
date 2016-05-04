@@ -10,6 +10,7 @@ $cardPadding: 1.25rem;
   margin: 2rem 0;
   padding: $cardPadding;
   font-weight: 300;
+  width: 100%;
   .card-image {
     margin: 0 -1*$cardPadding;
     width: calc(100% + #{$cardPadding*2});
