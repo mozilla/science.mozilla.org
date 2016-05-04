@@ -4,6 +4,7 @@ import Service from "../../../js/backend.js";
 import Moment from "moment-timezone";
 import TabSwitcher from "../../components/tab-switcher/tab-switcher.jsx";
 import AboutEvent from "./about-event.jsx";
+import ProjectList from "../../components/project-list/project-list.jsx";
 
 export default React.createClass({
 
@@ -21,7 +22,7 @@ export default React.createClass({
   },
   getEventDetails() {
     Service.event
-      .get(this.props.params.id)
+      .get(this.props.params.id, {format:`json`, expand: `projects`})
       .then((data) => { this.setState({eventDetails: data}); })
       .catch((reason) => { console.error(reason); });
   },
@@ -41,8 +42,8 @@ export default React.createClass({
           <div className="col-xs-12">
             <TabSwitcher className="inline">
               <div name="About" className="container"><AboutEvent event={event} /></div>
-              <div name="Schedule">Two content.</div>
-              <div name="Projects">Three content.</div>
+              <div name="Schedule" hidden={!event.schedule}><div className="container" dangerouslySetInnerHTML={{__html:event.schedule}}/></div>
+              <div name="Projects" hidden={!event.projects || !event.projects.length}><ProjectList projects={event.projects}/></div>
             </TabSwitcher>
           </div>
         </div>

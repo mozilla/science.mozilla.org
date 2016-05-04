@@ -9,7 +9,7 @@ export default React.createClass({
 
     return (
       <div className="row">
-        <img className="col-xs-12 col-md-10 col-md-push-1 m-t-3" src={event.image_url}/>
+        <img className="col-xs-12 col-md-10 col-md-push-1" src={event.image_url}/>
         <div className="col-xs-12 m-t-2">
           {event.github_contributors? event.github_contributors.map(contributor => {
             return <GithubAvatar key={contributor.username} user={contributor} />;

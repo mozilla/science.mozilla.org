@@ -1,5 +1,8 @@
 import React from "react";
 
+// Children nodes and buttons can be hidden if empty based on hidden param passed to them.
+// TODO: find a way to allow another tab to be active by default, especially if it's the only tab with content/not hidden
+
 export default React.createClass({
   propTypes: {
     className: React.PropTypes.string
@@ -18,7 +21,8 @@ export default React.createClass({
         <button
           className={`btn ${index === this.state.activeTab ? `active` : ``}`}
           onClick={this.tabClick.bind(null, index)}
-          key={index}>
+          key={index}
+          hidden={this.props.children[index].props.hidden}>
             {element.props.name}
         </button>
       );
