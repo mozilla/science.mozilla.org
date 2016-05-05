@@ -1,5 +1,8 @@
 import React from "react";
 
+// Children nodes and buttons can be hidden if empty based on hidden param passed to them.
+// TODO: find a way to allow another tab to be active by default, especially if it's the only tab with content/not hidden
+
 export default React.createClass({
   propTypes: {
     className: React.PropTypes.string
@@ -14,6 +17,7 @@ export default React.createClass({
   },
   render: function() {
     let buttons = this.props.children.map((element, index) => {
+      if(this.props.children[index].props.hidden) { return; }
       return (
         <button
           className={`btn ${index === this.state.activeTab ? `active` : ``}`}
@@ -23,6 +27,10 @@ export default React.createClass({
         </button>
       );
     });
+
+    // Remove undefined values from buttons
+    buttons = buttons.filter(Boolean);
+
 
     let panels = this.props.children.map((element, index) => {
       return (
@@ -36,7 +44,7 @@ export default React.createClass({
 
     return (
       <div className={`tab-switcher${this.props.className ? ` ${this.props.className}` : ``}`}>
-        <div className="tabs">{buttons}</div>
+        <div className="tabs" hidden={buttons.length < 2}>{buttons}</div>
         <div className="panels">{panels}</div>
       </div>
     );

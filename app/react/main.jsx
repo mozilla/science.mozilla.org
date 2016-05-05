@@ -19,6 +19,7 @@ import Resources from "./pages/resources.jsx";
 import StyleGuide from "./pages/style-guide.jsx";
 import Events from "./pages/events.jsx";
 import Fellowships from "./pages/fellowships/fellowships.jsx";
+import Event from "./pages/event-details/event-details.jsx";
 
 const App = React.createClass({
   render() {
@@ -44,6 +45,7 @@ render((
       <Route path="members" component={Members}/>
       <Route path="projects/:id" component={Project} />
       <Route path="projects" component={Projects} />
+      <Route path="programs/events/:id" component={Event} />
       <Route path="programs/events" component={Events} />
       <Route path="programs/fellowships" component={Fellowships} />
       <Route path="programs" component={Programs} />
