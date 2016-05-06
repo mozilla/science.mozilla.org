@@ -30,9 +30,10 @@ export default React.createClass({
         format: `json`,
         search: this.state.filterText,
         sort: this.state.sortBy,
-        categories: this.state.category
+        categories: this.state.category,
+        expand: `users`
       })
-      .then((data) => { this.setState({projects: data}); })
+      .then((data) => { this.setState({projects: data.results}); })
       .catch((reason) => { console.error(reason); });
   },
   componentWillMount() {

@@ -14,6 +14,7 @@ export default React.createClass({
     return(
       <div className="categories">
         {this.props.categories.map((category) => {
+          if(!category){ return null; }
           return <span key={category} className="category-tag">{category}</span>;
         }) }
       </div>

@@ -11,6 +11,10 @@ export default React.createClass({
     };
   },
   render() {
-    return <img className="github-avatar" srcSet={`${this.props.user.image_url}&s=${this.props.size}, ${this.props.user.image_url}&s=${this.props.size*2} 2x`} width={this.props.size} height={this.props.size} alt="Contributor avatar" />;
+    return (
+      <a className="github-avatar" href={`https://github.com/${this.props.user.github_username}`}>
+        <img srcSet={`${this.props.user.avatar_url}&s=${this.props.size}, ${this.props.user.avatar_url}&s=${this.props.size*2} 2x`} width={this.props.size} height={this.props.size} alt={this.props.user.name} />
+      </a>
+    );
   }
 });

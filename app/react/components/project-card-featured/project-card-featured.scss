@@ -17,3 +17,11 @@
 .project-card-details {
   padding: 1rem;
 }
+
+.comma-list + .comma-list:before {
+  content: ', ';
+}
+
+.project-card-detail-set + .project-card-detail-set {
+  margin-top: 1em;
+}

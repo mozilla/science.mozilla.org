@@ -1,6 +1,9 @@
 .github-avatar {
-  border-radius: 50%;
+  display: inline-block;
   margin-bottom: 1rem;
+  > img {
+    border-radius: 50%;
+  }
   + .github-avatar {
     margin-left: 1rem;
   }
