@@ -65,6 +65,7 @@ h6 {
 @import '../react/components/data-card/data-card';
 @import '../react/components/project-list/project-list';
 @import '../react/components/event-list/event-list';
+@import '../react/components/user-list/user-list';
 @import '../react/components/event-details/event-details';
 @import '../react/components/categories/categories';
 @import '../react/components/shadow-box';
@@ -89,6 +90,10 @@ h6 {
 
 body {
   background: $charcoal;
+}
+
+li {
+  list-style-position: inside;
 }
 
 #content-wrapper {

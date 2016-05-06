@@ -1,0 +1,7 @@
+.user + .user .user-name:only-child::before {
+  content: ', ';
+}
+
+.user + .user > .github-avatar {
+  margin-left: 1em;
+}

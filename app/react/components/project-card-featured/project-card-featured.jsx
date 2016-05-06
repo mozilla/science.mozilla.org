@@ -23,7 +23,7 @@ export default React.createClass({
 
     if(project.institution) {
       institution = (
-        <div>
+        <div className="project-card-detail-set">
           <h6 className="detail-label">Institution</h6>
           <p><Link to="#">{project.institution}</Link></p>
         </div>
@@ -32,7 +32,7 @@ export default React.createClass({
 
     if(project.links && project.links.length) {
       links = (
-        <div>
+        <div className="project-card-detail-set">
           <h6 className="detail-label">Other Links</h6>
         </div>
       );
@@ -40,10 +40,10 @@ export default React.createClass({
 
     if(project.events && project.events.length) {
       events = (
-        <div>
+        <div className="project-card-detail-set">
         <h6 className="detail-label">Related Events</h6>
           {project.events.map(event=>{
-            return <span>{event}</span>;
+            return <span key={event.id} className="comma-list"><Link to={`programs/events/${event.id}`}>{event.name}</Link></span>;
           })}
         </div>
       );
@@ -51,10 +51,10 @@ export default React.createClass({
 
     if (project.tags) {
       tags = (
-        <div>
+        <div className="project-card-detail-set">
           <h6 className="detail-label">Needs Help With</h6>
           {project.tags.map((tag)=> {
-            return <span className="project-tag" key={tag}><Link to="#">{tag}</Link></span>;
+            return <span className="comma-list" key={tag}><Link to="#">{tag}</Link></span>;
           })}
         </div>
       );

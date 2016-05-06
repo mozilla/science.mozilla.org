@@ -1,7 +1,7 @@
 import React from "react";
 import {Link} from "react-router";
 import DataCard from "../../components/data-card/data-card.jsx";
-import GithubAvatar from "../../components/github-avatar/github-avatar.jsx";
+import UserList from "../../components/user-list/user-list.jsx";
 
 
 export default React.createClass({
@@ -16,7 +16,7 @@ export default React.createClass({
   formatTags(project) {
     let tags = null;
 
-    if (project.tags) {
+    if (project.tags && project.tags.length) {
       tags = (<div className="help-with p-y-1">Help with:&nbsp;
         {project.tags.map((tag)=> {
           return <span className="project-tag" key={tag}><Link to="#">{tag}</Link></span>;
@@ -33,10 +33,10 @@ export default React.createClass({
           return (
             <DataCard key={project.id} className="col-md-4" showPicture={false} categories={project.categories}>
               <div className="profile-photos">
-                <GithubAvatar user={project.github_contributors[project.github_contributors.length-1]} />
+                <UserList users={project.users} name={false} role="Lead" />
               </div>
               <div>
-                <Link to="#" className="names">User Name (awaiting API)</Link>
+                <UserList users={project.users} avatar={false} role="Lead" />
                 <span> for </span>
                 <span className="institution">{project.institution}</span>
               </div>
