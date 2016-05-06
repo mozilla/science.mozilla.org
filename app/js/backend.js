@@ -1,5 +1,8 @@
-let server = `https://api-mozillascience-staging.herokuapp.com`;
+let scienceAPI = `https://api-mozillascience-staging.herokuapp.com`;
+let wpAPI = `http://wp.mozillascience.org/wp-json`;
+
 let request = new XMLHttpRequest();
+
 let defaultParams = {
   format: `json`
 };
@@ -23,7 +26,7 @@ function pojoToQuery(pojo) {
  */
 function doXHR(route, params = defaultParams) {
   return new Promise((resolve, reject) => {
-    request.open(`GET`, `${server}/${route}${params ? pojoToQuery(params) : ``}`, true);
+    request.open(`GET`, `${route}${params ? pojoToQuery(params) : ``}`, true);
 
     request.onload = (event) => {
       let result = event.currentTarget;
@@ -46,22 +49,32 @@ function doXHR(route, params = defaultParams) {
 export default {
   projects: {
     get: function (params) {
-      return doXHR(`projects/`, params);
+      return doXHR(`${scienceAPI}/projects/`, params);
     }
   },
   project: {
     get: function (id, params) {
-      return doXHR(`projects/${id}/`, params);
+      return doXHR(`${scienceAPI}/projects/${id}/`, params);
     }
   },
   events: {
     get: function (params) {
-      return doXHR(`events/`, params);
+      return doXHR(`${scienceAPI}/events/`, params);
     }
   },
   event: {
     get: function (id, params) {
-      return doXHR(`events/${id}/`, params);
+      return doXHR(`${scienceAPI}/events/${id}/`, params);
+    }
+  },
+  blogPost: {
+    get: function (id) {
+      return doXHR(`${wpAPI}/posts/${id}`);
+    }
+  },
+  blogPosts: {
+    get: function () {
+      return doXHR(`${wpAPI}/posts`);
     }
   }
 };
