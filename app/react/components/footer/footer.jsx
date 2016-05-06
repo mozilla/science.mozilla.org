@@ -2,6 +2,22 @@ import React from "react";
 import Icon from "./icon.jsx";
 
 export default React.createClass({
+  getInitialState: function () {
+    return {
+      hasConsent: false,
+      hasAttemptedToSubmit: false
+    };
+  },
+  subscribeClicked: function (event) {
+    if (!this.refs.inputOK.checked) {
+      event.preventDefault();
+    }
+
+    this.setState({
+      hasAttemptedToSubmit: true,
+      hasConsent: this.refs.inputOK.checked
+    });
+  },
   render: function() {
     return (
       <footer id="footer">
@@ -14,15 +30,18 @@ export default React.createClass({
               <div className="col-sm-6">
                 <form target="_blank" className="one-shot" action="https://mail.mozilla.org/subscribe/mozillascience" method="POST">
                   <input type="email" name="email" placeholder="your email"/>
-                  <button type="submit" className="btn btn-primary">Subscribe</button>
+                  <button onClick={this.subscribeClicked} type="submit" className="btn btn-primary">Subscribe</button>
                 </form>
               </div>
             </div>
             <div className="row">
               <div className="col-sm-12 checkbox">
                 <label>
-                  <input type="checkbox"/> Im okay with Mozilla handling my info as explained in this <a href="#">Privacy Notice</a>
+                  <input ref="inputOK" type="checkbox"/> Im okay with Mozilla handling my info as explained in this <a href="#">Privacy Notice</a>
                 </label>
+              </div>
+              <div className="col-sm-12">
+                <div hidden={!this.state.hasAttemptedToSubmit || this.state.hasConsent} className="inline-block alert alert-danger m-t-2">Please check the box above if you want to subscribe.</div>
               </div>
             </div>
           </div>
