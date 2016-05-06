@@ -103,3 +103,13 @@ body {
 .jumbotron {
   background: transparent;
 }
+
+.circle {
+  border-radius: 50%;
+}
+
+.center-vertical {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

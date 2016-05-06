@@ -16,4 +16,15 @@
       flex: 0 1;
     }
   }
+
+  .fellow-cta {
+    background: lighten($developer-blue, 20%);
+    text-align: center;
+
+    &,
+    h3,
+    p {
+      color: $white;
+    }
+  }
 }
