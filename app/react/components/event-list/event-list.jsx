@@ -2,7 +2,7 @@ import React from "react";
 import DataCard from "../../components/data-card/data-card.jsx";
 import Moment from "moment-timezone";
 import {Link} from "react-router";
-import Humanize from "../../../js/humanizeDates.js";
+import Humanize from "../../../js/humanize-dates.js";
 
 export default React.createClass({
   propTypes: {

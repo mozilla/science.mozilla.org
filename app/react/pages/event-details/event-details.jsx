@@ -1,7 +1,7 @@
 
 import React from "react";
 import Service from "../../../js/backend.js";
-import Humanize from "../../../js/humanizeDates.js";
+import Humanize from "../../../js/humanize-dates.js";
 import Moment from "moment-timezone";
 import TabSwitcher from "../../components/tab-switcher/tab-switcher.jsx";
 import AboutEvent from "./about-event.jsx";

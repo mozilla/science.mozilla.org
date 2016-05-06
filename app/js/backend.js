@@ -1,6 +1,3 @@
-import Moment from "moment-timezone";
-
-
 let server = `https://api-mozillascience-staging.herokuapp.com`;
 let request = new XMLHttpRequest();
 let defaultParams = {

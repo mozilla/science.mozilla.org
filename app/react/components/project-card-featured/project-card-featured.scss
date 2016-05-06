@@ -18,7 +18,7 @@
   padding: 1rem;
 }
 
-.comma-list + .comma-list:before {
+.comma-list + .comma-list::before {
   content: ', ';
 }
 
