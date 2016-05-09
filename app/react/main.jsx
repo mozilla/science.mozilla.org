@@ -9,7 +9,8 @@ import Footer from "./components/footer/footer.jsx";
 
 // Pages
 
-import Blog from "./pages/blog.jsx";
+import BlogList from "./pages/blog.jsx";
+import BlogPost from "./pages/blog-post.jsx";
 import Home from "./pages/home/home.jsx";
 import Members from "./pages/members.jsx";
 import Programs from "./pages/programs.jsx";
@@ -41,7 +42,8 @@ render((
   <Router history={browserHistory}>
     <Route path="/" component={App}>
       <IndexRoute component={Home}/>
-      <Route path="blog" component={Blog}/>
+      <Route path="blog" component={BlogList}/>
+      <Route path="blog/:slug" component={BlogPost}/>
       <Route path="members" component={Members}/>
       <Route path="projects/:id" component={Project} />
       <Route path="projects" component={Projects} />
