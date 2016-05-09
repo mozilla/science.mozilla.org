@@ -31,7 +31,7 @@ export default React.createClass({
         search: this.state.filterText,
         sort: this.state.sortBy,
         categories: this.state.category,
-        expand: `users`
+        expand: `leads`
       })
       .then((data) => { this.setState({projects: data.results}); })
       .catch((reason) => { console.error(reason); });
