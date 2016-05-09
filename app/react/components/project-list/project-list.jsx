@@ -33,10 +33,10 @@ export default React.createClass({
           return (
             <DataCard key={project.id} className="col-md-4" showPicture={false} categories={project.categories}>
               <div className="profile-photos">
-                <UserList users={project.users} name={false} role="Lead" />
+                <UserList users={project.leads} name={false} />
               </div>
               <div>
-                <UserList users={project.users} avatar={false} role="Lead" />
+                <UserList users={project.leads} avatar={false} />
                 <span> for </span>
                 <span className="institution">{project.institution}</span>
               </div>
