@@ -1,0 +1,53 @@
+$borderStyle: 1px solid #d9d9d9;
+
+.rc-collapse {
+  border: $borderStyle 0;
+  font-weight: 300;
+  color: $charcoal;
+
+  &-anim-active {
+    transition: height 0.2s ease-out;
+  }
+
+  & > &-item {
+    border-top: $borderStyle;
+
+    > .rc-collapse-header {
+      line-height: 3rem;
+      cursor: pointer;
+      position: relative;
+      font-size: 1.25rem;
+
+      &::after {
+        content: '+';
+        color: $mobile-blue;
+        position: absolute;
+        font-size: 3rem;
+        font-weight: 200;
+        right: 0;
+        width: 1em;
+        text-align: center;
+      }
+    }
+
+    > .rc-collapse-header[aria-expanded="true"]::after {
+      content: '-';
+    }
+  }
+
+  &-content {
+    overflow: hidden;
+
+    & > &-box {
+      margin: 0.5em 0;
+    }
+
+    &-inactive {
+      display: none;
+    }
+  }
+
+  &-item:last-child {
+    border-bottom: $borderStyle;
+  }
+}
