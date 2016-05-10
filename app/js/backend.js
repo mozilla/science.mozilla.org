@@ -1,8 +1,6 @@
 let scienceAPI = `https://api-mozillascience-staging.herokuapp.com`;
 let wpAPI = `http://wp.mozillascience.org/wp-json`;
 
-let request = new XMLHttpRequest();
-
 let defaultParams = {
   format: `json`
 };
@@ -25,6 +23,8 @@ function pojoToQuery(pojo) {
  * @returns {Promise} A promise to resolve an XHR request
  */
 function doXHR(route, params = defaultParams) {
+  let request = new XMLHttpRequest();
+
   return new Promise((resolve, reject) => {
     request.open(`GET`, `${route}${params ? pojoToQuery(params) : ``}`, true);
 
