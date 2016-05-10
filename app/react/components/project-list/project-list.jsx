@@ -40,7 +40,7 @@ export default React.createClass({
                 <span> for </span>
                 <span className="institution">{project.institution}</span>
               </div>
-              <Link to={`projects/${project.id}`} className="project-name m-t-1">{project.name}</Link>
+              <Link to={`projects/${project.slug}`} className="project-name m-t-1">{project.name}</Link>
               <div className="project-description m-t-1">{project.short_description}</div>
               {this.formatTags(project)}
             </DataCard>
