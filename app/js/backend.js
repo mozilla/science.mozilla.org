@@ -69,12 +69,14 @@ export default {
   },
   blogPost: {
     get: function (id) {
-      return doXHR(`${wpAPI}/posts/${id}`);
+      return doXHR(`${wpAPI}/posts`, {
+        "filter[name]": id
+      });
     }
   },
   blogPosts: {
     get: function () {
-      return doXHR(`${wpAPI}/posts`);
+      return doXHR(`${wpAPI}/posts`, {});
     }
   }
 };
