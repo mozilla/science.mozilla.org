@@ -11,14 +11,15 @@ export default React.createClass({
       .get({
         filter: `future`,
         format: `json`
-        })
+      })
       .then((events) => { this.setState({futureEvents: events.results}); })
       .catch((reason) => { console.error(reason); });
+
     Service.events
       .get({
         filter: `past`,
         format: `json`
-        })
+      })
       .then((events) => { this.setState({pastEvents: events.results}); })
       .catch((reason) => { console.error(reason); });
   },
