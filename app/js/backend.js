@@ -67,16 +67,24 @@ export default {
       return doXHR(`${scienceAPI}/events/${id}/`, params);
     }
   },
+
+  // Using `cachebuster` because WP-API caches `Access-Control-Allow-Origin` per route.
+  // This means without it you can't safely do local development.
+  // Local requests without cachebuster can set access control to only the localhost, breaking staging & production.
+
   blogPost: {
     get: function (id) {
       return doXHR(`${wpAPI}/posts`, {
-        "filter[name]": id
+        "filter[name]": id,
+        cachebuster: Date.now() * Math.random()
       });
     }
   },
   blogPosts: {
     get: function () {
-      return doXHR(`${wpAPI}/posts`, {});
+      return doXHR(`${wpAPI}/posts`, {
+        cachebuster: Date.now() * Math.random()
+      });
     }
   }
 };
