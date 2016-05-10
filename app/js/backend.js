@@ -81,9 +81,10 @@ export default {
     }
   },
   blogPosts: {
-    get: function () {
+    get: function (page = 1) {
       return doXHR(`${wpAPI}/posts`, {
-        cachebuster: Date.now() * Math.random()
+        cachebuster: Date.now() * Math.random(),
+        page: page
       });
     }
   }
