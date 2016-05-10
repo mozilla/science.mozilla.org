@@ -43,7 +43,7 @@ export default React.createClass({
         <div className="project-card-detail-set">
         <h6 className="detail-label">Related Events</h6>
           {project.events.map(event=>{
-            return <span key={event.id} className="comma-list"><Link to={`programs/events/${event.id}`}>{event.name}</Link></span>;
+            return <span key={event.id} className="comma-list"><Link to={`programs/events/${event.slug}`}>{event.name}</Link></span>;
           })}
         </div>
       );
