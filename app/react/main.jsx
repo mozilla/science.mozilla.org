@@ -21,6 +21,7 @@ import StyleGuide from "./pages/style-guide.jsx";
 import Events from "./pages/events.jsx";
 import Fellowships from "./pages/fellowships/fellowships.jsx";
 import Event from "./pages/event-details/event-details.jsx";
+import CodeOfConduct from "./pages/code-of-conduct/code-of-conduct.jsx";
 
 const App = React.createClass({
   render() {
@@ -53,6 +54,7 @@ render((
       <Route path="programs" component={Programs} />
       <Route path="resources" component={Resources}/>
       <Route path="style-guide" component={StyleGuide}/>
+      <Route path="code-of-conduct" component={CodeOfConduct}/>
     </Route>
   </Router>
 ), document.querySelector(`#app`));
