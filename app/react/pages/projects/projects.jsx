@@ -119,7 +119,7 @@ export default React.createClass({
               </Debounce>
             </div>
             <div className="col-xs-12 col-sm-6 col-md-4 col-md-push-2">
-              <select name="topic" id="topic" ref="categorySelect" onChange={this.handleFilterInput} className="form-control">
+              <select name="topic" id="topic" ref="categorySelect" onChange={this.handleFilterInput} className="c-select wide">
                 <option value="">All Topics</option>
                 {this.state.categories.map(category => {
                   return <option key={category.id} value={category.name}>{category.name}</option>;

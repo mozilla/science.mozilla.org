@@ -80,6 +80,16 @@ h6 {
   background: none;
 }
 
+.form-control,
+.c-select {
+  border-radius: 0;
+  border-color: white;
+}
+
+.c-select.wide {
+  width: 100%;
+}
+
 // Pages
 
 @import '../react/pages/home/home';
