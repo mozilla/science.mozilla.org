@@ -96,6 +96,7 @@ h6 {
 @import '../react/pages/projects/projects';
 @import '../react/pages/project-details/project-details';
 @import '../react/pages/fellowships/fellowships';
+@import '../react/pages/code-of-conduct/code-of-conduct';
 
 // Global
 
@@ -118,6 +119,9 @@ li {
 
 .jumbotron {
   background: transparent;
+  .lead {
+    font-style: italic;
+  }
 }
 
 .circle {
