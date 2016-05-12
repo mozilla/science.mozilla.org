@@ -15,6 +15,11 @@
       color: $white;
       background: rgba($developer-blue, 0.7);
 
+      .icon {
+        max-width: 1.375em;
+        max-height: 1.375em;
+      }
+
       &:first-child {
         margin-left: 0;
       }
