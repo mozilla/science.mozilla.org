@@ -24,7 +24,8 @@ export default React.createClass({
           onClick={this.tabClick.bind(null, index)}
           key={index}
           hidden={this.props.children[index].props.hidden}>
-            {element.props.name}
+            <img className="hidden-sm-up" src={index === this.state.activeTab && element.props.iconActive ? element.props.iconActive : element.props.iconDefault}/>
+            <span className="hidden-xs-down">{element.props.name}</span>
         </button>
       );
     });

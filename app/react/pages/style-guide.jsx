@@ -17,18 +17,18 @@ export default React.createClass({
         <h4>Hero Variant</h4>
 
         <TabSwitcher>
-          <div name="About">About content.</div>
-          <div name="Schedule">Schedule content.</div>
-          <div name="Projects">Projects content.</div>
+          <div name="About" iconDefault="/assets/img/icon-tab-overview.svg" iconActive="/assets/img/icon-tab-overview-blue.svg">About content.</div>
+          <div name="Schedule" iconDefault="/assets/img/icon-tab-schedule.svg" iconActive="/assets/img/icon-tab-schedule-blue.svg">Schedule content.</div>
+          <div name="Projects" iconDefault="/assets/img/icon-tab-projects.svg" iconActive="/assets/img/icon-tab-projects-blue.svg">Projects content.</div>
         </TabSwitcher>
 
         <h4>Inline Variant (.inline)</h4>
 
         <TabSwitcher className="inline">
-          <div name="One">One content.</div>
-          <div name="Two">Two content.</div>
-          <div name="Three">Three content.</div>
-          <div name="Four">Four content.</div>
+          <div name="One" iconDefault="/assets/img/icon-tab-overview-blue.svg">One content.</div>
+          <div name="Two" iconDefault="/assets/img/icon-tab-overview-blue.svg">Two content.</div>
+          <div name="Three" iconDefault="/assets/img/icon-tab-overview-blue.svg">Three content.</div>
+          <div name="Four" iconDefault="/assets/img/icon-tab-overview-blue.svg">Four content.</div>
         </TabSwitcher>
 
         <h3>ThreeUp</h3>
