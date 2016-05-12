@@ -30,7 +30,7 @@ export default React.createClass({
 
         <div className="container">
           <TabSwitcher className="pull-up">
-            <div className="p-y-3" name="Fellows">
+            <div className="p-y-3" name="Fellows" iconDefault="/assets/img/icon-tab-fellows.svg" iconActive="/assets/img/icon-tab-fellows-blue.svg">
               <h2>Our 2015 Fellows</h2>
 
               <p>The folks chosen are representative of the change we want to see in the community, championing openness, collaboration, and mentorship in science. Over the next ten months, the Fellows will work on projects to help their local communities engage with open data, open source software and teach forward to their peers. They will also receive training and support from Mozilla to hone their skills around open source, participatory learning, and data sharing.</p>
@@ -80,7 +80,7 @@ export default React.createClass({
               </div>
 
             </div>
-            <div className="p-y-3" name="Overview">
+            <div className="p-y-3" name="Overview" iconDefault="/assets/img/icon-tab-overview.svg" iconActive="/assets/img/icon-tab-overview-blue.svg">
               <h2>About the Program</h2>
 
               <p>The Mozilla Fellowships for Science present a unique opportunity for researchers who want to influence the future of open science and data sharing within their communities.</p>
@@ -124,7 +124,7 @@ export default React.createClass({
                 <IconItem imgSrc="/assets/img/fellowships/icon-open.svg" copy="Have experience participating in open communities."></IconItem>
               </div>
             </div>
-            <div className="p-y-3" name="FAQ">
+            <div className="p-y-3" name="FAQ" iconDefault="/assets/img/icon-tab-faq.svg" iconActive="/assets/img/icon-tab-faq-blue.svg">
               <h2 className="m-b-1">Application FAQ</h2>
 
               <dl>
