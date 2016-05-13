@@ -86,7 +86,9 @@ export default React.createClass({
       resourceCards = this.state.resources.map((resource, index) => {
         return (
           <DataCard key={index} className="col-md-4" showPicture={false} categories={resource.tags}>
-            <h4>{resource.name}</h4>
+            <h4 className="project-name m-y-1">
+              <a target="_blank" href={resource.link}>{resource.name}</a>
+            </h4>
             <p>{resource.description}</p>
           </DataCard>
         );
