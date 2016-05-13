@@ -9,6 +9,16 @@ $borderStyle: 1px solid #d9d9d9;
     transition: height 0.2s ease-out;
   }
 
+  .rc-collapse-content-active {
+    display: inline-block;
+  }
+  .rc-collapse-content-box {
+    height: inherit;
+  }
+  .rc-collapse-inactive {
+    height: 0;
+  }
+
   & > &-item {
     border-top: $borderStyle;
 
