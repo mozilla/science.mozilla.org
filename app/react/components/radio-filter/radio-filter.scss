@@ -1,0 +1,7 @@
+.radio-inline input[type="radio"] {
+  visibility: hidden;
+}
+
+.radio-inline input:checked + span {
+  color: $summit-teal;
+}
