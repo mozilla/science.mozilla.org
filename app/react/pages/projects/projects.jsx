@@ -1,11 +1,11 @@
-
 import React from "react";
 
 import ThreeUp from "../../components/three-up/three-up.jsx";
 import ProjectList from "../../components/project-list/project-list.jsx";
+import RadioFilter from "../../components/radio-filter/radio-filter.jsx";
+
 import { Debounce } from 'react-throttle';
 import Service from "../../../js/backend.js";
-
 
 export default React.createClass({
   getInitialState(){
@@ -20,8 +20,12 @@ export default React.createClass({
   handleFilterInput(){
     this.setState({
       filterText: this.refs.projectFilter.value,
-      sortBy: this.refs.sortFilter.elements.contributeSort.value,
       category: this.refs.categorySelect.value
+    }, this.getProjectList);
+  },
+  onSortChange(choice) {
+    this.setState({
+      sortBy: choice
     }, this.getProjectList);
   },
   getProjectList() {
@@ -82,14 +86,6 @@ export default React.createClass({
       }
     ];
 
-    let sortFilter = sortOptions.map(option => {
-      return (
-        <label key={option.value} className="radio-inline">
-          <input type="radio" name="contributeSort" id={`filter-radio-${option.value}`} value={option.value} onChange={this.handleFilterInput} checked={this.state.sortBy===option.value} /> <span>{option.label}</span>
-        </label>
-      );
-    });
-
     return (
       <div id="page-projects">
         <div className="jumbotron text-xs-center jumbotron-fluid m-b-0">
@@ -126,9 +122,7 @@ export default React.createClass({
                 })}
               </select>
             </div>
-            <form ref="sortFilter" className="project-sort-radio m-y-1">
-              {sortFilter}
-            </form>
+            <RadioFilter options={sortOptions} initialChoice={this.state.sortBy} onChange={this.onSortChange}></RadioFilter>
           </div>
           <div className="row">
           </div>
