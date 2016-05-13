@@ -37,7 +37,7 @@ export default React.createClass({
             <div className="row">
               <div className="col-sm-12 checkbox">
                 <label>
-                  <input ref="inputOK" type="checkbox"/> Im okay with Mozilla handling my info as explained in this <a href="https://www.mozilla.org/en-US/privacy/websites/" target="_blank">Privacy Notice</a>
+                  <input ref="inputOK" type="checkbox"/> I'm okay with Mozilla handling my info as explained in this <a href="https://www.mozilla.org/en-US/privacy/websites/" target="_blank">Privacy Notice</a>
                 </label>
               </div>
               <div className="col-sm-12">
