@@ -16,7 +16,7 @@ import Members from "./pages/members.jsx";
 import Programs from "./pages/programs.jsx";
 import Projects from "./pages/projects/projects.jsx";
 import Project from "./pages/project-details/project-details.jsx";
-import Resources from "./pages/resources.jsx";
+import Resources from "./pages/resources/resources.jsx";
 import StyleGuide from "./pages/style-guide.jsx";
 import Events from "./pages/events.jsx";
 import Fellowships from "./pages/fellowships/fellowships.jsx";
