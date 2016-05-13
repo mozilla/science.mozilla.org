@@ -9,7 +9,8 @@ export default React.createClass({
   loadResources: function (page) {
     Service.resources
       .get({
-        page: page
+        page: page,
+        format: `json`
       })
       .then((resources) => {
         this.setState({
@@ -17,8 +18,6 @@ export default React.createClass({
           pagesLoaded: page,
           allPagesLoaded: !resources.next
         });
-
-        console.log(this.state.resources);
       })
       .catch((reason) => { console.error(reason); });
   },
