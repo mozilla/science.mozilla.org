@@ -1,5 +1,7 @@
-let scienceAPI = `https://api-mozillascience-staging.herokuapp.com`;
-let wpAPI = `http://wp.mozillascience.org/wp-json`;
+import env from "../../config/env.generated.json";
+
+let scienceAPI = env.SCIENCE_API;
+let wpAPI = env.WP_API;
 
 let defaultParams = {
   format: `json`
