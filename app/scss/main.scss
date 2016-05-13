@@ -87,7 +87,7 @@ h6 {
   border-color: white;
 }
 
-.c-select.wide {
+.wide {
   width: 100%;
 }
 
@@ -99,11 +99,13 @@ h6 {
 @import '../react/pages/fellowships/fellowships';
 @import '../react/pages/resources/resources';
 @import '../react/pages/code-of-conduct/code-of-conduct';
+@import '../react/pages/study-groups/study-groups';
 
 // Global
 
 body {
   background: $charcoal;
+  font-weight: 300;
 }
 
 li {

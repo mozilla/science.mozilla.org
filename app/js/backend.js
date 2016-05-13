@@ -74,6 +74,11 @@ export default {
       return doXHR(`${scienceAPI}/resources/`, params);
     }
   },
+  studyGroups: {
+    get: function (params) {
+      return doXHR(`${scienceAPI}/study-groups/`, params);
+    }
+  },
 
   // Using `cachebuster` because WP-API caches `Access-Control-Allow-Origin` per route.
   // This means without it you can't safely do local development.
