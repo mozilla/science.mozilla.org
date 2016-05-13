@@ -43,7 +43,7 @@ export default React.createClass({
     });
 
     return (
-      <form ref="radioFilter" className="project-sort-radio m-y-1">
+      <form ref="radioFilter" className="radio-filter m-y-1">
         {options}
       </form>
     );
