@@ -24,7 +24,7 @@ export default React.createClass({
           <div className="container m-b-3">
             <h2>Fellowships</h2>
             <p className="lead m-t-1"><em>Are you a champion of open science and open data? Mozilla is seeking researchers eager to advance openness in science and data within their institutions.</em></p>
-            <a className="btn btn-white">Apply Now</a>
+            <a className="btn btn-white">Applications open on June 3</a>
           </div>
         </div>
 
@@ -168,7 +168,7 @@ export default React.createClass({
 
         </div>
 
-        <div className="p-y-2 fellow-cta">
+        <div hidden className="p-y-2 fellow-cta">
           <div className="container">
             <h3>Apply Now</h3>
             <p className="m-b-2"><em>We are an inclusive program and seek Fellows that reflect the diversity of the communities we serve. We encourage unique contributors with varied backgrounds to apply; if you feel your perspective is underrepresented in technology, we want to hear from you.</em></p>
