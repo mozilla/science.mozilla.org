@@ -13,7 +13,9 @@
       margin: 0 0.5rem;
       text-transform: none;
       color: $white;
-      background: rgba($developer-blue, 0.7);
+      background: rgba($nightly-blue, 0.9);
+      font-weight: 300;
+      font-size: 1.25rem;
 
       .icon {
         max-width: 1.375em;

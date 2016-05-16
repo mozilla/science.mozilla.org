@@ -19,6 +19,7 @@ import Project from "./pages/project-details/project-details.jsx";
 import Resources from "./pages/resources/resources.jsx";
 import StyleGuide from "./pages/style-guide.jsx";
 import Events from "./pages/events.jsx";
+import StudyGroups from "./pages/study-groups/study-groups.jsx";
 import Fellowships from "./pages/fellowships/fellowships.jsx";
 import Event from "./pages/event-details/event-details.jsx";
 import CodeOfConduct from "./pages/code-of-conduct/code-of-conduct.jsx";
@@ -51,6 +52,7 @@ render((
       <Route path="programs/events/:id" component={Event} />
       <Route path="programs/events" component={Events} />
       <Route path="programs/fellowships" component={Fellowships} />
+      <Route path="programs/studygroups" component={StudyGroups} />
       <Route path="programs" component={Programs} />
       <Route path="resources" component={Resources}/>
       <Route path="style-guide" component={StyleGuide}/>
