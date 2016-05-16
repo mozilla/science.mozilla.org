@@ -104,7 +104,7 @@ export default React.createClass({
               <div className="col-xs-6 m-b-3">
                 <div className="row">
                   <div className="col-xs-12 col-sm-4">
-                    <img src="/assets/img/logo-sloan@2x.jpg"/>
+                    <a href="http://www.sloan.org/" target="_blank"><img src="/assets/img/logo-sloan@2x.jpg"/></a>
                   </div>
                   <p className="col-sm-8 hidden-xs-down">{`The Alfred P. Sloan Foundation is a philanthropic, not-for-profit grantmaking institution. They believe that a carefully reasoned and systematic understanding of the forces of nature and society can lead to a better world for all.`}</p>
                 </div>
@@ -113,7 +113,7 @@ export default React.createClass({
               <div className="col-xs-6">
                 <div className="row">
                   <div className="col-xs-12 col-sm-4">
-                    <img src="/assets/img/logo-helmsley@2x.jpg"/>
+                    <a href="http://helmsleytrust.org/" target="_blank"><img src="/assets/img/logo-helmsley@2x.jpg"/></a>
                   </div>
                   <p className="col-sm-8 hidden-xs-down">{`The Helmsley Charitable Trust aspires to improve lives by supporting exceptional nonprofits and other mission-aligned organizations in the U.S. and around the world in health, selected place-based initiatives, and education and human services.`}</p>
                 </div>
