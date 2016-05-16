@@ -38,7 +38,7 @@ export default React.createClass({
       studyLessons = this.state.lessons.map((lesson) => {
         return (
           <DataCard key={lesson.id} className="col-xs-12 col-sm-6 col-lg-4" showPicture={false} categories={lesson.tags.filter((tag)=>{ return tag !== `Study Group`; })}>
-              <div className="m-y-1"><a className="project-name" href="#">{lesson.name}</a></div>
+              <div className="m-y-1"><a className="project-name" href={lesson.link} target="_blank">{lesson.name}</a></div>
               <p>{lesson.description}</p>
           </DataCard>
         );
@@ -72,6 +72,7 @@ export default React.createClass({
                 <input
                   className="form-control"
                   name="entry.1150935299"
+                  required
                   id="entry_1150935299"
                   type="text"
                   placeholder="your location"
