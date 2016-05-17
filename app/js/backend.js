@@ -59,6 +59,11 @@ export default {
       return doXHR(`${scienceAPI}/projects/${id}/`, params);
     }
   },
+  categories: {
+    get: function (params) {
+      return doXHR(`${scienceAPI}/projects/categories/`, params);
+    }
+  },
   events: {
     get: function (params) {
       return doXHR(`${scienceAPI}/events/`, params);
