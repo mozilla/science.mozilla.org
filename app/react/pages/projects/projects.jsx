@@ -5,6 +5,7 @@ import ProjectList from "../../components/project-list/project-list.jsx";
 import RadioFilter from "../../components/radio-filter/radio-filter.jsx";
 
 import { Debounce } from 'react-throttle';
+import { Link } from 'react-router';
 import Service from "../../../js/backend.js";
 
 export default React.createClass({
@@ -91,7 +92,7 @@ export default React.createClass({
         <div className="jumbotron text-xs-center jumbotron-fluid m-b-0">
           <h2>Projects</h2>
           <p className="lead m-t-1">A curated collection of open source, web-based tools to help you do better science.</p>
-          <p>Have a project you want to add?Bring it to our <a href="#">Global Sprint</a>, <a href="#">Mozfest</a>, or <a href="#">Working Open Workshop</a>.</p>
+          <p>Have a project you want to add? Bring it to our <Link to="programs/events/global-sprint-2016">Global Sprint</Link>, <a href="https://mozillafestival.org">Mozfest</a>, or <a href="#">Working Open Workshop</a>.</p>
         </div>
         <div className="threeUp-wrapper">
           <div className="container-dynamic p-t-3">
