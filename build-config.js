@@ -5,11 +5,9 @@ habitat.load(`.env`);
 
 var environment = habitat.get(`NODE_ENV`);
 
-if (environment === `PRODUCTION`) {
-  habitat.load(`config/production.env`);
+if (environment !== `PRODUCTION`) {
+  habitat.load(`config/defaults.env`);
 }
-
-habitat.load(`config/defaults.env`);
 
 var config = {
   SCIENCE_API: habitat.get(`SCIENCE_API`),
