@@ -45,21 +45,10 @@ export default React.createClass({
     this.getCategories();
   },
   getCategories() {
-    let xhr = new XMLHttpRequest();
-    let url = `https://api-mozillascience-staging.herokuapp.com/projects/categories/?format=json`;
-
-    xhr.open(`GET`, url);
-    xhr.responseType = `json`;
-
-    xhr.onload = () => {
-      this.setState({categories: xhr.response});
-    };
-
-    xhr.onerror = () => {
-      console.log(`Error fetching categories`);
-    };
-
-    xhr.send();
+    Service.categories
+      .get()
+      .then((categories) => { this.setState({categories}); })
+      .catch((reason) => { console.error(reason); });
   },
   render() {
 
