@@ -14,34 +14,43 @@ export default React.createClass({
       sortBy: `date_created`,
       category: ``,
       categories: [],
-      projects: []
+      projects: [],
+      allPagesLoaded: false,
+      pagesLoaded: 0
     };
   },
   handleFilterInput(){
     this.setState({
       filterText: this.refs.projectFilter.value,
       category: this.refs.categorySelect.value
-    }, this.getProjectList);
+    }, () => { this.getProjectList(1); });
   },
   onSortChange(choice) {
     this.setState({
       sortBy: choice
-    }, this.getProjectList);
+    }, () => { this.getProjectList(1); });
   },
-  getProjectList() {
+  getProjectList(page) {
     Service.projects
       .get({
         format: `json`,
         search: this.state.filterText,
         sort: this.state.sortBy,
         categories: this.state.category,
-        expand: `leads`
+        expand: `leads`,
+        page: page
       })
-      .then((data) => { this.setState({projects: data.results}); })
+      .then((data) => {
+        // Only want to concat if not fetching the first page, because changing the filter/search resets result set
+        this.setState({
+          projects: page === 1 ? data.results : this.state.projects.concat(data.results),
+          pagesLoaded: page,
+          allPagesLoaded: !data.next
+        }); })
       .catch((reason) => { console.error(reason); });
   },
   componentWillMount() {
-    this.getProjectList();
+    this.getProjectList(1);
     this.getCategories();
   },
   getCategories() {
@@ -49,6 +58,9 @@ export default React.createClass({
       .get()
       .then((categories) => { this.setState({categories}); })
       .catch((reason) => { console.error(reason); });
+  },
+  onMoreClick: function () {
+    this.getProjectList(this.state.pagesLoaded + 1);
   },
   render() {
 
@@ -114,8 +126,11 @@ export default React.createClass({
             <RadioFilter options={sortOptions} initialChoice={this.state.sortBy} onChange={this.onSortChange}></RadioFilter>
           </div>
           <div className="row">
+            <ProjectList projects={this.state.projects}/>
           </div>
-          <ProjectList projects={this.state.projects}/>
+          <div className="text-xs-center">
+            <button hidden={this.state.allPagesLoaded} className="btn m-b-3" onClick={this.onMoreClick}>See More</button>
+          </div>
         </div>
       </div>
     );
