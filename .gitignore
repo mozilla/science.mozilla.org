@@ -3,3 +3,4 @@ node_modules/
 dist/
 .env
 config/env.generated.json
+.tern-port
