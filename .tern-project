@@ -1,0 +1,10 @@
+{
+  "libs": [
+    "browser",
+    "react"
+  ],
+  "plugins": {
+  	"node": {},
+  	"es_modules": {}
+  }
+}
