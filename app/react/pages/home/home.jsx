@@ -63,7 +63,7 @@ export default React.createClass({
           <h3 className="m-y-0 p-y-2">{`What's New`}</h3>
 
           <div className="row p-x-2">
-            <div className="col-xs-12 col-lg-4 m-b-2">
+            <div className="whats-new-item col-xs-12 col-lg-4 m-b-2">
               <div className="shadow-box">
                 <div className="inner">
                   <h6 className="m-b-0">Resource</h6>
@@ -73,7 +73,7 @@ export default React.createClass({
               </div>
             </div>
 
-            <div className="col-xs-12 col-lg-4 m-b-2">
+            <div className="whats-new-item col-xs-12 col-lg-4 m-b-2">
               <div className="shadow-box">
                 <div className="inner">
                   <h6 className="m-b-0">Project</h6>
@@ -84,7 +84,7 @@ export default React.createClass({
               </div>
             </div>
 
-            <div className="col-xs-12 col-lg-4 m-b-2">
+            <div className="whats-new-item col-xs-12 col-lg-4 m-b-2">
               <div className="shadow-box">
                 <div className="inner">
                   <h6 className="m-b-0">Blog</h6>

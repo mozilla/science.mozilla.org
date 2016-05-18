@@ -26,13 +26,17 @@
     }
   }
 
-  .three-up .col:first-child .copy {
+  .three-up {
+    margin-top: -4.5rem;
+  }
+
+  .three-up .col:first-child {
     &::after {
       @include join-glyph("+");
     }
   }
 
-  .three-up .col:nth-child(2) .copy {
+  .three-up .col:nth-child(2) {
     &::after {
       @include join-glyph("=");
     }
@@ -102,8 +106,13 @@
       color: $white;
     }
 
+    .whats-new-item {
+      display: flex;
+    }
+
     .shadow-box {
       text-align: left;
+      display: flex;
 
       h6 {
         text-transform: uppercase;

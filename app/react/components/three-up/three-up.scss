@@ -11,6 +11,11 @@
 
   }
 
+  .item-text {
+    max-width: 20em;
+    margin: 0 auto;
+  }
+
   .icon {
     margin: 0 auto 1.25rem auto;
 
@@ -27,7 +32,7 @@
     margin-right: auto;
     img {
       @include make-col();
-      @include make-col-span(8);
+      @include make-col-span(12);
       @include make-col-push(0);
     }
 
