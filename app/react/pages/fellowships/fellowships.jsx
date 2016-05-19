@@ -24,7 +24,7 @@ export default React.createClass({
           <div className="container m-b-3">
             <h2>Fellowships</h2>
             <p className="lead m-t-1"><em>Are you a champion of open science and open data? Mozilla is seeking researchers eager to advance openness in science and data within their institutions.</em></p>
-            <a className="btn btn-white">Applications open on June 3</a>
+            <div className="btn btn-white">Applications open on June 3</div>
           </div>
         </div>
 
