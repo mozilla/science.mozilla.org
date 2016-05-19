@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from "react-router";
 
 import ThreeUp from "../../components/three-up/three-up.jsx";
 
@@ -67,8 +68,8 @@ export default React.createClass({
               <div className="shadow-box">
                 <div className="inner">
                   <h6 className="m-b-0">Resource</h6>
-                  <h4 className="m-y-1">Code Review in the Lab</h4>
-                  <p>{`Code Review is a process of examining code to eliminate bugs and set a standard of quality. In these lessons, you'll learn how to establish a pattern of code review that will make your work more robust, reusable and reproducible ...`}</p>
+                  <h4 className="m-y-1"><a href="http://sciencehackdayny.github.io/data-camp-16/" target="_blank">Data Camp Trainings</a></h4>
+                  <p>{`Our Data Camp Trainings are a collection of resources on collaborative coding, data munging, version control, sensor science, and design principles. Originally used at Science Hack Day 2016 and Space Apps - Brooklyn, this resource is appropriately staged for a hackathon or one-day workshop.`}</p>
                 </div>
               </div>
             </div>
@@ -77,9 +78,8 @@ export default React.createClass({
               <div className="shadow-box">
                 <div className="inner">
                   <h6 className="m-b-0">Project</h6>
-                  <h4 className="m-y-1">Pathogens & Disease Immunity</h4>
-                  <p>{`This project seeks to accelerate our understanding of disease immunity by leveraging open genetic data.`}</p>
-                  <p>{`Recent discoveries in the genetics of bacteria and phages (genetic material that infects bacteria) have exposed ...`}</p>
+                  <h4 className="m-y-1"><Link to="/projects/contentmine">Content Mine</Link></h4>
+                  <p>Content Mine is a set of tools for extracting information from papers. It’s part of a suite of awesome projects featured in our <Link to="/programs/events/global-sprint-2016">Global Sprint 2016</Link> and showcased by our Mozilla Science Fellow, Richard Smith-Unna at the recent CSV,Conf in Berlin, Germany.`}</p>
                 </div>
               </div>
             </div>
@@ -88,8 +88,8 @@ export default React.createClass({
               <div className="shadow-box">
                 <div className="inner">
                   <h6 className="m-b-0">Blog</h6>
-                  <h4 className="m-y-1">Global Sprint 2016 – Site and Project Submissions Open!</h4>
-                  <p>{`Join us as we collaborate on projects helping further science on the open web! We’re back with our third annual global sprint – June 2-3, 2016. We’ve just opened our call for project ideas and site hosts ...`}</p>
+                  <h4 className="m-y-1"><Link to="/blog/sharing-our-story-of-research-data-reuse">Sharing our Story of Data Research + Reuse</Link></h4>
+                  <p>{`A review of and reflection of our effort to crowdsource data reuse stories and narratives from our community, with responses from fields as diverse as political science, psychology, education, and biochemistry.`}</p>
                 </div>
               </div>
             </div>
