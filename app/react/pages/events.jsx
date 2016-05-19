@@ -15,27 +15,29 @@ export default React.createClass({
         page
       })
       .then((data) => {
-        this.setState(state => {
-          state.events[tense] = state.events[tense].concat(data.results);
-          state.allEventsLoaded[tense] = !data.next;
-          state.pageLoaded[tense] = page;
+        this.setState(prevState => {
+          return {
+            [tense]:{
+              events: prevState[tense].events.concat(data.results),
+              allEventsLoaded : !data.next,
+              pageLoaded: page
+            }
+          };
         });
       })
       .catch((reason) => { console.error(reason); });
   },
   getInitialState() {
     return {
-      events: {
-        past: [],
-        future: []
+      past:{
+        events: [],
+        allEventsLoaded: false,
+        pageLoaded: 0
       },
-      allEventsLoaded: {
-        past: false,
-        future: false
-      },
-      pageLoaded: {
-        past: 0,
-        future: 0
+      future:{
+        events: [],
+        allEventsLoaded: false,
+        pageLoaded: 0
       }
     };
   },
@@ -47,18 +49,18 @@ export default React.createClass({
           <p className="lead m-t-1">We offer a series of global and local sprints that facilitate in-person collaboration, and remote contribution to open source projects. We also host regular Community Calls and Project Calls that highlight what the Mozilla Science Lab community is up to.</p>
         </div>
         <div className="container-dynamic">
-          <EventList events={this.state.events.future} />
+          <EventList events={this.state.future.events} />
           <div className="text-xs-center">
-            <button hidden={this.state.allEventsLoaded.future} className="btn m-b-3" onClick={()=>{ this.getEvents(`future`, this.state.pageLoaded.future + 1); }}>See More</button>
+            <button hidden={this.state.future.allEventsLoaded} className="btn m-b-3" onClick={()=>{ this.getEvents(`future`, this.state.future.pageLoaded + 1); }}>See More</button>
           </div>
         </div>
         <div className="jumbotron container text-xs-center m-b-0 p-b-1">
           <h2>Archive of Past Events</h2>
         </div>
         <div className="container-dynamic">
-          <EventList cardClass="col-sm-6 col-md-4 archive" pictures={false} events={this.state.events.past} />
+          <EventList cardClass="col-sm-6 col-md-4 archive" pictures={false} events={this.state.past.events} />
           <div className="text-xs-center">
-            <button hidden={this.state.allEventsLoaded.past} className="btn m-b-3" onClick={()=>{ this.getEvents(`past`, this.state.pageLoaded.past + 1); }}>See More</button>
+            <button hidden={this.state.past.allEventsLoaded} className="btn m-b-3" onClick={()=>{ this.getEvents(`past`, this.state.past.pageLoaded + 1); }}>See More</button>
           </div>
         </div>
       </div>
