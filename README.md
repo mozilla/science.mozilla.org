@@ -11,3 +11,10 @@
 - `git clone https://github.com/mozilla/science.mozilla.org.git`
 - `npm i`
 - `npm start`
+
+## Git Flow
+
+This project uses [Git Flow](http://nvie.com/posts/a-successful-git-branching-model/). All pull requests should be made against the `develop` branch.
+
+- `develop` maps to [Staging](https://science-mozilla-org-staging.herokuapp.com)
+- `master` maps to [Production](https://science-mozilla-org-production.herokuapp.com)
