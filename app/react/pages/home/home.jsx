@@ -79,7 +79,7 @@ export default React.createClass({
                 <div className="inner">
                   <h6 className="m-b-0">Project</h6>
                   <h4 className="m-y-1"><Link to="/projects/contentmine">Content Mine</Link></h4>
-                  <p>Content Mine is a set of tools for extracting information from papers. It’s part of a suite of awesome projects featured in our <Link to="/programs/events/global-sprint-2016">Global Sprint 2016</Link> and showcased by our Mozilla Science Fellow, Richard Smith-Unna at the recent CSV,Conf in Berlin, Germany.`}</p>
+                  <p>Content Mine is a set of tools for extracting information from papers. It’s part of a suite of awesome projects featured in our <Link to="/programs/events/global-sprint-2016">Global Sprint 2016</Link> and showcased by our Mozilla Science Fellow, Richard Smith-Unna at the recent CSV,Conf in Berlin, Germany.</p>
                 </div>
               </div>
             </div>
