@@ -2,8 +2,8 @@ import Moment from "moment-timezone";
 
 export default {
   calculateDate(timeStart, timeEnd) {
-    let start = new Moment(timeStart);
-    let end = new Moment(timeEnd);
+    let start = new Moment.utc(timeStart);
+    let end = new Moment.utc(timeEnd);
 
     if (start.isSame(end, `day`)) {
       return start.format(`MMM DD, YYYY`);
