@@ -85,7 +85,7 @@ export default React.createClass({
               <h2>About the Program</h2>
 
               <p>The Mozilla Fellowships for Science present a unique opportunity for researchers who want to influence the future of open science and data sharing within their communities.</p>
-              <p>We're looking for researchers with a passion for open source and data sharing, already working to shift research practice to be more collaborative, iterative and open. Fellows will spend 10 months, starting September 2015, as community catalysts at their institutions, mentoring the next generation of open data practitioners and researchers and building lasting change in the global open science community.</p>
+              <p>We're looking for researchers with a passion for open source and data sharing, already working to shift research practice to be more collaborative, iterative and open. Fellows will spend 10 months, starting September 2016, as community catalysts at their institutions, mentoring the next generation of open data practitioners and researchers and building lasting change in the global open science community.</p>
               <p>Throughout their fellowship year, chosen fellows will receive training and support from Mozilla to hone their skills around open source and data sharing. They will also craft code, curriculum and other learning resources that help their local communities learn open data practices, and teach forward to their peers.</p>
 
               <h3 className="m-b-3">Fellow Responsibilities</h3>
