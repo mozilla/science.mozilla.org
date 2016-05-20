@@ -34,7 +34,7 @@ export default React.createClass({
             <div className="p-y-3" name="Fellows" iconDefault="/assets/img/icon-tab-fellows.svg" iconActive="/assets/img/icon-tab-fellows-blue.svg">
               <h2>Our 2015 Fellows</h2>
 
-              <p>The folks chosen are representative of the change we want to see in the community, championing openness, collaboration, and mentorship in science. Over the next ten months, the Fellows will work on projects to help their local communities engage with open data, open source software and teach forward to their peers. They will also receive training and support from Mozilla to hone their skills around open source, participatory learning, and data sharing.</p>
+              <p>The folks chosen are representative of the change we want to see in the community, championing openness, collaboration, and mentorship in science. Over the next ten months, the fellows will work on projects to help their local communities engage with open data, open source software and teach forward to their peers. They will also receive training and support from Mozilla to hone their skills around open source, participatory learning, and data sharing.</p>
 
               <div className="row m-y-3">
                 <div className="col-sm-3 center-vertical">
@@ -85,7 +85,7 @@ export default React.createClass({
               <h2>About the Program</h2>
 
               <p>The Mozilla Fellowships for Science present a unique opportunity for researchers who want to influence the future of open science and data sharing within their communities.</p>
-              <p>We're looking for researchers with a passion for open source and data sharing, already working to shift research practice to be more collaborative, iterative and open. Fellows will spend 10 months starting September 2015 as community catalysts at their institutions, mentoring the next generation of open data practitioners and researchers and building lasting change in the global open science community.</p>
+              <p>We're looking for researchers with a passion for open source and data sharing, already working to shift research practice to be more collaborative, iterative and open. Fellows will spend 10 months, starting in September, as community catalysts at their institutions, mentoring the next generation of open data practitioners and researchers and building lasting change in the global open science community.</p>
               <p>Throughout their fellowship year, chosen fellows will receive training and support from Mozilla to hone their skills around open source and data sharing. They will also craft code, curriculum and other learning resources that help their local communities learn open data practices, and teach forward to their peers.</p>
 
               <h3 className="m-b-3">Fellow Responsibilities</h3>
@@ -98,17 +98,17 @@ export default React.createClass({
                 <IconItem imgSrc="/assets/img/fellowships/icon-communicate.svg" copy="Communicate and share openly their work on an ongoing basis (e.g., through GitHub repositories, scholarly preprints and blog posts)."></IconItem>
               </div>
 
-              <p className="m-b-3">{`Note: Fellows are encouraged to continue their personal research for up to 20% of their time during the course of their fellowship (i.e., one day a week). Fellowship applicants must have buy in from their supervisors in advance, and include supervisors' contact information on the application. Advisers will be interviewed separately should applicants move on to the second round, and their support will be a critical consideration for acceptance of fellows.`}</p>
+              <p className="m-b-3">{`Note: Fellows are encouraged to continue their personal research for up to 20% of their time during the course of their fellowship (i.e., one day a week). Fellowship applicants must have buy-in from their supervisors in advance, and include supervisors' contact information on the application. Advisers will be interviewed separately should applicants move on to the second round, and their support will be a critical consideration for acceptance of fellows.`}</p>
 
               <h3 className="m-b-1">Stipend and Financial Benefits</h3>
 
-              <p>The Fellowships are designed to allow for flexibility for both Fellows and their families. The standard fellowship offers a stipend of $60,000 USD, paid in 10 monthly installments. Fellows are responsible for remitting all applicable taxes and other government payments as required.</p>
+              <p>The Fellowships are designed to allow for flexibility for both fellows and their families. The standard fellowship offers a stipend of $60,000 USD, paid in 10 monthly installments. Fellows are responsible for remitting all applicable taxes and other government payments as required.</p>
               <p>To help offset cost of living, the fellowship also provides supplements for childcare and health insurance, and helps pay for research/equipment and books. The fellowship also covers the costs of required travel for fellowship activities.</p>
               <p className="m-b-3">Fellows will receive:</p>
 
               <div className="m-b-3">
                 <IconItem imgSrc="/assets/img/fellowships/icon-stipend.svg" copy="A stipend of $60,000 USD, paid in 10 monthly installments."></IconItem>
-                <IconItem imgSrc="/assets/img/fellowships/icon-insurance.svg" copy="One-time health insurance supplement for Fellows and their families, ranging from $3,500 for single Fellows to $7,000 for a couple with two or more children."></IconItem>
+                <IconItem imgSrc="/assets/img/fellowships/icon-insurance.svg" copy="One-time health insurance supplement for fellows and their families, ranging from $3,500 for single fellows to $7,000 for a couple with two or more children."></IconItem>
                 <IconItem imgSrc="/assets/img/fellowships/icon-child.svg" copy="One-time childcare allotment for families with children of up to $6,000."></IconItem>
                 <IconItem imgSrc="/assets/img/fellowships/icon-computer.svg" copy="Allowance of up to $3,000 towards the purchase of laptop computer, digital cameras, recorders and computer software; fees for continuing studies or other courses, research fees or payments, to the extent related to the fellowship."></IconItem>
                 <IconItem imgSrc="/assets/img/fellowships/icon-trips.svg" copy="All approved fellowship trips – domestic and international – are covered in full."></IconItem>
@@ -121,7 +121,7 @@ export default React.createClass({
                 <IconItem imgSrc="/assets/img/fellowships/icon-research.svg" copy="Currently an early-career researcher (i.e, graduate students, post-docs, research scientists, lecturers)."></IconItem>
                 <IconItem imgSrc="/assets/img/fellowships/icon-life.svg" copy="Specializing in the life sciences or natural sciences."></IconItem>
                 <IconItem imgSrc="/assets/img/fellowships/icon-travel.svg" copy="Able to travel."></IconItem>
-                <IconItem imgSrc="/assets/img/fellowships/icon-approve.svg" copy="Supported by their supervisors. As fellows will be based at their home institutions and a letter of support from their supervisor is mandatory."></IconItem>
+                <IconItem imgSrc="/assets/img/fellowships/icon-approve.svg" copy="Supported by their supervisors. All fellows will be based at their home institutions and a letter of support from their supervisor is mandatory."></IconItem>
                 <IconItem imgSrc="/assets/img/fellowships/icon-open.svg" copy="Have experience participating in open communities."></IconItem>
               </div>
             </div>
@@ -130,7 +130,7 @@ export default React.createClass({
 
               <dl>
                 <dt>{`I live outside of the US, UK or Canada - am I eligible?`}</dt>
-                <dd>{`Unfortunately, for the first year, we're limiting the call to those in the U.S., UK, and Canada, and to life/natural sciences. That's not because we don't *want* to expand the reach and pool of Fellows - we just need to start somewhere. Our aim is to extend this in subsequent years, so do stay tuned.`}</dd>
+                <dd>{`Unfortunately, for the first year, we're limiting the call to those in the U.S., UK, and Canada, and to life/natural sciences. That's not because we don't *want* to expand the reach and pool of fellows - we just need to start somewhere. Our aim is to extend this in subsequent years, so do stay tuned.`}</dd>
 
                 <dt>{`What disciplines are included in "life and natural sciences"?`}</dt>
                 <dd>{`Biology, chemistry, earth science, physics, astronomy, ecology, etc.`}</dd>
@@ -141,16 +141,16 @@ export default React.createClass({
 
                 <dt>{`Still unsure? Let us know - we'd be happy to talk it through.`}</dt>
                 <dd>{`I'm not currently at a university or research institution - can I still apply?`}</dd>
-                <dd>{`Fellows are required to be based at a university or research institution for the 10 month tenure. Mozilla is not responsible for placing Fellows into other institutions.`}</dd>
+                <dd>{`Fellows are required to be based at a university or research institution for the 10 month tenure. Mozilla is not responsible for placing fellows into other institutions.`}</dd>
 
                 <dt>{`When are Fellowships intended to start?`}</dt>
-                <dd>{`The anticipated start date for Fellows is late September, running through June 2016.`}</dd>
+                <dd>{`The anticipated start date for fellows is late September, running through June 2016.`}</dd>
 
                 <dt>{`What sort of travel is expected?`}</dt>
                 <dd>{`There are a few events and times over the course of the 10 months that fellows are expected to travel and come together at a minimum. There's onboarding (likely late Sept / early October), the Mozilla Festival (Nov 4-6 in London), and two workweeks in 2016 - location TBD.`}</dd>
 
                 <dt>{`I have another Fellowship / teaching commitments / course work - does that rule me out?`}</dt>
-                <dd>{`Not necessarily! This is a time commitment though, and Fellows are encouraged to maintain up to 20% of their research and work through this. If you have a standing commitment that you think may affect your time, please note in your application.`}</dd>
+                <dd>{`Not necessarily! This is a time commitment though, and fellows are encouraged to maintain up to 20% of their research and work through this. If you have a standing commitment that you think may affect your time, please note in your application.`}</dd>
 
                 <dt>{`I'm a pre-tenure, early career faculty member - does that rule me out?`}</dt>
                 <dd>{`Not necessarily! Be sure to list your teaching commitments in the application, as there are travel obligations and expectations that we want to make sure you have adequate time for.`}</dd>
@@ -159,10 +159,10 @@ export default React.createClass({
                 <dd>{`Fellows are encouraged to continue their personal research for up to 20% of their time during the course of their fellowship (i.e., one day a week). Fellowship applicants must have buy in from their supervisors in advance, and include supervisors' contact information on the application. Advisers will be interviewed separately should applicants move on to the second round, and their support will be a critical consideration for acceptance of fellows.`}</dd>
 
                 <dt>{`What role does my advisor play in this process?`}</dt>
-                <dd>{`We want to make sure Fellows, as they'll be working somewhat autonomously within their institution are in supportive environments. We find this is best achieved with advisors who are supportive and tuned in to the challenges around open research practice and data sharing within the university, and are open to Fellows working more full-time for 10 months to build momentum, teach, and collaborate to advance those goals within those labs and research settings.`}</dd>
+                <dd>{`We want to make sure fellows, as they'll be working somewhat autonomously within their institution, are in supportive environments. We find this is best achieved with advisors who are supportive and tuned in to the challenges around open research practice and data sharing within the university, and are open to fellows working more full-time for 10 months to build momentum, teach, and collaborate to advance those goals within those labs and research settings.`}</dd>
 
                 <dt>{`How will I be funded over the Fellowship?`}</dt>
-                <dd>{`Salary and benefits are allocated to the individual directly by monthly stipend pre-tax, not run through institutions - and fellows are responsible for managing the tax aspect of that (that trips people up, we've found. :) ). No university overhead-like arrangements - the funding goes straight to the Fellow themselves.`}</dd>
+                <dd>{`Salary and benefits are allocated to the individual directly by monthly stipend pre-tax, not run through institutions - and fellows are responsible for managing the tax aspect of that (that trips people up, we've found.). No university overhead-like arrangements - the funding goes straight to the Fellow themselves.`}</dd>
               </dl>
             </div>
           </TabSwitcher>
