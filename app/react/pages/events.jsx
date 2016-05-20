@@ -12,6 +12,7 @@ export default React.createClass({
       .get({
         filter: tense,
         format: `json`,
+        sort: tense === `future` ? `starts_at` : `-starts_at`,
         page
       })
       .then((data) => {
