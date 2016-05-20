@@ -98,7 +98,7 @@ export default React.createClass({
                 <IconItem imgSrc="/assets/img/fellowships/icon-communicate.svg" copy="Communicate and share openly their work on an ongoing basis (e.g., through GitHub repositories, scholarly preprints and blog posts)."></IconItem>
               </div>
 
-              <p className="m-b-3">{`Note: Fellows are encouraged to continue their personal research for up to 20% of their time during the course of their fellowship (i.e., one day a week). Fellowship applicants must have buy in from their supervisors in advance, and include supervisors' contact information on the application. Advisers will be interviewed separately should applicants move on to the second round, and their support will be a critical consideration for acceptance of fellows.`}</p>
+              <p className="m-b-3">{`Note: Fellows are encouraged to continue their personal research for up to 20% of their time during the course of their fellowship (i.e., one day a week). Fellowship applicants must have buy-in from their supervisors in advance, and include supervisors' contact information on the application. Advisers will be interviewed separately should applicants move on to the second round, and their support will be a critical consideration for acceptance of fellows.`}</p>
 
               <h3 className="m-b-1">Stipend and Financial Benefits</h3>
 
@@ -121,7 +121,7 @@ export default React.createClass({
                 <IconItem imgSrc="/assets/img/fellowships/icon-research.svg" copy="Currently an early-career researcher (i.e, graduate students, post-docs, research scientists, lecturers)."></IconItem>
                 <IconItem imgSrc="/assets/img/fellowships/icon-life.svg" copy="Specializing in the life sciences or natural sciences."></IconItem>
                 <IconItem imgSrc="/assets/img/fellowships/icon-travel.svg" copy="Able to travel."></IconItem>
-                <IconItem imgSrc="/assets/img/fellowships/icon-approve.svg" copy="Supported by their supervisors. As fellows will be based at their home institutions and a letter of support from their supervisor is mandatory."></IconItem>
+                <IconItem imgSrc="/assets/img/fellowships/icon-approve.svg" copy="Supported by their supervisors. All fellows will be based at their home institutions and a letter of support from their supervisor is mandatory."></IconItem>
                 <IconItem imgSrc="/assets/img/fellowships/icon-open.svg" copy="Have experience participating in open communities."></IconItem>
               </div>
             </div>
@@ -159,10 +159,10 @@ export default React.createClass({
                 <dd>{`Fellows are encouraged to continue their personal research for up to 20% of their time during the course of their fellowship (i.e., one day a week). Fellowship applicants must have buy in from their supervisors in advance, and include supervisors' contact information on the application. Advisers will be interviewed separately should applicants move on to the second round, and their support will be a critical consideration for acceptance of fellows.`}</dd>
 
                 <dt>{`What role does my advisor play in this process?`}</dt>
-                <dd>{`We want to make sure fellows , as they'll be working somewhat autonomously within their institution are in supportive environments. We find this is best achieved with advisors who are supportive and tuned in to the challenges around open research practice and data sharing within the university, and are open to fellows working more full-time for 10 months to build momentum, teach, and collaborate to advance those goals within those labs and research settings.`}</dd>
+                <dd>{`We want to make sure fellows, as they'll be working somewhat autonomously within their institution, are in supportive environments. We find this is best achieved with advisors who are supportive and tuned in to the challenges around open research practice and data sharing within the university, and are open to fellows working more full-time for 10 months to build momentum, teach, and collaborate to advance those goals within those labs and research settings.`}</dd>
 
                 <dt>{`How will I be funded over the Fellowship?`}</dt>
-                <dd>{`Salary and benefits are allocated to the individual directly by monthly stipend pre-tax, not run through institutions - and fellows are responsible for managing the tax aspect of that (that trips people up, we've found. :) ). No university overhead-like arrangements - the funding goes straight to the Fellow themselves.`}</dd>
+                <dd>{`Salary and benefits are allocated to the individual directly by monthly stipend pre-tax, not run through institutions - and fellows are responsible for managing the tax aspect of that (that trips people up, we've found.). No university overhead-like arrangements - the funding goes straight to the Fellow themselves.`}</dd>
               </dl>
             </div>
           </TabSwitcher>
