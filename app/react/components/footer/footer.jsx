@@ -22,15 +22,15 @@ export default React.createClass({
     return (
       <footer id="footer">
         <div className="newsletter">
-          <div className="container">
+          <div className="container-dynamic">
             <div className="row">
-              <div className="col-sm-6">
+              <div className="col-xs-12 col-md-6 text-xs-center text-md-right">
                 <h3>Receive our newsletter</h3>
               </div>
-              <div className="col-sm-6">
+              <div className="col-xs-12 col-md-6">
                 <form target="_blank" className="one-shot" action="https://mail.mozilla.org/subscribe/mozillascience" method="POST">
-                  <input type="email" name="email" placeholder="your email"/>
-                  <button onClick={this.subscribeClicked} type="submit" className="btn btn-primary">Subscribe</button>
+                  <input type="email" className="form-control" name="email" placeholder="your email"/>
+                  <button onClick={this.subscribeClicked} type="submit" className="btn btn-knockout">Subscribe</button>
                 </form>
               </div>
             </div>
