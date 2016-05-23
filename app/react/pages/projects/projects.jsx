@@ -57,7 +57,14 @@ export default React.createClass({
   getCategories() {
     Service.categories
       .get()
-      .then((categories) => { this.setState({categories}); })
+      .then((categories) => {
+        // Alphabetize categories
+        categories.sort((a, b) => {
+          return a.name > b.name ? 1 : -1;
+        });
+
+        this.setState({categories});
+      })
       .catch((reason) => { console.error(reason); });
   },
   onMoreClick: function () {
