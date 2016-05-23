@@ -9,7 +9,7 @@ export default React.createClass({
 
     return (
       <div className="row">
-        <div className="col-xs-12 col-md-10 col-md-push-1 text-xs-center">
+        <div className="col-xs-12 col-sm-8 col-sm-push-2 col-lg-6 col-lg-push-3 text-xs-center">
           <img src={event.image_url}/>
         </div>
         <div className="col-xs-12 m-t-2">

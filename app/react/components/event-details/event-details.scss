@@ -33,6 +33,9 @@
   @extend p;
   font-weight: 300;
   margin-bottom: 2rem;
+  iframe {
+    max-width: 100%;
+  }
   ul {
     margin-left: 1em;
     font-size: 0.9375rem;
