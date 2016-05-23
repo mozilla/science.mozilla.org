@@ -133,9 +133,7 @@ export default React.createClass({
             </div>
             <RadioFilter options={sortOptions} initialChoice={this.state.sortBy} onChange={this.onSortChange}></RadioFilter>
           </div>
-          <div className="row">
-            <ProjectList projects={this.state.projects}/>
-          </div>
+          <ProjectList projects={this.state.projects}/>
           <div className="text-xs-center">
             <button hidden={this.state.allPagesLoaded} className="btn m-b-3" onClick={this.onMoreClick}>See More</button>
           </div>

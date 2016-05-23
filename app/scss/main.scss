@@ -54,6 +54,30 @@ h6 {
   }
 }
 
+.btn-knockout {
+  border-radius: 5px;
+  background: transparent;
+  border: 1px solid white;
+  color: white;
+  filter: invert(0%);
+  background: transparent;
+  transition-property: background, filter, border-color;
+  transition-duration: 0.4s;
+  mix-blend-mode: screen;
+}
+
+.btn-knockout:hover {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+@supports (mix-blend-mode:screen) {
+  .btn-knockout:hover {
+    border-color: #000;
+    background-color: #000;
+    filter: invert(100%);
+  }
+}
+
 // Components
 
 @import '../react/components/footer/footer';

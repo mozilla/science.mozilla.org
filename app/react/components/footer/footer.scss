@@ -1,6 +1,6 @@
 #footer {
   .newsletter {
-    padding: 1.25rem;
+    padding: 1.25rem 0;
     background: lighten($aurora-purple, 15%);
     color: $white;
 
@@ -22,7 +22,6 @@
       font-size: 1.5625rem;
       font-weight: 200;
       letter-spacing: 0.02em;
-      text-align: right;
     }
 
     a {
@@ -31,30 +30,52 @@
     }
 
     .one-shot {
-      display: flex;
       font-size: 0.9375rem;
+      display: flex;
+      flex-direction: column;
 
       input {
         &::placeholder {
           color: $white;
         }
-
         padding: 0.3125rem 0.625rem;
         border: 0.0625rem solid $white;
         background: rgba($white, 0.2);
         color: $white;
         font-style: italic;
         font-weight: 400;
+        min-width: 17em;
+        width: auto;
+      }
+
+      @media screen and (min-width: $bp-sm) {
+        flex-direction: row;
+        justify-content: center;
+      }
+
+      @media screen and (min-width: $bp-md) and (max-width: $bp-lg) {
+        input {
+          min-width: auto;
+        }
+      }
+
+      @media screen and (min-width: $bp-md) {
+        justify-content: flex-start;
+        input,
+        button {
+          flex: 0;
+        }
       }
 
       button {
-        background: none;
-        color: $white;
+        margin-top: 0.5em;
         text-transform: uppercase;
-        border: 0.0625rem solid $white;
-        border-left: 0;
         border-radius: 0;
-        font-size: 0.9375rem;
+
+        @media screen and (min-width: $bp-sm) {
+          border-left: 0;
+          margin-top: 0;
+        }
       }
     }
 
