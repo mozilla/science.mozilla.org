@@ -34,7 +34,7 @@ export default React.createClass({
           </div>
         </div>
 
-        <div className="event-study-cta row">
+        <div className="event-study-cta row row-full">
           <div className="col-md-6">
             <div className="row">
               <img src="/assets/img/home-events@2x.jpg"/>
@@ -60,7 +60,7 @@ export default React.createClass({
         <div className="whats-new m-t-0">
           <h3 className="m-y-0 p-y-2">{`What's New`}</h3>
 
-          <div className="row p-x-2">
+          <div className="row row-full p-x-2">
             <div className="whats-new-item col-xs-12 col-lg-4 m-b-2">
               <div className="shadow-box">
                 <div className="inner">
