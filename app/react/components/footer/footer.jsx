@@ -50,7 +50,7 @@ export default React.createClass({
         <div className="mofooter">
           <div className="icons">
             <Icon href="https://twitter.com/mozillascience" src="/assets/img/footer-icon-twitter.svg" target="_blank">Twitter</Icon>
-            <Icon href="irc://irc.mozilla.org/sciencelab" src="/assets/img/footer-icon-irc.svg">IRC</Icon>
+            <Icon href="http://gitter.im/mozillascience/community" src="/assets/img/footer-icon-irc.svg" target="_blank">Chat</Icon>
             <Icon href="mailto:sciencelab@mozillafoundation.org" src="/assets/img/footer-icon-help.svg">Email Us</Icon>
             <Icon href="https://www.mozilla.org/en-US/about/legal.html" src="/assets/img/footer-icon-terms.svg" target="_blank">Legal</Icon>
             <Icon href="https://creativecommons.org/licenses/by/4.0/" src="/assets/img/cc-logo.svg" target="_blank">License</Icon>
