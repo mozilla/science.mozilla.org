@@ -16,6 +16,10 @@ let IconItem = React.createClass({
 });
 
 export default React.createClass({
+  switchToFAQ() {
+    this.refs.tabSwitcher.setState({activeTab: 2});
+    window.scroll(0,0);
+  },
   getInitialState(){
     return {
     };
@@ -33,7 +37,7 @@ export default React.createClass({
         </div>
 
         <div className="container">
-          <TabSwitcher className="pull-up">
+          <TabSwitcher ref="tabSwitcher" className="pull-up">
             <div className="p-y-3" name="Fellows" iconDefault="/assets/img/icon-tab-fellows.svg" iconActive="/assets/img/icon-tab-fellows-blue.svg">
               <h2>Our 2015 Fellows</h2>
 
@@ -116,7 +120,7 @@ export default React.createClass({
                 <IconItem imgSrc="/assets/img/fellowships/icon-child.svg" copy="One-time childcare allotment of up to $6,000 for families with children."></IconItem>
                 <IconItem imgSrc="/assets/img/fellowships/icon-computer.svg" copy="Allowance of up to $3,000 towards the purchase of laptop computer, digital cameras, recorders and computer software; fees for continuing studies or other courses, research fees or payments, to the extent related to the fellowship."></IconItem>
                 <IconItem imgSrc="/assets/img/fellowships/icon-trips.svg" copy="All approved fellowship trips – domestic and international – are covered in full."></IconItem>
-                * Proposed fellowship amounts are gross amounts and may be reduced by applicable taxes in the various applicable jurisdictions. Read more <a href="#">here</a>
+                * Proposed fellowship amounts are gross amounts and may be reduced by applicable taxes in the various applicable jurisdictions. Read more <a href="#" onClick={this.switchToFAQ}>here</a>
               </div>
 
               <h3 className="m-b-1">Eligibility Criteria</h3>
