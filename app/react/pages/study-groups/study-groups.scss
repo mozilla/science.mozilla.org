@@ -5,8 +5,12 @@
     background-size: cover;
   }
   .rc-collapse {
-    columns: 2;
-    -moz-columns: 1;
+    columns: 1;
+
+    @media screen and (min-width: $bp-lg) {
+      columns: 2;
+      -moz-columns: 1;
+    }
   }
   .rc-collapse * {
     break-inside: avoid;
