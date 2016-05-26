@@ -34,6 +34,9 @@ export default React.createClass({
       links = (
         <div className="project-card-detail-set">
           <h6 className="detail-label">Other Links</h6>
+          {project.links.map((link, index)=>{
+            return <span key={index} className="comma-list"><a href={link.url} target="_blank">{link.title}</a></span>;
+          })}
         </div>
       );
     }
