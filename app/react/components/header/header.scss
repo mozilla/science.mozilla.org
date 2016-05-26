@@ -123,7 +123,7 @@ header {
     }
     .nav-item.open > .nav-link::after {
       transform: rotate(180deg);
-      filter: contrast(100%);
+      filter: brightness(0%);
     }
     .nav-links {
       display: flex;
@@ -135,11 +135,13 @@ header {
       cursor: pointer;
       margin: 1em;
       line-height: 1;
+      transition: color 0.3s ease, filter 0.3s ease;
     }
-    .nav-link.active {
+    .nav-link.active,
+    .nav-link:hover {
       color: $black;
       &::after {
-        filter: contrast(100%);
+        filter: brightness(0%);
       }
     }
     .slideout-menu .nav-link {
