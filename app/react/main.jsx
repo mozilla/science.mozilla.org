@@ -1,6 +1,7 @@
 import React from "react";
 import { render } from "react-dom";
-import { Router, Route, browserHistory, IndexRoute } from "react-router";
+import { Router, Route, browserHistory, IndexRoute, applyRouterMiddleware } from "react-router";
+import useScroll from 'react-router-scroll';
 
 // Components
 
@@ -41,7 +42,7 @@ const App = React.createClass({
 });
 
 render((
-  <Router history={browserHistory}>
+  <Router history={browserHistory} render={applyRouterMiddleware(useScroll())}>
     <Route path="/" component={App}>
       <IndexRoute component={Home}/>
       <Route path="blog" component={BlogList}/>
