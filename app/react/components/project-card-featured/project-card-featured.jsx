@@ -25,7 +25,7 @@ export default React.createClass({
       institution = (
         <div className="project-card-detail-set">
           <h6 className="detail-label">Institution</h6>
-          <p><Link to="#">{project.institution}</Link></p>
+          <p>{project.institution}</p>
         </div>
       );
     }
