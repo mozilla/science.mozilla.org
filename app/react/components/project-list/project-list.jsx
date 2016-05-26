@@ -19,7 +19,7 @@ export default React.createClass({
     if (project.tags && project.tags.length) {
       tags = (<div className="help-with p-y-1">Help with:&nbsp;
         {project.tags.map((tag)=> {
-          return <span className="project-tag" key={tag}><Link to="#">{tag}</Link></span>;
+          return <span className="project-tag" key={tag}>{tag}</span>;
         })}
       </div>
       );

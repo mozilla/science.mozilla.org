@@ -54,7 +54,7 @@ export default React.createClass({
         <div className="project-card-detail-set">
           <h6 className="detail-label">Needs Help With</h6>
           {project.tags.map((tag)=> {
-            return <span className="comma-list" key={tag}><Link to="#">{tag}</Link></span>;
+            return <span className="comma-list" key={tag}>{tag}</span>;
           })}
         </div>
       );
