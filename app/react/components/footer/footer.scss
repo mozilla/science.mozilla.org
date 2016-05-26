@@ -55,7 +55,7 @@
 
       @media screen and (min-width: $bp-md) and (max-width: $bp-lg) {
         input {
-          min-width: auto;
+          min-width: inherit;
         }
       }
 
@@ -63,7 +63,7 @@
         justify-content: flex-start;
         input,
         button {
-          flex: 0;
+          flex: 0 auto;
         }
       }
 
