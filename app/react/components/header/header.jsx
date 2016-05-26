@@ -44,9 +44,10 @@ export default React.createClass({
       isOpen: this.state.menuOpen
     });
     let getNavLinkClasses = (routeMatch) =>{
+      // Check if path starts with routeMatch. Not using string.prototype.startsWith because ES6 compatibility
       return classNames({
         "nav-link": true,
-        active: this.props.path.startsWith(routeMatch)
+        active: this.props.path.replace(/\W?/, ``).split(`/`)[0] === routeMatch
       });
     };
     let navItemClasses = classNames({
