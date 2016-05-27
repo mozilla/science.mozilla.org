@@ -1,4 +1,4 @@
-// Gets passed an array of users. Returns array of GithubAvatars for users matching role
+ // Gets passed an array of users. Returns array of GithubAvatars for users matching role
 
 import React from "react";
 import GithubAvatar from "../../components/github-avatar/github-avatar.jsx";
@@ -13,12 +13,23 @@ export default React.createClass({
       users: [],
       role: ``,
       avatar: true,
-      name: true
+      name: true,
+      exclude: []
     };
   },
   render() {
+
+    // Get an array of users by checking if they're of the right role (or there's no role filter), and they're not in the exclude array
     let users = this.props.users.filter(user=>{
-      return this.props.role === `` || this.props.role === user.role;
+      if (this.props.role === `` || this.props.role === user.role) {
+        if(this.props.exclude.length) {
+          return !this.props.exclude.find(el => {
+            return el.github_username === user.github_username;
+          });
+        } else {
+          return true;
+        }
+      }
     });
 
     users = users.map((user, index) => {
