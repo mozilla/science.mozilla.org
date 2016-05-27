@@ -49,6 +49,7 @@
     "rc-collapse": "1.6.3",
     "react": "15.0.1",
     "react-dom": "15.0.1",
+    "react-hamburger-menu": "0.0.4",
     "react-router": "2.4.1",
     "react-router-scroll": "0.2.0",
     "react-throttle": "^0.2.0",

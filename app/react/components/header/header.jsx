@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router";
 import classNames from "classnames";
-import MenuButton from "./menu-button.jsx";
+import HamburgerMenu from "react-hamburger-menu";
 
 export default React.createClass({
   propTypes: {
@@ -61,7 +61,18 @@ export default React.createClass({
           <Link to="/">
             <h1 className="site-logo text-hide">Mozilla Science Lab</h1>
           </Link>
-          <MenuButton isOpen={this.state.menuOpen} onClick={this.toggleMenu}/>
+          <div className="menu-button">
+            <HamburgerMenu
+              isOpen={this.state.menuOpen}
+              menuClicked={this.toggleMenu}
+              width={24}
+              height={16}
+              strokeWidth={2}
+              rotate={0}
+              color='#5A6BA4'
+              animationDuration={0.5}
+            />
+          </div>
         </div>
         <nav className={navClass}>
           <div className="nav-links">
