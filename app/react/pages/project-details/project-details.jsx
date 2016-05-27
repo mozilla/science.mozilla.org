@@ -40,7 +40,7 @@ export default React.createClass({
             <h3>What we're doing</h3>
             <div dangerouslySetInnerHTML={{__html:project.description}} />
             <div className="text-xs-center p-t-1 p-b-3">
-              <a href="#" className="btn visit-repo">Visit Repo</a>
+              <a hidden={!project.github_owner || !project.github_repository} href={`https://github.com/${project.github_owner}/${project.github_repository}`} target="_blank" className="btn visit-repo">Visit Repo</a>
             </div>
           </div>
         </div>

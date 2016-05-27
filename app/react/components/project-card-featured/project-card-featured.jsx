@@ -25,7 +25,7 @@ export default React.createClass({
       institution = (
         <div className="project-card-detail-set">
           <h6 className="detail-label">Institution</h6>
-          <p><Link to="#">{project.institution}</Link></p>
+          <p>{project.institution}</p>
         </div>
       );
     }
@@ -34,6 +34,9 @@ export default React.createClass({
       links = (
         <div className="project-card-detail-set">
           <h6 className="detail-label">Other Links</h6>
+          {project.links.map((link, index)=>{
+            return <span key={index} className="comma-list"><a href={link.url} target="_blank">{link.title}</a></span>;
+          })}
         </div>
       );
     }
@@ -54,7 +57,7 @@ export default React.createClass({
         <div className="project-card-detail-set">
           <h6 className="detail-label">Needs Help With</h6>
           {project.tags.map((tag)=> {
-            return <span className="comma-list" key={tag}><Link to="#">{tag}</Link></span>;
+            return <span className="comma-list" key={tag}>{tag}</span>;
           })}
         </div>
       );
