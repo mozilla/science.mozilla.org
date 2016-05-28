@@ -1,5 +1,3 @@
-@import "menu-button";
-
 $logoHeight: 40px;
 $logoMobilePadding: 0.5rem;
 $logoDesktopVerticalPadding: 0.75rem;
@@ -8,9 +6,6 @@ header {
   background: $white;
   position: relative;
   z-index: 2;
-  .menu-button rect {
-    fill: $nightly-blue;
-  }
   .logo-wrap {
     display: flex;
     justify-content: space-between;
@@ -50,8 +45,8 @@ header {
     transform: translateY(0%);
   }
   .menu-button {
-    border: none;
-    right: 0;
+    padding: 0.7em;
+    cursor: pointer;
   }
   .nav-link {
     font-size: 0.9375rem;
