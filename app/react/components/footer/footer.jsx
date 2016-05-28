@@ -54,7 +54,7 @@ export default React.createClass({
             <Icon href="mailto:sciencelab@mozillafoundation.org" src="/assets/img/footer-icon-help.svg">Email Us</Icon>
             <Icon href="https://www.mozilla.org/en-US/about/legal.html" src="/assets/img/footer-icon-terms.svg" target="_blank">Legal</Icon>
             <Icon href="https://creativecommons.org/licenses/by/4.0/" src="/assets/img/cc-logo.svg" target="_blank">License</Icon>
-            <Icon href="/code-of-conduct" src="/assets/img/footer-icon-conduct.svg">Code of Conduct</Icon>
+            <Icon href="/code-of-conduct" src="/assets/img/footer-icon-conduct.svg" target="_blank">Code of Conduct</Icon>
           </div>
 
           <div className="footer-content">
