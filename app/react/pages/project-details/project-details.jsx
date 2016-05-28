@@ -9,7 +9,9 @@ export default React.createClass({
 
   getInitialState() {
     return {
-      projectDetails: {}
+      projectDetails: {
+        users: []
+      }
     };
   },
   componentWillMount() {
@@ -23,6 +25,8 @@ export default React.createClass({
   },
   render() {
     var project = this.state.projectDetails;
+    // Get leads as an array so I can pass it to UserList of github_contributors
+    let leads = project.users.filter(user=>{ return user.role===`Lead`; });
 
     return (
       <div id="project-details" className="container">
@@ -32,7 +36,8 @@ export default React.createClass({
             <p className="lead col-xs-12 m-x-1">{project.short_description}</p>
             <div className="col-xs-12 m-t-2">
                 <UserList users={project.users} role="Lead" />
-                <UserList users={project.users} name={false} role="Volunteer" />
+                <UserList users={project.github_contributors} name={false} exclude={leads}/>
+                <UserList users={project.users} name={false} role="Volunteer" exclude={project.github_contributors}/>
             </div>
           </div>
           <ProjectCardFeatured project={project} />

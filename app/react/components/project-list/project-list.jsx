@@ -30,21 +30,23 @@ export default React.createClass({
     return(
       <div className="row">
         {this.props.projects.map((project) => {
-          return (
-            <DataCard key={project.id} className="col-md-4" showPicture={false} categories={project.categories}>
-              <div className="profile-photos">
-                <UserList users={project.leads} name={false} />
-              </div>
-              <div>
-                <UserList users={project.leads} avatar={false} />
-                <span> for </span>
-                <span className="institution">{project.institution}</span>
-              </div>
-              <Link to={`projects/${project.slug}`} className="project-name m-t-1">{project.name}</Link>
-              <div className="project-description m-t-1">{project.short_description}</div>
-              {this.formatTags(project)}
-            </DataCard>
-          );
+          if(project.status === `Active`){
+            return (
+              <DataCard key={project.id} className="col-md-4" showPicture={false} categories={project.categories}>
+                <div className="profile-photos">
+                  <UserList users={project.leads} name={false} />
+                </div>
+                <div>
+                  <UserList users={project.leads} avatar={false} />
+                  <span> for </span>
+                  <span className="institution">{project.institution}</span>
+                </div>
+                <Link to={`projects/${project.slug}`} className="project-name m-t-1">{project.name}</Link>
+                <div className="project-description m-t-1">{project.short_description}</div>
+                {this.formatTags(project)}
+              </DataCard>
+            );
+          }
         })}
       </div>
     );
