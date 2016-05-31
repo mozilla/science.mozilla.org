@@ -37,7 +37,7 @@ export default React.createClass({
         format: `json`,
         search: this.state.filterText,
         sort: this.state.sortBy,
-        categories: this.state.category,
+        categories: encodeURIComponent(this.state.category),
         expand: `leads`,
         page: page
       })
