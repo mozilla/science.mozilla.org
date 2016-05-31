@@ -76,7 +76,6 @@ render((
       <Redirect from="community-call-jun-09-11-et" to="/programs/events/community-call-jun-09-11-et" />
       <Redirect from="project-call-may-26" to="/programs/events/project-call-may-26" />
       <Redirect from="project-call-april-28" to="/programs/events/project-call-april-28" />
-      <Redirect from="space-apps-2016" to="/programs/events/space-apps-2016" />
       <Redirect from="community-call-apr-14-11-et" to="/programs/events/community-call-apr-14-11-et" />
       <Redirect from="project-call-march-24" to="/programs/events/project-call-march-24" />
       <Redirect from="community-call-mar-10-11-et" to="/programs/events/community-call-mar-10-11-et" />
