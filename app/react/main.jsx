@@ -63,7 +63,7 @@ render((
       <Route path="code-of-conduct" component={CodeOfConduct}/>
 
       // Redirect old Science site URLs
-      <Redirect from="training" to="programs" />
+      <Redirect from="training" to="resources" />
       <Redirect from="community" to="programs/events" />
       <Redirect from="collaborate" to="projects" />
       <Redirect from="about" to="/" />
