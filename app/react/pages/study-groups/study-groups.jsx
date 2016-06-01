@@ -13,9 +13,11 @@ export default React.createClass({
     return (
         <div id="study-groups">
           <div className="jumbotron jumbotron-fluid text-xs-center m-b-0">
-            <div className="container m-b-3">
-              <h2>Study Groups</h2>
-              <p className="lead m-t-1">Connect with like-minded researchers at a regular, recurring Study Group session on your campus. If there’s not a Study Group on your campus, help start one!</p>
+            <div className="container m-b-2 p-y-2">
+              <div className="row">
+                <h2 className="col-xs-12">Study Groups</h2>
+                <p className="lead m-t-1 col-xs-12 col-lg-10 col-lg-push-1 col-xl-8 col-xl-push-2">Connect with like-minded researchers at a regular, recurring Study Group session on your campus. If there’s not a Study Group on your campus, help start one!</p>
+              </div>
             </div>
           </div>
           <div className="container">

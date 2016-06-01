@@ -28,11 +28,17 @@ export default React.createClass({
     return (
       <div id="page-fellowships">
         <div className="jumbotron text-xs-center jumbotron-fluid m-b-0">
-          <div className="container m-b-3">
-            <h2>Fellowships</h2>
-            <p className="lead m-t-1"><em>Are you a champion of open science and open data? Mozilla is seeking researchers eager to advance openness in science and data within their institutions.</em></p>
-            <div className="btn btn-white">Applications open on June 3</div>
-            <a hidden className="btn btn-white" href="https://mozilla-science-lab.forms.fm/mozilla-fellows-for-science-2016" target="_blank">Apply Now</a>
+          <div className="container-dynamic container m-b-3">
+            <div className="row">
+              <h2 className="col-xs-12">Fellowships</h2>
+              <p className="lead m-t-1 col-xs-12 col-md-push-1 col-md-10 col-lg-8 col-lg-push-2"><em>Are you a champion of open science and open data? Mozilla is seeking researchers eager to advance openness in science and data within their institutions.</em></p>
+            </div>
+            <div className="row">
+              <div className="col-xs-12">
+                <div className="btn btn-white">Applications open on June 3</div>
+                <a hidden className="btn btn-white" href="https://mozilla-science-lab.forms.fm/mozilla-fellows-for-science-2016" target="_blank">Apply Now</a>
+              </div>
+            </div>
           </div>
         </div>
 

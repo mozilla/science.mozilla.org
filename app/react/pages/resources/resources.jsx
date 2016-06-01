@@ -98,8 +98,12 @@ export default React.createClass({
     return (
       <div id="page-resources">
         <div className="jumbotron text-xs-center jumbotron-fluid m-b-3">
-          <h2>Resources</h2>
-          <p className="lead m-t-1">Find learning materials and resources to support your open science practice and grow your community, from handbooks to how-to guides. Filter by topic to browse the library.</p>
+          <div className="container-dynamic p-y-2">
+            <div className="row">
+              <h2 className="col-xs-12">Resources</h2>
+              <p className="lead m-t-1 col-xs-12 col-md-push-1 col-md-10 col-lg-8 col-lg-push-2">Find learning materials and resources to support your open science practice and grow your community, from handbooks to how-to guides. Filter by topic to browse the library.</p>
+            </div>
+          </div>
         </div>
 
         <div className="container-dynamic">
