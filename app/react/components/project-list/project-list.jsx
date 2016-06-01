@@ -30,7 +30,7 @@ export default React.createClass({
     return(
       <div className="row">
         {this.props.projects.map((project) => {
-          if(project.status === `Active`){
+          if(!project.status || project.status === `Active`){
             return (
               <DataCard key={project.id} className="col-md-4" showPicture={false} categories={project.categories}>
                 <div className="profile-photos">
