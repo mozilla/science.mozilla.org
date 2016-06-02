@@ -51,7 +51,7 @@ export default React.createClass({
           <div className="col-xs-12 col-lg-10 col-lg-push-1">
             <h3>Start a Group</h3>
             <form
-              className="row"
+              className="row p-b-3"
               action="https://docs.google.com/a/mozillafoundation.org/forms/d/159lhGW4hquReK7mloScofQYIu5rKon_1mKdIGEqSgK4/formResponse"
               method="POST"
               target="_blank"
