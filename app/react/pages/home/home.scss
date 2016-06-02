@@ -93,7 +93,22 @@
       }
     }
   }
-
+  
+  .event-study-cta {
+    
+    .event-study-item {
+      padding-top: 0.83rem;
+      padding-bottom: 1.5rem;
+    }
+    
+    .study-content {
+      
+      p {
+        margin-bottom: 2.44rem;
+      }
+    }
+  }
+  
   .whats-new {
     background: url('/assets/img/home-bg-parallax@2x.jpg');
     background-size: cover;
