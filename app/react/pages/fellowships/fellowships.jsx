@@ -127,12 +127,12 @@ export default React.createClass({
               <p>Fellows must be:</p>
               <div className="m-b-3">
                 <IconItem imgSrc="/assets/img/fellowships/icon-institution.svg" copy="Currently employed at a research institution"></IconItem>
-                <IconItem imgSrc="/assets/img/fellowships/icon-stipend.svg" copy="Have the ability to accept outside funds for this fellowship directly"></IconItem>
+                <IconItem imgSrc="/assets/img/fellowships/icon-stipend.svg" copy="Able to accept outside funds for this fellowship directly"></IconItem>
                 <IconItem imgSrc="/assets/img/fellowships/icon-research.svg" copy="Currently an early-career researcher (i.e, graduate students, post-docs, research scientists, lecturers)"></IconItem>
-                <IconItem imgSrc="/assets/img/fellowships/icon-life.svg" copy="Specializing in the life sciences or natural sciences."></IconItem>
-                <IconItem imgSrc="/assets/img/fellowships/icon-travel.svg" copy="Able to travel."></IconItem>
-                <IconItem imgSrc="/assets/img/fellowships/icon-approve.svg" copy="Supported by their supervisors. As fellows will be based at their home institutions, please note that a letter of support from their supervisor is mandatory for consideration."></IconItem>
-                <IconItem imgSrc="/assets/img/fellowships/icon-open.svg" copy="Have experience participating in open communities."></IconItem>
+                <IconItem imgSrc="/assets/img/fellowships/icon-life.svg" copy="Specializing in the life sciences or natural sciences"></IconItem>
+                <IconItem imgSrc="/assets/img/fellowships/icon-travel.svg" copy="Able to travel"></IconItem>
+                <IconItem imgSrc="/assets/img/fellowships/icon-approve.svg" copy="Supported by their supervisors. As fellows will be based at their home institutions, please note that a letter of support from their supervisor is mandatory for consideration"></IconItem>
+                <IconItem imgSrc="/assets/img/fellowships/icon-open.svg" copy="Experienced participants in open communities"></IconItem>
               </div>
             </div>
             <div className="p-y-3" name="FAQ" iconDefault="/assets/img/icon-tab-faq.svg" iconActive="/assets/img/icon-tab-faq-blue.svg">
