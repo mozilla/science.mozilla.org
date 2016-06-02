@@ -4,6 +4,11 @@
   "description": "Mozilla Science",
   "author": "Mozilla",
   "license": "MIT",
+  "repository": "mozilla/science.mozilla.org",
+  "engines" : {
+    "node": "^5.0.0",
+    "npm" : "^3.0.0"
+  },
   "scripts": {
     "start": "npm i && npm run build && npm-run-all --parallel server:dev watch:**",
     "build": "npm run build:config && npm run build:js && npm run build:scss && npm run build:static && npm run build:assets",

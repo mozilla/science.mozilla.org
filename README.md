@@ -63,6 +63,7 @@ It's highly recommended that you add plugins to your editor of choice that can r
 
 - Files should be named with `hyphenated-lowercase`.
 - Code indentation is two spaces.
+- Use [Bootstrap 4](https://v4-alpha.getbootstrap.com/getting-started/introduction/) classes whenever possible and relevant, rather than writing more style code.
 
 ## Git Flow
 
