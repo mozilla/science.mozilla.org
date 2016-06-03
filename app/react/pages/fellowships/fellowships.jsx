@@ -119,7 +119,7 @@ export default React.createClass({
                 <IconItem imgSrc="/assets/img/fellowships/icon-insurance.svg" copy="A one-time health insurance supplement for Fellows and their families, ranging from $3,500 for single Fellows to $7,000 for a couple with two or more children"></IconItem>
                 <IconItem imgSrc="/assets/img/fellowships/icon-child.svg" copy="A one-time childcare allotment of up to $6,000 for families with children"></IconItem>
                 <IconItem imgSrc="/assets/img/fellowships/icon-computer.svg" copy="An allowance of up to $3,000 towards the purchase of laptop computer, digital cameras, recorders and computer software; fees for continuing studies or other courses, research fees or payments, to the extent related to the fellowship"></IconItem>
-                <IconItem imgSrc="/assets/img/fellowships/icon-trips.svg" copy="All approved fellowship trips – domestic and international – are covered in full"></IconItem>
+                <IconItem imgSrc="/assets/img/fellowships/icon-trips.svg" copy="Funding for relevant fellowship trips - domestic and international - which will be covered in full"></IconItem>
                 * Proposed fellowship amounts are gross amounts and may be reduced by applicable taxes in the various applicable jurisdictions. Read more <a href="#" onClick={this.switchToFAQ}>here</a>
               </div>
 
