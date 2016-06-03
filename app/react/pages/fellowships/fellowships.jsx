@@ -35,8 +35,7 @@ export default React.createClass({
             </div>
             <div className="row">
               <div className="col-xs-12">
-                <div className="btn btn-white">Applications open on June 3</div>
-                <a hidden className="btn btn-white" href="https://mozilla-science-lab.forms.fm/mozilla-fellows-for-science-2016" target="_blank">Apply Now</a>
+                <a className="btn btn-white" href="https://mozilla-science-lab.forms.fm/mozilla-fellows-for-science-2016" target="_blank">Apply Now</a>
               </div>
             </div>
           </div>
@@ -201,7 +200,7 @@ export default React.createClass({
 
         </div>
 
-        <div hidden className="p-y-3 fellow-cta">
+        <div className="p-y-3 fellow-cta">
           <div className="container">
             <h3>Deadline for applications is July 15, 2016</h3>
             <a className="btn btn-white m-b-2" href="https://mozilla-science-lab.forms.fm/mozilla-fellows-for-science-2016" target="_blank">Apply Now</a>

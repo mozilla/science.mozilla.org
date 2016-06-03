@@ -24,7 +24,7 @@ export default React.createClass({
             item3={{text: `Open Science: A way for science to achieve its fullest potential`, icon: `/assets/img/icon-open.svg`}}></ThreeUp>
         </div>
 
-        <div hidden className="container-dynamic fellow-cta m-b-3">
+        <div className="container-dynamic fellow-cta m-b-3">
           <img src="/assets/img/icon-drop.svg" className="sprinkle"/>
           <img src="/assets/img/icon-droptwo.svg" className="sprinkle"/>
 
