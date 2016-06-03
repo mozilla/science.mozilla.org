@@ -59,6 +59,14 @@ For SCSS, we use [StyleLint](http://stylelint.io/) with the standard configurati
 
 It's highly recommended that you add plugins to your editor of choice that can read the local "RC" files in the root of the codebase, `.eslintrc.yaml` and `.stylelintrc`, so you can see errors as they occur.
 
+#### Bootstrap
+
+This site uses version 4 of the Bootstrap framework as well as [a custom Mozilla Foundation theme](https://github.com/mozilla/mozmaker).
+
+Use [Bootstrap 4](https://v4-alpha.getbootstrap.com/getting-started/introduction/) classes whenever possible, rather than writing additional SCSS.
+
+Refer to [this page](https://mozilla.github.io/mozmaker/demo/) for a demonstration of the non-standard and overridden components available to you. The demo also contains color variables that you can use. Whenever possible, use a color variable instead of hard coding a color value.
+
 ### Additional Conventions
 
 - Files should be named with `hyphenated-lowercase`.

@@ -82,7 +82,7 @@ export default React.createClass({
                 <input className="btn wide" type="submit" value="Submit"/>
               </div>
             </form>
-            <h3>Study Group Lessons</h3>
+            <h3 className="m-t-3">Study Group Lessons</h3>
             <p>The Study Group lessons are a great place to find existing curriculum in open science, open code, as well as creative approaches to research review and workflows. Lessons are stored in our <a href="https://github.com/mozillascience/studyGroupLessons">lessons bank on github</a>, indexed in <a href="https://mozillascience.github.io/studyGroupHandbook/lessons.html">our handbook</a>, and mirrored on our website. Check out the <a href="https://github.com/mozillascience/studyGroupLessons/issues">issues in the lessons bank</a> for more ideas and versions of the core lessons, and our <a href="https://www.youtube.com/playlist?list=PLyfPqolZyFtyE8zx2Dbm4uqZYQIeL9D9Z">online webcasts for remote events</a>!</p>
             <div className="row">
             {studyLessons}

@@ -8,9 +8,11 @@ export default React.createClass({
     return (
       <div id="page-home">
         <div className="jumbotron jumbotron-fluid text-xs-center">
-          <div className="container-dynamic">
-            <h2>Transforming Science</h2>
-            <p className="lead m-t-1">{`Mozilla Science Lab is a community of researchers, developers, and librarians making research open and accessible. We’re empowering open science leaders through fellowships, mentorship, and project-based learning.`}</p>
+          <div className="container-dynamic p-y-2">
+            <div className="row">
+              <h2 className="col-xs-12">Transforming Science</h2>
+              <p className="lead m-t-1 col-xs-12 col-md-push-1 col-md-10 col-lg-8 col-lg-push-2">{`Mozilla Science Lab is a community of researchers, developers, and librarians making research open and accessible. We’re empowering open science leaders through fellowships, mentorship, and project-based learning.`}</p>
+            </div>
           </div>
         </div>
 
@@ -22,7 +24,7 @@ export default React.createClass({
             item3={{text: `Open Science: A way for science to achieve its fullest potential`, icon: `/assets/img/icon-open.svg`}}></ThreeUp>
         </div>
 
-        <div hidden className="container-dynamic fellow-cta m-b-3">
+        <div className="container-dynamic fellow-cta m-b-3">
           <img src="/assets/img/icon-drop.svg" className="sprinkle"/>
           <img src="/assets/img/icon-droptwo.svg" className="sprinkle"/>
 

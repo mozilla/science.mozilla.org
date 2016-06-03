@@ -98,9 +98,12 @@ export default React.createClass({
     return (
       <div id="page-projects">
         <div className="jumbotron text-xs-center jumbotron-fluid m-b-0">
-          <h2>Projects</h2>
-          <p className="lead m-t-1">A curated collection of open source, web-based tools to help you do better science.</p>
-          <p>Have a project you want to add? Bring it to our <Link to="programs/events/global-sprint-2016">Global Sprint</Link>, <a href="https://mozillafestival.org" target="_blank">Mozfest</a>, or <Link to="/programs/events/working-open-workshop-february-2016">Working Open Workshop</Link>.</p>
+          <div className="container-dynamic p-y-2">
+            <div className="row">
+              <h2 className="col-xs-12">Projects</h2>
+              <p className="lead m-t-1 col-xs-12 col-md-push-1 col-md-10 col-lg-8 col-lg-push-2">A curated collection of open source, web-based tools to help you do better science.<br/>Have a project you want to add? Bring it to our <Link to="programs/events/global-sprint-2016">Global Sprint</Link>, <a href="https://mozillafestival.org" target="_blank">Mozfest</a>, or <Link to="/programs/events/working-open-workshop-february-2016">Working Open Workshop</Link>.</p>
+            </div>
+          </div>
         </div>
         <div className="threeUp-wrapper">
           <div className="container-dynamic p-t-3">
