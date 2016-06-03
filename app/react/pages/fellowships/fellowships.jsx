@@ -17,7 +17,7 @@ let IconItem = React.createClass({
 
 export default React.createClass({
   switchToFAQ() {
-    this.refs.tabSwitcher.setState({activeTab: 2});
+    this.refs.tabSwitcher.setState({activeTab: 1});
     window.scroll(0,0);
   },
   getInitialState(){
