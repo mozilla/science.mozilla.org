@@ -43,56 +43,6 @@ export default React.createClass({
 
         <div className="container">
           <TabSwitcher ref="tabSwitcher" className="pull-up">
-            <div className="p-y-3" name="Fellows" iconDefault="/assets/img/icon-tab-fellows.svg" iconActive="/assets/img/icon-tab-fellows-blue.svg">
-              <h2>Our 2015 Fellows</h2>
-
-              <p>The folks chosen are representative of the change we want to see in the community, championing openness, collaboration, and mentorship in science. Over the next ten months, the fellows will work on projects to help their local communities engage with open data, open source software and teach forward to their peers. They will also receive training and support from Mozilla to hone their skills around open source, participatory learning, and data sharing.</p>
-
-              <div className="row m-y-3">
-                <div className="col-sm-3 center-vertical">
-                  <img className="circle" src="/assets/img/fellowships/fellow-richard.png"/>
-                </div>
-                <div className="col-sm-9">
-                  <h4 className="m-b-0">Richard Smith-Unna</h4>
-                  <p className="m-b-1"><a href="http://twitter.com/blahah404" target="_blank">@blahah404</a> | <a href="http://rik.smith-unna.com/" target="_blank">Richard's Blog</a></p>
-                  <p>A computational biology PhD student at the <a href="http://www.cam.ac.uk/">University of Cambridge</a>. He is currently focused on understanding a particularly efficient kind of <a href="https://en.wikipedia.org/wiki/C4_carbon_fixation">photosynthesis called C4</a>. He develops and contributes to a wide array of open source software and teaching materials for bioinformatics, including the <a href="http://contentmine.org/">Content Mine</a>, Solvers.io, and <a href="https://github.com/BioJulia">BioJulia</a>. </p>
-                </div>
-              </div>
-
-              <div className="row m-y-3">
-                <div className="col-sm-3 center-vertical">
-                  <img className="circle" src="/assets/img/fellowships/fellow-christie.png"/>
-                </div>
-                <div className="col-sm-9">
-                  <h4 className="m-b-0">Christie Bahlai</h4>
-                  <p className="m-b-1"><a href="http://twitter.com/cbahlai" target="_blank">@cbahlai</a> | <a href="https://practicaldatamanagement.wordpress.com/" target="_blank">Christie's Blog</a></p>
-                  <p>An insect ecologist and post-doctoral research associate at <a href="http://msu.edu">Michigan State University</a>.  She works with the NSF-funded <a href="http://www.lternet.edu/">Long Term Ecological Research network</a>, and is interested in how we can use big(ish) ecological data and open science approaches to help build sustainable agricultural systems. She’s an instructor with <a href="http://software-carpentry.org">Software Carpentry</a> and <a href="http://www.datacarpentry.org/">Data Carpentry</a> and maintains a blog about open science and data management called <a href="https://practicaldatamanagement.wordpress.com/">Practical Data Management</a>.</p>
-                </div>
-              </div>
-
-              <div className="row m-y-3">
-                <div className="col-sm-3 center-vertical">
-                  <img className="circle" src="/assets/img/fellowships/fellow-joey.png"/>
-                </div>
-                <div className="col-sm-9">
-                  <h4 className="m-b-0">Joey Lee</h4>
-                  <p className="m-b-1"><a href="http://twitter.com/leejoeyk" target="_blank">@leejoeyk</a> | <a href="http://jk-lee.com/blog/" target="_blank">Joey's Blog</a></p>
-                  <p>A geographer and computational media artist from San Francisco, California passionate about technological literacy and the engagement of art and science through computation and collaboration. He is co-author of <a href="http://jk-lee.com/the-big-atlas-of-la-pools/">"The Big Atlas of LA Pools"</a> and co-creator of the <a href="https://www.kickstarter.com/projects/357538735/aerial-bold-kickstart-the-planetary-search-for-let">"Aerial Bold" Kickstarter project</a> (<a href="https://vimeo.com/108875406">video here</a>). He is currently based in Vancouver, Canada, balancing his time <a href="http://joeyklee.github.io/presentations/ubc_springsymposium2015">between his MSc research</a> and teaching at the <a href="http://www.ubc.ca/">University of British Columbia</a>, <a href="http://joeyklee.github.io/presentations/ubc_datavizcolloqium2015/">building</a> <a href="https://github.com/joeyklee/GEOB472/tree/master/workshops/01_shapes%26code">workshops</a> around opensource tools (e.g. <a href="http://maptime.io/vancouver/">Maptime Vancouver</a>), and <a href="http://jk-lee.com/">exploring projects around geography and technology</a>.</p>
-                </div>
-              </div>
-
-              <div className="row m-y-3">
-                <div className="col-sm-3 center-vertical">
-                  <img className="circle" src="/assets/img/fellowships/fellow-jason.png"/>
-                </div>
-                <div className="col-sm-9">
-                  <h4 className="m-b-0">Jason Bobe</h4>
-                  <p className="m-b-1"><a href="http://twitter.com/jasonbobe" target="_blank">@jasonbobe</a> | <a href="http://blog.jasonbobe.net/" target="_blank">Jason's Blog</a></p>
-                  <p>An Associate Professor and director of the Sharing Lab at the <a href="http://icahn.mssm.edu/departments-and-institutes/genomics">Icahn Institute for Genomics and Multiscale Biology at Mount Sinai</a> where he leads the <a href="http://resilienceproject.me/">Resilience Project</a> with Eric Schadt and Stephen Friend, a research study that aims to find and decode people who are able to avoid disease despite having genetic risk factors. He has founded two open science nonprofits, <a href="http://www.personalgenomes.org/">PersonalGenomes.org</a> &amp; <a href="http://diybio.org/">DIYbio</a>. With co-founder <a href="http://mad.printf.net/">Madeleine Ball</a>, he has created <a href="https://www.openhumans.org/">OpenHumans.org</a>, a platform that connects people and their data with researchers that practice equitable data sharing. With George Church, he coordinates the <a href="http://www.personalgenomes.org/harvard/global-network">Global Network of Personal Genome Projects,</a> now with sites in four countries. </p>
-                </div>
-              </div>
-
-            </div>
             <div className="p-y-3" name="Overview" iconDefault="/assets/img/icon-tab-overview.svg" iconActive="/assets/img/icon-tab-overview-blue.svg">
               <h2>About the Program</h2>
 
@@ -196,6 +146,57 @@ export default React.createClass({
                 </Panel>
               </Collapse>
             </div>
+            <div className="p-y-3" name="Fellows" iconDefault="/assets/img/icon-tab-fellows.svg" iconActive="/assets/img/icon-tab-fellows-blue.svg">
+              <h2>Our 2015 Fellows</h2>
+
+              <p>The folks chosen are representative of the change we want to see in the community, championing openness, collaboration, and mentorship in science. Over the next ten months, the fellows will work on projects to help their local communities engage with open data, open source software and teach forward to their peers. They will also receive training and support from Mozilla to hone their skills around open source, participatory learning, and data sharing.</p>
+
+              <div className="row m-y-3">
+                <div className="col-sm-3 center-vertical">
+                  <img className="circle" src="/assets/img/fellowships/fellow-richard.png"/>
+                </div>
+                <div className="col-sm-9">
+                  <h4 className="m-b-0">Richard Smith-Unna</h4>
+                  <p className="m-b-1"><a href="http://twitter.com/blahah404" target="_blank">@blahah404</a> | <a href="http://rik.smith-unna.com/" target="_blank">Richard's Blog</a></p>
+                  <p>A computational biology PhD student at the <a href="http://www.cam.ac.uk/">University of Cambridge</a>. He is currently focused on understanding a particularly efficient kind of <a href="https://en.wikipedia.org/wiki/C4_carbon_fixation">photosynthesis called C4</a>. He develops and contributes to a wide array of open source software and teaching materials for bioinformatics, including the <a href="http://contentmine.org/">Content Mine</a>, Solvers.io, and <a href="https://github.com/BioJulia">BioJulia</a>. </p>
+                </div>
+              </div>
+
+              <div className="row m-y-3">
+                <div className="col-sm-3 center-vertical">
+                  <img className="circle" src="/assets/img/fellowships/fellow-christie.png"/>
+                </div>
+                <div className="col-sm-9">
+                  <h4 className="m-b-0">Christie Bahlai</h4>
+                  <p className="m-b-1"><a href="http://twitter.com/cbahlai" target="_blank">@cbahlai</a> | <a href="https://practicaldatamanagement.wordpress.com/" target="_blank">Christie's Blog</a></p>
+                  <p>An insect ecologist and post-doctoral research associate at <a href="http://msu.edu">Michigan State University</a>.  She works with the NSF-funded <a href="http://www.lternet.edu/">Long Term Ecological Research network</a>, and is interested in how we can use big(ish) ecological data and open science approaches to help build sustainable agricultural systems. She’s an instructor with <a href="http://software-carpentry.org">Software Carpentry</a> and <a href="http://www.datacarpentry.org/">Data Carpentry</a> and maintains a blog about open science and data management called <a href="https://practicaldatamanagement.wordpress.com/">Practical Data Management</a>.</p>
+                </div>
+              </div>
+
+              <div className="row m-y-3">
+                <div className="col-sm-3 center-vertical">
+                  <img className="circle" src="/assets/img/fellowships/fellow-joey.png"/>
+                </div>
+                <div className="col-sm-9">
+                  <h4 className="m-b-0">Joey Lee</h4>
+                  <p className="m-b-1"><a href="http://twitter.com/leejoeyk" target="_blank">@leejoeyk</a> | <a href="http://jk-lee.com/blog/" target="_blank">Joey's Blog</a></p>
+                  <p>A geographer and computational media artist from San Francisco, California passionate about technological literacy and the engagement of art and science through computation and collaboration. He is co-author of <a href="http://jk-lee.com/the-big-atlas-of-la-pools/">"The Big Atlas of LA Pools"</a> and co-creator of the <a href="https://www.kickstarter.com/projects/357538735/aerial-bold-kickstart-the-planetary-search-for-let">"Aerial Bold" Kickstarter project</a> (<a href="https://vimeo.com/108875406">video here</a>). He is currently based in Vancouver, Canada, balancing his time <a href="http://joeyklee.github.io/presentations/ubc_springsymposium2015">between his MSc research</a> and teaching at the <a href="http://www.ubc.ca/">University of British Columbia</a>, <a href="http://joeyklee.github.io/presentations/ubc_datavizcolloqium2015/">building</a> <a href="https://github.com/joeyklee/GEOB472/tree/master/workshops/01_shapes%26code">workshops</a> around opensource tools (e.g. <a href="http://maptime.io/vancouver/">Maptime Vancouver</a>), and <a href="http://jk-lee.com/">exploring projects around geography and technology</a>.</p>
+                </div>
+              </div>
+
+              <div className="row m-y-3">
+                <div className="col-sm-3 center-vertical">
+                  <img className="circle" src="/assets/img/fellowships/fellow-jason.png"/>
+                </div>
+                <div className="col-sm-9">
+                  <h4 className="m-b-0">Jason Bobe</h4>
+                  <p className="m-b-1"><a href="http://twitter.com/jasonbobe" target="_blank">@jasonbobe</a> | <a href="http://blog.jasonbobe.net/" target="_blank">Jason's Blog</a></p>
+                  <p>An Associate Professor and director of the Sharing Lab at the <a href="http://icahn.mssm.edu/departments-and-institutes/genomics">Icahn Institute for Genomics and Multiscale Biology at Mount Sinai</a> where he leads the <a href="http://resilienceproject.me/">Resilience Project</a> with Eric Schadt and Stephen Friend, a research study that aims to find and decode people who are able to avoid disease despite having genetic risk factors. He has founded two open science nonprofits, <a href="http://www.personalgenomes.org/">PersonalGenomes.org</a> &amp; <a href="http://diybio.org/">DIYbio</a>. With co-founder <a href="http://mad.printf.net/">Madeleine Ball</a>, he has created <a href="https://www.openhumans.org/">OpenHumans.org</a>, a platform that connects people and their data with researchers that practice equitable data sharing. With George Church, he coordinates the <a href="http://www.personalgenomes.org/harvard/global-network">Global Network of Personal Genome Projects,</a> now with sites in four countries. </p>
+                </div>
+              </div>
+
+            </div>
+
           </TabSwitcher>
 
         </div>
