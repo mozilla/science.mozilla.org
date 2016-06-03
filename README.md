@@ -2,10 +2,6 @@
 
 # science.mozilla.org
 
-**The 2016 rebuild-in-progress.**
-
-**For the code fueling [http://mozillascience.org](http://mozillascience.org) see [this branch](https://github.com/mozilla/science.mozilla.org/tree/mozillascience.org).**
-
 ## Requirements for Development
 
 - `node`
