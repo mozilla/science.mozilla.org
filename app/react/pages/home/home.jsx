@@ -39,7 +39,7 @@ export default React.createClass({
           <div className="col-md-6">
             <div className="row">
               <img src="/assets/img/home-events@2x.jpg"/>
-              <div className="col-xs-10 col-xs-push-1 p-t-0.83 p-b-1.5">
+              <div className="col-xs-10 col-xs-push-1 p-y-1">
                 <h3>Events</h3>
                 <p>We offer a series of sprints and workshops that facilitate in-person collaboration and remote contribution to open source projects. We also host regular Community and Project Calls that highlight what the community is up to.</p>
                 <a className="btn m-b-2" href="/programs/events">Find An Event</a>
@@ -49,16 +49,16 @@ export default React.createClass({
           <div className="col-md-6">
             <div className="row">
               <img src="/assets/img/home-studygroups@2x.jpg"/>
-              <div className="col-xs-10 col-xs-push-1 p-t-0.83 p-b-1.5">
+              <div className="col-xs-10 col-xs-push-1 p-y-1">
                 <h3>Study Groups</h3>
-                <p className="m-b-2.44">Connect with like-minded researchers at a regular, recurring Study Group session on your campus. If there’s not a Study Group on your campus, help start one!</p>
+                <p className="m-b-2">Connect with like-minded researchers at a regular, recurring Study Group session on your campus. If there’s not a Study Group on your campus, help start one!</p>
                 <a className="btn m-b-2" href="/programs/studygroups">Join A Group</a>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="whats-new m-t-0 p-t-2 p-b-4">
+        <div className="whats-new m-t-0 p-t-2 p-b-3">
           <h3 className="m-y-0 p-y-2">{`What's New`}</h3>
 
           <div className="row row-full p-x-2">
