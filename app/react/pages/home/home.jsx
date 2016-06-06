@@ -41,7 +41,7 @@ export default React.createClass({
           <div className="col-md-6">
             <div className="row">
               <img src="/assets/img/home-events@2x.jpg"/>
-              <div className="col-xs-10 col-xs-push-1">
+              <div className="col-xs-10 col-xs-push-1 p-y-1">
                 <h3>Events</h3>
                 <p>We offer a series of sprints and workshops that facilitate in-person collaboration and remote contribution to open source projects. We also host regular Community and Project Calls that highlight what the community is up to.</p>
                 <a className="btn m-b-2" href="/programs/events">Find An Event</a>
@@ -51,16 +51,16 @@ export default React.createClass({
           <div className="col-md-6">
             <div className="row">
               <img src="/assets/img/home-studygroups@2x.jpg"/>
-              <div className="col-xs-10 col-xs-push-1">
+              <div className="col-xs-10 col-xs-push-1 p-y-1">
                 <h3>Study Groups</h3>
-                <p>Connect with like-minded researchers at a regular, recurring Study Group session on your campus. If there’s not a Study Group on your campus, help start one!</p>
+                <p className="m-b-2">Connect with like-minded researchers at a regular, recurring Study Group session on your campus. If there’s not a Study Group on your campus, help start one!</p>
                 <a className="btn m-b-2" href="/programs/studygroups">Join A Group</a>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="whats-new m-t-0">
+        <div className="whats-new m-t-0 p-t-2 p-b-3">
           <h3 className="m-y-0 p-y-2">{`What's New`}</h3>
 
           <div className="row row-full p-x-2">
@@ -68,7 +68,7 @@ export default React.createClass({
               <div className="shadow-box">
                 <div className="inner">
                   <h6 className="m-b-0">Resource</h6>
-                  <h4 className="m-y-1"><a href="http://sciencehackdayny.github.io/data-camp-16/" target="_blank">Data Camp Trainings</a></h4>
+                  <h3 className="m-y-1"><a href="http://sciencehackdayny.github.io/data-camp-16/" target="_blank">Data Camp Trainings</a></h3>
                   <p>{`Our Data Camp Trainings are a collection of resources on collaborative coding, data munging, version control, sensor science, and design principles. Originally used at Science Hack Day 2016 and Space Apps - Brooklyn, this resource is appropriately staged for a hackathon or one-day workshop.`}</p>
                 </div>
               </div>
