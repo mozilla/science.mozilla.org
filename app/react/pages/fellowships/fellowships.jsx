@@ -42,8 +42,8 @@ export default React.createClass({
         </div>
 
         <div className="container">
-          <TabSwitcher ref="tabSwitcher" className="pull-up">
-            <div className="p-y-3" name="Overview" iconDefault="/assets/img/icon-tab-overview.svg" iconActive="/assets/img/icon-tab-overview-blue.svg">
+          <TabSwitcher baseURL={`/programs/fellowships/`} initialTab={this.props.params.tab} ref="tabSwitcher" className="pull-up">
+            <div className="p-y-3" name="Overview" slug="overview" iconDefault="/assets/img/icon-tab-overview.svg" iconActive="/assets/img/icon-tab-overview-blue.svg">
               <h2>About the Program</h2>
 
               <p>The Mozilla Fellowships for Science present a unique opportunity for researchers who want to influence the future of open science and data sharing within their communities.</p>
@@ -90,7 +90,7 @@ export default React.createClass({
                 <IconItem imgSrc="/assets/img/fellowships/icon-open.svg" copy="Experienced participants in open communities"></IconItem>
               </div>
             </div>
-            <div className="p-y-3" name="FAQ" iconDefault="/assets/img/icon-tab-faq.svg" iconActive="/assets/img/icon-tab-faq-blue.svg">
+            <div className="p-y-3" name="FAQ" slug="faq" iconDefault="/assets/img/icon-tab-faq.svg" iconActive="/assets/img/icon-tab-faq-blue.svg">
               <h2 className="m-b-1">Application FAQ</h2>
 
               <Collapse>
@@ -146,7 +146,7 @@ export default React.createClass({
                 </Panel>
               </Collapse>
             </div>
-            <div className="p-y-3" name="Fellows" iconDefault="/assets/img/icon-tab-fellows.svg" iconActive="/assets/img/icon-tab-fellows-blue.svg">
+            <div className="p-y-3" name="Fellows" slug="fellows" iconDefault="/assets/img/icon-tab-fellows.svg" iconActive="/assets/img/icon-tab-fellows-blue.svg">
               <h2>Our 2015 Fellows</h2>
 
               <p>The folks chosen are representative of the change we want to see in the community, championing openness, collaboration, and mentorship in science. Over the next ten months, the fellows will work on projects to help their local communities engage with open data, open source software and teach forward to their peers. They will also receive training and support from Mozilla to hone their skills around open source, participatory learning, and data sharing.</p>

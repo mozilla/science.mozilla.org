@@ -44,10 +44,10 @@ export default React.createClass({
             <p class="m-t-1">{event.short_description}</p>
           </div>
           <div className="col-xs-12">
-            <TabSwitcher className="inline">
-              <div iconDefault="/assets/img/icon-tab-overview-blue.svg" name="About" className="container"><AboutEvent event={event} /></div>
-              <div iconDefault="/assets/img/icon-tab-schedule-blue.svg" name="Schedule" hidden={!event.schedule}><div className="container" dangerouslySetInnerHTML={{__html:event.schedule}}/></div>
-              <div iconDefault="/assets/img/icon-tab-projects-blue.svg" name="Projects" hidden={!event.projects || !event.projects.length}><ProjectList projects={event.projects}/></div>
+            <TabSwitcher baseURL={`/programs/events/${this.props.params.id}/`} initialTab={this.props.params.tab} className="inline">
+              <div slug="about" iconDefault="/assets/img/icon-tab-overview-blue.svg" name="About" className="container"><AboutEvent event={event} /></div>
+              <div slug="schedule" iconDefault="/assets/img/icon-tab-schedule-blue.svg" name="Schedule" hidden={!event.schedule}><div className="container" dangerouslySetInnerHTML={{__html:event.schedule}}/></div>
+              <div slug="projects" iconDefault="/assets/img/icon-tab-projects-blue.svg" name="Projects" hidden={!event.projects || !event.projects.length}><ProjectList projects={event.projects}/></div>
             </TabSwitcher>
           </div>
         </div>

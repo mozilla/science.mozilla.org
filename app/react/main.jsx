@@ -53,10 +53,16 @@ render((
         <Redirect from="jstirnaman-openMetaAnalysis.github.io" to="openMetaAnalysis" />
       </Route>
       <Route path="projects/:id" component={Project} />
-      <Route path="programs/events/:id" component={Event} />
+      <Route path="programs/events/:id" component={Event}>
+        <Route path=":tab" component={Event}/>
+      </Route>
       <Route path="programs/events" component={Events} />
-      <Route path="programs/fellowships" component={Fellowships} />
-      <Route path="programs/studygroups" component={StudyGroups} />
+      <Route path="programs/fellowships" component={Fellowships}>
+        <Route path=":tab" component={Fellowships} />
+      </Route>
+      <Route path="programs/studygroups" component={StudyGroups}>
+        <Route path=":tab" component={StudyGroups} />
+      </Route>
       <Route path="programs" component={Programs} />
       <Route path="resources" component={Resources}/>
       <Route path="style-guide" component={StyleGuide}/>

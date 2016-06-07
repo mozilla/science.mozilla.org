@@ -21,11 +21,11 @@ export default React.createClass({
             </div>
           </div>
           <div className="container">
-            <TabSwitcher ref="tabSwitcher" className="pull-up">
-              <div name="Join a Study Group" iconDefault="/assets/img/icon-tab-join.svg" iconActive="/assets/img/icon-tab-join-blue.svg">
+            <TabSwitcher baseURL={`/programs/studygroups/`} initialTab={this.props.params.tab} ref="tabSwitcher" className="pull-up">
+              <div slug="join" name="Join a Study Group" iconDefault="/assets/img/icon-tab-join.svg" iconActive="/assets/img/icon-tab-join-blue.svg">
                 <Join switchTabs={this.switchTabs}/>
               </div>
-              <div name="Run a Study Group" iconDefault="/assets/img/icon-tab-run.svg" iconActive="/assets/img/icon-tab-run-blue.svg">
+              <div slug="run" name="Run a Study Group" iconDefault="/assets/img/icon-tab-run.svg" iconActive="/assets/img/icon-tab-run-blue.svg">
                 <Run/>
               </div>
             </TabSwitcher>
