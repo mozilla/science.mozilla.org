@@ -68,7 +68,7 @@ export default React.createClass({
               <div className="shadow-box">
                 <div className="inner">
                   <h6 className="m-b-0">Resource</h6>
-                  <h3 className="m-y-1"><a href="http://sciencehackdayny.github.io/data-camp-16/" target="_blank">Data Camp Trainings</a></h3>
+                  <h4 className="m-y-1"><a href="http://sciencehackdayny.github.io/data-camp-16/" target="_blank">Data Camp Trainings</a></h4>
                   <p>{`Our Data Camp Trainings are a collection of resources on collaborative coding, data munging, version control, sensor science, and design principles. Originally used at Science Hack Day 2016 and Space Apps - Brooklyn, this resource is appropriately staged for a hackathon or one-day workshop.`}</p>
                 </div>
               </div>
@@ -98,7 +98,7 @@ export default React.createClass({
 
         <div className="supporters p-t-3">
           <div className="container-dynamic">
-            <h4 className="text-xs-center m-b-3 m-t-0">We are supported by</h4>
+            <h3 className="text-xs-center m-b-3 m-t-0">We are supported by</h3>
 
             <div className="row">
               <div className="col-xs-6 m-b-3">
