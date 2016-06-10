@@ -98,7 +98,7 @@ export default React.createClass({
 
         <div className="supporters p-t-3">
           <div className="container-dynamic">
-            <h3 className="text-xs-center m-b-3 m-t-0">We are supported by</h3>
+            <h4 className="text-xs-center m-b-3 m-t-0">We are supported by</h4>
 
             <div className="row">
               <div className="col-xs-6 m-b-3">
