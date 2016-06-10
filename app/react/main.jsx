@@ -1,6 +1,6 @@
 import React from "react";
 import { render } from "react-dom";
-import { Router, Route, Redirect, browserHistory, IndexRoute, applyRouterMiddleware, IndexRedirect } from "react-router";
+import { Router, Route, Redirect, browserHistory, IndexRoute, applyRouterMiddleware } from "react-router";
 import useScroll from 'react-router-scroll';
 
 // Components
@@ -14,7 +14,6 @@ import BlogList from "./pages/blog.jsx";
 import BlogPost from "./pages/blog-post.jsx";
 import Home from "./pages/home/home.jsx";
 import Members from "./pages/members.jsx";
-import Programs from "./pages/programs.jsx";
 import Projects from "./pages/projects/projects.jsx";
 import Project from "./pages/project-details/project-details.jsx";
 import Resources from "./pages/resources/resources.jsx";
@@ -61,10 +60,7 @@ render((
         <Route path=":tab" component={Fellowships} />
       </Route>
       <Route path="programs/studygroups" component={StudyGroups}>
-        <Route path=":tab" component={StudyGroups} />
-      </Route>
-      <Route path="programs" component={Programs}>
-	<IndexRedirect to="/" />
+	<Route path=":tab" component={StudyGroups} />
       </Route>
       <Route path="resources" component={Resources}/>
       <Route path="style-guide" component={StyleGuide}/>
@@ -76,6 +72,7 @@ render((
       <Redirect from="collaborate" to="projects" />
       <Redirect from="about" to="/" />
       <Redirect from="u/:membername" to="/" />
+      <Redirect from="programs" to="/" />
       <Redirect from="fellows" to="programs/fellowships" />
       <Redirect from="fellows/2015" to="programs/fellowships" />
       <Redirect from="training" to="programs" />
