@@ -1,6 +1,6 @@
 import React from "react";
 import { render } from "react-dom";
-import { Router, Route, Redirect, browserHistory, IndexRoute, applyRouterMiddleware } from "react-router";
+import { Router, Route, Redirect, browserHistory, IndexRoute, applyRouterMiddleware, IndexRedirect } from "react-router";
 import useScroll from 'react-router-scroll';
 
 // Components
@@ -63,7 +63,9 @@ render((
       <Route path="programs/studygroups" component={StudyGroups}>
         <Route path=":tab" component={StudyGroups} />
       </Route>
-      <Route path="programs" component={Programs} />
+      <Route path="programs" component={Programs}>
+	<IndexRedirect to="/" />
+      </Route>
       <Route path="resources" component={Resources}/>
       <Route path="style-guide" component={StyleGuide}/>
       <Route path="code-of-conduct" component={CodeOfConduct}/>
