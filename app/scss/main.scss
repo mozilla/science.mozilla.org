@@ -1,10 +1,10 @@
-// Mozmaker bits
+// mofo-bootstrap bits
 
-@import '../../node_modules/mozmaker/src/scss/custom/colors';
+@import '../../node_modules/mofo-bootstrap/src/scss/custom/colors';
 @import '../../node_modules/bootstrap/scss/_variables.scss';
 @import '../../node_modules/bootstrap/scss/mixins.scss';
 
-// Non-Mozmaker Colors
+// Non-mofo-bootstrap Colors
 
 $off-white: darken($white, 5%);
 
@@ -97,7 +97,7 @@ h6 {
 @import '../react/components/rc-collapse/rc-collapse';
 @import '../react/components/radio-filter/radio-filter';
 
-// Mozmaker Extensions
+// mofo-bootstrap Extensions
 
 .btn.btn-white {
   border-color: $white;
