@@ -13,7 +13,7 @@
     "start": "npm i && npm run build && npm-run-all --parallel server:dev watch:**",
     "build": "npm run build:config && npm run build:js && npm run build:scss && npm run build:static && npm run build:assets",
     "build:config": "node build-config.js > config/env.generated.json",
-    "build:js": "webpack",
+    "build:js": "webpack --optimize-minimize",
     "build:scss": "node-sass app/scss/main.scss dist/css/main.css && postcss --use autoprefixer --autoprefixer.browsers 'last 3 versions' -o dist/css/main.css dist/css/main.css",
     "build:static": "cp -r node_modules/mozmaker/dest/css dist/ && postcss --use autoprefixer --autoprefixer.browsers 'last 3 versions' -o dist/css/mozmaker.css dist/css/mozmaker.css && cp app/index.html dist/index.html",
     "build:assets": "cp -r app/assets dist/ && cp app/favicon.ico dist/",
@@ -57,7 +57,7 @@
     "react-hamburger-menu": "alanmoo/react-hamburger-menu#0.0.5",
     "react-router": "2.4.1",
     "react-router-scroll": "0.2.0",
-    "react-throttle": "^0.2.0",
+    "react-throttle": "0.3.0",
     "stylelint": "^5.3.0",
     "stylelint-config-standard": "^5.0.0",
     "webpack": "^1.12.14"
