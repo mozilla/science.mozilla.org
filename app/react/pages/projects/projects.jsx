@@ -2,7 +2,7 @@ import React from "react";
 
 import ThreeUp from "../../components/three-up/three-up.jsx";
 import ProjectList from "../../components/project-list/project-list.jsx";
-import RadioFilter from "../../components/radio-filter/radio-filter.jsx";
+import { RadioFilter } from "mofo-ui";
 
 import { Debounce } from 'react-throttle';
 import { Link } from 'react-router';

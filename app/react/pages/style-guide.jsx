@@ -2,7 +2,7 @@ import React from "react";
 import ThreeUp from "../components/three-up/three-up.jsx";
 import TabSwitcher from "../components/tab-switcher/tab-switcher.jsx";
 import Collapse from "rc-collapse";
-import RadioFilter from "../components/radio-filter/radio-filter.jsx";
+import { RadioFilter } from "mofo-ui";
 
 let Panel = Collapse.Panel;
 

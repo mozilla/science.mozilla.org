@@ -1,6 +1,12 @@
 var webpack = require(`webpack`);
 
 module.exports = {
+  resolve: {
+    alias: {
+      // Prevent multiple copies of React from being loaded when mofo-ui is used
+      react: `${__dirname}/node_modules/react`
+    }
+  },
   context: `${__dirname}/app`,
   devtool: `cheap-module-source-map`,
   entry: {

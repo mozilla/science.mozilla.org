@@ -1,7 +1,7 @@
 import React from "react";
 import Service from "../../../js/backend.js";
 import DataCard from "../../components/data-card/data-card.jsx";
-import RadioFilter from "../../components/radio-filter/radio-filter.jsx";
+import { RadioFilter } from "mofo-ui";
 
 export default React.createClass({
   componentWillMount: function () {
