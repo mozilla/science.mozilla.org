@@ -80,6 +80,7 @@ h6 {
 
 // Components
 
+@import '../../node_modules/mofo-ui/dist/mofo-ui';
 @import '../react/components/footer/footer';
 @import '../react/components/header/header';
 @import '../react/components/greeting/greeting';
@@ -95,7 +96,6 @@ h6 {
 @import '../react/components/shadow-box';
 @import '../react/components/tab-switcher/tab-switcher';
 @import '../react/components/rc-collapse/rc-collapse';
-@import '../react/components/radio-filter/radio-filter';
 
 // mofo-bootstrap Extensions
 
