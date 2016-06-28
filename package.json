@@ -47,7 +47,7 @@
     "moment": "2.13.0",
     "moment-timezone": "0.5.4",
     "mofo-bootstrap": "1.0.1",
-    "mofo-ui": "gvn/mofo-ui",
+    "mofo-ui": "1.0.0",
     "node-sass": "^3.4.2",
     "npm-run-all": "^1.7.0",
     "postcss-cli-simple": "^1.0.1",
