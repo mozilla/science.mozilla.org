@@ -6,12 +6,6 @@ module.exports = {
   entry: {
     javascript: `./react/main.jsx`
   },
-  resolve: {
-    alias: {
-      // Prevent multiple copies of React from being loaded when mofo-ui is used
-      react: `${__dirname}/node_modules/react`
-    }
-  },
   output: {
     filename: `/js/compiled.js`,
     path: `${__dirname}/dist`
