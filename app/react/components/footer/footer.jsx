@@ -29,7 +29,7 @@ export default React.createClass({
               </div>
               <div className="col-xs-12 col-md-6">
                 <form target="_blank" className="one-shot" action="https://mail.mozilla.org/subscribe/mozillascience" method="POST">
-                  <input type="email" className="form-control" name="email" placeholder="your email"/>
+                  <input type="email" className="form-control" name="email" placeholder="your email" required/>
                   <button onClick={this.subscribeClicked} type="submit" className="btn btn-knockout">Subscribe</button>
                 </form>
               </div>
