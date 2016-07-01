@@ -5,9 +5,9 @@
   "author": "Mozilla",
   "license": "MIT",
   "repository": "mozilla/science.mozilla.org",
-  "engines" : {
+  "engines": {
     "node": "^5.0.0",
-    "npm" : "^3.0.0"
+    "npm": "^3.0.0"
   },
   "scripts": {
     "start": "npm i && npm run build && npm-run-all --parallel server:dev watch:**",
@@ -43,15 +43,16 @@
     "habitat": "^3.1.2",
     "json-loader": "^0.5.4",
     "live-server": "^0.9.2",
+    "mofo-bootstrap": "1.0.1",
     "mofo-style": "^2.4.0",
+    "mofo-ui": "1.1.0",
     "moment": "2.13.0",
     "moment-timezone": "0.5.4",
-    "mofo-bootstrap": "1.0.1",
-    "mofo-ui": "1.1.0",
     "node-sass": "^3.4.2",
     "npm-run-all": "^1.7.0",
     "postcss-cli-simple": "^1.0.1",
     "pushstate-server": "1.8.1",
+    "rc-collapse": "1.6.3",
     "react": "15.0.1",
     "react-dom": "15.0.1",
     "react-hamburger-menu": "alanmoo/react-hamburger-menu#0.0.5",

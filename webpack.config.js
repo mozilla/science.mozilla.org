@@ -17,6 +17,12 @@ module.exports = {
       }
     })
   ],
+  resolve: {
+    alias: {
+      // Prevent multiple copies of React from being loaded when mofo-ui is used
+      react: `${__dirname}/node_modules/react`
+    }
+  },
   module: {
     loaders: [
       {
