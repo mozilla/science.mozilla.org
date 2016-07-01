@@ -60,7 +60,7 @@ render((
         <Route path=":tab" component={Fellowships} />
       </Route>
       <Route path="programs/studygroups" component={StudyGroups}>
-	<Route path=":tab" component={StudyGroups} />
+        <Route path=":tab" component={StudyGroups} />
       </Route>
       <Route path="resources" component={Resources}/>
       <Route path="style-guide" component={StyleGuide}/>
