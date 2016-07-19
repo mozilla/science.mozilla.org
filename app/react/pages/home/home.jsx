@@ -16,25 +16,14 @@ export default React.createClass({
           </div>
         </div>
 
-        <div className="container-dynamic">
+        <div className="container-dynamic m-b-3 science-formula">
+          <img src="/assets/img/icon-drop.svg" alt="" className="sprinkle"/>
+          <img src="/assets/img/icon-droptwo.svg" alt="" className="sprinkle"/>
           <ThreeUp
             hasCircle={true}
             item1={{text: `Maximizing access to papers, data, code, and materials so anyone can read and contribute`, icon: `/assets/img/icon-access.svg`}}
             item2={{text: `A community of researchers advocating for openness and collaboration`, icon: `/assets/img/icon-community.svg`}}
             item3={{text: `Open Science: A way for science to achieve its fullest potential`, icon: `/assets/img/icon-open.svg`}}></ThreeUp>
-        </div>
-
-        <div className="container-dynamic fellow-cta m-b-3">
-          <img src="/assets/img/icon-drop.svg" className="sprinkle"/>
-          <img src="/assets/img/icon-droptwo.svg" className="sprinkle"/>
-
-          <div className="shadow-box">
-            <div>
-              <h2>Apply to be a Fellow</h2>
-              <p>The Mozilla Fellowships for Science present a unique opportunity for researchers who want to influence the future of open science and data sharing within their communities.</p>
-              <a href="/programs/fellowships" className="btn">Learn More</a>
-            </div>
-          </div>
         </div>
 
         <div className="event-study-cta row row-full">
