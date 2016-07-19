@@ -42,55 +42,29 @@
     }
   }
 
-  .fellow-cta {
+  .science-formula {
     position: relative;
-    display: flex;
-    justify-content: flex-end;
-    background: url('/assets/img/home-fellows@2x.jpg');
-    background-size: 100%;
-    background-repeat: no-repeat;
-    padding-top: 12rem;
-    padding-right: 0;
+  }
 
-    @media (min-width: $bp-sm) {
-      padding-top: 18rem;
-    }
+  .sprinkle {
+    position: absolute;
+    max-width: 3rem;
+    display: none;
 
     @media (min-width: $bp-md) {
-      padding-top: 0;
-      padding-right: 6.5rem;
-      background-size: 40%;
-      background-position: calc(33% - 6.5rem) 0;
+      display: inline-block;
     }
 
-    .sprinkle {
-      position: absolute;
-      max-width: 3rem;
-      display: none;
-
-      @media (min-width: $bp-md) {
-        display: inline-block;
-      }
-
-      &.sprinkle:nth-child(1) {
-        top: 1rem;
-        max-width: 2rem;
-        left: 5%;
-      }
-
-      &.sprinkle:nth-child(2) {
-        top: 7rem;
-        left: 0;
-      }
+    &.sprinkle:nth-child(1) {
+      top: 2rem;
+      max-width: 2rem;
+      left: 5%;
     }
 
-    .shadow-box {
-      margin-left: 5%;
-
-      @media (min-width: $bp-md) {
-        width: 66%;
-        margin: 4rem 0;
-      }
+    &.sprinkle:nth-child(2) {
+      bottom: -4rem;
+      left: 0;
+      z-index: 4;
     }
   }
 
