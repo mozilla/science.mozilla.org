@@ -1,8 +1,6 @@
 import React from "react";
 import TabSwitcher from "../../components/tab-switcher/tab-switcher.jsx";
-import Collapse from "rc-collapse";
-
-let Panel = Collapse.Panel;
+import { Collapse, Panel } from "mofo-ui";
 
 let IconItem = React.createClass({
   render() {
