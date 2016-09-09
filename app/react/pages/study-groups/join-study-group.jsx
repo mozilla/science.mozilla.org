@@ -1,7 +1,6 @@
 import React from "react";
 import Service from "../../../js/backend.js";
-import Collapse from "rc-collapse";
-let Panel = Collapse.Panel;
+import { Collapse, Panel } from "mofo-ui";
 
 export default React.createClass({
   propTypes:{

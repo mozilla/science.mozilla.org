@@ -1,8 +1,6 @@
 import React from "react";
 import TabSwitcher from "../../components/tab-switcher/tab-switcher.jsx";
-import Collapse from "rc-collapse";
-
-let Panel = Collapse.Panel;
+import { Collapse, Panel } from "mofo-ui";
 
 let IconItem = React.createClass({
   render() {
@@ -16,10 +14,6 @@ let IconItem = React.createClass({
 });
 
 export default React.createClass({
-  switchToFAQ() {
-    this.refs.tabSwitcher.setState({activeTab: 1});
-    window.scroll(0,0);
-  },
   getInitialState(){
     return {
     };
@@ -33,17 +27,12 @@ export default React.createClass({
               <h2 className="col-xs-12">Fellowships</h2>
               <p className="lead m-t-1 col-xs-12 col-md-push-1 col-md-10 col-lg-8 col-lg-push-2"><em>Are you a champion of open science and open data? Mozilla is seeking researchers eager to advance openness in science and data within their institutions.</em></p>
             </div>
-            <div className="row">
-              <div className="col-xs-12">
-                <a className="btn btn-white" href="https://mozilla-science-lab.forms.fm/mozilla-fellows-for-science-2016" target="_blank">Apply Now</a>
-              </div>
-            </div>
           </div>
         </div>
 
         <div className="container">
-          <TabSwitcher ref="tabSwitcher" className="pull-up">
-            <div className="p-y-3" name="Overview" iconDefault="/assets/img/icon-tab-overview.svg" iconActive="/assets/img/icon-tab-overview-blue.svg">
+          <TabSwitcher baseURL={`/programs/fellowships/`} initialTab={this.props.params.tab} ref="tabSwitcher" className="pull-up">
+            <div className="p-y-3" name="Overview" slug="overview" iconDefault="/assets/img/icon-tab-overview.svg" iconActive="/assets/img/icon-tab-overview-blue.svg">
               <h2>About the Program</h2>
 
               <p>The Mozilla Fellowships for Science present a unique opportunity for researchers who want to influence the future of open science and data sharing within their communities.</p>
@@ -75,7 +64,7 @@ export default React.createClass({
                 <IconItem imgSrc="/assets/img/fellowships/icon-child.svg" copy="A one-time childcare allotment of up to $6,000 for families with children"></IconItem>
                 <IconItem imgSrc="/assets/img/fellowships/icon-computer.svg" copy="An allowance of up to $3,000 towards the purchase of laptop computer, digital cameras, recorders and computer software; fees for continuing studies or other courses, research fees or payments, to the extent related to the fellowship"></IconItem>
                 <IconItem imgSrc="/assets/img/fellowships/icon-trips.svg" copy="Funding for relevant fellowship trips - domestic and international - which will be covered in full"></IconItem>
-                * Proposed fellowship amounts are gross amounts and may be reduced by applicable taxes in the various applicable jurisdictions. Read more <a href="#" onClick={this.switchToFAQ}>here</a>
+                * Proposed fellowship amounts are gross amounts and may be reduced by applicable taxes in the various applicable jurisdictions. Read more <a href="/programs/fellowships/faq">here</a>
               </div>
 
               <h3 className="m-b-1">Eligibility Criteria</h3>
@@ -90,7 +79,7 @@ export default React.createClass({
                 <IconItem imgSrc="/assets/img/fellowships/icon-open.svg" copy="Experienced participants in open communities"></IconItem>
               </div>
             </div>
-            <div className="p-y-3" name="FAQ" iconDefault="/assets/img/icon-tab-faq.svg" iconActive="/assets/img/icon-tab-faq-blue.svg">
+            <div className="p-y-3" name="FAQ" slug="faq" iconDefault="/assets/img/icon-tab-faq.svg" iconActive="/assets/img/icon-tab-faq-blue.svg">
               <h2 className="m-b-1">Application FAQ</h2>
 
               <Collapse>
@@ -146,7 +135,7 @@ export default React.createClass({
                 </Panel>
               </Collapse>
             </div>
-            <div className="p-y-3" name="Fellows" iconDefault="/assets/img/icon-tab-fellows.svg" iconActive="/assets/img/icon-tab-fellows-blue.svg">
+            <div className="p-y-3" name="Fellows" slug="fellows" iconDefault="/assets/img/icon-tab-fellows.svg" iconActive="/assets/img/icon-tab-fellows-blue.svg">
               <h2>Our 2015 Fellows</h2>
 
               <p>The folks chosen are representative of the change we want to see in the community, championing openness, collaboration, and mentorship in science. Over the next ten months, the fellows will work on projects to help their local communities engage with open data, open source software and teach forward to their peers. They will also receive training and support from Mozilla to hone their skills around open source, participatory learning, and data sharing.</p>
@@ -203,8 +192,7 @@ export default React.createClass({
 
         <div className="p-y-3 fellow-cta">
           <div className="container">
-            <h3>Deadline for applications is July 15, 2016</h3>
-            <a className="btn btn-white m-b-2" href="https://mozilla-science-lab.forms.fm/mozilla-fellows-for-science-2016" target="_blank">Apply Now</a>
+            <h3>The 2016 call for applications is now closed</h3>
           </div>
         </div>
 
