@@ -136,9 +136,56 @@ export default React.createClass({
               </Collapse>
             </div>
             <div className="p-y-3" name="Fellows" slug="fellows" iconDefault="/assets/img/icon-tab-fellows.svg" iconActive="/assets/img/icon-tab-fellows-blue.svg">
-              <h2>Our 2015 Fellows</h2>
+              <h2>Our 2016 Fellows</h2>
 
               <p>The folks chosen are representative of the change we want to see in the community, championing openness, collaboration, and mentorship in science. Over the next ten months, the fellows will work on projects to help their local communities engage with open data, open source software and teach forward to their peers. They will also receive training and support from Mozilla to hone their skills around open source, participatory learning, and data sharing.</p>
+
+              <div className="row m-y-3">
+                <div className="col-sm-3 center-vertical">
+                  <img className="circle" src="/assets/img/fellowships/fellow-kirstie.png"/>
+                </div>
+                <div className="col-sm-9">
+                  <h4 className="m-b-0">Kirstie Whitaker</h4>
+                  <p className="m-b-1"><a href="https://twitter.com/KirstieJane" target="_blank">@KirstieJane</a> | <a href="http://www.kirstiewhitaker.com" target="_blank">Kirstie's Blog</a></p>
+                  <p>A postdoctoral researcher in the <a href="http://www.bmu.psychiatry.cam.ac.uk" target="_blank">Brain Mapping Unit</a> at the University of Cambridge. She studies adolescent brain development and is particularly interested in the emergence of mental health disorders during the teenage years. She uses network analyses to understand how different parts of the brain work work together and ensures all her analyses are reproducible by independent researchers. She's the founder and lead developer of the <a href="www.stemmrolemodels.com" target="_blank">STEMM Role Models</a> project which provides a database of experts from traditionally under-represented groups to ensure conference organizers are able to invite the most diverse and exciting speakers to their events. </p>
+                </div>
+              </div>
+
+              <div className="row m-y-3">
+                <div className="col-sm-3 center-vertical">
+                  <img className="circle" src="/assets/img/fellowships/fellow-bruno.png"/>
+                </div>
+                <div className="col-sm-9">
+                  <h4 className="m-b-0">Bruno Miguel Pereira Vieira</h4>
+                  <p className="m-b-1"><a href="https://twitter.com/bmpvieira" target="_blank">@bmpvieira</a> | <a href="https://medium.com/@bmpvieira" target="_blank">Bruno's Blog</a></p>
+                  <p>A bioinformatics and population genomics PhD student at <a href="http://wurmlab.github.io/" target="_blank">WurmLab</a> (<a href="http://www.qmul.ac.uk/" target="_blank">Queen Mary University of London</a>) and Node.js web developer. Researching how genetic diversity is affected by sociality in insects (e.g., ants and bees). He founded the open source community <a href="http://www.bionode.io/" target="_blank">Bionode.io</a> with the goal of improving modularity and reusability of tools and code in bioinformatics by leveraging innovation coming from the Node.js and Web communities. He's involved in other open source projects such as <a href="http://dat-data.com/" target="_blank">Dat</a> ("git for data") and <a href="https://github.com/biojs/biojs" target="_blank">BioJS</a> ("biological data visualization on the web”).</p>
+                </div>
+              </div>
+
+              <div className="row m-y-3">
+                <div className="col-sm-3 center-vertical">
+                  <img className="circle" src="/assets/img/fellowships/fellow-danielle.png"/>
+                </div>
+                <div className="col-sm-9">
+                  <h4 className="m-b-0">Danielle Robinson</h4>
+                  <p className="m-b-1"><a href="https://twitter.com/daniellecrobins" target="_blank">@daniellecrobins</a> | <a href="http://www.daniellecrobinson.com/" target="_blank">Danielle's Blog</a></p>
+                  <p>A cell biologist and Neuroscience PhD candidate at <a href="http://www.ohsu.edu/xd/education/schools/school-of-medicine/academic-programs/neuroscience-graduate-program/" target="_blank">Oregon Health and Science University</a> passionate about improving reproducibility and digital literacy in the sciences. She studies the role of phosphoinositide signaling in myelination in her dissertation project, collects terabytes of microscopy data, loves fancy microscopes, and enjoys policy work. She co-organizes <a href="ttp://openinsightpdx.com/" target="_blank">Open Insight PDX</a>, which seeks to build skills that enhance research reproducibility and facilitate discussion of issues surrounding publishing, data sharing, and copyright. She is a founding member of <a href="http://wisportland.weebly.com/" target="_blank">Women in Science Portland</a> and an organizer for <a href="http://portland.sciencehackday.org/" target="_blank">Science Hack Day Portland</a>.</p>
+                </div>
+              </div>
+
+              <div className="row m-y-3">
+                <div className="col-sm-3 center-vertical">
+                  <img className="circle" src="/assets/img/fellowships/fellow-teon.png"/>
+                </div>
+                <div className="col-sm-9">
+                  <h4 className="m-b-0">Teon Brooks</h4>
+                  <p className="m-b-1"><a href="https://github.com/teon_io" target="_blank">@teon_io</a> | <a href="http://teonbrooks.github.io" target="_blank">Teon's Blog</a></p>
+                  <p>A postdoctoral researcher at the <a href="http://reproducibility.stanford.edu/" target="_blank">Center for Reproducible Neuroscience</a> and the Department of Psychology at Stanford University. He studies the cognitive processes and temporal dynamics of the brain during reading. He is a core developer for <a href="https://github.com/mne-tools/mne-python/" target="_blank">MNE</a>, a community-driven project for analyzing time-series brain data in Python; and <a href="https://github.com/openexp/OpenEXP" target="_blank">OpenEXP</a>, an open science platform founded to be a "GitHub for Experiments" and a tool for running both behavioral and physiological experiments using open-source web-based tools. He is also developing curriculum, DIYCogSci, for teaching experimental research methods and coding using low-cost electronics and open-source hardware.</p>
+                </div>
+              </div>
+
+
+              <h2>Our 2015 Fellows</h2>
 
               <div className="row m-y-3">
                 <div className="col-sm-3 center-vertical">
