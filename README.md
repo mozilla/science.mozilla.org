@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/mozilla/science.mozilla.org.svg?branch=master)](https://travis-ci.org/mozilla/science.mozilla.org)
+[![Uses Mofo Standards](https://MozillaFoundation.github.io/mofo-standards/badge.svg)](https://github.com/MozillaFoundation/mofo-standards)
 
 # science.mozilla.org
 
@@ -57,11 +58,11 @@ It's highly recommended that you add plugins to your editor of choice that can r
 
 #### Bootstrap
 
-This site uses version 4 of the Bootstrap framework as well as [a custom Mozilla Foundation theme](https://github.com/mozilla/mozmaker).
+This site uses version 4 of the Bootstrap framework as well as [a custom Mozilla Foundation theme](https://github.com/mozilla/mofo-bootstrap).
 
 Use [Bootstrap 4](https://v4-alpha.getbootstrap.com/getting-started/introduction/) classes whenever possible, rather than writing additional SCSS.
 
-Refer to [this page](https://mozilla.github.io/mozmaker/demo/) for a demonstration of the non-standard and overridden components available to you. The demo also contains color variables that you can use. Whenever possible, use a color variable instead of hard coding a color value.
+Refer to [this page](https://mozilla.github.io/mofo-bootstrap/demo/) for a demonstration of the non-standard and overridden components available to you. The demo also contains color variables that you can use. Whenever possible, use a color variable instead of hard coding a color value.
 
 ### Additional Conventions
 

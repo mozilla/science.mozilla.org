@@ -1,8 +1,6 @@
 import React from "react";
 import TabSwitcher from "../../components/tab-switcher/tab-switcher.jsx";
-import Collapse from "rc-collapse";
-
-let Panel = Collapse.Panel;
+import { Collapse, Panel } from "mofo-ui";
 
 let IconItem = React.createClass({
   render() {
@@ -16,10 +14,6 @@ let IconItem = React.createClass({
 });
 
 export default React.createClass({
-  switchToFAQ() {
-    this.refs.tabSwitcher.setState({activeTab: 1});
-    window.scroll(0,0);
-  },
   getInitialState(){
     return {
     };
@@ -33,17 +27,12 @@ export default React.createClass({
               <h2 className="col-xs-12">Fellowships</h2>
               <p className="lead m-t-1 col-xs-12 col-md-push-1 col-md-10 col-lg-8 col-lg-push-2"><em>Are you a champion of open science and open data? Mozilla is seeking researchers eager to advance openness in science and data within their institutions.</em></p>
             </div>
-            <div className="row">
-              <div className="col-xs-12">
-                <a className="btn btn-white" href="https://mozilla-science-lab.forms.fm/mozilla-fellows-for-science-2016" target="_blank">Apply Now</a>
-              </div>
-            </div>
           </div>
         </div>
 
         <div className="container">
-          <TabSwitcher ref="tabSwitcher" className="pull-up">
-            <div className="p-y-3" name="Overview" iconDefault="/assets/img/icon-tab-overview.svg" iconActive="/assets/img/icon-tab-overview-blue.svg">
+          <TabSwitcher baseURL={`/programs/fellowships/`} initialTab={this.props.params.tab} ref="tabSwitcher" className="pull-up">
+            <div className="p-y-3" name="Overview" slug="overview" iconDefault="/assets/img/icon-tab-overview.svg" iconActive="/assets/img/icon-tab-overview-blue.svg">
               <h2>About the Program</h2>
 
               <p>The Mozilla Fellowships for Science present a unique opportunity for researchers who want to influence the future of open science and data sharing within their communities.</p>
@@ -75,7 +64,7 @@ export default React.createClass({
                 <IconItem imgSrc="/assets/img/fellowships/icon-child.svg" copy="A one-time childcare allotment of up to $6,000 for families with children"></IconItem>
                 <IconItem imgSrc="/assets/img/fellowships/icon-computer.svg" copy="An allowance of up to $3,000 towards the purchase of laptop computer, digital cameras, recorders and computer software; fees for continuing studies or other courses, research fees or payments, to the extent related to the fellowship"></IconItem>
                 <IconItem imgSrc="/assets/img/fellowships/icon-trips.svg" copy="Funding for relevant fellowship trips - domestic and international - which will be covered in full"></IconItem>
-                * Proposed fellowship amounts are gross amounts and may be reduced by applicable taxes in the various applicable jurisdictions. Read more <a href="#" onClick={this.switchToFAQ}>here</a>
+                * Proposed fellowship amounts are gross amounts and may be reduced by applicable taxes in the various applicable jurisdictions. Read more <a href="/programs/fellowships/faq">here</a>
               </div>
 
               <h3 className="m-b-1">Eligibility Criteria</h3>
@@ -90,7 +79,7 @@ export default React.createClass({
                 <IconItem imgSrc="/assets/img/fellowships/icon-open.svg" copy="Experienced participants in open communities"></IconItem>
               </div>
             </div>
-            <div className="p-y-3" name="FAQ" iconDefault="/assets/img/icon-tab-faq.svg" iconActive="/assets/img/icon-tab-faq-blue.svg">
+            <div className="p-y-3" name="FAQ" slug="faq" iconDefault="/assets/img/icon-tab-faq.svg" iconActive="/assets/img/icon-tab-faq-blue.svg">
               <h2 className="m-b-1">Application FAQ</h2>
 
               <Collapse>
@@ -146,10 +135,57 @@ export default React.createClass({
                 </Panel>
               </Collapse>
             </div>
-            <div className="p-y-3" name="Fellows" iconDefault="/assets/img/icon-tab-fellows.svg" iconActive="/assets/img/icon-tab-fellows-blue.svg">
-              <h2>Our 2015 Fellows</h2>
+            <div className="p-y-3" name="Fellows" slug="fellows" iconDefault="/assets/img/icon-tab-fellows.svg" iconActive="/assets/img/icon-tab-fellows-blue.svg">
+              <h2>Our 2016 Fellows</h2>
 
               <p>The folks chosen are representative of the change we want to see in the community, championing openness, collaboration, and mentorship in science. Over the next ten months, the fellows will work on projects to help their local communities engage with open data, open source software and teach forward to their peers. They will also receive training and support from Mozilla to hone their skills around open source, participatory learning, and data sharing.</p>
+
+              <div className="row m-y-3">
+                <div className="col-sm-3 center-vertical">
+                  <img className="circle" src="/assets/img/fellowships/fellow-kirstie.png"/>
+                </div>
+                <div className="col-sm-9">
+                  <h4 className="m-b-0">Kirstie Whitaker</h4>
+                  <p className="m-b-1"><a href="https://twitter.com/KirstieJane" target="_blank">@KirstieJane</a> | <a href="http://www.kirstiewhitaker.com" target="_blank">Kirstie's Blog</a></p>
+                  <p>A postdoctoral researcher in the <a href="http://www.bmu.psychiatry.cam.ac.uk" target="_blank">Brain Mapping Unit</a> at the University of Cambridge. She studies adolescent brain development and is particularly interested in the emergence of mental health disorders during the teenage years. She uses network analyses to understand how different parts of the brain work work together and ensures all her analyses are reproducible by independent researchers. She's the founder and lead developer of the <a href="www.stemmrolemodels.com" target="_blank">STEMM Role Models</a> project which provides a database of experts from traditionally under-represented groups to ensure conference organizers are able to invite the most diverse and exciting speakers to their events. </p>
+                </div>
+              </div>
+
+              <div className="row m-y-3">
+                <div className="col-sm-3 center-vertical">
+                  <img className="circle" src="/assets/img/fellowships/fellow-bruno.png"/>
+                </div>
+                <div className="col-sm-9">
+                  <h4 className="m-b-0">Bruno Miguel Pereira Vieira</h4>
+                  <p className="m-b-1"><a href="https://twitter.com/bmpvieira" target="_blank">@bmpvieira</a> | <a href="https://medium.com/@bmpvieira" target="_blank">Bruno's Blog</a></p>
+                  <p>A bioinformatics and population genomics PhD student at <a href="http://wurmlab.github.io/" target="_blank">WurmLab</a> (<a href="http://www.qmul.ac.uk/" target="_blank">Queen Mary University of London</a>) and Node.js web developer. Researching how genetic diversity is affected by sociality in insects (e.g., ants and bees). He founded the open source community <a href="http://www.bionode.io/" target="_blank">Bionode.io</a> with the goal of improving modularity and reusability of tools and code in bioinformatics by leveraging innovation coming from the Node.js and Web communities. He's involved in other open source projects such as <a href="http://dat-data.com/" target="_blank">Dat</a> ("git for data") and <a href="https://github.com/biojs/biojs" target="_blank">BioJS</a> ("biological data visualization on the web”).</p>
+                </div>
+              </div>
+
+              <div className="row m-y-3">
+                <div className="col-sm-3 center-vertical">
+                  <img className="circle" src="/assets/img/fellowships/fellow-danielle.png"/>
+                </div>
+                <div className="col-sm-9">
+                  <h4 className="m-b-0">Danielle Robinson</h4>
+                  <p className="m-b-1"><a href="https://twitter.com/daniellecrobins" target="_blank">@daniellecrobins</a> | <a href="http://www.daniellecrobinson.com/" target="_blank">Danielle's Blog</a></p>
+                  <p>A cell biologist and Neuroscience PhD candidate at <a href="http://www.ohsu.edu/xd/education/schools/school-of-medicine/academic-programs/neuroscience-graduate-program/" target="_blank">Oregon Health and Science University</a> passionate about improving reproducibility and digital literacy in the sciences. She studies the role of phosphoinositide signaling in myelination in her dissertation project, collects terabytes of microscopy data, loves fancy microscopes, and enjoys policy work. She co-organizes <a href="ttp://openinsightpdx.com/" target="_blank">Open Insight PDX</a>, which seeks to build skills that enhance research reproducibility and facilitate discussion of issues surrounding publishing, data sharing, and copyright. She is a founding member of <a href="http://wisportland.weebly.com/" target="_blank">Women in Science Portland</a> and an organizer for <a href="http://portland.sciencehackday.org/" target="_blank">Science Hack Day Portland</a>.</p>
+                </div>
+              </div>
+
+              <div className="row m-y-3">
+                <div className="col-sm-3 center-vertical">
+                  <img className="circle" src="/assets/img/fellowships/fellow-teon.png"/>
+                </div>
+                <div className="col-sm-9">
+                  <h4 className="m-b-0">Teon Brooks</h4>
+                  <p className="m-b-1"><a href="https://github.com/teon_io" target="_blank">@teon_io</a> | <a href="http://teonbrooks.github.io" target="_blank">Teon's Blog</a></p>
+                  <p>A postdoctoral researcher at the <a href="http://reproducibility.stanford.edu/" target="_blank">Center for Reproducible Neuroscience</a> and the Department of Psychology at Stanford University. He studies the cognitive processes and temporal dynamics of the brain during reading. He is a core developer for <a href="https://github.com/mne-tools/mne-python/" target="_blank">MNE</a>, a community-driven project for analyzing time-series brain data in Python; and <a href="https://github.com/openexp/OpenEXP" target="_blank">OpenEXP</a>, an open science platform founded to be a "GitHub for Experiments" and a tool for running both behavioral and physiological experiments using open-source web-based tools. He is also developing curriculum, DIYCogSci, for teaching experimental research methods and coding using low-cost electronics and open-source hardware.</p>
+                </div>
+              </div>
+
+
+              <h2>Our 2015 Fellows</h2>
 
               <div className="row m-y-3">
                 <div className="col-sm-3 center-vertical">
@@ -203,8 +239,7 @@ export default React.createClass({
 
         <div className="p-y-3 fellow-cta">
           <div className="container">
-            <h3>Deadline for applications is July 15, 2016</h3>
-            <a className="btn btn-white m-b-2" href="https://mozilla-science-lab.forms.fm/mozilla-fellows-for-science-2016" target="_blank">Apply Now</a>
+            <h3>The 2016 call for applications is now closed</h3>
           </div>
         </div>
 

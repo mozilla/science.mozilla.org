@@ -14,7 +14,6 @@ import BlogList from "./pages/blog.jsx";
 import BlogPost from "./pages/blog-post.jsx";
 import Home from "./pages/home/home.jsx";
 import Members from "./pages/members.jsx";
-import Programs from "./pages/programs.jsx";
 import Projects from "./pages/projects/projects.jsx";
 import Project from "./pages/project-details/project-details.jsx";
 import Resources from "./pages/resources/resources.jsx";
@@ -53,11 +52,16 @@ render((
         <Redirect from="jstirnaman-openMetaAnalysis.github.io" to="openMetaAnalysis" />
       </Route>
       <Route path="projects/:id" component={Project} />
-      <Route path="programs/events/:id" component={Event} />
+      <Route path="programs/events/:id" component={Event}>
+        <Route path=":tab" component={Event}/>
+      </Route>
       <Route path="programs/events" component={Events} />
-      <Route path="programs/fellowships" component={Fellowships} />
-      <Route path="programs/studygroups" component={StudyGroups} />
-      <Route path="programs" component={Programs} />
+      <Route path="programs/fellowships" component={Fellowships}>
+        <Route path=":tab" component={Fellowships} />
+      </Route>
+      <Route path="programs/studygroups" component={StudyGroups}>
+        <Route path=":tab" component={StudyGroups} />
+      </Route>
       <Route path="resources" component={Resources}/>
       <Route path="style-guide" component={StyleGuide}/>
       <Route path="code-of-conduct" component={CodeOfConduct}/>
@@ -68,6 +72,7 @@ render((
       <Redirect from="collaborate" to="projects" />
       <Redirect from="about" to="/" />
       <Redirect from="u/:membername" to="/" />
+      <Redirect from="programs" to="/" />
       <Redirect from="fellows" to="programs/fellowships" />
       <Redirect from="fellows/2015" to="programs/fellowships" />
       <Redirect from="training" to="programs" />
