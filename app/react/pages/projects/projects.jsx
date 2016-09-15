@@ -4,7 +4,7 @@ import ThreeUp from "../../components/three-up/three-up.jsx";
 import ProjectList from "../../components/project-list/project-list.jsx";
 import { RadioFilter } from "mofo-ui";
 
-import { Debounce } from 'react-throttle';
+import DebounceInput from 'react-debounce-input';
 import { Link } from 'react-router';
 import Service from "../../../js/backend.js";
 
@@ -20,10 +20,14 @@ export default React.createClass({
       pagesLoaded: 0
     };
   },
-  handleFilterInput(){
+  handleSearchInput(event){
     this.setState({
-      filterText: this.refs.projectFilter.value,
-      category: this.refs.categorySelect.value
+      filterText: event.target.value
+    }, () => { this.getProjectList(1); });
+  },
+  handleCategoryInput(event){
+    this.setState({
+      category: event.target.value
     }, () => { this.getProjectList(1); });
   },
   onSortChange(choice) {
@@ -47,7 +51,8 @@ export default React.createClass({
           projects: page === 1 ? data.results : this.state.projects.concat(data.results),
           pagesLoaded: page,
           allPagesLoaded: !data.next
-        }); })
+        });
+      })
       .catch((reason) => { console.error(reason); });
   },
   componentWillMount() {
@@ -122,12 +127,10 @@ export default React.createClass({
           </div>
           <div className="row m-y-1">
             <div className="col-xs-12 col-sm-6 col-md-4 col-md-push-2">
-              <Debounce time="400" handler="onChange">
-                <input type="search" ref="projectFilter" onChange={this.handleFilterInput} className="form-control" placeholder="search"/>
-              </Debounce>
+              <DebounceInput debounceTimeout={400} type="search" ref="projectFilter" onChange={this.handleSearchInput} className="form-control" placeholder="search"/>
             </div>
             <div className="col-xs-12 col-sm-6 col-md-4 col-md-push-2">
-              <select name="topic" id="topic" ref="categorySelect" onChange={this.handleFilterInput} className="c-select wide">
+              <select name="topic" id="topic" ref="categorySelect" onChange={this.handleCategoryInput} className="c-select wide">
                 <option value="">All Topics</option>
                 {this.state.categories.map(category => {
                   return <option key={category.id} value={category.name}>{category.name}</option>;
