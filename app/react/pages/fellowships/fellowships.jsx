@@ -146,8 +146,8 @@ export default React.createClass({
                 </div>
                 <div className="col-sm-9">
                   <h4 className="m-b-0">Kirstie Whitaker</h4>
-                  <p className="m-b-1"><a href="https://twitter.com/KirstieJane" target="_blank">@KirstieJane</a> | <a href="http://www.kirstiewhitaker.com" target="_blank">Kirstie's Blog</a></p>
-                  <p>A postdoctoral researcher in the <a href="http://www.bmu.psychiatry.cam.ac.uk" target="_blank">Brain Mapping Unit</a> at the University of Cambridge. She studies adolescent brain development and is particularly interested in the emergence of mental health disorders during the teenage years. She uses network analyses to understand how different parts of the brain work work together and ensures all her analyses are reproducible by independent researchers. She's the founder and lead developer of the <a href="www.stemmrolemodels.com" target="_blank">STEMM Role Models</a> project which provides a database of experts from traditionally under-represented groups to ensure conference organizers are able to invite the most diverse and exciting speakers to their events. </p>
+                  <p className="m-b-1"><a href="https://twitter.com/kirstie_j" target="_blank">@kirstie_j</a> | <a href="http://www.kirstiewhitaker.com" target="_blank">Kirstie's Blog</a></p>
+                  <p>A postdoctoral researcher in the <a href="http://www.bmu.psychiatry.cam.ac.uk" target="_blank">Brain Mapping Unit</a> at the <a href="http://www.cam.ac.uk/" target="_blank">University of Cambridge</a>. She studies adolescent brain development and is particularly interested in the emergence of mental health disorders during the teenage years. She uses network analyses to understand how different parts of the brain work work together and ensures all her analyses are reproducible by independent researchers. She's the founder and lead developer of the <a href="www.stemmrolemodels.com" target="_blank">STEMM Role Models</a> project which provides a database of experts from traditionally under-represented groups to ensure conference organizers are able to invite the most diverse and exciting speakers to their events. </p>
                 </div>
               </div>
 
@@ -179,7 +179,7 @@ export default React.createClass({
                 </div>
                 <div className="col-sm-9">
                   <h4 className="m-b-0">Teon Brooks</h4>
-                  <p className="m-b-1"><a href="https://github.com/teon_io" target="_blank">@teon_io</a> | <a href="http://teonbrooks.github.io" target="_blank">Teon's Blog</a></p>
+                  <p className="m-b-1"><a href="https://twitter.com/teon_io" target="_blank">@teon_io</a> | <a href="http://teonbrooks.github.io" target="_blank">Teon's Blog</a></p>
                   <p>A postdoctoral researcher at the <a href="http://reproducibility.stanford.edu/" target="_blank">Center for Reproducible Neuroscience</a> and the Department of Psychology at Stanford University. He studies the cognitive processes and temporal dynamics of the brain during reading. He is a core developer for <a href="https://github.com/mne-tools/mne-python/" target="_blank">MNE</a>, a community-driven project for analyzing time-series brain data in Python; and <a href="https://github.com/openexp/OpenEXP" target="_blank">OpenEXP</a>, an open science platform founded to be a "GitHub for Experiments" and a tool for running both behavioral and physiological experiments using open-source web-based tools. He is also developing curriculum, DIYCogSci, for teaching experimental research methods and coding using low-cost electronics and open-source hardware.</p>
                 </div>
               </div>
