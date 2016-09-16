@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Mozilla Science",
   "author": "Mozilla",
-  "license": "MIT",
+  "license": "MPL-2.0",
   "repository": "mozilla/science.mozilla.org",
   "engines": {
     "node": "^5.0.0",
