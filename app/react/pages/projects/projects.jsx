@@ -113,7 +113,7 @@ export default React.createClass({
         <div className="threeUp-wrapper">
           <div className="container-dynamic p-t-3">
             <ThreeUp
-              item1={{ title: `What is open source?`, text: `Open source describes software that can be used modified and distributed. The extent of its "openness" is determined by the license attached to the software, but in general, open source projects are collaborative in nature, with many people contributing to the source code.`, icon: `/assets/img/icon-opensource.svg` }}
+              item1={{ title: `What is open source?`, text: `Open source describes software that can be used, modified, distributed, and is collaborative in nature. The extent of its "openness" is determined by the license attached to the software.`, icon: `/assets/img/icon-opensource.svg` }}
               item2={{ title: `How to get started`, text: `Most open source projects have a README file that provides an overview of how to get set up, and many also have a CONTRIBUTING file that details how to get started as a contributor.`, icon: `/assets/img/icon-start.svg` }}
               item3={{ title: `How it helps science`, text: `Too often today, scientific research happens in closed environments. Findings and papers are sealed-up, isolated from other researchers and the public. Open practices help science achieve its full potential.`, icon: `/assets/img/icon-help.svg` }}>
             </ThreeUp>
