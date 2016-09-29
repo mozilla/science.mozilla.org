@@ -11,7 +11,7 @@ import Footer from "./components/footer/footer.jsx";
 // Pages
 
 import BlogList from "./pages/blog.jsx";
-import BlogPost from "./pages/blog-post.jsx";
+import BlogPost from "./pages/blog-post/blog-post.jsx";
 import Home from "./pages/home/home.jsx";
 import Members from "./pages/members.jsx";
 import Projects from "./pages/projects/projects.jsx";

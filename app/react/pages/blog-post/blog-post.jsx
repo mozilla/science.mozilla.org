@@ -1,6 +1,6 @@
 import React from "react";
 import Moment from "moment-timezone";
-import Service from "../../js/backend.js";
+import Service from "../../../js/backend.js";
 
 export default React.createClass({
   componentWillMount: function () {
@@ -26,8 +26,8 @@ export default React.createClass({
 
       return (
         <div id="blog-post">
-          <div className="jumbotron container text-xs-center m-b-3 p-b-1">
-            <h2 className="m-b-2">{this.state.post.title}</h2>
+          <div className="jumbotron container text-xs-center m-b-2 p-b-1">
+            <h1 className="m-b-2">{this.state.post.title}</h1>
             <p className="m-b-2">by {this.state.post.author.name} on {new Moment(this.state.post.date).format(`MMM D, YYYY`)}</p>
             <div className="tags">{tags}</div>
           </div>
