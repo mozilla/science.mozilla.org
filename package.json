@@ -59,9 +59,7 @@
     "react-hamburger-menu": "alanmoo/react-hamburger-menu#0.0.5",
     "react-router": "2.4.1",
     "react-router-scroll": "0.2.0",
-    "webpack": "^1.12.14"
-  },
-  "devDependencies": {
+    "webpack": "^1.12.14",
     "stylelint": "^7.3.1",
     "stylelint-config-standard": "^13.0.2"
   }
