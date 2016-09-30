@@ -18,6 +18,7 @@
 
   .jumbotron-fluid {
     @include img-retina('/assets/img/home-hero.jpg','/assets/img/home-hero@2x.jpg', cover, null);
+
     background-repeat: no-repeat;
     background-size: cover;
 

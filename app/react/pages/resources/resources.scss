@@ -1,6 +1,7 @@
 #page-resources {
   .jumbotron-fluid {
     @include img-retina('/assets/img/hero-resources.jpg','/assets/img/hero-resources@2x.jpg', cover, null);
+
     background-repeat: no-repeat;
     background-size: cover;
   }
