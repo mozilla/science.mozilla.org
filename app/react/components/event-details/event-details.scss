@@ -31,19 +31,24 @@
 
 .event-description {
   @extend p;
+
   font-weight: 300;
   margin-bottom: 2rem;
+
   iframe {
     max-width: 100%;
   }
+
   ul {
     margin-left: 1em;
     font-size: 0.9375rem;
+
     li {
       margin: 0;
       font-size: 1em;
     }
   }
+
   h2 {
     margin-top: 1em;
     font-size: 2rem;
@@ -54,20 +59,24 @@
   &.inline .tabs {
     border-bottom-color: $nightly-blue;
   }
+
   .tabs .btn {
     background-color: #e4e6ef;
     font-weight: 200;
     font-size: 1.25rem;
   }
+
   .tabs .btn.active {
     border-top-color: $nightly-blue;
     border-left-color: $nightly-blue;
     border-right-color: $nightly-blue;
     background: transparent;
   }
+
   .panels {
     margin: 3rem 0;
   }
+
   .tabs[hidden] + .panels {
     margin-top: 0;
   }

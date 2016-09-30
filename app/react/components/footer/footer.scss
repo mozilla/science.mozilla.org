@@ -8,6 +8,7 @@
       &:first-child {
         padding-top: 0;
       }
+
       &:nth-child(2) {
         text-align: center;
       }
@@ -38,6 +39,7 @@
         &::placeholder {
           color: $white;
         }
+
         padding: 0.3125rem 0.625rem;
         border: 0.0625rem solid $white;
         background: rgba($white, 0.2);
@@ -61,6 +63,7 @@
 
       @media screen and (min-width: $bp-md) {
         justify-content: flex-start;
+
         input,
         button {
           flex: 0 auto;
@@ -176,7 +179,7 @@
 
         .footer-icon {
           display: block;
-          margin: 0.375rem auto 0.375rem;
+          margin: 0.375rem auto;
         }
       }
     }
@@ -197,6 +200,7 @@
           width: calc(100% - 10.375rem);
         }
       }
+
       .icon-container {
         display: inline-block;
         margin: 0 1.125rem;

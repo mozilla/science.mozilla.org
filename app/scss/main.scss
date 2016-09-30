@@ -49,6 +49,7 @@ h6 {
     color: $summit-teal;
     font-weight: 200;
   }
+
   .jumbotron-fluid & {
     color: $white;
   }
@@ -56,7 +57,6 @@ h6 {
 
 .btn-knockout {
   border-radius: 5px;
-  background: transparent;
   border: 1px solid white;
   color: white;
   filter: invert(0%);
@@ -146,11 +146,13 @@ li {
 
 .container-dynamic {
   @include make-container();
+
   max-width: $bp-xl;
 }
 
 .jumbotron {
   background: transparent;
+
   .lead {
     font-style: italic;
   }

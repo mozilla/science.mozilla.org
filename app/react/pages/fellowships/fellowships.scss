@@ -1,6 +1,7 @@
 #page-fellowships {
   .jumbotron-fluid {
     @include img-retina('/assets/img/hero-fellows.jpg','/assets/img/hero-fellows@2x.jpg', cover, null);
+
     background-repeat: no-repeat;
     background-size: cover;
   }

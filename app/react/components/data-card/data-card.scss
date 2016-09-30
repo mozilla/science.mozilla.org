@@ -11,16 +11,19 @@ $cardPadding: 1.25rem;
   padding: $cardPadding;
   font-weight: 300;
   width: 100%;
+
   .card-image {
-    margin: 0 -1*$cardPadding;
+    margin: 0 (-1 * $cardPadding);
     width: calc(100% + #{$cardPadding*2});
     max-width: inherit;
-    transform: translateY(-1*$cardPadding);
+    transform: translateY(-1 * $cardPadding);
   }
+
   .categories,
   .categories:not(:empty) ~ * {
-    transform: translateY(-1*$cardPadding);
+    transform: translateY(-1 * $cardPadding);
   }
+
   .category-tag {
     transform: translateY(-50%);
   }
