@@ -1,15 +1,13 @@
 #blog-post {
   margin: 0 auto;
   max-width: 60em;
-  font-family: sans-serif;
 
   * {
     letter-spacing: 0;
   }
 
   p,
-  dl,
-  multicol {
+  dl {
     display: block;
     margin-block-start: 1em;
     margin-block-end: 1em;
@@ -60,15 +58,12 @@
   }
 
   h1 {
-    display: block;
-    font-size: 2em;
-    font-weight: bold;
+    font-size: 3em;
     margin-block-start: 0.67em;
     margin-block-end: 0.67em;
   }
-  h2,
-  :-moz-any(article, aside, nav, section)
-  h1 {
+
+  h2 {
     display: block;
     font-size: 1.5em;
     font-weight: bold;
@@ -76,10 +71,7 @@
     margin-block-end: 0.83em;
   }
 
-  h3,
-  :-moz-any(article, aside, nav, section)
-  :-moz-any(article, aside, nav, section)
-  h1 {
+  h3 {
     display: block;
     font-size: 1.17em;
     font-weight: bold;
@@ -87,11 +79,7 @@
     margin-block-end: 1em;
   }
 
-  h4,
-  :-moz-any(article, aside, nav, section)
-  :-moz-any(article, aside, nav, section)
-  :-moz-any(article, aside, nav, section)
-  h1 {
+  h4 {
     display: block;
     font-size: 1em;
     font-weight: bold;
@@ -99,12 +87,7 @@
     margin-block-end: 1.33em;
   }
 
-  h5,
-  :-moz-any(article, aside, nav, section)
-  :-moz-any(article, aside, nav, section)
-  :-moz-any(article, aside, nav, section)
-  :-moz-any(article, aside, nav, section)
-  h1 {
+  h5 {
     display: block;
     font-size: 0.83em;
     font-weight: bold;
@@ -112,13 +95,7 @@
     margin-block-end: 1.67em;
   }
 
-  h6,
-  :-moz-any(article, aside, nav, section)
-  :-moz-any(article, aside, nav, section)
-  :-moz-any(article, aside, nav, section)
-  :-moz-any(article, aside, nav, section)
-  :-moz-any(article, aside, nav, section)
-  h1 {
+  h6 {
     display: block;
     font-size: 0.67em;
     font-weight: bold;
@@ -151,7 +128,7 @@
   }
 
   .wp-caption {
-    margin: 0; /* browser reset */
+    margin: 2em 0 0;
     max-width: 100%;
   }
 
