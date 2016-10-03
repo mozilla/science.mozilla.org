@@ -1,0 +1,198 @@
+#blog-post {
+  margin: 0 auto;
+  max-width: 60em;
+
+  * {
+    letter-spacing: 0;
+  }
+
+  p,
+  dl {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+  }
+
+  dd {
+    display: block;
+    margin-inline-start: 40px;
+  }
+
+  blockquote,
+  figure {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 40px;
+    margin-inline-end: 40px;
+  }
+
+  address {
+    display: block;
+    font-style: italic;
+  }
+
+  center {
+    display: block;
+    text-align: -moz-center;
+  }
+
+  blockquote[type=cite] {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+    padding-inline-start: 1em;
+    border-inline-start: solid;
+    border-color: blue;
+    border-width: thin;
+  }
+
+  span[_moz_quote=true] {
+    color: blue;
+  }
+
+  pre[_moz_quote=true] {
+    color: blue;
+  }
+
+  h1 {
+    font-size: 3em;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+  }
+
+  h2 {
+    display: block;
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+  }
+
+  h3 {
+    display: block;
+    font-size: 1.17em;
+    font-weight: bold;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+  }
+
+  h4 {
+    display: block;
+    font-size: 1em;
+    font-weight: bold;
+    margin-block-start: 1.33em;
+    margin-block-end: 1.33em;
+  }
+
+  h5 {
+    display: block;
+    font-size: 0.83em;
+    font-weight: bold;
+    margin-block-start: 1.67em;
+    margin-block-end: 1.67em;
+  }
+
+  h6 {
+    display: block;
+    font-size: 0.67em;
+    font-weight: bold;
+    margin-block-start: 2.33em;
+    margin-block-end: 2.33em;
+  }
+
+  listing {
+    display: block;
+    font-family: -moz-fixed;
+    font-size: medium;
+    white-space: pre;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+  }
+
+  xmp,
+  pre,
+  plaintext {
+    display: block;
+    font-family: -moz-fixed;
+    white-space: pre;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+  }
+
+  img {
+    height: auto;
+    max-width: 100%;
+  }
+
+  .wp-caption {
+    margin: 2em 0 0;
+    max-width: 100%;
+  }
+
+  /* iOS does not obey max-width if width is set. */
+  .ios .wp-caption {
+    width: auto !important;
+  }
+
+  .wp-caption img {
+    display: block;
+  }
+
+  div.mceTemp {
+    -ms-user-select: element;
+  }
+
+  dl.wp-caption,
+  dl.wp-caption * {
+    -webkit-user-drag: none;
+  }
+
+  .wp-caption-dd {
+    font-size: 14px;
+    padding-top: 0.5em;
+    margin: 0; /* browser reset */
+  }
+
+  .aligncenter {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .alignleft {
+    float: left;
+    margin: 0.5em 1em 0.5em 0;
+  }
+
+  .alignright {
+    float: right;
+    margin: 0.5em 0 0.5em 1em;
+  }
+}
+
+blockquote.twitter-tweet {
+  display: inline-block;
+  padding: 16px;
+  margin: 10px 0;
+  max-width: 468px;
+  background: white;
+  border: #ddd 1px solid;
+  border-top-color: #eee;
+  border-bottom-color: #bbb;
+  border-radius: 5px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+  font: bold 14px/18px Helvetica, Arial, sans-serif;
+  color: #000;
+}
+
+blockquote.twitter-tweet p {
+  font: normal 18px/24px Georgia, "Times New Roman", Palatino, serif;
+  margin: 0 5px 10px 0;
+}
+
+blockquote.twitter-tweet a[href^="https://twitter.com"] {
+  font-weight: normal;
+}
