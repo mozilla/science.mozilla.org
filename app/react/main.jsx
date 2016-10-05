@@ -13,7 +13,7 @@ import Footer from "./components/footer/footer.jsx";
 import BlogList from "./pages/blog.jsx";
 import BlogPost from "./pages/blog-post/blog-post.jsx";
 import Home from "./pages/home/home.jsx";
-import Members from "./pages/members.jsx";
+import People from "./pages/people.jsx";
 import Projects from "./pages/projects/projects.jsx";
 import Project from "./pages/project-details/project-details.jsx";
 import Resources from "./pages/resources/resources.jsx";
@@ -46,7 +46,7 @@ render((
       <IndexRoute component={Home}/>
       <Route path="blog" component={BlogList}/>
       <Route path="blog/:slug" component={BlogPost}/>
-      <Route path="members" component={Members}/>
+      <Route path="people" component={People}/>
       <Route path="projects" component={Projects} >
         // https://github.com/mozilla/science.mozilla.org/issues/425#issuecomment-221339156
         <Redirect from="jstirnaman-openMetaAnalysis.github.io" to="openMetaAnalysis" />
