@@ -1,3 +1,22 @@
+.profile-card {
+  margin: 3rem 0;
+}
+
 .profile-card--link + .profile-card--link::before {
   content: ' | ';
+}
+
+.profile-card--title {
+  font-size: 1.5em;
+  margin-bottom: 0;
+}
+
+.profile-card--image {
+  max-width: 200px;
+  width: 100%;
+  margin-bottom: 2em;
+}
+
+.profile-card--name {
+  margin-top: 0;
 }
