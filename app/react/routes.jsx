@@ -18,7 +18,35 @@ import Fellowships from "./pages/fellowships/fellowships.jsx";
 import Event from "./pages/event-details/event-details.jsx";
 import CodeOfConduct from "./pages/code-of-conduct/code-of-conduct.jsx";
 
-const Routes = (<Route path="/" component={App}>
+import ReactGA from 'react-ga';
+if(typeof window !== `undefined`){ ReactGA.initialize(`UA-49796218-50`); }
+
+function logPageView(){
+  if(typeof window !== `undefined`){
+    var _dntStatus = navigator.doNotTrack || navigator.msDoNotTrack;
+    var fxMatch = navigator.userAgent.match(/Firefox\/(\d+)/);
+    var ie10Match = navigator.userAgent.match(/MSIE 10/i);
+    var w8Match = navigator.appVersion.match(/Windows NT 6.2/);
+
+    if (fxMatch && Number(fxMatch[1]) < 32) {
+      _dntStatus = `Unspecified`;
+    } else if (ie10Match && w8Match) {
+      _dntStatus = `Unspecified`;
+    } else {
+      _dntStatus = { '0': `Disabled`, '1': `Enabled` }[_dntStatus] || `Unspecified`;
+    }
+
+    if (_dntStatus !== `Enabled`){
+      if(window.location.host === `science.mozilla.org`){
+        ReactGA.set({ page: window.location.pathname });
+        ReactGA.pageview(window.location.pathname);
+      }
+    }
+  }
+}
+
+const Routes = (
+  <Route path="/" onUpdate={logPageView} component={App}>
     <IndexRoute component={Home}/>
     <Route path="blog" component={BlogList}/>
     <Route path="blog/:slug" component={BlogPost}/>
