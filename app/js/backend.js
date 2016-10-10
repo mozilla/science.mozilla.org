@@ -1,4 +1,5 @@
 import env from "../../config/env.generated.json";
+var request = require(`superagent`);
 
 let scienceAPI = env.SCIENCE_API;
 let wpAPI = env.WP_API;
@@ -8,43 +9,24 @@ let defaultParams = {
 };
 
 /**
- * Serialize a POJO as a URL query string fragment
- * @param  {Object} pojo A shallow object to serialize
- * @returns {String} Serialized string fragment (eg: ?foo=bar&cool=23
- */
-function pojoToQuery(pojo) {
-  return Object.keys(pojo).reduce((previousValue, currentValue, index) => {
-    return `${previousValue}${index !== 0 ? `&` : ``}${currentValue}=${pojo[currentValue]}`;
-  }, `?`);
-}
-
-/**
  * Make an XHR request and return a promise to resolve it.
  * @param  {String} route  route fragment
- * @param  {Object} params A POJO to be serialized as a query string
+ * @param  {Object} params A POJO to be passed as query params to the request
  * @returns {Promise} A promise to resolve an XHR request
  */
 function doXHR(route, params = defaultParams) {
-  let request = new XMLHttpRequest();
 
   return new Promise((resolve, reject) => {
-    request.open(`GET`, `${route}${params ? pojoToQuery(params) : ``}`, true);
-
-    request.onload = (event) => {
-      let result = event.currentTarget;
-
-      if (result.status >= 200 && result.status < 400) {
-        resolve(JSON.parse(result.response));
-      } else {
-        reject(`XHR request failed.`);
-      }
-    };
-
-    request.onerror = () => {
-      reject(`XHR request failed`);
-    };
-
-    request.send();
+    request
+      .get(route)
+      .query(params)
+      .end((err, response)=>{
+        if(err){
+          reject(err);
+        } else {
+          resolve(JSON.parse(response.text));
+        }
+      });
   });
 }
 

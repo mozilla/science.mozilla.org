@@ -4,3 +4,6 @@ dist/
 .env
 config/env.generated.json
 .tern-port
+server.js
+server.js.map
+npm-debug.log

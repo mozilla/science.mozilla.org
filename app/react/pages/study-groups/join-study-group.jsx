@@ -52,8 +52,6 @@ export default React.createClass({
     );
   },
   render() {
-    let middle = Math.floor(Object.keys(this.state.regions).length/2);
-
     return (
       <div className="container">
         <div className="row">
@@ -64,8 +62,6 @@ export default React.createClass({
             <div className="text-xs-center m-y-3">
               <img src="/assets/img/map.png" srcSet="/assets/img/map.png, /assets/img/map@2x.png 2x" alt="Map of study groups around the world"/>
             </div>
-
-            <style>/* This is a filthy hack for use with columns later on.*/ /*{`.rc-collapse-item:nth-of-type(${middle}){break-after: column; border-bottom-width: 1px}`}*/</style>
             {this.renderRegions()}
             <div className="start-a-group m-y-2">Don't see one near you? <a href="#" onClick={this.switchToRunTab}>Start a study group</a></div>
           </div>
