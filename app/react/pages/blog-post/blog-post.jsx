@@ -25,7 +25,7 @@ export default React.createClass({
       });
 
       return (
-        <div id="blog-post">
+        <div className="blog-post">
           <div className="jumbotron container text-xs-center m-b-2 p-b-0 p-t-2">
             <h1 className="m-b-2">{this.state.post.title}</h1>
             <p className="m-b-2">by {this.state.post.author.name} on {new Moment(this.state.post.date).format(`MMM D, YYYY`)}</p>
