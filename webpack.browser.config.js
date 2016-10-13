@@ -4,10 +4,10 @@ module.exports = {
   context: `${__dirname}/app`,
   devtool: `cheap-module-source-map`,
   entry: {
-    javascript: `./react/main.jsx`
+    javascript: `./browser.jsx`
   },
   output: {
-    filename: `/js/compiled.js`,
+    filename: `/js/browser.js`,
     path: `${__dirname}/dist`
   },
   plugins:[
@@ -30,6 +30,10 @@ module.exports = {
       {
         test: /\.json$/,
         loader: `json`
+      },
+      {
+        test: /\.svg$/,
+        loader: `svg-inline`
       }
     ]
   }
