@@ -48,7 +48,7 @@ export default React.createClass({
 
     return (
       <div id="blog">
-        <div className="jumbotron container text-xs-center m-b-0 p-b-1">
+        <div className="jumbotron container text-xs-center mb-0 pb-1">
           <h2>Latest News</h2>
         </div>
         <div className="container-dynamic">
@@ -56,7 +56,7 @@ export default React.createClass({
             {posts}
           </div>
           <div className="text-xs-center">
-            <button className="btn m-b-3" onClick={this.onMoreClick}>See More</button>
+            <button className="btn btn-outline-info mb-3" onClick={this.onMoreClick}>See More</button>
           </div>
         </div>
       </div>

@@ -12,11 +12,11 @@ export default React.createClass({
   render() {
     return (
         <div id="study-groups">
-          <div className="jumbotron jumbotron-fluid text-xs-center m-b-0">
-            <div className="container m-b-2 p-y-2">
-              <div className="row">
+          <div className="jumbotron jumbotron-fluid text-xs-center mb-0">
+            <div className="container mb-2 py-2">
+              <div className="row flex-items-xs-center">
                 <h2 className="col-xs-12">Study Groups</h2>
-                <p className="lead m-t-1 col-xs-12 col-lg-10 col-lg-push-1 col-xl-8 col-xl-push-2">Connect with like-minded researchers at a regular, recurring Study Group session on your campus. If there’s not a Study Group on your campus, help start one!</p>
+                <p className="lead mt-1 col-xs-12 col-lg-10 col-xl-8">Connect with like-minded researchers at a regular, recurring Study Group session on your campus. If there’s not a Study Group on your campus, help start one!</p>
               </div>
             </div>
           </div>

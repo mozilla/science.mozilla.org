@@ -7,7 +7,7 @@ export default React.createClass({
   render() {
     return (
       <div id="code-of-conduct">
-        <div className="jumbotron container text-xs-center m-b-0 p-b-1">
+        <div className="jumbotron container text-xs-center mb-0 pb-1">
           <h1>Code of Conduct</h1>
           <div className="row">
             <p className="lead col-xs-12 col-md-8 col-md-push-2">Mozilla Science Lab events are community events intended for networking and collaboration as well as learning.</p>
@@ -15,7 +15,7 @@ export default React.createClass({
         </div>
         <div className="container">
           <div className="row">
-            <div className="col-xs-12 col-md-8 col-md-push-2 m-b-1">
+            <div className="col-xs-12 col-md-8 col-md-push-2 mb-1">
               <p>We value the participation of every member of the scientific community and want all attendees to have an enjoyable and fulfilling experience. Accordingly, all attendees are expected to show respect and courtesy to other attendees throughout the event and in interactions online associated with the Science Lab.</p>
               <p>To make clear what is expected, everyone taking part in Science Lab events and discussions—instructors, helpers, organizers, and learners—is required to conform to the following Code of Conduct. Organizers will enforce this code throughout events, but you may also contact us directly by email at<a href="mailto:sciencelab@mozillafoundation.org"> sciencelab@mozillafoundation.org</a>. All communication will be treated as confidential.</p>
               <h2>The Short Version</h2>

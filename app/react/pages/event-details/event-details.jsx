@@ -33,15 +33,15 @@ export default React.createClass({
 
     return (
       <div id="event-details" className="container-dynamic">
-        <div className="container p-t-1"><Link to={'programs/events'}> &lt; back to Our Events</Link></div>
+        <div className="container pt-1"><Link to={'programs/events'}> &lt; back to Our Events</Link></div>
         <div className="row">
-          <div className="jumbotron text-xs-center m-b-0 col-xs-12 col-md-10 col-md-push-1 p-b-1">
+          <div className="jumbotron text-xs-center mb-0 col-xs-12 col-md-10 col-md-push-1 pb-1">
             <h2 className="col-xs-12">{event.name}</h2>
             <div className="event-details">
               <span className="event-location">{event.location}</span>
               <span className="event-time">{Humanize.calculateTime(event.starts_at, event.ends_at, this.state.timeZone)}</span>
             </div>
-            <p class="m-t-1">{event.short_description}</p>
+            <p class="mt-1">{event.short_description}</p>
           </div>
           <div className="col-xs-12">
             <TabSwitcher baseURL={`/programs/events/${this.props.params.id}/`} initialTab={this.props.params.tab} className="inline">
