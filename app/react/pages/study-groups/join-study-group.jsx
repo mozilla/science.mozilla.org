@@ -67,7 +67,7 @@ export default React.createClass({
 
             <style>/* This is a filthy hack for use with columns later on.*/ /*{`.rc-collapse-item:nth-of-type(${middle}){break-after: column; border-bottom-width: 1px}`}*/</style>
             {this.renderRegions()}
-            <div className="start-a-group my-2">Don't see one near you? <a href="#" onClick={this.switchToRunTab}>Start a study group</a></div>
+            <div className="start-a-group my-3">Don't see one near you? <a href="#" onClick={this.switchToRunTab}>Start a study group</a></div>
           </div>
         </div>
       </div>

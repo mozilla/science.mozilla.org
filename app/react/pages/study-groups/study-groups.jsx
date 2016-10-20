@@ -25,7 +25,7 @@ export default React.createClass({
               <div slug="join" name="Join a Study Group" iconDefault="/assets/img/icon-tab-join.svg" iconActive="/assets/img/icon-tab-join-blue.svg">
                 <Join switchTabs={this.switchTabs}/>
               </div>
-              <div slug="run" name="Run a Study Group" iconDefault="/assets/img/icon-tab-run.svg" iconActive="/assets/img/icon-tab-run-blue.svg">
+              <div slug="run" className="pb-2" name="Run a Study Group" iconDefault="/assets/img/icon-tab-run.svg" iconActive="/assets/img/icon-tab-run-blue.svg">
                 <Run/>
               </div>
             </TabSwitcher>

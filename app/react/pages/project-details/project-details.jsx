@@ -41,7 +41,7 @@ export default React.createClass({
             </div>
           </div>
           <ProjectCardFeatured project={project} />
-          <div className="col-xs-12 col-md-10 pt-2">
+          <div className="col-xs-12 col-md-10 pt-3">
             <h3>What we're doing</h3>
             <div dangerouslySetInnerHTML={{__html:project.description}} />
             <div className="text-xs-center pt-1 pb-3">
