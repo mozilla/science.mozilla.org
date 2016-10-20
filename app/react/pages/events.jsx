@@ -52,7 +52,7 @@ export default React.createClass({
         <div className="container-dynamic">
           <EventList events={this.state.future.events} />
           <div className="text-xs-center">
-            <button hidden={this.state.future.allEventsLoaded} className="btn mb-3" onClick={()=>{ this.getEvents(`future`, this.state.future.pageLoaded + 1); }}>See More</button>
+            <button hidden={this.state.future.allEventsLoaded} className="btn btn-outline-info mb-3" onClick={()=>{ this.getEvents(`future`, this.state.future.pageLoaded + 1); }}>See More</button>
           </div>
         </div>
         <div className="jumbotron container text-xs-center mb-0 pb-1">

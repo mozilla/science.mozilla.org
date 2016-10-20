@@ -8,8 +8,8 @@ export default React.createClass({
     var event = this.props.event;
 
     return (
-      <div className="row">
-        <div className="col-xs-12 col-sm-8 col-sm-push-2 col-lg-6 col-lg-push-3 text-xs-center">
+      <div className="row flex-items-sm-center">
+        <div className="col-xs-12 col-sm-8 col-lg-6 text-xs-center">
           <img src={event.image_url}/>
         </div>
         <div className="col-xs-12 mt-2">
@@ -17,7 +17,7 @@ export default React.createClass({
             return <GithubAvatar key={contributor.username} user={contributor} />;
           }): null }
         </div>
-        <div className="col-xs-12 col-md-10 col-md-push-1">
+        <div className="col-xs-12 col-md-10">
           <div className="event-description" dangerouslySetInnerHTML={{__html: event.description}}></div>
           {event.additional_notes ?
             <div className="pt-1 pb-3">

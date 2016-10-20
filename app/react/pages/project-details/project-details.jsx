@@ -30,7 +30,7 @@ export default React.createClass({
 
     return (
       <div id="project-details" className="container">
-        <div className="row">
+        <div className="row flex-items-xs-center">
           <div className="jumbotron text-xs-center mb-0 col-xs-12">
             <h2 className="col-xs-12">{project.name}</h2>
             <p className="lead col-xs-12 mx-1">{project.short_description}</p>
@@ -41,11 +41,11 @@ export default React.createClass({
             </div>
           </div>
           <ProjectCardFeatured project={project} />
-          <div className="col-xs-12 col-md-10 col-md-push-1">
+          <div className="col-xs-12 col-md-10 pt-2">
             <h3>What we're doing</h3>
             <div dangerouslySetInnerHTML={{__html:project.description}} />
             <div className="text-xs-center pt-1 pb-3">
-              <a hidden={!project.github_owner || !project.github_repository} href={`https://github.com/${project.github_owner}/${project.github_repository}`} target="_blank" className="btn visit-repo">Visit Repo</a>
+              <a hidden={!project.github_owner || !project.github_repository} href={`https://github.com/${project.github_owner}/${project.github_repository}`} target="_blank" className="btn btn-outline-info visit-repo">Visit Repo</a>
             </div>
           </div>
         </div>

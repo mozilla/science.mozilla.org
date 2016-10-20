@@ -88,7 +88,7 @@ export default React.createClass({
             {studyLessons}
             </div>
             <div className="text-xs-center">
-              <button hidden={this.state.allPagesLoaded} className="btn mb-3" onClick={this.onMoreClick}>See More</button>
+              <button hidden={this.state.allPagesLoaded} className="btn btn-outline-info mb-3" onClick={this.onMoreClick}>See More</button>
           </div>
           </div>
         </div>

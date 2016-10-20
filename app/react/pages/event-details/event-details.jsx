@@ -34,8 +34,8 @@ export default React.createClass({
     return (
       <div id="event-details" className="container-dynamic">
         <div className="container pt-1"><Link to={'programs/events'}> &lt; back to Our Events</Link></div>
-        <div className="row">
-          <div className="jumbotron text-xs-center mb-0 col-xs-12 col-md-10 col-md-push-1 pb-1">
+        <div className="row flex-items-md-center">
+          <div className="jumbotron text-xs-center mb-0 col-xs-12 col-md-10 pb-1">
             <h2 className="col-xs-12">{event.name}</h2>
             <div className="event-details">
               <span className="event-location">{event.location}</span>
