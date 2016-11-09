@@ -1,4 +1,5 @@
 var habitat = require(`habitat`);
+var fs = require(`fs`);
 
 // Local environment in .env overwrites everything else
 habitat.load(`.env`);
@@ -14,6 +15,14 @@ var config = {
   WP_API: habitat.get(`WP_API`)
 };
 
-process.stdout.write(
-  `${JSON.stringify(config)}\n`
-);
+// if(process.stdout.isTTY){
+//   process.stdout.write(
+//     `${JSON.stringify(config)}\n`
+//   );
+// } else {
+fs.writeFile(`config/env.generated.json`, JSON.stringify(config), (err)=>{
+  if(err){
+    return console.log(err);
+  }
+});
+// }

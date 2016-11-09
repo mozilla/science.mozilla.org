@@ -12,7 +12,7 @@
   "scripts": {
     "start": "npm i && npm run build && npm-run-all --parallel server:dev watch:**",
     "build": "npm run build:config && npm run build:js && npm run build:scss && npm run build:static && npm run build:assets",
-    "build:config": "node build-config.js > config/env.generated.json",
+    "build:config": "node build-config.js",
     "build:js": "webpack --optimize-minimize",
     "build:scss": "node-sass app/scss/main.scss dist/css/main.css && postcss --use autoprefixer --autoprefixer.browsers 'last 3 versions' -o dist/css/main.css dist/css/main.css",
     "build:static": "cp -r node_modules/mofo-bootstrap/dest/css dist/ && postcss --use autoprefixer --autoprefixer.browsers 'last 3 versions' -o dist/css/mofo-bootstrap.css dist/css/mofo-bootstrap.css && cp app/index.html dist/index.html",
