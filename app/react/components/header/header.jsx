@@ -86,7 +86,7 @@ export default React.createClass({
             </div>
             <Link className={getNavLinkClasses(`resources`)} to="/resources">Resources</Link>
             <Link className={getNavLinkClasses(`projects`)} to="/projects">Projects</Link>
-            <Link className={getNavLinkClasses(`members`)} to="/people">People</Link>
+            <Link className={getNavLinkClasses(`people`)} to="/people">People</Link>
             <Link className={getNavLinkClasses(`blog`)} to="/blog">Blog</Link>
           </div>
           <div hidden className="auth-links">
