@@ -71,7 +71,7 @@ Refer to [this page](https://mozilla.github.io/mofo-bootstrap/demo/) for a demon
 
 ## Git Flow
 
-This project uses [Git Flow](http://nvie.com/posts/a-successful-git-branching-model/). All pull requests should be made against the `develop` branch.
+This project uses [GitHub Flow](https://guides.github.com/introduction/flow/) as per the [MoFo Standards](https://github.com/mozillafoundation/mofo-standards). All pull requests should be made against the `master` branch.
 
-- `develop` maps to [Staging](https://science-mozilla-org-staging.herokuapp.com)
-- `master` maps to [Production](https://science-mozilla-org-production.herokuapp.com)
+- `master` maps to [Staging](https://science-mozilla-org-staging.herokuapp.com)
+- Once verified on staging, a MoFo engineer can promote it to production using Heroku.
