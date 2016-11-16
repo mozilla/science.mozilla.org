@@ -62,7 +62,7 @@ export default React.createClass({
             <p className="m-b-3">A Study Group is a community of peers committed to learning and teaching each other. They’re fun, informal meetups allowing participants to share skills, experiences, and ideas around open science, open source, code, and community in research. The goal of the Mozilla Study Group Project is to support this kind of peer-to-peer study by providing a simple set of tools, template lesson plans, and access to an international community of like-minded researchers and avid learners in code.</p>
             <h3>Find a Study Group</h3>
             <div className="text-xs-center m-y-3">
-              <img src="/assets/img/map.png" srcSet="/assets/img/map.png, /assets/img/map@2x.png 2x" alt="Map of study groups around the world"/>
+              <iframe width="100%" height="480" frameborder="0" src="https://auremoser.carto.com/builder/95be417c-ac31-11e6-b906-0ef7f98ade21/embed" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
             </div>
 
             <style>/* This is a filthy hack for use with columns later on.*/ /*{`.rc-collapse-item:nth-of-type(${middle}){break-after: column; border-bottom-width: 1px}`}*/</style>
