@@ -71,7 +71,11 @@ Refer to [this page](https://mozilla.github.io/mofo-bootstrap/demo/) for a demon
 
 ## Git Flow
 
-This project uses [GitHub Flow](https://guides.github.com/introduction/flow/) as per the [MoFo Standards](https://github.com/mozillafoundation/mofo-standards). All pull requests should be made against the `master` branch.
+This project uses [GitHub Flow](https://guides.github.com/introduction/flow/) as per the [MoFo Standards](https://github.com/mozillafoundation/mofo-standards).
 
-- `master` maps to [Staging](https://science-mozilla-org-staging.herokuapp.com)
+To submit a PR:
+- Create a feature branch in this repo (or your own fork if you don't have appropriate permissions)
+- Once the feature is ready, open a pull request against the `master` branch
+- A review build will be automatically spun up if the new branch is on the Mozilla fork. Otherwise tag a Mozilla Foundation engineer to spin one up.
+- Once merged in, `master` maps to [Staging](https://science-mozilla-org-staging.herokuapp.com)
 - Once verified on staging, a MoFo engineer can promote it to production using Heroku.
