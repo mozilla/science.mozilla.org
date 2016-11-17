@@ -129,7 +129,7 @@ export default React.createClass({
             <div className="col-xs-12 col-sm-6 col-md-4">
               <DebounceInput debounceTimeout={400} type="search" ref="projectFilter" onChange={this.handleSearchInput} className="form-control" placeholder="search"/>
             </div>
-            <div className="col-xs-12 col-sm-6 col-md-4">
+            <div className="col-xs-12 col-sm-6 col-md-4 mb-1">
               <select name="topic" id="topic" ref="categorySelect" onChange={this.handleCategoryInput} className="c-select form-control wide">
                 <option value="">All Topics</option>
                 {this.state.categories.map(category => {
