@@ -86,7 +86,7 @@ export default React.createClass({
       resourceCards = this.state.resources.map((resource, index) => {
         return (
           <DataCard key={index} className="col-md-4" showPicture={false} categories={resource.tags}>
-            <h4 className="project-name m-y-1">
+            <h4 className="project-name my-1">
               <a target="_blank" href={resource.link}>{resource.name}</a>
             </h4>
             <p>{resource.description}</p>
@@ -97,17 +97,17 @@ export default React.createClass({
 
     return (
       <div id="page-resources">
-        <div className="jumbotron text-xs-center jumbotron-fluid m-b-3">
-          <div className="container-dynamic p-y-2">
-            <div className="row">
+        <div className="jumbotron text-xs-center jumbotron-fluid mb-3">
+          <div className="container-dynamic py-2">
+            <div className="row flex-items-xs-center">
               <h2 className="col-xs-12">Resources</h2>
-              <p className="lead m-t-1 col-xs-12 col-md-push-1 col-md-10 col-lg-8 col-lg-push-2">Find learning materials and resources to support your open science practice and grow your community, from handbooks to how-to guides. Filter by topic to browse the library.</p>
+              <p className="lead mt-1 col-xs-12 col-md-10 col-lg-8">Find learning materials and resources to support your open science practice and grow your community, from handbooks to how-to guides. Filter by topic to browse the library.</p>
             </div>
           </div>
         </div>
 
         <div className="container-dynamic">
-          <div className="row m-b-2">
+          <div className="row mb-2">
             <RadioFilter options={radioOptions} onChange={this.onFilterChange}></RadioFilter>
           </div>
 
@@ -115,7 +115,7 @@ export default React.createClass({
             {resourceCards}
           </div>
           <div className="text-xs-center">
-            <button hidden={this.state.allPagesLoaded} className="btn m-b-3" onClick={this.onMoreClick}>See More</button>
+            <button hidden={this.state.allPagesLoaded} className="btn btn-outline-info mb-3" onClick={this.onMoreClick}>See More</button>
           </div>
         </div>
       </div>

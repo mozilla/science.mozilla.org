@@ -30,22 +30,22 @@ export default React.createClass({
 
     return (
       <div id="project-details" className="container">
-        <div className="row">
-          <div className="jumbotron text-xs-center m-b-0 col-xs-12">
+        <div className="row flex-items-xs-center">
+          <div className="jumbotron text-xs-center mb-0 col-xs-12">
             <h2 className="col-xs-12">{project.name}</h2>
-            <p className="lead col-xs-12 m-x-1">{project.short_description}</p>
-            <div className="col-xs-12 m-t-2">
+            <p className="lead col-xs-12 mx-1">{project.short_description}</p>
+            <div className="col-xs-12 mt-2">
                 <UserList users={project.users} role="Lead" />
                 <UserList users={project.github_contributors} name={false} exclude={leads}/>
                 <UserList users={project.users} name={false} role="Volunteer" exclude={project.github_contributors}/>
             </div>
           </div>
           <ProjectCardFeatured project={project} />
-          <div className="col-xs-12 col-md-10 col-md-push-1">
+          <div className="col-xs-12 col-md-10 pt-3">
             <h3>What we're doing</h3>
             <div dangerouslySetInnerHTML={{__html:project.description}} />
-            <div className="text-xs-center p-t-1 p-b-3">
-              <a hidden={!project.github_owner || !project.github_repository} href={`https://github.com/${project.github_owner}/${project.github_repository}`} target="_blank" className="btn visit-repo">Visit Repo</a>
+            <div className="text-xs-center pt-1 pb-3">
+              <a hidden={!project.github_owner || !project.github_repository} href={`https://github.com/${project.github_owner}/${project.github_repository}`} target="_blank" className="btn btn-outline-info visit-repo">Visit Repo</a>
             </div>
           </div>
         </div>

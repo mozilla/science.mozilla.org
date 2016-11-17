@@ -32,12 +32,6 @@ img {
   max-width: 100%;
 }
 
-p {
-  color: $charcoal;
-  font-size: 0.9375rem;
-  line-height: 1.5;
-}
-
 h1,
 h2,
 h3,
@@ -76,6 +70,10 @@ h6 {
     background-color: #000;
     filter: invert(100%);
   }
+}
+
+:-moz-ui-invalid:not(output) {
+  box-shadow: none;
 }
 
 // Components
@@ -138,6 +136,10 @@ body {
   font-weight: 300;
 }
 
+.btn {
+  text-transform: uppercase;
+}
+
 li {
   list-style-position: inside;
 }
@@ -174,3 +176,6 @@ li {
   display: inline-block;
 }
 
+.mui-radio-filter {
+  text-align: center;
+}

@@ -12,6 +12,7 @@
 
 - `git clone https://github.com/mozilla/science.mozilla.org.git`
 - `cd science.mozilla.org`
+- `npm install`
 - `npm start`
 
 ## Customizing Your Development Environment

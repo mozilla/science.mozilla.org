@@ -1,10 +1,6 @@
 #footer {
-  :-moz-ui-invalid:not(output) {
-    box-shadow: none;
-  }
-
   .newsletter {
-    padding: 1.25rem 0;
+    padding: 2.5rem 0;
     background: lighten($aurora-purple, 15%);
     color: $white;
 
