@@ -179,7 +179,7 @@ export default React.createClass({
                 </div>
                 <div className="col-sm-9">
                   <h4 className="mb-0">Teon Brooks</h4>
-                  <p className="mb-1"><a href="https://twitter.com/teon_io" target="_blank">@teon_io</a> | <a href="http://teonbrooks.github.io" target="_blank">Teon's Blog</a></p>
+                  <p className="mb-1"><a href="https://twitter.com/teon_io" target="_blank">@teon_io</a> | <a href="https://medium.com/the-traveling-scientist" target="_blank">Teon's Blog</a></p>
                   <p>A postdoctoral researcher at the <a href="http://reproducibility.stanford.edu/" target="_blank">Center for Reproducible Neuroscience</a> and the Department of Psychology at Stanford University. He studies the cognitive processes and temporal dynamics of the brain during reading. He is a core developer for <a href="https://github.com/mne-tools/mne-python/" target="_blank">MNE</a>, a community-driven project for analyzing time-series brain data in Python; and <a href="https://github.com/openexp/OpenEXP" target="_blank">OpenEXP</a>, an open science platform founded to be a "GitHub for Experiments" and a tool for running both behavioral and physiological experiments using open-source web-based tools. He is also developing curriculum, DIYCogSci, for teaching experimental research methods and coding using low-cost electronics and open-source hardware.</p>
                 </div>
               </div>
