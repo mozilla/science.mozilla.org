@@ -24,7 +24,7 @@ export default React.createClass({
         <div className="newsletter">
           <div className="container-dynamic">
             <div className="row">
-              <div className="col-xs-12 col-md-6 text-xs-center text-md-right">
+              <div className="col-xs-12 col-md-5 text-xs-center text-md-right m-l-2">
                 <h3>Receive our newsletter</h3>
               </div>
               <div className="col-xs-12 col-md-6">
