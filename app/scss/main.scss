@@ -32,12 +32,6 @@ img {
   max-width: 100%;
 }
 
-p {
-  color: $charcoal;
-  font-size: 0.9375rem;
-  line-height: 1.5;
-}
-
 h1,
 h2,
 h3,
@@ -49,6 +43,7 @@ h6 {
     color: $summit-teal;
     font-weight: 200;
   }
+
   .jumbotron-fluid & {
     color: $white;
   }
@@ -56,7 +51,6 @@ h6 {
 
 .btn-knockout {
   border-radius: 5px;
-  background: transparent;
   border: 1px solid white;
   color: white;
   filter: invert(0%);
@@ -78,6 +72,10 @@ h6 {
   }
 }
 
+:-moz-ui-invalid:not(output) {
+  box-shadow: none;
+}
+
 // Components
 
 @import '../../node_modules/mofo-ui/dist/mofo-ui';
@@ -95,6 +93,7 @@ h6 {
 @import '../react/components/categories/categories';
 @import '../react/components/shadow-box';
 @import '../react/components/tab-switcher/tab-switcher';
+@import '../react/components/profile-card/profile-card';
 
 // mofo-bootstrap Extensions
 
@@ -129,12 +128,17 @@ h6 {
 @import '../react/pages/resources/resources';
 @import '../react/pages/code-of-conduct/code-of-conduct';
 @import '../react/pages/study-groups/study-groups';
+@import "../react/pages/blog-post/blog-post";
 
 // Global
 
 body {
   background: $charcoal;
   font-weight: 300;
+}
+
+.btn {
+  text-transform: uppercase;
 }
 
 li {
@@ -147,11 +151,13 @@ li {
 
 .container-dynamic {
   @include make-container();
+
   max-width: $bp-xl;
 }
 
 .jumbotron {
   background: transparent;
+
   .lead {
     font-style: italic;
   }
@@ -169,4 +175,8 @@ li {
 
 .inline-block {
   display: inline-block;
+}
+
+.mui-radio-filter {
+  text-align: center;
 }

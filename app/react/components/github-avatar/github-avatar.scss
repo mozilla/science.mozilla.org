@@ -1,9 +1,11 @@
 .github-avatar {
   display: inline-block;
   margin-bottom: 1rem;
+
   + .github-avatar {
     margin-left: 1rem;
   }
+
   + .user-name {
     margin-left: 0.5em;
   }

@@ -1,6 +1,6 @@
 import React from "react";
 import Moment from "moment-timezone";
-import Service from "../../js/backend.js";
+import Service from "../../../js/backend.js";
 
 export default React.createClass({
   componentWillMount: function () {
@@ -25,13 +25,13 @@ export default React.createClass({
       });
 
       return (
-        <div id="blog-post">
-          <div className="jumbotron container text-xs-center m-b-3 p-b-1">
-            <h2 className="m-b-2">{this.state.post.title}</h2>
-            <p className="m-b-2">by {this.state.post.author.name} on {new Moment(this.state.post.date).format(`MMM D, YYYY`)}</p>
+        <div className="blog-post">
+          <div className="jumbotron container text-xs-center mb-2 pb-0 pt-2">
+            <h1 className="mb-2">{this.state.post.title}</h1>
+            <p className="mb-2">by {this.state.post.author.name} on {new Moment(this.state.post.date).format(`MMM D, YYYY`)}</p>
             <div className="tags">{tags}</div>
           </div>
-          <div className="container-dynamic p-b-2" dangerouslySetInnerHTML={{__html: this.state.post.content}}></div>
+          <div className="container-dynamic pb-2" dangerouslySetInnerHTML={{__html: this.state.post.content}}></div>
         </div>
       );
     } else {

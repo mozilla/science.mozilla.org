@@ -4,19 +4,23 @@
     margin: 0;
     font-size: 2rem;
   }
+
   .event-details {
     margin: 0.5rem 0;
     display: flex;
     flex-wrap: wrap;
     font-size: 1.2rem;
   }
+
   &.archive {
     .event-time {
       margin-left: 0;
     }
+
     .event-location::before {
       content: none;
     }
+
     .event-time::before {
       content: '|';
       background: none;

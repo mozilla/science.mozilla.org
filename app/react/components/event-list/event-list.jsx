@@ -38,7 +38,7 @@ export default React.createClass({
                   <span className="event-time">{Humanize.calculateTime(event.starts_at, event.ends_at, this.state.timeZone) }</span>
                 </div>
                 <div>{event.short_description}</div>
-                <Link to={`/programs/events/${event.slug}`} className="btn event-btn m-t-1">Details</Link>
+                <Link to={`/programs/events/${event.slug}`} className="btn btn-outline-info mt-1">Details</Link>
               </div>
             </DataCard>
           );

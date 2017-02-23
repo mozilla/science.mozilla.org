@@ -17,7 +17,7 @@ export default React.createClass({
     let tags = null;
 
     if (project.tags && project.tags.length) {
-      tags = (<div className="help-with p-y-1">Help with:&nbsp;
+      tags = (<div className="help-with py-1">Help with:&nbsp;
         {project.tags.map((tag)=> {
           return <span className="project-tag" key={tag}>{tag}</span>;
         })}
@@ -41,8 +41,8 @@ export default React.createClass({
                   <span> for </span>
                   <span className="institution">{project.institution}</span>
                 </div>
-                <Link to={`projects/${project.slug}`} className="project-name m-t-1">{project.name}</Link>
-                <div className="project-description m-t-1">{project.short_description}</div>
+                <Link to={`projects/${project.slug}`} className="project-name mt-1">{project.name}</Link>
+                <div className="project-description mt-1">{project.short_description}</div>
                 {this.formatTags(project)}
               </DataCard>
             );

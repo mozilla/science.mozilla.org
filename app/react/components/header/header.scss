@@ -6,16 +6,19 @@ header {
   background: $white;
   position: relative;
   z-index: 2;
+
   .logo-wrap {
     display: flex;
     justify-content: space-between;
     padding: $logoMobilePadding;
     background: $white;
+
     a:hover,
     a:focus {
       text-decoration: none;
     }
   }
+
   .site-logo {
     background-color: $white;
     background-image: url('/assets/img/logo-mozillascience.svg');
@@ -26,6 +29,7 @@ header {
     margin: 0;
     width: 174px;
     overflow: hidden;
+
     a {
       color: inherit;
     }
@@ -41,35 +45,45 @@ header {
     min-height: calc(100vh - #{$logoHeight} - #{$logoMobilePadding});
     z-index: -1;
   }
+
   .isOpen {
     transform: translateY(0%);
   }
+
   .menu-button {
     padding: 0.7em;
     cursor: pointer;
   }
+
   .nav-link {
     font-size: 0.9375rem;
     line-height: 2;
     margin: 0.5em 0;
   }
+
   .slideout-menu {
     margin-left: 1.25rem;
+
     .nav-link {
       font-size: 0.875rem;
     }
   }
+
   .dropdown-menu {
     display: block;
   }
+
   .nav-link {
     color: $white;
     display: block;
   }
+
   .auth-links .nav-link {
     display: inline-block;
+
     & + .nav-link {
       margin-left: 0.625rem;
+
       &::before {
         content: '|';
         margin-right: 0.625rem;
@@ -77,19 +91,23 @@ header {
     }
   }
 
-  @media(min-width: 55rem) {
+  @media (min-width: 55rem) {
     display: flex;
     z-index: 10;
+
     .site-logo {
       margin: 0;
       padding: 0;
     }
+
     .logo-wrap {
       padding: $logoDesktopVerticalPadding 1.25rem;
     }
+
     .menu-button {
       display: none;
     }
+
     .nav {
       display: flex;
       flex: 1;
@@ -100,6 +118,7 @@ header {
       position: static;
       justify-content: space-between;
     }
+
     .nav-item > .nav-link::after {
       content: '';
       background-image: url("/assets/img/icon-arrow.svg");
@@ -113,17 +132,21 @@ header {
       transform: rotate(0);
       filter: contrast(0%);
     }
+
     .nav-item.open > .nav-link {
       color: black;
     }
+
     .nav-item.open > .nav-link::after {
       transform: rotate(180deg);
       filter: brightness(0%);
     }
+
     .nav-links {
       display: flex;
       align-items: flex-end;
     }
+
     .nav-link {
       color: $gray-light;
       font-weight: 300;
@@ -132,16 +155,20 @@ header {
       line-height: 1;
       transition: color 0.3s ease, filter 0.3s ease;
     }
+
     .nav-link.active,
     .nav-link:hover {
       color: $black;
+
       &::after {
         filter: brightness(0%);
       }
     }
+
     .slideout-menu .nav-link {
       color: $white;
     }
+
     .slideout-menu {
       color: $white;
       position: absolute;
@@ -152,20 +179,22 @@ header {
       background: rgba($nightly-blue, 0.95);
       width: 100%;
       display: flex;
-      justify-content: center;
       z-index: -1;
       transition: transform ease-out 200ms;
       transform: translateY(-100%);
       justify-content: center;
+
       &.active {
         transform: translateY(0%);
       }
+
       .nav-link {
         margin: 1.6875rem;
         flex-basis: 6.875rem;
         text-align: center;
       }
     }
+
     .slideout-menu > .nav-link::before {
       content: '';
       background-position: center;
@@ -175,28 +204,35 @@ header {
       display: block;
       margin-bottom: 0.9375rem;
     }
+
     .events::before {
       background-image: url('/assets/img/icon-events.svg');
     }
+
     .study-groups::before {
       background-image: url('/assets/img/icon-studygroups.svg');
     }
+
     .fellowships::before {
       background-image: url('/assets/img/icon-fellowships.svg');
     }
+
     .auth-links {
       display: flex;
       align-self: flex-end;
       align-items: center;
     }
+
     .auth-links .nav-link {
       text-transform: uppercase;
       color: $mobile-blue;
     }
+
     .auth-links .join {
       border: 1px solid;
       padding: 0.5em 1em;
     }
+
     .auth-links .nav-link + .nav-link::before {
       content: none;
     }

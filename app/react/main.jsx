@@ -2,6 +2,7 @@ import React from "react";
 import { render } from "react-dom";
 import { Router, Route, Redirect, browserHistory, IndexRoute, applyRouterMiddleware } from "react-router";
 import useScroll from 'react-router-scroll';
+import ReactGA from 'react-ga';
 
 // Components
 
@@ -11,9 +12,9 @@ import Footer from "./components/footer/footer.jsx";
 // Pages
 
 import BlogList from "./pages/blog.jsx";
-import BlogPost from "./pages/blog-post.jsx";
+import BlogPost from "./pages/blog-post/blog-post.jsx";
 import Home from "./pages/home/home.jsx";
-import Members from "./pages/members.jsx";
+import People from "./pages/people.jsx";
 import Projects from "./pages/projects/projects.jsx";
 import Project from "./pages/project-details/project-details.jsx";
 import Resources from "./pages/resources/resources.jsx";
@@ -23,6 +24,8 @@ import StudyGroups from "./pages/study-groups/study-groups.jsx";
 import Fellowships from "./pages/fellowships/fellowships.jsx";
 import Event from "./pages/event-details/event-details.jsx";
 import CodeOfConduct from "./pages/code-of-conduct/code-of-conduct.jsx";
+
+ReactGA.initialize(`UA-49796218-50`);
 
 const App = React.createClass({
   render() {
@@ -40,13 +43,35 @@ const App = React.createClass({
   }
 });
 
+function logPageView(){
+  var _dntStatus = navigator.doNotTrack || navigator.msDoNotTrack;
+  var fxMatch = navigator.userAgent.match(/Firefox\/(\d+)/);
+  var ie10Match = navigator.userAgent.match(/MSIE 10/i);
+  var w8Match = navigator.appVersion.match(/Windows NT 6.2/);
+
+  if (fxMatch && Number(fxMatch[1]) < 32) {
+    _dntStatus = `Unspecified`;
+  } else if (ie10Match && w8Match) {
+    _dntStatus = `Unspecified`;
+  } else {
+    _dntStatus = { '0': `Disabled`, '1': `Enabled` }[_dntStatus] || `Unspecified`;
+  }
+
+  if (_dntStatus !== `Enabled`){
+    if(window.location.host === `science.mozilla.org`){
+      ReactGA.set({ page: window.location.pathname });
+      ReactGA.pageview(window.location.pathname);
+    }
+  }
+}
+
 render((
-  <Router history={browserHistory} render={applyRouterMiddleware(useScroll())}>
+  <Router history={browserHistory} onUpdate={logPageView} render={applyRouterMiddleware(useScroll())}>
     <Route path="/" component={App}>
       <IndexRoute component={Home}/>
       <Route path="blog" component={BlogList}/>
       <Route path="blog/:slug" component={BlogPost}/>
-      <Route path="members" component={Members}/>
+      <Route path="people" component={People}/>
       <Route path="projects" component={Projects} >
         // https://github.com/mozilla/science.mozilla.org/issues/425#issuecomment-221339156
         <Redirect from="jstirnaman-openMetaAnalysis.github.io" to="openMetaAnalysis" />

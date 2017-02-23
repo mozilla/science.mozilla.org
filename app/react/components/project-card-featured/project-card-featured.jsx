@@ -66,9 +66,9 @@ export default React.createClass({
     return (
       <div className={`project-card-wrapper col-md-10 col-md-push-1`}>
         <div className="project-card-featured row">
-          <div className="col-xs-12 col-sm-6 p-x-0">
-            <div className="m-x-1">
-              <Categories className="m-x-1" categories={project.categories}/>
+          <div className="col-xs-12 col-sm-6 px-0">
+            <div className="mx-1">
+              <Categories className="mx-1" categories={project.categories}/>
             </div>
             <img className="featured-image" src={project.image_url} alt=""/>
           </div>

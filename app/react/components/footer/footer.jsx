@@ -25,7 +25,7 @@ export default React.createClass({
           <div className="container-dynamic">
             <div className="row">
               <div className="col-xs-12 col-md-6 text-xs-center text-md-right">
-                <h3>Receive our newsletter</h3>
+                <h3 className="my-1">Receive our newsletter</h3>
               </div>
               <div className="col-xs-12 col-md-6">
                 <form target="_blank" className="one-shot" action="https://mail.mozilla.org/subscribe/mozillascience" method="POST">
