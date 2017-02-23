@@ -145,12 +145,11 @@ export default React.createClass({
                   <img className="circle" src="/assets/img/fellowships/fellow-kirstie.png"/>
                 </div>
                 <div className="col-sm-9">
-                  <h4 className="mb-0">Kirstie Whitaker</h4>
-                  <p className="mb-1"><a href="https://twitter.com/kirstie_j" target="_blank">@kirstie_j</a> | <a href="http://www.kirstiewhitaker.com" target="_blank">Kirstie's Blog</a></p>
-                  <p>A postdoctoral researcher in the <a href="http://www.bmu.psychiatry.cam.ac.uk" target="_blank">Brain Mapping Unit</a> at the <a href="http://www.cam.ac.uk/" target="_blank">University of Cambridge</a>. She studies adolescent brain development and is particularly interested in the emergence of mental health disorders during the teenage years. She uses network analyses to understand how different parts of the brain work work together and ensures all her analyses are reproducible by independent researchers. She's the founder and lead developer of the <a href="www.stemmrolemodels.com" target="_blank">STEMM Role Models</a> project which provides a database of experts from traditionally under-represented groups to ensure conference organizers are able to invite the most diverse and exciting speakers to their events. </p>
+                  <h4 className="m-b-0">Kirstie Whitaker</h4>
+                  <p className="m-b-1"><a href="https://twitter.com/kirstie_j" target="_blank">@kirstie_j</a> | <a href="http://www.kirstiewhitaker.com" target="_blank">Kirstie's Blog</a></p>
+                  <p>A postdoctoral researcher in the <a href="http://www.bmu.psychiatry.cam.ac.uk" target="_blank">Brain Mapping Unit</a> at the <a href="http://www.cam.ac.uk/" target="_blank">University of Cambridge</a>. She studies adolescent brain development and is particularly interested in the emergence of mental health disorders during the teenage years. She uses network analyses to understand how different parts of the brain work work together and ensures all her analyses are reproducible by independent researchers. She's the founder and lead developer of the <a href="http://stemmrolemodels.com/" target="_blank">STEMM Role Models</a> project which provides a database of experts from traditionally under-represented groups to ensure conference organizers are able to invite the most diverse and exciting speakers to their events. </p>
                 </div>
               </div>
-
               <div className="row my-3">
                 <div className="col-sm-3 center-vertical">
                   <img className="circle" src="/assets/img/fellowships/fellow-bruno.png"/>

@@ -20,8 +20,8 @@ export default React.createClass({
         <div className="col-xs-12 col-md-10">
           <div className="event-description" dangerouslySetInnerHTML={{__html: event.description}}></div>
           {event.additional_notes ?
-            <div className="pt-1 pb-3">
-              <a href={event.additional_notes} className="btn visit-repo">Etherpad Link</a>
+            <div className="p-t-1 p-b-3">
+              <a href={event.additional_notes} className="btn btn-info-outline">Etherpad Link</a>
             </div>
           : null }
         </div>
