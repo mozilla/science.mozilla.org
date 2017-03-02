@@ -29,9 +29,14 @@ header {
     margin: 0;
     width: 174px;
     overflow: hidden;
+    transition: all 0.4s ease 0s;
 
     a {
       color: inherit;
+    }
+
+    &:hover {
+      opacity: 0.8;
     }
   }
 
