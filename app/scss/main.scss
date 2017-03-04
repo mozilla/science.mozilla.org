@@ -136,6 +136,14 @@ body {
   font-weight: 300;
 }
 
+$break-small: 320px;
+
+@media screen and (max-width: $break-small) {
+  h2 {
+    font-size: 3rem;
+  }
+}
+
 .btn {
   text-transform: uppercase;
 }
