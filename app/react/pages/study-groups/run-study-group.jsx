@@ -37,7 +37,7 @@ export default React.createClass({
     if (this.state.lessons.length) {
       studyLessons = this.state.lessons.map((lesson) => {
         return (
-          <DataCard key={lesson.id} className="col-xs-12 col-sm-6 col-lg-4" showPicture={false} categories={lesson.tags.filter((tag)=>{ return tag !== `Study Group`; })}>
+          <DataCard key={lesson.id} className="col-xs-12 col-sm-12 col-lg-6" showPicture={false} categories={lesson.tags.filter((tag)=>{ return tag !== `Study Group`; })}>
               <div className="my-1"><a className="project-name" href={lesson.link} target="_blank">{lesson.name}</a></div>
               <p>{lesson.description}</p>
           </DataCard>
