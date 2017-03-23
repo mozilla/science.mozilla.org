@@ -169,6 +169,9 @@
 
     @media screen and (max-width: $bp-md) {
       .icon-container {
+        display: inline-block;
+        margin: 0.175rem 1.25rem;
+        
         &:first-child {
           margin-top: 0;
         }
@@ -178,8 +181,7 @@
         }
 
         .footer-icon {
-          display: block;
-          margin: 0.375rem auto;
+          margin: 0.375rem 0.475rem 0.375rem 0;
         }
       }
     }
