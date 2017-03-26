@@ -52,7 +52,7 @@ export default React.createClass({
         <div className="whats-new mt-0 py-3">
           <h3 className="my-0 py-2">{`What's New`}</h3>
 
-          <div className="row row-full flex-items-md-center p-3">
+          <div className="row row-full flex-items-md-center py-3">
             <div className="whats-new-item col-xs-12 col-md-4 col-lg-3 mb-2">
               <div className="shadow-box">
                 <div className="inner">
