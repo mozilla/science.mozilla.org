@@ -36,47 +36,49 @@ export default React.createClass({
               <h2>About the Program</h2>
 
               <p>The Mozilla Fellowships for Science present a unique opportunity for researchers who want to influence the future of open science and data sharing within their communities.</p>
-              <p>We're looking for researchers with a passion for open source and data sharing, already working to shift research practice to be more collaborative, iterative and open. Fellows will spend 10 months starting September 2016 as community catalysts at their institutions, mentoring the next generation of open data practitioners and researchers and building lasting change in the global open science community.</p>
-              <p>Throughout their fellowship year, chosen fellows will receive training and support from Mozilla to hone their skills around open source, data sharing, open science policy and licensing. They will also craft code, curriculum and other learning resources that help their local communities learn open data practices, and teach forward to their peers.</p>
+              <p>We're looking for researchers with a passion for open source and data sharing, already working to shift research practice to be more collaborative, iterative and open. Fellows will spend 10 months starting September 2017 as community catalysts at their institutions, mentoring the next generation of open data practitioners and researchers and building lasting change in the global open science community.</p>
+              <p>Throughout their fellowship term, chosen fellows will receive training and support from Mozilla to hone their skills around open source, data sharing, open science policy and licensing. They will also craft code, curriculum and other learning resources that help their local communities learn open data practices, and teach their institutional peers.</p>
+              <p><strong>The call closes May 14, 2017 at 11:59PM EDT.</strong></p>
 
               <h3 className="mb-3">Expectations</h3>
-
+              <p>We anticipate applicants who:</p>
               <div className="mb-3">
-                <IconItem imgSrc="/assets/img/fellowships/icon-share.svg" copy="Champion change within their university around open source and data sharing"></IconItem>
-                <IconItem imgSrc="/assets/img/fellowships/icon-curriculum.svg" copy="Create code, curriculum and other learning resources that help others learn open science practices"></IconItem>
-                <IconItem imgSrc="/assets/img/fellowships/icon-events.svg" copy="Participate in Mozilla workweeks, trainings and community events (MozFest, code sprints, Working Open Workshops, etc.)"></IconItem>
-                <IconItem imgSrc="/assets/img/fellowships/icon-computer.svg" copy="Participate and help lead regular community calls"></IconItem>
-                <IconItem imgSrc="/assets/img/fellowships/icon-lead.svg" copy="Serve as mentors and leaders within their communities"></IconItem>
-                <IconItem imgSrc="/assets/img/fellowships/icon-communicate.svg" copy="Communicate and share openly their work on an ongoing basis (e.g., through GitHub repositories, scholarly preprints and blog posts)"></IconItem>
+                <IconItem imgSrc="/assets/img/fellowships/icon-share.svg" copy="champion change within their university or other institution around open source and data sharing"></IconItem>
+                <IconItem imgSrc="/assets/img/fellowships/icon-curriculum.svg" copy="create code, curriculum and other learning resources that help others learn open science practices"></IconItem>
+                <IconItem imgSrc="/assets/img/fellowships/icon-events.svg" copy="participate in Mozilla workweeks, trainings and community events (MozFest, Global Sprint, Working Open Workshops, etc.)"></IconItem>
+                <IconItem imgSrc="/assets/img/fellowships/icon-computer.svg" copy="participate in and help lead regular community calls"></IconItem>
+                <IconItem imgSrc="/assets/img/fellowships/icon-lead.svg" copy="serve as mentors and leaders within their communities"></IconItem>
+                <IconItem imgSrc="/assets/img/fellowships/icon-communicate.svg" copy="communicate and share openly their work on an ongoing basis (e.g., through GitHub repositories, scholarly preprints and blog posts)"></IconItem>
               </div>
 
-              <p className="mb-3">{`Note: Fellows are encouraged to continue their personal research for up to 20% of their time during the course of their fellowship (i.e., one day a week). Fellowship applicants must have buy-in from their supervisors in advance, and include supervisors' contact information on the application. Advisers will be interviewed separately should applicants move on to the second round, and their support will be a critical consideration for acceptance of fellows.`}</p>
+              <p className="mb-3">{`Note: Fellows are encouraged to continue their personal research for up to 20% of their time during the course of their fellowship (i.e., one day a week). Fellowship applicants must have buy-in from their supervisors in advance, and include Advisors’ contact information on the application. Advisors will be interviewed separately should applicants move on to the second round, and their support will be a critical consideration for acceptance of fellows.`}</p>
 
               <h3 className="mb-1">Stipend and Financial Benefits</h3>
 
               <p>The Fellowships are designed to allow for flexibility for both Fellows and their families. The standard fellowship offers a stipend of $60,000 USD*, paid in 10 monthly installments. Fellows are responsible for remitting all applicable taxes and other government payments as required.</p>
-              <p>To help offset cost of living, the fellowship also provides supplements for childcare and health insurance, and helps pay for research/equipment and books. The fellowship also covers the costs of required travel for fellowship activities.</p>
+              <p>To help offset cost of living, the fellowship also provides supplements for childcare and health insurance, and helps pay for research/equipment and books. The fellowships also covers the costs of required travel for fellowship activities.</p>
+
               <p className="mb-3">Fellows will receive:</p>
 
               <div className="mb-3">
-                <IconItem imgSrc="/assets/img/fellowships/icon-stipend.svg" copy="A stipend of $60,000 USD*, paid in 10 monthly installments"></IconItem>
-                <IconItem imgSrc="/assets/img/fellowships/icon-insurance.svg" copy="A one-time health insurance supplement for Fellows and their families, ranging from $3,500 for single Fellows to $7,000 for a couple with two or more children"></IconItem>
-                <IconItem imgSrc="/assets/img/fellowships/icon-child.svg" copy="A one-time childcare allotment of up to $6,000 for families with children"></IconItem>
-                <IconItem imgSrc="/assets/img/fellowships/icon-computer.svg" copy="An allowance of up to $3,000 towards the purchase of laptop computer, digital cameras, recorders and computer software; fees for continuing studies or other courses, research fees or payments, to the extent related to the fellowship"></IconItem>
-                <IconItem imgSrc="/assets/img/fellowships/icon-trips.svg" copy="Funding for relevant fellowship trips - domestic and international - which will be covered in full"></IconItem>
-                * Proposed fellowship amounts are gross amounts and may be reduced by applicable taxes in the various applicable jurisdictions. Read more <a href="/programs/fellowships/faq">here</a>
+                <IconItem imgSrc="/assets/img/fellowships/icon-stipend.svg" copy="a stipend of $60,000 USD*, paid in 10 monthly installments"></IconItem>
+                <IconItem imgSrc="/assets/img/fellowships/icon-insurance.svg" copy="a one-time health insurance supplement for Fellows and their families, ranging from $3,500 for single Fellows to $7,000 for a couple with two or more children"></IconItem>
+                <IconItem imgSrc="/assets/img/fellowships/icon-child.svg" copy="a one-time childcare allotment of up to $6,000 for families with children"></IconItem>
+                <IconItem imgSrc="/assets/img/fellowships/icon-computer.svg" copy="an allowance of up to $3,000 towards the purchase of laptop computer, digital cameras, recorders and computer software; fees for continuing studies or other courses, research fees or payments, to the extent such purchases and fees are related to the fellowship"></IconItem>
+                <IconItem imgSrc="/assets/img/fellowships/icon-trips.svg" copy="coverage in full for all approved fellowship trips – domestic and international"></IconItem>
+                * Proposed fellowship amounts are gross amounts and may be reduced by applicable taxes in the various applicable jurisdictions. Read more <a href="/programs/fellowships/faq">here.</a>
               </div>
 
               <h3 className="mb-1">Eligibility Criteria</h3>
               <p>Fellows must be:</p>
               <div className="mb-3">
-                <IconItem imgSrc="/assets/img/fellowships/icon-institution.svg" copy="Currently employed at a research institution"></IconItem>
-                <IconItem imgSrc="/assets/img/fellowships/icon-stipend.svg" copy="Able to accept outside funds for this fellowship directly"></IconItem>
-                <IconItem imgSrc="/assets/img/fellowships/icon-research.svg" copy="A current early-career researcher (i.e, graduate students, post-docs, research scientists, lecturers)"></IconItem>
-                <IconItem imgSrc="/assets/img/fellowships/icon-life.svg" copy="Specializing in the life sciences or natural sciences"></IconItem>
-                <IconItem imgSrc="/assets/img/fellowships/icon-travel.svg" copy="Able to travel"></IconItem>
-                <IconItem imgSrc="/assets/img/fellowships/icon-approve.svg" copy="Supported by their supervisors. As fellows will be based at their home institutions, please note that a letter of support from their supervisor is mandatory for consideration"></IconItem>
-                <IconItem imgSrc="/assets/img/fellowships/icon-open.svg" copy="Experienced participants in open communities"></IconItem>
+                <IconItem imgSrc="/assets/img/fellowships/icon-institution.svg" copy="be currently employed at a research institution"></IconItem>
+                <IconItem imgSrc="/assets/img/fellowships/icon-stipend.svg" copy="have the ability to accept outside funds for this fellowship directly (i.e., not distributed through the institution)"></IconItem>
+                <IconItem imgSrc="/assets/img/fellowships/icon-research.svg" copy="be an early-career researcher (i.e., graduate students, post-docs, research scientists, lecturers)"></IconItem>
+                <IconItem imgSrc="/assets/img/fellowships/icon-life.svg" copy="specialize in scientific research: physical, life, social, or natural sciences"></IconItem>
+                <IconItem imgSrc="/assets/img/fellowships/icon-travel.svg" copy="be able to travel"></IconItem>
+                <IconItem imgSrc="/assets/img/fellowships/icon-approve.svg" copy="obtain support from their advisors. As fellows will be based at their home institutions, please note that a letter of support from their advisor is mandatory for consideration"></IconItem>
+                <IconItem imgSrc="/assets/img/fellowships/icon-open.svg" copy="have experience participating in open communities"></IconItem>
               </div>
             </div>
             <div className="py-3" name="FAQ" slug="faq" iconDefault="/assets/img/icon-tab-faq.svg" iconActive="/assets/img/icon-tab-faq-blue.svg">
@@ -87,9 +89,9 @@ export default React.createClass({
                   <p>{`Yes, as long as you are legally allowed to work in the country where you currently reside.`}</p>
                 </Panel>
 
-                <Panel header={`What disciplines are included in "life and natural sciences"?`}>
-                  <p>{`Biology, chemistry, earth science, physics, astronomy, ecology, etc.`}</p>
-                  <p>{`For now, our call is limited to the disciplines listed above. We would like to extend this in future years, as we know open research is as important in other disciplines as it is in these.`}</p>
+                <Panel header={`What disciplines are included in the eligible sciences?`}>
+                  <p>{`Previously, our fellowship focused on the physical and natural sciences: biology, chemistry, earth science, physics, astronomy, ecology, etc.`}</p>
+                  <p>{`We’ve opened this year’s application to include the social and library sciences. Strong attachment to furthering scientific research in some capacity is favored, and a recommended emphasis in the applications we receive.`}</p>
                 </Panel>
 
                 <Panel header={`I work at a research institution but not a "university" - can I still apply?`}>
@@ -102,20 +104,20 @@ export default React.createClass({
                 </Panel>
 
                 <Panel header={`Can I continue my research, coursework or teaching during this time?`}>
-                  <p>{`It depends. Fellows are allowed to spend up to 20% of their time maintaining their work for their home institution - think, 1 day a week. Please note: This is a time commitment, and Fellows are expected to devote the majority of their time to the Fellowship, their projects and interaction with the Mozilla community. If you have a standing commitment that you think may affect your time, please note in your application.`}</p>
-                  <p>{`Fellowship applicants must have buy-in from their supervisors in advance, and include supervisors' contact information on the application. Supervisors will be interviewed separately should applicants move on to the second round, and their support will be a critical consideration for acceptance of fellows.`}</p>
+                  <p>{`It depends. Fellows are allowed to spend up to 20% of their time maintaining their work for their home institution - think, 1 day a week. Please note: This is a time commitment, and Fellows are expected to devote the bulk of their time to the Fellowship, their projects and interaction with the Mozilla community. If you have a standing commitment that you think may affect your time, please note in your application.`}</p>
+                  <p>{`Fellowship applicants must have buy-in from their advisors in advance, and include advisors’ contact information on the application. Advisors will be interviewed separately should applicants move on to the second round, and their support will be a critical consideration for acceptance of fellows.`}</p>
                 </Panel>
 
                 <Panel header={`When are Fellowships intended to start? And end?`}>
-                  <p>{`The anticipated start date for Fellows is in September 2016, running through July 2017.`}</p>
+                  <p>{`The anticipated start date for Fellows is in September 2017, running to the end of June 2018, for the 10 months of the fellowship duration. After the CFP launches in April, the application will be open through May 14th (a Sunday). The Science Lab team will review applications for the subsequent two weeks, and request interviews with fellows (two rounds of interviews) and their advisors before making offers in early June, and responding to all applicants by mid-June. Fellows will be announced officially in July.`}</p>
                 </Panel>
 
                 <Panel header={`When will we be notified if we're selected?`}>
-                  <p>{`The notification date will vary depending on the volume of applications received but we project that prospective candidates will be contacted by the last week in August, 2016.`}</p>
+                  <p>{`The notification date will vary depending on the volume of applications received but we project that prospective candidates will be contacted by the last week in June, 2017.`}</p>
                 </Panel>
 
                 <Panel header={`What sort of travel is expected?`}>
-                  <p>{`There are a few events and times over the course of the 10 months that fellows are expected to travel and come together at a minimum. There's onboarding (likely late Sept / early October), the Mozilla Festival (Oct. 28-30 in London), and two workweeks in 2016 - location TBD.`}</p>
+                  <p>{`Fellows are expected to be able to travel as part of the fellowship. Travel will include,  at a minimum: onboarding (likely late Sept / early October; location TBD), the Mozilla Festival (Oct. 27-29 in London), one workweek in 2017 (location TBD), a Working Open Workshop (location TBD), an “off-boarding” week at the conclusion of the fellowship (sometime in June; location TBD).`}</p>
                 </Panel>
 
                 <Panel header={`I'm a pre-tenure, early career faculty member - does that rule me out?`}>
@@ -123,22 +125,22 @@ export default React.createClass({
                 </Panel>
 
                 <Panel header={`What role does my advisor play in this process?`}>
-                  <p>{`We want to make sure Fellows, as they'll be working somewhat autonomously within their institution are in supportive environments. We find this is best achieved with advisors who are supportive and tuned in to the challenges around open research practice and data sharing within the university, and are open to Fellows working more full-time for 10 months to build momentum, teach, and collaborate to advance those goals within those labs and research settings.`}</p>
+                  <p>{`We want to make sure Fellows, as they'll be working somewhat autonomously within their institution, are in supportive environments. We find this is best achieved with advisors who are supportive and tuned in to the challenges around open research practice and data sharing within the institution, and are open to Fellows working more full-time for 10 months to build momentum, teach, and collaborate to advance those goals within those labs and research settings.`}</p>
                 </Panel>
 
                 <Panel header={`How will I be funded over the Fellowship?`}>
-                  <p>{`Funding and apitional supplements for which fellows may be eligible are allocated to the individual directly on a monthly basis, not run through institutions. No university overhead-like arrangements - the funding goes straight to the Fellow themselves.`}</p>
+                  <p>{`Funding and additional supplements for which fellows may be eligible are allocated to the individual directly on a monthly basis, not run through institutions. No university overhead-like arrangements - the funding goes straight to the Fellow themselves.`}</p>
                 </Panel>
 
                 <Panel header={`What are the tax considerations alluded to in the call for applications?`}>
-                  <p>{`Proposed fellowship amounts are gross amounts and may be reduced by applicable taxes.  Fellows are responsible to pay all applicable taxes, whether in their home jurisdictions, the jurisdiction where the fellowship occurs, or any other jurisdiction.  In some cases Mozilla may be required to withhold such taxes at the time of payment, and reduce the amount of fellows’ payments accordingly.  For instance, Mozilla may have to withhold up to 30% of any stipend payments attributable to fellowship activities taking place in the U.S., although fellows may be able to claim reduced rates of withholding or refund of a portion of these taxes.  It is fellows’ responsibility to communicate in advance with Mozilla about where they will be located throughout the fellowship.`}</p>
+                  <p>{`Proposed fellowship amounts are gross amounts and may be reduced by applicable taxes.  Fellows are responsible to pay all applicable taxes, whether in their home jurisdictions, the jurisdiction where the fellowship occurs, or any other jurisdiction.  In some cases Mozilla may be required to withhold taxes at the time of payment, and reduce the amount of fellows’ payments accordingly.  For instance, Mozilla may have to withhold up to 30% of any stipend payments attributable to fellowship activities taking place in the U.S., although fellows may be able to claim reduced rates of withholding or refund of a portion of these taxes. It is fellows’ responsibility to communicate in advance with Mozilla about where they will be located throughout the fellowship.`}</p>
                 </Panel>
               </Collapse>
             </div>
             <div className="py-3" name="Fellows" slug="fellows" iconDefault="/assets/img/icon-tab-fellows.svg" iconActive="/assets/img/icon-tab-fellows-blue.svg">
               <h2>Our 2016 Fellows</h2>
 
-              <p>The folks chosen are representative of the change we want to see in the community, championing openness, collaboration, and mentorship in science. Over the next ten months, the fellows will work on projects to help their local communities engage with open data, open source software and teach forward to their peers. They will also receive training and support from Mozilla to hone their skills around open source, participatory learning, and data sharing.</p>
+              <p>The fellows chosen are representative of the change we want to see in the community, championing openness, collaboration, and mentorship in science. Over the next ten months, the fellows will work on projects to help their local communities engage with open data, open source software and teach forward to their peers. They will also receive training and support from Mozilla to hone their skills around open source, participatory learning, and data sharing.</p>
 
               <div className="row my-3">
                 <div className="col-sm-3 center-vertical">
