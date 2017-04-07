@@ -75,7 +75,7 @@ export default React.createClass({
                 <IconItem imgSrc="/assets/img/fellowships/icon-institution.svg" copy="be currently employed at a research institution"></IconItem>
                 <IconItem imgSrc="/assets/img/fellowships/icon-stipend.svg" copy="have the ability to accept outside funds for this fellowship directly (i.e., not distributed through the institution)"></IconItem>
                 <IconItem imgSrc="/assets/img/fellowships/icon-research.svg" copy="be an early-career researcher (i.e., graduate students, post-docs, research scientists, lecturers)"></IconItem>
-                <IconItem imgSrc="/assets/img/fellowships/icon-life.svg" copy="specialize in scientific research: physical, life, social, or natural sciences"></IconItem>
+                <IconItem imgSrc="/assets/img/fellowships/icon-life.svg" copy="specialize in scientific research: physical, life, social, library, or natural sciences"></IconItem>
                 <IconItem imgSrc="/assets/img/fellowships/icon-travel.svg" copy="be able to travel"></IconItem>
                 <IconItem imgSrc="/assets/img/fellowships/icon-approve.svg" copy="obtain support from their advisors. As fellows will be based at their home institutions, please note that a letter of support from their advisor is mandatory for consideration"></IconItem>
                 <IconItem imgSrc="/assets/img/fellowships/icon-open.svg" copy="have experience participating in open communities"></IconItem>
@@ -90,7 +90,7 @@ export default React.createClass({
                 </Panel>
 
                 <Panel header={`What disciplines are included in the eligible sciences?`}>
-                  <p>{`Previously, our fellowship focused on the physical and natural sciences: biology, chemistry, earth science, physics, astronomy, ecology, etc.`}</p>
+                  <p>{`Previously, our fellowship focused on the physical and natural sciences: biology, chemistry, earth science, physics, astronomy, ecology, etc. This year, it is open to all scientific disciplines`}</p>
                   <p>{`We’ve opened this year’s application to include the social and library sciences. Strong attachment to furthering scientific research in some capacity is favored, and a recommended emphasis in the applications we receive.`}</p>
                 </Panel>
 
