@@ -29,4 +29,25 @@
       color: $white;
     }
   }
+
+  .btn-white {
+    background: none;
+    border: 0.0625rem solid $white;
+    color: #fff;
+  }
+
+  .btn-white:hover {
+    color: #5a6ba4;
+    background-color: #fff;
+  }
+
+  .btn-white:focus {
+    color: #5a6ba4;
+    background-color: #fff;
+  }
+
+  .btn-white:active {
+    color: #5a6ba4;
+    background-color: #fff;
+  }
 }
