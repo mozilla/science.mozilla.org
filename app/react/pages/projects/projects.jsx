@@ -17,7 +17,9 @@ export default React.createClass({
       categories: [],
       projects: [],
       allPagesLoaded: false,
-      pagesLoaded: 0
+      pagesLoaded: 0,
+      // empty is true if the returned project list is empty
+      empty: false
     };
   },
   handleSearchInput(event){
@@ -48,6 +50,7 @@ export default React.createClass({
       .then((data) => {
         // Only want to concat if not fetching the first page, because changing the filter/search resets result set
         this.setState({
+          empty: page === 1 && data.results.length === 0,
           projects: page === 1 ? data.results : this.state.projects.concat(data.results),
           pagesLoaded: page,
           allPagesLoaded: !data.next
@@ -140,7 +143,8 @@ export default React.createClass({
             <RadioFilter options={sortOptions} initialChoice={this.state.sortBy} onChange={this.onSortChange}></RadioFilter>
           </div>
           <ProjectList projects={this.state.projects}/>
-          <div className="text-xs-center">
+          <div className="lead text-xs-center mb-2">
+            {this.state.empty && <p>Sorry, no search results were found. Please try a broader search term</p>}
             <button hidden={this.state.allPagesLoaded} className="btn btn-outline-info mb-3" onClick={this.onMoreClick}>See More</button>
           </div>
         </div>
