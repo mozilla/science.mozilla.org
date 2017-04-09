@@ -47,6 +47,28 @@
     position: relative;
   }
 
+  .sprinkle {
+    position: absolute;
+    max-width: 3rem;
+    display: none;
+
+    @media (min-width: $bp-md) {
+      display: inline-block;
+    }
+
+    &.sprinkle:nth-child(1) {
+      top: 2rem;
+      max-width: 2rem;
+      left: 5%;
+    }
+
+    &.sprinkle:nth-child(2) {
+      bottom: -4rem;
+      left: 0;
+      z-index: 4;
+    }
+  }
+
   .whats-new {
     background: url('/assets/img/home-bg-parallax@2x.jpg');
     background-size: cover;
@@ -130,27 +152,6 @@
     background-position: calc(33% - 6.5rem) 0;
   }
 
-  .sprinkle {
-    position: absolute;
-    max-width: 3rem;
-    display: none;
-
-    @media (min-width: $bp-md) {
-      display: inline-block;
-    }
-
-    &.sprinkle:nth-child(1) {
-      top: 2rem;
-      max-width: 2rem;
-      left: 10%;
-    }
-
-    &.sprinkle:nth-child(2) {
-      top: 7rem;
-      left: 9%;
-    }
-  }
-
   .shadow-box {
     margin-left: 5%;
     left: 0;
@@ -159,27 +160,5 @@
       width: 66%;
       margin: 4rem 0;
     }
-  }
-}
-
-.sprinkle {
-  position: absolute;
-  max-width: 3rem;
-  display: none;
-
-  @media (min-width: $bp-md) {
-    display: inline-block;
-  }
-
-  &.sprinkle:nth-child(1) {
-    top: 2rem;
-    max-width: 2rem;
-    left: 5%;
-  }
-
-  &.sprinkle:nth-child(2) {
-    bottom: -30rem;
-    left: 0;
-    z-index: 4;
   }
 }
