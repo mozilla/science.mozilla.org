@@ -130,3 +130,35 @@
     background: $white;
   }
 }
+
+.fellow-cta {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  background: url('/assets/img/home-fellows@2x.jpg');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  padding-top: 12rem;
+  padding-right: 0;
+
+  @media (min-width: $bp-sm) {
+    padding-top: 18rem;
+  }
+
+  @media (min-width: $bp-md) {
+    padding-top: 0;
+    padding-right: 6.5rem;
+    background-size: 40%;
+    background-position: calc(33% - 6.5rem) 0;
+  }
+
+  .shadow-box {
+    margin-left: 5%;
+    left: 0;
+
+    @media (min-width: $bp-md) {
+      width: 66%;
+      margin: 4rem 0;
+    }
+  }
+}
