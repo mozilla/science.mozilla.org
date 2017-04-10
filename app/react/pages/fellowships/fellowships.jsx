@@ -57,7 +57,7 @@ export default React.createClass({
                 <IconItem imgSrc="/assets/img/fellowships/icon-communicate.svg" copy="communicate and share openly their work on an ongoing basis (e.g., through GitHub repositories, scholarly preprints and blog posts)"></IconItem>
               </div>
 
-              <p className="mb-3">{`Note: Fellows are encouraged to continue their personal research for up to 20% of their time during the course of their fellowship (i.e., one day a week). Fellowship applicants must have buy-in from their supervisors in advance, and include Advisors’ contact information on the application. Advisors will be interviewed separately should applicants move on to the second round, and their support will be a critical consideration for acceptance of fellows.`}</p>
+              <p className="mb-3">{`Note: Fellows are encouraged to continue their personal research for up to 20% of their time during the course of their fellowship (i.e., one day a week). Fellowship applicants must have buy-in from their advisors in advance, and include Advisors’ contact information on the application. Advisors will be interviewed separately should applicants move on to the second round, and their support will be a critical consideration for acceptance of fellows.`}</p>
 
               <h3 className="mb-1">Stipend and Financial Benefits</h3>
 
@@ -96,8 +96,8 @@ export default React.createClass({
                 </Panel>
 
                 <Panel header={`What disciplines are included in the eligible sciences?`}>
-                  <p>{`Previously, our fellowship focused on the physical and natural sciences: biology, chemistry, earth science, physics, astronomy, ecology, etc. This year, it is open to all scientific disciplines`}</p>
-                  <p>{`We’ve opened this year’s application to include the social and library sciences. Strong attachment to furthering scientific research in some capacity is favored, and a recommended emphasis in the applications we receive.`}</p>
+                  <p>{`Previously, our fellowship focused on the physical and natural sciences: biology, chemistry, earth science, physics, astronomy, ecology, etc.`}</p>
+                  <p>{`We’ve opened this year’s application to include the social and library sciences; in fact, all scientific disiplines are welcome among our applicants. Strong attachment to furthering scientific research in some capacity is favored, and a recommended emphasis in the applications we receive.`}</p>
                 </Panel>
 
                 <Panel header={`I work at a research institution but not a "university" - can I still apply?`}>
@@ -115,7 +115,7 @@ export default React.createClass({
                 </Panel>
 
                 <Panel header={`When are Fellowships intended to start? And end?`}>
-                  <p>{`The anticipated start date for Fellows is in September 2017, running to the end of June 2018, for the 10 months of the fellowship duration. After the CFP launches in April, the application will be open through May 14th (a Sunday). The Science Lab team will review applications for the subsequent two weeks, and request interviews with fellows (two rounds of interviews) and their advisors before making offers in early June, and responding to all applicants by mid-June. Fellows will be announced officially in July.`}</p>
+                  <p>{`The anticipated start date for Fellows is in September 2017, running to the end of June 2018, for the 10 months of the fellowship duration. After the CFP launches in April, the application will be open through May 14th (a Sunday). The Science Lab team will review applications for the subsequent two weeks, and request interviews with applicants (two rounds of interviews) and their advisors before making offers in early June, and responding to all applicants by mid-June. Fellows will be announced officially in July.`}</p>
                 </Panel>
 
                 <Panel header={`When will we be notified if we're selected?`}>
