@@ -98,11 +98,18 @@ export default {
     }
   },
   blogPosts: {
-    get: function (page = 1) {
+    get: function (page = 1, category=``, search=``) {
       return doXHR(`${wpAPI}/posts`, {
         cachebuster: Date.now() * Math.random(),
-        page: page
+        page: page,
+        "filter[category_name]": category,
+        "filter[s]": search
       });
+    }
+  },
+  blogCategories: {
+    get: function () {
+      return doXHR (`${wpAPI}/taxonomies/category/terms`);
     }
   }
 };
