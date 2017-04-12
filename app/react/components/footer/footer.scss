@@ -160,8 +160,7 @@
       @media screen and (min-width: $bp-md) {
         border-bottom: 0;
         border-right: 0.0625rem solid #666;
-        padding-bottom: 0;
-        padding-right: 1.25rem;
+        padding: 0.8rem 1.25rem 0.8rem 0;
         margin-bottom: 0;
         margin-right: 1.25rem;
       }
@@ -200,6 +199,7 @@
         p {
           text-align: left;
           width: calc(100% - 10.375rem);
+          margin-bottom: 0;
         }
       }
 
