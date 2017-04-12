@@ -1,16 +1,23 @@
 import React from "react";
 import EventList from "../components/event-list/event-list.jsx";
 import Service from "../../js/backend.js";
+import { RadioFilter } from "mofo-ui";
 
 export default React.createClass({
   componentWillMount() {
     this.getEvents(`future`, 1);
     this.getEvents(`past`, 1);
   },
-  getEvents(tense, page) {
+  onSortChange(choice) {
+    this.setState({
+      category: choice
+    }, () => { this.getEvents(`past`, 1, choice); });
+  },
+  getEvents(tense, page, cat = `all`) {
     Service.events
       .get({
         filter: tense,
+        category: cat,
         format: `json`,
         sort: tense === `future` ? `starts_at` : `-starts_at`,
         page
@@ -19,7 +26,7 @@ export default React.createClass({
         this.setState(prevState => {
           return {
             [tense]:{
-              events: prevState[tense].events.concat(data.results),
+              events: page === 1 ? data.results : prevState[tense].events.concat(data.results) ,
               allEventsLoaded : !data.next,
               pageLoaded: page
             }
@@ -39,10 +46,55 @@ export default React.createClass({
         events: [],
         allEventsLoaded: false,
         pageLoaded: 0
-      }
+      },
+      category: `all`
     };
   },
   render() {
+
+    var sortOptions = [
+      {
+        value: `all`,
+        label: `All Past Events`
+      },
+      {
+        value: `Project Call`,
+        label: `Project Call`
+      },
+      {
+        value: `Study Group Call`,
+        label: `Study Group Call`
+      },
+      {
+        value: `Community Call`,
+        label: `Community Call`
+      },
+      {
+        value: `Workshop`,
+        label: `Workshop`
+      },
+      {
+        value: `Sprint`,
+        label: `Sprint`
+      },
+      {
+        value: `MozFest`,
+        label: `MozFest`
+      },
+      {
+        value: `Conference`,
+        label: `Conference`
+      },
+      {
+        value: `Meetup`,
+        label: `Meetup`
+      },
+      {
+        value: `Convening`,
+        label: `Convening`
+      }
+    ];
+
     return (
       <div id="events">
         <div className="jumbotron container text-xs-center mb-0 pb-1">
@@ -57,11 +109,12 @@ export default React.createClass({
         </div>
         <div className="jumbotron container text-xs-center mb-0 pb-1">
           <h2>Archive of Past Events</h2>
+          <RadioFilter options={sortOptions} initialChoice={this.state.category} onChange={this.onSortChange}></RadioFilter>
         </div>
         <div className="container-dynamic">
           <EventList cardClass="col-sm-6 col-md-4 archive" pictures={false} events={this.state.past.events} />
           <div className="text-xs-center">
-            <button hidden={this.state.past.allEventsLoaded} className="btn btn-outline-info mb-3" onClick={()=>{ this.getEvents(`past`, this.state.past.pageLoaded + 1); }}>See More</button>
+            <button hidden={this.state.past.allEventsLoaded} className="btn btn-outline-info mb-3" onClick={()=>{ this.getEvents(`past`, this.state.past.pageLoaded + 1, this.state.category); }}>See More</button>
           </div>
         </div>
       </div>
