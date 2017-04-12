@@ -115,6 +115,11 @@
       background: none;
       border: 0.0625rem solid $white;
       color: $white;
+
+      &:hover {
+        background: $white;
+        color: $black;
+      }
     }
 
     > :nth-child(1) {
