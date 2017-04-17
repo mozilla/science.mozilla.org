@@ -77,6 +77,7 @@ render((
         <Redirect from="jstirnaman-openMetaAnalysis.github.io" to="openMetaAnalysis" />
       </Route>
       <Route path="projects/:id" component={Project} />
+      <Route path="programs/events/global-sprint-2017" onEnter={() => { window.location.href = `https://mozilla.github.io/global-sprint`; }} />
       <Route path="programs/events/:id" component={Event}>
         <Route path=":tab" component={Event}/>
       </Route>
