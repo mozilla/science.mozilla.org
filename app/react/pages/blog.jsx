@@ -3,13 +3,16 @@ import Moment from "moment-timezone";
 import Service from "../../js/backend.js";
 import DataCard from "../components/data-card/data-card.jsx";
 
+import DebounceInput from 'react-debounce-input';
+
 export default React.createClass({
   componentWillMount: function () {
     this.loadPosts(1);
+    this.loadCategories();
   },
-  loadPosts: function (page) {
+  loadPosts: function (page, category=``, search=``) {
     Service.blogPosts
-      .get(page)
+      .get(page, category, search)
       .then((posts) => {
         this.setState({
           posts: this.state.posts.concat(posts),
@@ -18,14 +21,44 @@ export default React.createClass({
       })
       .catch((reason) => { console.error(reason); });
   },
+  loadCategories: function() {
+    Service.blogCategories
+      .get()
+      .then((categories) => {
+        this.setState({
+          categories: categories
+        });
+      })
+      .catch((reason) => { console.error(reason); });
+  },
+  handleCategoryInput: function(event) {
+    this.setState({
+      activeCategory: event.target.value,
+      posts: [],
+      pagesLoaded: 0
+    });
+    this.loadPosts(1, event.target.value, this.state.search);
+  },
+  handleSearchInput: function(event) {
+    this.setState({
+      search: event.target.value,
+      posts: [],
+      pagesLoaded: 0
+    });
+    this.loadPosts(1, this.state.activeCategory, event.target.value);
+  },
   getInitialState: function () {
     return {
       posts: [],
-      pagesLoaded: 0
+      pagesLoaded: 0,
+      categories: [
+      ],
+      activeCategory: ``,
+      search: ``
     };
   },
   onMoreClick: function () {
-    this.loadPosts(this.state.pagesLoaded + 1);
+    this.loadPosts(this.state.pagesLoaded + 1, this.state.activeCategory, this.state.search);
   },
   render() {
     let posts = this.state.posts.map((post, index) => {
@@ -50,6 +83,21 @@ export default React.createClass({
           <h2>Latest News</h2>
         </div>
         <div className="container-dynamic">
+          <div className="row flex-items-xs-center my-1">
+            <div className="col-xs-12 col-sm-6 col-md-4 mb-1">
+              <DebounceInput debounceTimeout={400} type="search" onChange={this.handleSearchInput} className="form-control" placeholder="search"/>
+            </div>
+            <div className="col-xs-12 col-sm-6 col-md-4 mb-1">
+              <select name="category" id="category" onChange={this.handleCategoryInput} className="c-select form-control wide">
+                <option value="">All Categories</option>
+                {this.state.categories.map(category => {
+                  if(category.slug !== `uncategorized`) {
+                    return <option key={category.ID} value={category.slug}>{category.name}</option>;
+                  }
+                })}
+              </select>
+            </div>
+          </div>
           <div className="row">
             {posts}
           </div>
