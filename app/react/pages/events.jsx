@@ -26,6 +26,7 @@ export default React.createClass({
         this.setState(prevState => {
           return {
             [tense]:{
+              empty: page === 1 && data.results.length === 0,
               events: page === 1 ? data.results : prevState[tense].events.concat(data.results) ,
               allEventsLoaded : !data.next,
               pageLoaded: page
@@ -40,12 +41,16 @@ export default React.createClass({
       past:{
         events: [],
         allEventsLoaded: false,
-        pageLoaded: 0
+        pageLoaded: 0,
+        // empty is true if the returned past events list is empty
+        empty: false
       },
       future:{
         events: [],
         allEventsLoaded: false,
-        pageLoaded: 0
+        pageLoaded: 0,
+        // empty is true if the returned future events list is empty
+        empty: false
       },
       category: `all`
     };
@@ -103,7 +108,8 @@ export default React.createClass({
         </div>
         <div className="container-dynamic">
           <EventList events={this.state.future.events} />
-          <div className="text-xs-center">
+          <div className="lead text-xs-center mb-2">
+            {this.state.future.empty && <p>Sorry, no events found in the near future.</p>}
             <button hidden={this.state.future.allEventsLoaded} className="btn btn-outline-info mb-3" onClick={()=>{ this.getEvents(`future`, this.state.future.pageLoaded + 1); }}>See More</button>
           </div>
         </div>
@@ -113,7 +119,8 @@ export default React.createClass({
         </div>
         <div className="container-dynamic">
           <EventList cardClass="col-sm-6 col-md-4 archive" pictures={false} events={this.state.past.events} />
-          <div className="text-xs-center">
+          <div className="lead text-xs-center mb-2">
+            {this.state.past.empty && <p>Sorry, no past events found in this category.</p>}
             <button hidden={this.state.past.allEventsLoaded} className="btn btn-outline-info mb-3" onClick={()=>{ this.getEvents(`past`, this.state.past.pageLoaded + 1, this.state.category); }}>See More</button>
           </div>
         </div>
