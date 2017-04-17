@@ -9,11 +9,11 @@ export default class BlogList extends React.Component {
 
   constructor(props) {
     super(props);
+
     this.state = {
       posts: [],
       pagesLoaded: 0,
-      categories: [
-      ],
+      categories: [],
       activeCategory: ``,
       search: ``
     };
