@@ -81,6 +81,12 @@ header {
   .nav-link {
     color: $white;
     display: block;
+    font-weight: 400;
+  }
+
+  .nav-item > .nav-link {
+    color: #cdcdcd;
+    font-weight: 300;
   }
 
   .auth-links .nav-link {
@@ -136,6 +142,10 @@ header {
       transition: transform 0.25s ease-out, filter 0.25s ease-out;
       transform: rotate(0);
       filter: contrast(0%);
+    }
+
+    .nav-item > .nav-link {
+      color: $gray-light;
     }
 
     .nav-item.open > .nav-link {
