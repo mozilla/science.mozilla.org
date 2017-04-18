@@ -1,16 +1,10 @@
 
 import React from "react";
 
-export default React.createClass({
-  propTypes: {
-    categories: React.PropTypes.array
-  },
-  getDefaultProps() {
-    return {
-      categories: []
-    };
-  },
+export default class Categories extends React.Component {
+
   render() {
+
     return(
       <div className="categories">
         {this.props.categories.map((category) => {
@@ -20,4 +14,13 @@ export default React.createClass({
       </div>
     );
   }
-});
+}
+
+Categories.propTypes = {
+  categories: React.PropTypes.array
+};
+
+Categories.defaultProps = {
+  categories: []
+};
+
