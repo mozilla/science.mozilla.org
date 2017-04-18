@@ -4,16 +4,9 @@ import DataCard from "../../components/data-card/data-card.jsx";
 import UserList from "../../components/user-list/user-list.jsx";
 
 
-export default React.createClass({
-  propTypes: {
-    projects: React.PropTypes.array
-  },
-  getDefaultProps() {
-    return {
-      projects: []
-    };
-  },
-  formatTags(project) {
+export default class ProjectList extends React.Component {
+
+  formatTags = (project) => {
     let tags = null;
 
     if (project.tags && project.tags.length) {
@@ -25,8 +18,10 @@ export default React.createClass({
       );
     }
     return tags;
-  },
+  }
+
   render() {
+
     return(
       <div className="row">
         {this.props.projects.map((project) => {
@@ -51,4 +46,13 @@ export default React.createClass({
       </div>
     );
   }
-});
+}
+
+ProjectList.propTypes = {
+  projects: React.PropTypes.array
+};
+
+ProjectList.defaultProps = {
+  projects: []
+};
+
