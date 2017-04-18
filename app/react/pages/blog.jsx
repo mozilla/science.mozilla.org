@@ -5,12 +5,26 @@ import DataCard from "../components/data-card/data-card.jsx";
 
 import DebounceInput from 'react-debounce-input';
 
-export default React.createClass({
-  componentWillMount: function () {
+export default class BlogList extends React.Component {
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      posts: [],
+      pagesLoaded: 0,
+      categories: [],
+      activeCategory: ``,
+      search: ``
+    };
+  }
+
+  componentWillMount = () => {
     this.loadPosts(1);
     this.loadCategories();
-  },
-  loadPosts: function (page, category=``, search=``) {
+  }
+
+  loadPosts = (page, category=``, search=``) => {
     Service.blogPosts
       .get(page, category, search)
       .then((posts) => {
@@ -20,8 +34,9 @@ export default React.createClass({
         });
       })
       .catch((reason) => { console.error(reason); });
-  },
-  loadCategories: function() {
+  }
+
+  loadCategories = () => {
     Service.blogCategories
       .get()
       .then((categories) => {
@@ -30,36 +45,30 @@ export default React.createClass({
         });
       })
       .catch((reason) => { console.error(reason); });
-  },
-  handleCategoryInput: function(event) {
+  }
+
+  handleCategoryInput = (event) => {
     this.setState({
       activeCategory: event.target.value,
       posts: [],
       pagesLoaded: 0
     });
     this.loadPosts(1, event.target.value, this.state.search);
-  },
-  handleSearchInput: function(event) {
+  }
+
+  handleSearchInput = (event) => {
     this.setState({
       search: event.target.value,
       posts: [],
       pagesLoaded: 0
     });
     this.loadPosts(1, this.state.activeCategory, event.target.value);
-  },
-  getInitialState: function () {
-    return {
-      posts: [],
-      pagesLoaded: 0,
-      categories: [
-      ],
-      activeCategory: ``,
-      search: ``
-    };
-  },
-  onMoreClick: function () {
+  }
+
+  onMoreClick = () => {
     this.loadPosts(this.state.pagesLoaded + 1, this.state.activeCategory, this.state.search);
-  },
+  }
+
   render() {
     let posts = this.state.posts.map((post, index) => {
       let terms = post.terms.category.filter((item) => {
@@ -108,4 +117,4 @@ export default React.createClass({
       </div>
     );
   }
-});
+}

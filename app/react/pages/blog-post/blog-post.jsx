@@ -2,18 +2,23 @@ import React from "react";
 import Moment from "moment-timezone";
 import Service from "../../../js/backend.js";
 
-export default React.createClass({
-  componentWillMount: function () {
+export default class BlogPost extends React.Component {
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      post: null
+    };
+  }
+
+  componentWillMount = () => {
     Service.blogPost
       .get(this.props.params.slug)
       .then((post) => { this.setState({post: post[0]}); })
       .catch((reason) => { console.error(reason); });
-  },
-  getInitialState: function () {
-    return {
-      post: null
-    };
-  },
+  }
+
   render() {
     if (this.state.post) {
       let tags = this.state.post.terms.category.filter((tag) => {
@@ -38,4 +43,4 @@ export default React.createClass({
       return null;
     }
   }
-});
+}
