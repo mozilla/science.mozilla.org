@@ -1,7 +1,9 @@
 import React from "react";
 
-export default React.createClass({
-  render: function() {
+export default class Greeting extends React.Component {
+
+  render() {
+
     return (
       <div className="jumbotron">
         <h1>{this.props.header}</h1>
@@ -9,4 +11,4 @@ export default React.createClass({
       </div>
     );
   }
-});
+}
