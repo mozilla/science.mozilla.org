@@ -1,21 +1,9 @@
 import React from 'react';
 
-var profileCard = React.createClass({
-  propTypes: {
-    name: React.PropTypes.string.isRequired,
-    title: React.PropTypes.string,
-    links: React.PropTypes.array,
-    image: React.PropTypes.string
-  },
-  getDefaultProps() {
-    return {
-      name: ``,
-      title: ``,
-      image: `/assets/img/placeholder.jpg`,
-      links: []
-    };
-  },
+export default class ProfileCard extends React.Component {
+
   render() {
+
     return (
       <div className="profile-card row flex-items-xs-center" id={this.props.name.replace(/\W/g, `-`)}>
         <div className="col-xs-6 col-xs-push-3 col-sm-3 col-sm-push-0 col-xl-2">
@@ -32,6 +20,18 @@ var profileCard = React.createClass({
       </div>
     );
   }
-});
+}
 
-export default profileCard;
+ProfileCard.propTypes = {
+  name: React.PropTypes.string.isRequired,
+  title: React.PropTypes.string,
+  links: React.PropTypes.array,
+  image: React.PropTypes.string
+};
+
+ProfileCard.defaultProps = {
+  name: ``,
+  title: ``,
+  image: `/assets/img/placeholder.jpg`,
+  links: []
+};
