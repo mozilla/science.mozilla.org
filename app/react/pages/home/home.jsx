@@ -3,8 +3,10 @@ import {Link} from "react-router";
 
 import ThreeUp from "../../components/three-up/three-up.jsx";
 
-export default React.createClass({
+export default class Home extends React.Component {
+
   render() {
+
     return (
       <div id="page-home">
         <div className="jumbotron jumbotron-fluid text-xs-center">
@@ -125,4 +127,4 @@ export default React.createClass({
       </div>
     );
   }
-});
+}
