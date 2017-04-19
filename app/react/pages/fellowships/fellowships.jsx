@@ -2,8 +2,14 @@ import React from "react";
 import TabSwitcher from "../../components/tab-switcher/tab-switcher.jsx";
 import { Collapse, Panel } from "mofo-ui";
 
-let IconItem = React.createClass({
+class IconItem extends React.Component {
+
+  constructor(props) {
+    super(props);
+  }
+
   render() {
+
     return (
       <div className="row mb-2 icon-item">
         <div className="col-xs-2 text-xs-center"><img className="icon" src={this.props.imgSrc}/></div>
@@ -11,14 +17,16 @@ let IconItem = React.createClass({
       </div>
     );
   }
-});
+}
 
-export default React.createClass({
-  getInitialState(){
-    return {
-    };
-  },
+export default class Fellowships extends React.Component {
+
+  constructor(props) {
+    super(props);
+  }
+
   render() {
+
     return (
       <div id="page-fellowships">
         <div className="jumbotron text-xs-center jumbotron-fluid mb-0">
@@ -255,4 +263,4 @@ export default React.createClass({
       </div>
     );
   }
-});
+}
