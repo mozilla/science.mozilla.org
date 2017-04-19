@@ -8,27 +8,34 @@ import AboutEvent from "./about-event.jsx";
 import ProjectList from "../../components/project-list/project-list.jsx";
 import {Link} from "react-router";
 
-export default React.createClass({
+export default class Event extends React.Component {
 
-  getInitialState() {
-    return {
+  constructor(props) {
+    super(props);
+
+    this.state = {
       eventDetails: {},
       timeZone: ``
     };
-  },
-  componentWillMount() {
+  }
+
+  componentWillMount = () => {
     this.getEventDetails();
-  },
-  componentDidMount() {
+  }
+
+  componentDidMount = () => {
     this.setState({timeZone: Moment.tz.guess()});
-  },
-  getEventDetails() {
+  }
+
+  getEventDetails = () => {
     Service.event
       .get(this.props.params.id, {format:`json`, expand: `users,projects`})
       .then((data) => { this.setState({eventDetails: data}); })
       .catch((reason) => { console.error(reason); });
-  },
+  }
+
   render() {
+
     var event = this.state.eventDetails;
 
     return (
@@ -54,4 +61,4 @@ export default React.createClass({
       </div>
     );
   }
-});
+}
