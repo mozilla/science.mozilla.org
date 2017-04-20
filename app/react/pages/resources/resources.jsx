@@ -3,11 +3,24 @@ import Service from "../../../js/backend.js";
 import DataCard from "../../components/data-card/data-card.jsx";
 import { RadioFilter } from "mofo-ui";
 
-export default React.createClass({
-  componentWillMount: function () {
+export default class Resources extends React.Component {
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      resources: [],
+      pagesLoaded: 0,
+      activeFilter: undefined,
+      allPagesLoaded: false
+    };
+  }
+
+  componentWillMount = () => {
     this.loadResources(1);
-  },
-  loadResources: function (page) {
+  }
+
+  loadResources = (page) => {
     let getConfig = {
       page: page,
       format: `json`
@@ -27,8 +40,9 @@ export default React.createClass({
         });
       })
       .catch((reason) => { console.error(reason); });
-  },
-  onFilterChange: function (choice) {
+  }
+
+  onFilterChange = (choice) => {
     this.setState({
       activeFilter: choice,
       pagesLoaded: 0,
@@ -36,19 +50,14 @@ export default React.createClass({
     }, () => {
       this.loadResources(1);
     });
-  },
-  getInitialState: function () {
-    return {
-      resources: [],
-      pagesLoaded: 0,
-      activeFilter: undefined,
-      allPagesLoaded: false
-    };
-  },
-  onMoreClick: function () {
+  }
+
+  onMoreClick = () => {
     this.loadResources(this.state.pagesLoaded + 1);
-  },
+  }
+
   render() {
+
     let radioOptions = [
       {
         value: ``,
@@ -121,4 +130,4 @@ export default React.createClass({
       </div>
     );
   }
-});
+}
