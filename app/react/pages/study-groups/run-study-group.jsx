@@ -2,11 +2,23 @@ import React from "react";
 import Service from "../../../js/backend.js";
 import DataCard from "../../components/data-card/data-card.jsx";
 
-export default React.createClass({
-  componentWillMount() {
+export default class Run extends React.Component {
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      lessons: [],
+      pagesLoaded: 0,
+      allPagesLoaded: false
+    };
+  }
+
+  componentWillMount = () => {
     this.loadStudyGroups(1);
-  },
-  loadStudyGroups: function(page) {
+  }
+
+  loadStudyGroups = (page) => {
     Service.resources
       .get({format: `json`, tags: `Study Group`, page})
       .then((data) => {
@@ -17,21 +29,18 @@ export default React.createClass({
         });
       })
       .catch((reason) => { console.error(reason); });
-  },
-  getInitialState() {
-    return {
-      lessons: [],
-      pagesLoaded: 0,
-      allPagesLoaded: false
-    };
-  },
-  onFormSubmit() {
+  }
+
+  onFormSubmit = () => {
     // TODO: Make this not a popup
-  },
-  onMoreClick: function () {
+  }
+
+  onMoreClick = () => {
     this.loadResources(this.state.pagesLoaded + 1);
-  },
+  }
+
   render() {
+
     let studyLessons = [];
 
     if (this.state.lessons.length) {
@@ -95,4 +104,4 @@ export default React.createClass({
       </div>
     );
   }
-});
+}
