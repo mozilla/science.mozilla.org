@@ -27,8 +27,10 @@ import CodeOfConduct from "./pages/code-of-conduct/code-of-conduct.jsx";
 
 ReactGA.initialize(`UA-49796218-50`);
 
-const App = React.createClass({
+class App extends React.Component {
+
   render() {
+
     return (
       <div>
         <Header path={this.props.location.pathname}/>
@@ -41,9 +43,9 @@ const App = React.createClass({
       </div>
     );
   }
-});
+}
 
-function logPageView(){
+function logPageView() {
   var _dntStatus = navigator.doNotTrack || navigator.msDoNotTrack;
   var fxMatch = navigator.userAgent.match(/Firefox\/(\d+)/);
   var ie10Match = navigator.userAgent.match(/MSIE 10/i);
