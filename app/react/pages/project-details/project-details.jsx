@@ -5,25 +5,31 @@ import Service from "../../../js/backend.js";
 import UserList from "../../components/user-list/user-list.jsx";
 
 
-export default React.createClass({
+export default class Project extends React.Component {
 
-  getInitialState() {
-    return {
+  constructor(props) {
+    super(props);
+
+    this.state = {
       projectDetails: {
         users: []
       }
     };
-  },
-  componentWillMount() {
+  }
+
+  componentWillMount = () => {
     this.getProjectDetails();
-  },
-  getProjectDetails() {
+  }
+
+  getProjectDetails = () => {
     Service.project
       .get(this.props.params.id, {format: `json`, expand: `users,events`})
       .then((data) => { this.setState({projectDetails: data}); })
       .catch((reason) => { console.error(reason); });
-  },
+  }
+
   render() {
+
     var project = this.state.projectDetails;
     // Get leads as an array so I can pass it to UserList of github_contributors
     let leads = project.users.filter(user=>{ return user.role===`Lead`; });
@@ -52,4 +58,4 @@ export default React.createClass({
       </div>
     );
   }
-});
+}
