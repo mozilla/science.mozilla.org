@@ -2,22 +2,24 @@ import React from "react";
 import Service from "../../../js/backend.js";
 import { Collapse, Panel } from "mofo-ui";
 
-export default React.createClass({
-  propTypes:{
-    switchTabs: React.PropTypes.func.isRequired
-  },
-  componentWillMount() {
+export default class Join extends React.Component {
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      regions: {}
+    };
+  }
+
+  componentWillMount = () => {
     Service.studyGroups
       .get()
       .then((data) => { this.organizeGroups(data); })
       .catch((reason) => { console.error(reason); });
-  },
-  getInitialState() {
-    return {
-      regions: {}
-    };
-  },
-  organizeGroups(groups) {
+  }
+
+  organizeGroups = (groups) => {
     let regions = {};
 
     groups.forEach(group => {
@@ -27,8 +29,9 @@ export default React.createClass({
       regions[group.region].push(group);
     });
     this.setState({regions});
-  },
-  renderRegions() {
+  }
+
+  renderRegions = () => {
     let regionNames = Object.keys(this.state.regions);
 
     return (
@@ -38,11 +41,13 @@ export default React.createClass({
         })}
       </Collapse>
     );
-  },
-  switchToRunTab() {
+  }
+
+  switchToRunTab = () => {
     this.props.switchTabs(1);
-  },
-  renderGroups(region, index){
+  }
+
+  renderGroups = (region, index) => {
     return (
       <Panel key={index} header={region}>
         {this.state.regions[region].map(studyGroup =>{
@@ -50,8 +55,10 @@ export default React.createClass({
         })}
      </Panel>
     );
-  },
+  }
+
   render() {
+
     let middle = Math.floor(Object.keys(this.state.regions).length/2);
 
     return (
@@ -73,4 +80,8 @@ export default React.createClass({
       </div>
     );
   }
-});
+}
+
+Join.propTypes = {
+  switchTabs: React.PropTypes.func.isRequired
+};
