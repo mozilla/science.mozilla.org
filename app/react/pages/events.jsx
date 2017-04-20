@@ -3,17 +3,42 @@ import EventList from "../components/event-list/event-list.jsx";
 import Service from "../../js/backend.js";
 import { RadioFilter } from "mofo-ui";
 
-export default React.createClass({
-  componentWillMount() {
+export default class Events extends React.Component {
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      past:{
+        events: [],
+        allEventsLoaded: false,
+        pageLoaded: 0,
+        // empty is true if the returned past events list is empty
+        empty: false
+      },
+      future:{
+        events: [],
+        allEventsLoaded: false,
+        pageLoaded: 0,
+        // empty is true if the returned future events list is empty
+        empty: false
+      },
+      category: `all`
+    };
+  }
+
+  componentWillMount = () => {
     this.getEvents(`future`, 1);
     this.getEvents(`past`, 1);
-  },
-  onSortChange(choice) {
+  }
+
+  onSortChange = (choice) => {
     this.setState({
       category: choice
     }, () => { this.getEvents(`past`, 1, choice); });
-  },
-  getEvents(tense, page, cat = `all`) {
+  }
+
+  getEvents = (tense, page, cat = `all`) => {
     Service.events
       .get({
         filter: tense,
@@ -35,26 +60,8 @@ export default React.createClass({
         });
       })
       .catch((reason) => { console.error(reason); });
-  },
-  getInitialState() {
-    return {
-      past:{
-        events: [],
-        allEventsLoaded: false,
-        pageLoaded: 0,
-        // empty is true if the returned past events list is empty
-        empty: false
-      },
-      future:{
-        events: [],
-        allEventsLoaded: false,
-        pageLoaded: 0,
-        // empty is true if the returned future events list is empty
-        empty: false
-      },
-      category: `all`
-    };
-  },
+  }
+
   render() {
 
     var sortOptions = [
@@ -127,4 +134,4 @@ export default React.createClass({
       </div>
     );
   }
-});
+}
