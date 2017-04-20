@@ -4,12 +4,15 @@ import Join from "./join-study-group.jsx";
 import Run from "./run-study-group.jsx";
 
 
-export default React.createClass({
-  switchTabs(tab) {
+export default class StudyGroups extends React.Component {
+
+  switchTabs = (tab) => {
     this.refs.tabSwitcher.setState({activeTab: tab});
     window.scroll(0,0);
-  },
+  }
+
   render() {
+
     return (
         <div id="study-groups">
           <div className="jumbotron jumbotron-fluid text-xs-center mb-0">
@@ -33,4 +36,4 @@ export default React.createClass({
       </div>
     );
   }
-});
+}
