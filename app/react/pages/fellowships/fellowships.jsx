@@ -78,7 +78,7 @@ export default React.createClass({
               <h3 className="mb-1">Eligibility Criteria</h3>
               <p>Fellows must be:</p>
               <div className="mb-3">
-                <IconItem imgSrc="/assets/img/fellowships/icon-institution.svg" copy="be currently employed at a research institution"></IconItem>
+                <IconItem imgSrc="/assets/img/fellowships/icon-institution.svg" copy="be currently based at or affiliated with a research institution"></IconItem>
                 <IconItem imgSrc="/assets/img/fellowships/icon-stipend.svg" copy="have the ability to accept outside funds for this fellowship directly (i.e., not distributed through the institution)"></IconItem>
                 <IconItem imgSrc="/assets/img/fellowships/icon-research.svg" copy="be an early-career researcher (i.e., graduate students, post-docs, research scientists, lecturers)"></IconItem>
                 <IconItem imgSrc="/assets/img/fellowships/icon-life.svg" copy="specialize in scientific research: physical, life, social, library, or natural sciences"></IconItem>
