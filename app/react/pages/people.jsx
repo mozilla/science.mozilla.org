@@ -21,7 +21,7 @@ var people = [
     title: `Community Lead`,
     image: `https://avatars3.githubusercontent.com/u/1559703?v=3&s=400`,
     links: [<a href="https://twitter.com/auremoser">@auremoser</a>],
-    bio: `Aurelia is a creative developer building community around code at the Science Lab. Previously of Ushahidi, Internews-Kenya, and CartoDB, she has a background that blends a cocktail of conservation chemistry and coding for civic tech/non-profit journalism. Recent projects have had mapping sensor data to support agricultural security and sustainable apis ecosystems in the Global South, though she also dabbles in DJing and privacy art. As her about yoga, semantic web theory, web-mapping, and organic chem.`
+    bio: `Aurelia is a creative developer building community around code at the Science Lab. Previously of Ushahidi, Internews-Kenya, and CartoDB, she has a background that blends a cocktail of conservation chemistry and coding for civic tech/non-profit journalism. Recent projects have had mapping sensor data to support agricultural security and sustainable apis ecosystems in the Global South, though she also dabbles in DJing and privacy art. Ask her about yoga, semantic web theory, web-mapping, and organic chem.`
   }
 ];
 
