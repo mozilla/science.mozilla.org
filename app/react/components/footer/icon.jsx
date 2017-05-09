@@ -1,13 +1,16 @@
 import React from "react";
 
-export default React.createClass({
-  propTypes: {
+export default class Icon extends React.Component {
+
+  static propTypes = {
     children: React.PropTypes.string.isRequired,
     href: React.PropTypes.string.isRequired,
     src: React.PropTypes.string.isRequired,
     target: React.PropTypes.string
-  },
-  render: function() {
+  };
+
+  render() {
+
     return (
       <div className="icon-container">
         <div className="icon">
@@ -17,4 +20,4 @@ export default React.createClass({
       </div>
     );
   }
-});
+}

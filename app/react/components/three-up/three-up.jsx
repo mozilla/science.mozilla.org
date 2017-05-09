@@ -7,19 +7,21 @@ var itemSchema = {
   title: React.PropTypes.string
 };
 
-export default React.createClass({
-  propTypes: {
+export default class ThreeUp extends React.Component {
+
+  static propTypes = {
     item1: React.PropTypes.shape(itemSchema).isRequired,
     item2: React.PropTypes.shape(itemSchema).isRequired,
     item3: React.PropTypes.shape(itemSchema).isRequired,
     hasCircle: React.PropTypes.bool
-  },
-  getDefaultProps() {
-    return {
-      hasCircle: false
-    };
-  },
-  render: function() {
+  };
+
+  static defaultProps = {
+    hasCircle: false
+  };
+
+  render() {
+
     let iconClass = classNames({
       icon: true,
       circle: this.props.hasCircle
@@ -51,4 +53,4 @@ export default React.createClass({
       </div>
     );
   }
-});
+}

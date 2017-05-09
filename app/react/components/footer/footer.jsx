@@ -1,14 +1,14 @@
 import React from "react";
 import Icon from "./icon.jsx";
 
-export default React.createClass({
-  getInitialState: function () {
-    return {
-      hasConsent: false,
-      hasAttemptedToSubmit: false
-    };
-  },
-  subscribeClicked: function (event) {
+export default class Footer extends React.Component {
+
+  state = {
+    hasConsent: false,
+    hasAttemptedToSubmit: false
+  };
+
+  subscribeClicked = (event) => {
     if (!this.refs.inputOK.checked) {
       event.preventDefault();
     }
@@ -17,8 +17,10 @@ export default React.createClass({
       hasAttemptedToSubmit: true,
       hasConsent: this.refs.inputOK.checked
     });
-  },
-  render: function() {
+  }
+
+  render() {
+
     return (
       <footer id="footer">
         <div className="newsletter">
@@ -67,4 +69,4 @@ export default React.createClass({
       </footer>
     );
   }
-});
+}

@@ -3,38 +3,44 @@ import { Link } from "react-router";
 import classNames from "classnames";
 import HamburgerMenu from "react-hamburger-menu";
 
-export default React.createClass({
-  propTypes: {
+export default class Header extends React.Component {
+
+  state = {
+    menuOpen: false,
+    slideoutVisible: false
+  };
+
+  static propTypes = {
     path: React.PropTypes.string.isRequired
-  },
-  getInitialState() {
-    return ({
-      menuOpen: false,
-      slideoutVisible: false
-    });
-  },
-  hideMenu() {
+  };
+
+
+  hideMenu = () => {
     this.setState({
       menuOpen: false,
       slideoutVisible: false
     });
     window.removeEventListener(`click`, this.hideMenu);
-  },
-  toggleMenu(e) {
+  }
+
+  toggleMenu = (e) => {
     if(!this.state.menuOpen){
       e.stopPropagation();
       this.setState({ menuOpen: !this.state.menuOpen });
       window.addEventListener(`click`, this.hideMenu);
     }
-  },
-  toggleSlideout(e) {
+  }
+
+  toggleSlideout = (e) => {
     if(!this.state.slideoutVisible){
       e.stopPropagation();
       this.setState({ slideoutVisible: !this.state.slideoutVisible });
       window.addEventListener(`click`, this.hideMenu);
     }
-  },
-  render: function() {
+  }
+
+  render() {
+
     let slideoutNavClass = classNames({
       "slideout-menu": true,
       active: this.state.slideoutVisible
@@ -97,4 +103,4 @@ export default React.createClass({
       </header>
     );
   }
-});
+}

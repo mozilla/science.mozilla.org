@@ -2,18 +2,19 @@
 import React from "react";
 import Categories from "../../components/categories/categories.jsx";
 
-export default React.createClass({
-  propTypes: {
+export default class DataCard extends React.Component {
+
+  static propTypes = {
     className: React.PropTypes.string,
     showPicture: React.PropTypes.bool,
     picture: React.PropTypes.string,
     categories: React.PropTypes.arrayOf(React.PropTypes.string)
-  },
-  getDefaultProps() {
-    return{
-      showPicture: false
-    };
-  },
+  };
+
+  static defaultProps = {
+    showPicture: false
+  };
+
   render() {
 
     return (
@@ -26,4 +27,4 @@ export default React.createClass({
       </div>
     );
   }
-});
+}

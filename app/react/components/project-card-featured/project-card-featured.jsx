@@ -3,18 +3,20 @@ import React from "react";
 import {Link} from "react-router";
 import Categories from "../../components/categories/categories.jsx";
 
-export default React.createClass({
-  propTypes: {
+export default class ProjectCardFeatured extends React.Component {
+
+  static propTypes = {
     className: React.PropTypes.string,
     project: React.PropTypes.object.isRequired,
     isFeatured: React.PropTypes.bool
-  },
-  getDefaultProps() {
-    return {
-      isFeatured: false
-    };
-  },
+  };
+
+  static defaultProps = {
+    isFeatured: false
+  };
+
   render() {
+
     let project = this.props.project;
     let tags = null;
     let events = null;
@@ -82,4 +84,4 @@ export default React.createClass({
       </div>
     );
   }
-});
+}

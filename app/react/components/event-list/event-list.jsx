@@ -4,28 +4,30 @@ import Moment from "moment-timezone";
 import {Link} from "react-router";
 import Humanize from "../../../js/humanize-dates.js";
 
-export default React.createClass({
-  propTypes: {
+export default class EventList extends React.Component {
+
+  state = {
+    timeZone: ``
+  };
+
+  static propTypes = {
     events: React.PropTypes.array,
     pictures: React.PropTypes.bool,
     cardClass: React.PropTypes.string
-  },
-  getDefaultProps() {
-    return {
-      events: [],
-      pictures: true,
-      cardClass: `col-sm-6`
-    };
-  },
-  getInitialState() {
-    return {
-      timeZone: ``
-    };
-  },
+  };
+
+  static defaultProps = {
+    events: [],
+    pictures: true,
+    cardClass: `col-sm-6`
+  };
+
   componentDidMount() {
     this.setState({ timeZone: Moment.tz.guess() });
-  },
+  }
+
   render() {
+
     return (
       <div className="row">
         {this.props.events.map((event) => {
@@ -46,4 +48,4 @@ export default React.createClass({
       </div>
     );
   }
-});
+}
