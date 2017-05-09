@@ -4,15 +4,15 @@ import { Collapse, Panel } from "mofo-ui";
 
 export default class Join extends React.Component {
 
-  constructor(props) {
-    super(props);
+  state = {
+    regions: {}
+  };
 
-    this.state = {
-      regions: {}
-    };
-  }
+  static propTypes = {
+    switchTabs: React.PropTypes.func.isRequired
+  };
 
-  componentWillMount = () => {
+  componentWillMount() {
     Service.studyGroups
       .get()
       .then((data) => { this.organizeGroups(data); })
@@ -81,7 +81,3 @@ export default class Join extends React.Component {
     );
   }
 }
-
-Join.propTypes = {
-  switchTabs: React.PropTypes.func.isRequired
-};

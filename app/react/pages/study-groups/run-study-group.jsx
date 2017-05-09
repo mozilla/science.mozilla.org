@@ -4,17 +4,13 @@ import DataCard from "../../components/data-card/data-card.jsx";
 
 export default class Run extends React.Component {
 
-  constructor(props) {
-    super(props);
+  state = {
+    lessons: [],
+    pagesLoaded: 0,
+    allPagesLoaded: false
+  };
 
-    this.state = {
-      lessons: [],
-      pagesLoaded: 0,
-      allPagesLoaded: false
-    };
-  }
-
-  componentWillMount = () => {
+  componentWillMount() {
     this.loadStudyGroups(1);
   }
 

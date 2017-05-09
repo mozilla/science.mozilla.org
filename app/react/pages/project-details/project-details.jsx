@@ -7,17 +7,13 @@ import UserList from "../../components/user-list/user-list.jsx";
 
 export default class Project extends React.Component {
 
-  constructor(props) {
-    super(props);
+  state = {
+    projectDetails: {
+      users: []
+    }
+  };
 
-    this.state = {
-      projectDetails: {
-        users: []
-      }
-    };
-  }
-
-  componentWillMount = () => {
+  componentWillMount() {
     this.getProjectDetails();
   }
 

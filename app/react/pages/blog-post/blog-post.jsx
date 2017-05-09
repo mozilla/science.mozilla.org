@@ -4,15 +4,11 @@ import Service from "../../../js/backend.js";
 
 export default class BlogPost extends React.Component {
 
-  constructor(props) {
-    super(props);
+  state = {
+    post: null
+  };
 
-    this.state = {
-      post: null
-    };
-  }
-
-  componentWillMount = () => {
+  componentWillMount() {
     Service.blogPost
       .get(this.props.params.slug)
       .then((post) => { this.setState({post: post[0]}); })

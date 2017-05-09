@@ -4,10 +4,6 @@ import { Collapse, Panel } from "mofo-ui";
 
 class IconItem extends React.Component {
 
-  constructor(props) {
-    super(props);
-  }
-
   render() {
 
     return (
@@ -20,10 +16,6 @@ class IconItem extends React.Component {
 }
 
 export default class Fellowships extends React.Component {
-
-  constructor(props) {
-    super(props);
-  }
 
   render() {
 

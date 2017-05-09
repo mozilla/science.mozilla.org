@@ -2,9 +2,9 @@ import React from "react";
 
 export default class AboutEvent extends React.Component {
 
-  constructor(props) {
-    super(props);
-  }
+  static propTypes = {
+    event: React.PropTypes.object.isRequired
+  };
 
   render() {
 
@@ -32,7 +32,3 @@ export default class AboutEvent extends React.Component {
     );
   }
 }
-
-AboutEvent.propTypes = {
-  event: React.PropTypes.object.isRequired
-};

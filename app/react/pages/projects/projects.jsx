@@ -10,21 +10,17 @@ import Service from "../../../js/backend.js";
 
 export default class Projects extends React.Component {
 
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      filterText: ``,
-      sortBy: `date_created`,
-      category: ``,
-      categories: [],
-      projects: [],
-      allPagesLoaded: false,
-      pagesLoaded: 0,
-      // empty is true if the returned project list is empty
-      empty: false
-    };
-  }
+  state = {
+    filterText: ``,
+    sortBy: `date_created`,
+    category: ``,
+    categories: [],
+    projects: [],
+    allPagesLoaded: false,
+    pagesLoaded: 0,
+    // empty is true if the returned project list is empty
+    empty: false
+  };
 
   handleSearchInput = (event) => {
     this.setState({
@@ -66,7 +62,7 @@ export default class Projects extends React.Component {
       .catch((reason) => { console.error(reason); });
   }
 
-  componentWillMount = () => {
+  componentWillMount() {
     this.getProjectList(1);
     this.getCategories();
   }

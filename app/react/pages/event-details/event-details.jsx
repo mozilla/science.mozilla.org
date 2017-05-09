@@ -10,24 +10,20 @@ import {Link} from "react-router";
 
 export default class Event extends React.Component {
 
-  constructor(props) {
-    super(props);
+  state = {
+    eventDetails: {},
+    timeZone: ``
+  };
 
-    this.state = {
-      eventDetails: {},
-      timeZone: ``
-    };
-  }
-
-  componentWillMount = () => {
+  componentWillMount() {
     this.getEventDetails();
   }
 
-  componentDidMount = () => {
+  componentDidMount() {
     this.setState({timeZone: Moment.tz.guess()});
   }
 
-  getEventDetails = () => {
+  getEventDetails() {
     Service.event
       .get(this.props.params.id, {format:`json`, expand: `users,projects`})
       .then((data) => { this.setState({eventDetails: data}); })

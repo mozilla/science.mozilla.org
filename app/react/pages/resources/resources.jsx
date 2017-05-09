@@ -5,18 +5,14 @@ import { RadioFilter } from "mofo-ui";
 
 export default class Resources extends React.Component {
 
-  constructor(props) {
-    super(props);
+  state = {
+    resources: [],
+    pagesLoaded: 0,
+    activeFilter: undefined,
+    allPagesLoaded: false
+  };
 
-    this.state = {
-      resources: [],
-      pagesLoaded: 0,
-      activeFilter: undefined,
-      allPagesLoaded: false
-    };
-  }
-
-  componentWillMount = () => {
+  componentWillMount() {
     this.loadResources(1);
   }
 

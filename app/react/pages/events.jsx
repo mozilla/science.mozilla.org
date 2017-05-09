@@ -5,29 +5,25 @@ import { RadioFilter } from "mofo-ui";
 
 export default class Events extends React.Component {
 
-  constructor(props) {
-    super(props);
+  state = {
+    past:{
+      events: [],
+      allEventsLoaded: false,
+      pageLoaded: 0,
+      // empty is true if the returned past events list is empty
+      empty: false
+    },
+    future:{
+      events: [],
+      allEventsLoaded: false,
+      pageLoaded: 0,
+      // empty is true if the returned future events list is empty
+      empty: false
+    },
+    category: `all`
+  };
 
-    this.state = {
-      past:{
-        events: [],
-        allEventsLoaded: false,
-        pageLoaded: 0,
-        // empty is true if the returned past events list is empty
-        empty: false
-      },
-      future:{
-        events: [],
-        allEventsLoaded: false,
-        pageLoaded: 0,
-        // empty is true if the returned future events list is empty
-        empty: false
-      },
-      category: `all`
-    };
-  }
-
-  componentWillMount = () => {
+  componentWillMount() {
     this.getEvents(`future`, 1);
     this.getEvents(`past`, 1);
   }
