@@ -1,10 +1,13 @@
 import React from "react";
 
-export default React.createClass({
-  propTypes: {
+export default class AboutEvent extends React.Component {
+
+  static propTypes = {
     event: React.PropTypes.object.isRequired
-  },
+  };
+
   render() {
+
     var event = this.props.event;
 
     return (
@@ -28,4 +31,4 @@ export default React.createClass({
       </div>
     );
   }
-});
+}

@@ -8,36 +8,39 @@ import DebounceInput from 'react-debounce-input';
 import { Link } from 'react-router';
 import Service from "../../../js/backend.js";
 
-export default React.createClass({
-  getInitialState(){
-    return {
-      filterText: ``,
-      sortBy: `date_created`,
-      category: ``,
-      categories: [],
-      projects: [],
-      allPagesLoaded: false,
-      pagesLoaded: 0,
-      // empty is true if the returned project list is empty
-      empty: false
-    };
-  },
-  handleSearchInput(event){
+export default class Projects extends React.Component {
+
+  state = {
+    filterText: ``,
+    sortBy: `date_created`,
+    category: ``,
+    categories: [],
+    projects: [],
+    allPagesLoaded: false,
+    pagesLoaded: 0,
+    // empty is true if the returned project list is empty
+    empty: false
+  };
+
+  handleSearchInput = (event) => {
     this.setState({
       filterText: event.target.value
     }, () => { this.getProjectList(1); });
-  },
-  handleCategoryInput(event){
+  }
+
+  handleCategoryInput = (event) => {
     this.setState({
       category: event.target.value
     }, () => { this.getProjectList(1); });
-  },
-  onSortChange(choice) {
+  }
+
+  onSortChange = (choice) => {
     this.setState({
       sortBy: choice
     }, () => { this.getProjectList(1); });
-  },
-  getProjectList(page) {
+  }
+
+  getProjectList = (page) => {
     Service.projects
       .get({
         format: `json`,
@@ -57,12 +60,14 @@ export default React.createClass({
         });
       })
       .catch((reason) => { console.error(reason); });
-  },
+  }
+
   componentWillMount() {
     this.getProjectList(1);
     this.getCategories();
-  },
-  getCategories() {
+  }
+
+  getCategories = () => {
     Service.categories
       .get()
       .then((categories) => {
@@ -74,10 +79,12 @@ export default React.createClass({
         this.setState({categories});
       })
       .catch((reason) => { console.error(reason); });
-  },
-  onMoreClick: function () {
+  }
+
+  onMoreClick = () => {
     this.getProjectList(this.state.pagesLoaded + 1);
-  },
+  }
+
   render() {
 
     var sortOptions = [
@@ -151,4 +158,4 @@ export default React.createClass({
       </div>
     );
   }
-});
+}

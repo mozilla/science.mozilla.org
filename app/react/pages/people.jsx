@@ -25,8 +25,10 @@ var people = [
   }
 ];
 
-export default React.createClass({
+export default class People extends React.Component {
+
   render() {
+
     return (
       <div id="people">
         <div className="jumbotron container text-xs-center m-b-0 p-b-1">
@@ -41,4 +43,4 @@ export default React.createClass({
       </div>
     );
   }
-});
+}

@@ -1,10 +1,9 @@
 import React from "react";
 
-export default React.createClass({
-  componentDidMount() {
+export default class CodeOfConduct extends React.Component {
 
-  },
   render() {
+
     return (
       <div id="code-of-conduct">
         <div className="jumbotron container text-xs-center mb-0 pb-1">
@@ -38,4 +37,4 @@ export default React.createClass({
       </div>
     );
   }
-});
+}

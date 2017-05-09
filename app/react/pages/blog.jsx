@@ -7,19 +7,15 @@ import DebounceInput from 'react-debounce-input';
 
 export default class BlogList extends React.Component {
 
-  constructor(props) {
-    super(props);
+  state = {
+    posts: [],
+    pagesLoaded: 0,
+    categories: [],
+    activeCategory: ``,
+    search: ``
+  };
 
-    this.state = {
-      posts: [],
-      pagesLoaded: 0,
-      categories: [],
-      activeCategory: ``,
-      search: ``
-    };
-  }
-
-  componentWillMount = () => {
+  componentWillMount() {
     this.loadPosts(1);
     this.loadCategories();
   }

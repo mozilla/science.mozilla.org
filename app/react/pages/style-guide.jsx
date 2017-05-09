@@ -3,8 +3,10 @@ import ThreeUp from "../components/three-up/three-up.jsx";
 import TabSwitcher from "../components/tab-switcher/tab-switcher.jsx";
 import { RadioFilter, Collapse, Panel } from "mofo-ui";
 
-export default React.createClass({
+export default class StyleGuide extends React.Component {
+
   render() {
+
     let radioOptions = [
       {
         value: `featured`,
@@ -90,4 +92,4 @@ export default React.createClass({
       </div>
     );
   }
-});
+}
