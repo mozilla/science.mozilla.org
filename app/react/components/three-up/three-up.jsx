@@ -9,6 +9,17 @@ var itemSchema = {
 
 export default class ThreeUp extends React.Component {
 
+  static propTypes = {
+    item1: React.PropTypes.shape(itemSchema).isRequired,
+    item2: React.PropTypes.shape(itemSchema).isRequired,
+    item3: React.PropTypes.shape(itemSchema).isRequired,
+    hasCircle: React.PropTypes.bool
+  };
+
+  static defaultProps = {
+    hasCircle: false
+  };
+
   render() {
 
     let iconClass = classNames({
@@ -43,14 +54,3 @@ export default class ThreeUp extends React.Component {
     );
   }
 }
-
-ThreeUp.propTypes = {
-  item1: React.PropTypes.shape(itemSchema).isRequired,
-  item2: React.PropTypes.shape(itemSchema).isRequired,
-  item3: React.PropTypes.shape(itemSchema).isRequired,
-  hasCircle: React.PropTypes.bool
-};
-
-ThreeUp.defaultProps = {
-  hasCircle: false
-};

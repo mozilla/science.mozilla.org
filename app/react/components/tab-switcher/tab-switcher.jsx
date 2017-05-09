@@ -14,6 +14,23 @@ export default class TabSwitcher extends React.Component {
     };
   }
 
+  static propTypes = {
+    baseURL: React.PropTypes.string.isRequired,
+    className: React.PropTypes.string,
+    children: React.PropTypes.arrayOf(React.PropTypes.shape({
+
+      props: React.PropTypes.shape({
+
+        name: React.PropTypes.string.isRequired,
+        slug: React.PropTypes.string.isRequired,
+        iconDefault: React.PropTypes.string.isRequired,
+        iconActive: React.PropTypes.string
+
+      }).isRequired
+    }))
+  };
+
+
   getSlugIndex = (slug) => {
     let slugIndex = 0; // Default to first tab
 
@@ -69,20 +86,3 @@ export default class TabSwitcher extends React.Component {
     );
   }
 }
-
-TabSwitcher.propTypes = {
-
-  baseURL: React.PropTypes.string.isRequired,
-  className: React.PropTypes.string,
-  children: React.PropTypes.arrayOf(React.PropTypes.shape({
-
-    props: React.PropTypes.shape({
-
-      name: React.PropTypes.string.isRequired,
-      slug: React.PropTypes.string.isRequired,
-      iconDefault: React.PropTypes.string.isRequired,
-      iconActive: React.PropTypes.string
-
-    }).isRequired
-  }))
-};

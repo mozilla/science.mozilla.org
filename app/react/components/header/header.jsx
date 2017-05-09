@@ -5,14 +5,15 @@ import HamburgerMenu from "react-hamburger-menu";
 
 export default class Header extends React.Component {
 
-  constructor(props) {
-    super(props);
+  state = {
+    menuOpen: false,
+    slideoutVisible: false
+  };
 
-    this.state = {
-      menuOpen: false,
-      slideoutVisible: false
-    };
-  }
+  static propTypes = {
+    path: React.PropTypes.string.isRequired
+  };
+
 
   hideMenu = () => {
     this.setState({
@@ -103,7 +104,3 @@ export default class Header extends React.Component {
     );
   }
 }
-
-Header.propTypes = {
-  path: React.PropTypes.string.isRequired
-};

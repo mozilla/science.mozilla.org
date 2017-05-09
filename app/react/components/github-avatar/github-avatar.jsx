@@ -2,6 +2,15 @@ import React from "react";
 
 export default class GithubAvatar extends React.Component {
 
+  static propTypes = {
+    user: React.PropTypes.object.isRequired,
+    size: React.PropTypes.number
+  };
+
+  static defaultProps = {
+    size: 40
+  };
+
   render() {
 
     return (
@@ -11,12 +20,3 @@ export default class GithubAvatar extends React.Component {
     );
   }
 }
-
-GithubAvatar.propTypes = {
-  user: React.PropTypes.object.isRequired,
-  size: React.PropTypes.number
-};
-
-GithubAvatar.defaultProps = {
-  size: 40
-};

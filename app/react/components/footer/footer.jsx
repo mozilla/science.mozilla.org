@@ -3,14 +3,10 @@ import Icon from "./icon.jsx";
 
 export default class Footer extends React.Component {
 
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      hasConsent: false,
-      hasAttemptedToSubmit: false
-    };
-  }
+  state = {
+    hasConsent: false,
+    hasAttemptedToSubmit: false
+  };
 
   subscribeClicked = (event) => {
     if (!this.refs.inputOK.checked) {

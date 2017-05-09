@@ -3,6 +3,14 @@ import React from "react";
 
 export default class Categories extends React.Component {
 
+  static propTypes = {
+    categories: React.PropTypes.array
+  };
+
+  static defaultProps = {
+    categories: []
+  };
+
   render() {
 
     return(
@@ -15,12 +23,3 @@ export default class Categories extends React.Component {
     );
   }
 }
-
-Categories.propTypes = {
-  categories: React.PropTypes.array
-};
-
-Categories.defaultProps = {
-  categories: []
-};
-

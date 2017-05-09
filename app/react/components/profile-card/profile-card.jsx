@@ -2,6 +2,20 @@ import React from 'react';
 
 export default class ProfileCard extends React.Component {
 
+  static propTypes = {
+    name: React.PropTypes.string.isRequired,
+    title: React.PropTypes.string,
+    links: React.PropTypes.array,
+    image: React.PropTypes.string
+  };
+
+  static defaultProps = {
+    name: ``,
+    title: ``,
+    image: `/assets/img/placeholder.jpg`,
+    links: []
+  };
+
   render() {
 
     return (
@@ -21,17 +35,3 @@ export default class ProfileCard extends React.Component {
     );
   }
 }
-
-ProfileCard.propTypes = {
-  name: React.PropTypes.string.isRequired,
-  title: React.PropTypes.string,
-  links: React.PropTypes.array,
-  image: React.PropTypes.string
-};
-
-ProfileCard.defaultProps = {
-  name: ``,
-  title: ``,
-  image: `/assets/img/placeholder.jpg`,
-  links: []
-};

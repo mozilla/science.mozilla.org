@@ -6,15 +6,23 @@ import Humanize from "../../../js/humanize-dates.js";
 
 export default class EventList extends React.Component {
 
-  constructor(props) {
-    super(props);
+  state = {
+    timeZone: ``
+  };
 
-    this.state = {
-      timeZone: ``
-    };
-  }
+  static propTypes = {
+    events: React.PropTypes.array,
+    pictures: React.PropTypes.bool,
+    cardClass: React.PropTypes.string
+  };
 
-  componentDidMount = () => {
+  static defaultProps = {
+    events: [],
+    pictures: true,
+    cardClass: `col-sm-6`
+  };
+
+  componentDidMount() {
     this.setState({ timeZone: Moment.tz.guess() });
   }
 
@@ -41,15 +49,3 @@ export default class EventList extends React.Component {
     );
   }
 }
-
-EventList.propTypes = {
-  events: React.PropTypes.array,
-  pictures: React.PropTypes.bool,
-  cardClass: React.PropTypes.string
-};
-
-EventList.defaultProps = {
-  events: [],
-  pictures: true,
-  cardClass: `col-sm-6`
-};

@@ -6,6 +6,14 @@ import UserList from "../../components/user-list/user-list.jsx";
 
 export default class ProjectList extends React.Component {
 
+  static propTypes = {
+    projects: React.PropTypes.array
+  };
+
+  static defaultProps = {
+    projects: []
+  };
+
   formatTags = (project) => {
     let tags = null;
 
@@ -47,12 +55,3 @@ export default class ProjectList extends React.Component {
     );
   }
 }
-
-ProjectList.propTypes = {
-  projects: React.PropTypes.array
-};
-
-ProjectList.defaultProps = {
-  projects: []
-};
-

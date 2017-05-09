@@ -5,6 +5,16 @@ import Categories from "../../components/categories/categories.jsx";
 
 export default class ProjectCardFeatured extends React.Component {
 
+  static propTypes = {
+    className: React.PropTypes.string,
+    project: React.PropTypes.object.isRequired,
+    isFeatured: React.PropTypes.bool
+  };
+
+  static defaultProps = {
+    isFeatured: false
+  };
+
   render() {
 
     let project = this.props.project;
@@ -75,13 +85,3 @@ export default class ProjectCardFeatured extends React.Component {
     );
   }
 }
-
-ProjectCardFeatured.propTypes = {
-  className: React.PropTypes.string,
-  project: React.PropTypes.object.isRequired,
-  isFeatured: React.PropTypes.bool
-};
-
-ProjectCardFeatured.defaultProps = {
-  isFeatured: false
-};

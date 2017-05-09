@@ -5,6 +5,19 @@ import GithubAvatar from "../../components/github-avatar/github-avatar.jsx";
 
 export default class UserList extends React.Component {
 
+  static propTypes = {
+    users: React.PropTypes.array,
+    role: React.PropTypes.string
+  };
+
+  static defaultProps = {
+    users: [],
+    role: ``,
+    avatar: true,
+    name: true,
+    exclude: []
+  };
+
   render() {
 
     // Get an array of users by checking if they're of the right role (or there's no role filter), and they're not in the exclude array
@@ -35,16 +48,3 @@ export default class UserList extends React.Component {
     return <span className="user-list">{users}</span>;
   }
 }
-
-UserList.propTypes = {
-  users: React.PropTypes.array,
-  role: React.PropTypes.string
-};
-
-UserList.defaultProps = {
-  users: [],
-  role: ``,
-  avatar: true,
-  name: true,
-  exclude: []
-};
