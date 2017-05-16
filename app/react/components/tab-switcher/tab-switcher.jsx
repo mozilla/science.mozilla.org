@@ -6,12 +6,14 @@ import { Link } from "react-router";
 
 export default class TabSwitcher extends React.Component {
 
-  constructor(props) {
-    super(props);
+  state = {
+    activeTab: 0
+  };
 
-    this.state = {
-      activeTab: this.getSlugIndex(this.props.initialTab)
-    };
+  componentWillMount() {
+    let slugIndex = this.getSlugIndex(this.props.initialTab);
+
+    this.setState({activeTab: slugIndex});
   }
 
   static propTypes = {
@@ -29,7 +31,6 @@ export default class TabSwitcher extends React.Component {
       }).isRequired
     }))
   };
-
 
   getSlugIndex = (slug) => {
     let slugIndex = 0; // Default to first tab
