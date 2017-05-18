@@ -28,7 +28,7 @@ export default class Fellowships extends React.Component {
               <p className="lead mt-1 col-xs-12 col-md-10 col-lg-8"><em>Are you a champion of open science and open data? Mozilla is seeking researchers eager to advance openness in science and data within their institutions.</em></p>
             </div>
 
-            <div className="row">
+            <div hidden className="row">
               <div className="col-xs-12">
                 <a className="btn btn-white mb-2" href="https://mozilla-science-lab.forms.fm/mozilla-fellows-for-science-2017" target="_blank">Apply Now</a>
               </div>
@@ -247,8 +247,8 @@ export default class Fellowships extends React.Component {
 
         <div className="py-3 fellow-cta">
           <div className="container">
-            <h3>Deadline for applications is May 14, 2017</h3>
-            <a className="btn btn-white mb-2" href="https://mozilla-science-lab.forms.fm/mozilla-fellows-for-science-2017" target="_blank">Apply Now</a>
+            <h3>The 2017 call for applications is now closed</h3>
+            <a hidden className="btn btn-white mb-2" href="https://mozilla-science-lab.forms.fm/mozilla-fellows-for-science-2017" target="_blank">Apply Now</a>
           </div>
         </div>
 
