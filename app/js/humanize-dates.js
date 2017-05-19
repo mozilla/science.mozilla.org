@@ -1,9 +1,9 @@
 import Moment from "moment-timezone";
 
 export default {
-  calculateDate(timeStart, timeEnd) {
-    let start = new Moment.utc(timeStart);
-    let end = new Moment.utc(timeEnd);
+  calculateDate(timeStart, timeEnd, timeZone=`UTC`) {
+    let start = new Moment(timeStart).tz(timeZone);
+    let end = new Moment(timeEnd).tz(timeZone);
 
     if (start.isSame(end, `day`)) {
       return start.format(`MMM DD, YYYY`);
@@ -16,18 +16,18 @@ export default {
     }
   },
   calculateTime(timeStart, timeEnd, timeZone) {
-    let start = new Moment(timeStart);
-    let end = new Moment(timeEnd);
+    let start = new Moment(timeStart).tz(timeZone);
+    let end = new Moment(timeEnd).tz(timeZone);
 
     if(!timeStart || !timeEnd) { return; }
     if(start.isSame(end, `day`)) {
       if(start.format(`a`) === end.format(`a`)) {
-        return this.stripZeroMins(`${start.format(`MMM D, h:mm`)}-${end.tz(timeZone).format(`h:mma z`)}`);
+        return this.stripZeroMins(`${start.format(`MMM D, h:mm`)}-${end.format(`h:mma z`)}`);
       } else {
-        return this.stripZeroMins(`${start.format(`MMM D, h:mma`)}-${end.tz(timeZone).format(`h:mma z`)}`);
+        return this.stripZeroMins(`${start.format(`MMM D, h:mma`)}-${end.format(`h:mma z`)}`);
       }
     } else {
-      return this.calculateDate(timeStart, timeEnd);
+      return this.calculateDate(timeStart, timeEnd, timeZone);
     }
   },
   stripZeroMins(timeString) {
