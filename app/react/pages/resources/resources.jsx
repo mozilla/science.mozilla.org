@@ -9,7 +9,9 @@ export default class Resources extends React.Component {
     resources: [],
     pagesLoaded: 0,
     activeFilter: undefined,
-    allPagesLoaded: false
+    allPagesLoaded: false,
+    // empty is true if the returned project list is empty
+    empty: false
   };
 
   componentWillMount() {
@@ -30,6 +32,7 @@ export default class Resources extends React.Component {
       .get(getConfig)
       .then((resources) => {
         this.setState({
+          empty: page === 1 && resources.results.length === 0,
           resources: this.state.resources.concat(resources.results),
           pagesLoaded: page,
           allPagesLoaded: !resources.next
@@ -120,6 +123,7 @@ export default class Resources extends React.Component {
             {resourceCards}
           </div>
           <div className="text-xs-center">
+            {this.state.empty && <p className="lead mb-2">Sorry, no results were found in this category</p>}
             <button hidden={this.state.allPagesLoaded} className="btn btn-outline-info mb-3" onClick={this.onMoreClick}>See More</button>
           </div>
         </div>
