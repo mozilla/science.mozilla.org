@@ -44,7 +44,6 @@ export default class Fellowships extends React.Component {
               <p>The Mozilla Fellowships for Science present a unique opportunity for researchers who want to influence the future of open science and data sharing within their communities.</p>
               <p>We're looking for researchers with a passion for open source and data sharing, already working to shift research practice to be more collaborative, iterative and open. Fellows will spend 10 months starting September 2017 as community catalysts at their institutions, mentoring the next generation of open data practitioners and researchers and building lasting change in the global open science community.</p>
               <p>Throughout their fellowship term, chosen fellows will receive training and support from Mozilla to hone their skills around open source, data sharing, open science policy and licensing. They will also craft code, curriculum and other learning resources that help their local communities learn open data practices, and teach their institutional peers.</p>
-              <p><strong>The call closes May 14, 2017 at 11:59PM EDT.</strong></p>
 
               <h3 className="mb-3">Expectations</h3>
               <p>We anticipate applicants who:</p>
