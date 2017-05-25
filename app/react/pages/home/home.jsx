@@ -28,7 +28,7 @@ export default class Home extends React.Component {
             item3={{text: `Open Science: A way for science to achieve its fullest potential`, icon: `/assets/img/icon-open.svg`}}></ThreeUp>
         </div>
 
-        <div className="container-dynamic fellow-cta mb-3">
+        <div hidden className="container-dynamic fellow-cta mb-3">
           <img src="/assets/img/icon-drop.svg" className="sprinkle"/>
           <img src="/assets/img/icon-droptwo.svg" className="sprinkle"/>
           <div className="shadow-box">
