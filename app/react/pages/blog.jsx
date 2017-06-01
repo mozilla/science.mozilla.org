@@ -4,6 +4,7 @@ import Service from "../../js/backend.js";
 import DataCard from "../components/data-card/data-card.jsx";
 
 import DebounceInput from 'react-debounce-input';
+import env from "../../../config/env.generated.json";
 
 export default class BlogList extends React.Component {
 
@@ -23,9 +24,28 @@ export default class BlogList extends React.Component {
   loadPosts = (page, category=``, search=``) => {
     Service.blogPosts
       .get(page, category, search)
-      .then((posts) => {
+      .then((data) => {
+
+        // Logic to convert relative urls of api-site to absolute urls
+        // This part can be removed when we have same origin.
+        var excerpt = document.createElement(`div`);
+        var r = new RegExp(`^(?:[a-z]+:)?//`, `i`);
+        var images = null;
+
+        for(var i=0; i < data.results.length; i++) {
+          excerpt.innerHTML = data.results[i].excerpt;
+          images = excerpt.getElementsByTagName(`img`);
+          for(var j=0; j < images.length; j++) {
+            // check if src url is relative
+            if(!r.test(images[j].getAttribute(`src`))) {
+              images[j].src = env.SCIENCE_API + images[j].getAttribute(`src`);
+            }
+          }
+          data.results[i].excerpt = excerpt.innerHTML;
+        }
+
         this.setState({
-          posts: this.state.posts.concat(posts),
+          posts: this.state.posts.concat(data.results),
           pagesLoaded: page
         });
       })
@@ -35,9 +55,9 @@ export default class BlogList extends React.Component {
   loadCategories = () => {
     Service.blogCategories
       .get()
-      .then((categories) => {
+      .then((data) => {
         this.setState({
-          categories: categories
+          categories: data.results
         });
       })
       .catch((reason) => { console.error(reason); });
@@ -67,16 +87,16 @@ export default class BlogList extends React.Component {
 
   render() {
     let posts = this.state.posts.map((post, index) => {
-      let terms = post.terms.category.filter((item) => {
-        return item.slug !== `uncategorized`;
-      }).map((item) => {
-        return item.slug;
+      let categories = post.categories.map(category => {
+        return category.slug;
       });
 
+      let name = post.author.first_name + ` ` + post.author.last_name;
+
       return (
-        <DataCard key={index} className={index < 2 ? `col-xs-12 col-sm-6` : `col-xs-12`} showPicture={!!post.featured_image && index < 2} picture={post.featured_image && index < 2 ? post.featured_image.source : null} categories={terms}>
+        <DataCard key={index} className={index < 2 ? `col-xs-12 col-sm-6` : `col-xs-12`} showPicture={!!post.featured_image && index < 2} picture={post.featured_image && index < 2 ? post.featured_image : null} categories={categories}>
           <h3><a href={`/blog/${post.slug}`} dangerouslySetInnerHTML={{__html: post.title}}></a></h3>
-          <p>by {post.author.name} on {new Moment(post.date).format(`MMM D, YYYY`)}</p>
+          <p>by {name} on {new Moment(post.publish_date).format(`MMM D, YYYY`)}</p>
           <p dangerouslySetInnerHTML={{__html: post.excerpt}}></p>
         </DataCard>
       );
@@ -96,9 +116,7 @@ export default class BlogList extends React.Component {
               <select name="category" id="category" onChange={this.handleCategoryInput} className="c-select form-control wide">
                 <option value="">All Categories</option>
                 {this.state.categories.map(category => {
-                  if(category.slug !== `uncategorized`) {
-                    return <option key={category.ID} value={category.slug}>{category.name}</option>;
-                  }
+                  return <option key={category.ID} value={category.slug}>{category.title}</option>;
                 })}
               </select>
             </div>
