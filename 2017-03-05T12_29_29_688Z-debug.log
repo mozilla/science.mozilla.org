@@ -1,0 +1,49 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files\\nodejs\\node.exe',
+1 verbose cli   'C:\\Users\\hp\\AppData\\Roaming\\npm\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'start' ]
+2 info using npm@4.3.0
+3 info using node@v7.7.1
+4 verbose run-script [ 'prestart', 'start', 'poststart' ]
+5 info lifecycle science.mozilla.org@1.0.0~prestart: science.mozilla.org@1.0.0
+6 silly lifecycle science.mozilla.org@1.0.0~prestart: no script for prestart, continuing
+7 info lifecycle science.mozilla.org@1.0.0~start: science.mozilla.org@1.0.0
+8 verbose lifecycle science.mozilla.org@1.0.0~start: unsafe-perm in lifecycle true
+9 verbose lifecycle science.mozilla.org@1.0.0~start: PATH: C:\Users\hp\AppData\Roaming\npm\node_modules\npm\bin\node-gyp-bin;C:\Windows\System32\science.mozilla.org\node_modules\.bin;C:\oraclexe\app\oracle\product\10.2.0\server\bin;C:\Program Files (x86)\Common Files\Intel\Shared Files\cpp\bin\Intel64;c:\Program Files (x86)\AMD APP\bin\x86_64;c:\Program Files (x86)\AMD APP\bin\x86;C:\ProgramData\Oracle\Java\javapath;C:\Program Files\Common Files\Microsoft Shared\Windows Live;C:\Program Files (x86)\Common Files\Microsoft Shared\Windows Live;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\system32\Wbem;c:\program files (x86)\ibm\gsk8\lib;C:\PROGRA~2\IBM\SQLLIB\BIN;C:\PROGRA~2\IBM\SQLLIB\FUNCTION;C:\PROGRA~2\IBM\SQLLIB\SAMPLES\REPL;C:\Program Files (x86)\Windows Live\Shared;C:\Program Files (x86)\GtkSharp\2.12\bin;c:\Program Files (x86)\ATI Technologies\ATI.ACE\Core-Static;C:\OrCAD\OrCAD_16.6_Lite\tools\bin;C:\OrCAD\OrCAD_16.6_Lite\tools\specctra\bin;C:\OrCAD\OrCAD_16.6_Lite\tools\PSpice;C:\OrCAD\OrCAD_16.6_Lite\tools\Capture;C:\OrCAD\OrCAD_16.6_Lite\tools\fet\bin;C:\OrCAD\OrCAD_16.6_Lite\tools\pcb\bin;C:\OrCAD\OrCAD_16.6_Lite\OpenAccess\bin\win32\opt;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Users\hp\.dnx\bin;C:\Program Files\Microsoft DNX\Dnvm\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\Git\cmd;C:\Program Files (x86)\GitExtensions\;C:\ProgramData\chocolatey\bin;C:\Program Files (x86)\ATI Technologies\ATI.ACE\Core-Static;C:\Program Files\Java\jdk1.8.0_73\bin;C:\Program Files\nodejs\;C:\Program Files (x86)\Microsoft Visual Studio\Common\Tools\WinNT;C:\Program Files (x86)\Microsoft Visual Studio\Common\MSDev98\Bin;C:\Program Files (x86)\Microsoft Visual Studio\Common\Tools;C:\Program Files (x86)\Microsoft Visual Studio\VC98\bin;C:\Program Files (x86)\Java\jre1.8.0_60\bin;C:\Program Files (x86)\Microsoft VS Code\bin;C:\Program Files\Java\jre1.8.0_111\bin;C:\Users\hp\AppData\Local\Microsoft\WindowsApps;C:\Users\hp\AppData\Roaming\npm
+10 verbose lifecycle science.mozilla.org@1.0.0~start: CWD: C:\Windows\System32\science.mozilla.org
+11 silly lifecycle science.mozilla.org@1.0.0~start: Args: [ '/d /s /c',
+11 silly lifecycle   'npm run build && npm-run-all --parallel server:dev watch:**' ]
+12 silly lifecycle science.mozilla.org@1.0.0~start: Returned: code: 1  signal: null
+13 info lifecycle science.mozilla.org@1.0.0~start: Failed to exec start script
+14 verbose stack Error: science.mozilla.org@1.0.0 start: `npm run build && npm-run-all --parallel server:dev watch:**`
+14 verbose stack Exit status 1
+14 verbose stack     at EventEmitter.<anonymous> (C:\Users\hp\AppData\Roaming\npm\node_modules\npm\lib\utils\lifecycle.js:279:16)
+14 verbose stack     at emitTwo (events.js:106:13)
+14 verbose stack     at EventEmitter.emit (events.js:194:7)
+14 verbose stack     at ChildProcess.<anonymous> (C:\Users\hp\AppData\Roaming\npm\node_modules\npm\lib\utils\spawn.js:40:14)
+14 verbose stack     at emitTwo (events.js:106:13)
+14 verbose stack     at ChildProcess.emit (events.js:194:7)
+14 verbose stack     at maybeClose (internal/child_process.js:899:16)
+14 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:226:5)
+15 verbose pkgid science.mozilla.org@1.0.0
+16 verbose cwd C:\Windows\System32\science.mozilla.org
+17 error Windows_NT 10.0.14393
+18 error argv "C:\\Program Files\\nodejs\\node.exe" "C:\\Users\\hp\\AppData\\Roaming\\npm\\node_modules\\npm\\bin\\npm-cli.js" "start"
+19 error node v7.7.1
+20 error npm  v4.3.0
+21 error code ELIFECYCLE
+22 error errno 1
+23 error science.mozilla.org@1.0.0 start: `npm run build && npm-run-all --parallel server:dev watch:**`
+23 error Exit status 1
+24 error Failed at the science.mozilla.org@1.0.0 start script 'npm run build && npm-run-all --parallel server:dev watch:**'.
+24 error Make sure you have the latest version of node.js and npm installed.
+24 error If you do, this is most likely a problem with the science.mozilla.org package,
+24 error not with npm itself.
+24 error Tell the author that this fails on your system:
+24 error     npm run build && npm-run-all --parallel server:dev watch:**
+24 error You can get information on how to open an issue for this project with:
+24 error     npm bugs science.mozilla.org
+24 error Or if that isn't available, you can get their info via:
+24 error     npm owner ls science.mozilla.org
+24 error There is likely additional logging output above.
+25 verbose exit [ 1, true ]
