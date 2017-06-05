@@ -1,7 +1,6 @@
 import React from "react";
 import Moment from "moment-timezone";
 import Service from "../../../js/backend.js";
-import env from "../../../../config/env.generated.json";
 
 export default class BlogPost extends React.Component {
 
@@ -13,23 +12,6 @@ export default class BlogPost extends React.Component {
     Service.blogPost
       .get(this.props.params.slug)
       .then((post) => {
-
-        // Logic to convert relative urls of api-site to absolute urls
-        // This part can be removed when we have same origin
-        var postContent = document.createElement(`div`);
-        var r = new RegExp(`^(?:[a-z]+:)?//`, `i`);
-
-        postContent.innerHTML = post.content;
-        var images = postContent.getElementsByTagName(`img`);
-
-        for(var j=0; j < images.length; j++) {
-          // check if src url is relative
-          if(!r.test(images[j].getAttribute(`src`))) {
-            images[j].src = env.SCIENCE_API + images[j].getAttribute(`src`);
-          }
-        }
-        post.content = postContent.innerHTML;
-
         this.setState({post: post});
       })
       .catch((reason) => { console.error(reason); });

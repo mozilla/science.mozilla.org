@@ -4,7 +4,6 @@ import Service from "../../js/backend.js";
 import DataCard from "../components/data-card/data-card.jsx";
 
 import DebounceInput from 'react-debounce-input';
-import env from "../../../config/env.generated.json";
 
 export default class BlogList extends React.Component {
 
@@ -25,25 +24,6 @@ export default class BlogList extends React.Component {
     Service.blogPosts
       .get(page, category, search)
       .then((data) => {
-
-        // Logic to convert relative urls of api-site to absolute urls
-        // This part can be removed when we have same origin.
-        var excerpt = document.createElement(`div`);
-        var r = new RegExp(`^(?:[a-z]+:)?//`, `i`);
-        var images = null;
-
-        for(var i=0; i < data.results.length; i++) {
-          excerpt.innerHTML = data.results[i].excerpt;
-          images = excerpt.getElementsByTagName(`img`);
-          for(var j=0; j < images.length; j++) {
-            // check if src url is relative
-            if(!r.test(images[j].getAttribute(`src`))) {
-              images[j].src = env.SCIENCE_API + images[j].getAttribute(`src`);
-            }
-          }
-          data.results[i].excerpt = excerpt.innerHTML;
-        }
-
         this.setState({
           posts: this.state.posts.concat(data.results),
           pagesLoaded: page

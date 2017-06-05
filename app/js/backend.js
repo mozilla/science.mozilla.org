@@ -1,6 +1,4 @@
-import env from "../../config/env.generated.json";
-
-let scienceAPI = env.SCIENCE_API;
+let scienceAPI = `/api`;
 
 let defaultParams = {
   format: `json`
