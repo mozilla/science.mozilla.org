@@ -33,6 +33,13 @@ export default class Event extends React.Component {
   render() {
 
     var event = this.state.eventDetails;
+    var timezone;
+
+    if (event.is_virtual) {
+      timezone = this.state.timeZone;
+    } else {
+      timezone = event.timezone;
+    }
 
     return (
       <div id="event-details" className="container-dynamic">
@@ -42,7 +49,9 @@ export default class Event extends React.Component {
             <h2 className="col-xs-12">{event.name}</h2>
             <div className="event-details">
               <span className="event-location">{event.location}</span>
-              <span className="event-time">{Humanize.calculateTime(event.starts_at, event.ends_at, this.state.timeZone)}</span>
+              <span className="event-time">
+                {Humanize.calculateTime(event.starts_at, event.ends_at, timezone)}
+              </span>
             </div>
             <p class="mt-1">{event.short_description}</p>
           </div>
