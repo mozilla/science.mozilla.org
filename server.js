@@ -7,7 +7,7 @@ var app = express();
 var root = `${__dirname}/dist`;
 var port = process.env.PORT || 1818
 
-app.use([`/api`, `/admin`, `/static`, `/media`], proxy({target: env.SCIENCE_API, changeOrigin: true}));
+app.use([`/api`, `/admin`, `/static`, `/media`, `/auth`], proxy({target: env.SCIENCE_API, changeOrigin: true, xfwd: true}));
 
 if(app.settings.env === `development`) {
   var reloadify = require(`reloadify`)(root);

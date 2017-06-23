@@ -66,6 +66,10 @@ header {
     margin: 0.5em 0;
   }
 
+  .auth-links .welcome-text {
+    color: #cdcdcd;
+  }
+
   .slideout-menu {
     margin-left: 1.25rem;
 
@@ -243,9 +247,18 @@ header {
       color: $mobile-blue;
     }
 
-    .auth-links .join {
+    .auth-links .welcome-text {
+      color: $mobile-blue;
+      font-size: 1rem;
+      line-height: 1;
+      text-transform: uppercase;
+      margin: 0 0.5em;
+    }
+
+    .auth-links .login {
       border: 1px solid;
       padding: 0.5em 1em;
+      margin: 1em;
     }
 
     .auth-links .nav-link + .nav-link::before {

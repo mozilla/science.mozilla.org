@@ -39,6 +39,26 @@ export default class Header extends React.Component {
     }
   }
 
+  getAuthLinks() {
+    const {user} = this.props;
+
+    if(user.authenticated) {
+      return(
+        <div className="auth-links">
+          <div className="welcome-text"> Hi {user.first_name}</div>
+          <a className="nav-link login" href="/auth/logout">Logout</a>
+        </div>
+      );
+    } else {
+      return(
+        <div className="auth-links">
+          <a className="nav-link login" href="/auth/login/github">Login</a>
+          <Link hidden className="nav-link join" to="/join">Join Us</Link>
+        </div>
+      );
+    }
+  }
+
   render() {
 
     let slideoutNavClass = classNames({
@@ -95,10 +115,7 @@ export default class Header extends React.Component {
             <Link className={getNavLinkClasses(`people`)} to="/people">People</Link>
             <Link className={getNavLinkClasses(`blog`)} to="/blog">Blog</Link>
           </div>
-          <div hidden className="auth-links">
-            <Link className="nav-link" to="/sign-in">Sign In</Link>
-            <Link className="nav-link join" to="/join">Join Us</Link>
-          </div>
+          {this.getAuthLinks()}
         </nav>
       </header>
     );

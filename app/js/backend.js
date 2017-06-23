@@ -109,5 +109,10 @@ export default {
     get: function () {
       return doXHR (`${scienceAPI}/blog/categories/`);
     }
+  },
+  initData: {
+    get: function () {
+      return doXHR (`${scienceAPI}/bootstrap/`);
+    }
   }
 };
