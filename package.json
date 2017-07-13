@@ -27,6 +27,7 @@
     "test": "npm-run-all test:**",
     "test:js": "eslint --config ./.eslintrc.yaml 'app/js/**/*.js' 'app/react/**/*.js' 'app/react/**/*.jsx' webpack.config.js",
     "test:scss": "stylelint 'app/**/*.scss' --syntax scss",
+    "optimize:img": "imagemin-dir app/assets/img app/assets/img_optimized && rm -rf app/assets/img && mv app/assets/img_optimized app/assets/img",
     "postinstall": "npm run build"
   },
   "dependencies": {
@@ -65,5 +66,8 @@
     "stylelint": "^7.3.1",
     "stylelint-config-standard": "^13.0.2",
     "webpack": "^1.12.14"
+  },
+  "devDependencies": {
+    "imagemin-cli-preserve-dir-structure": "0.0.2"
   }
 }
