@@ -71,7 +71,7 @@ export default class Home extends React.Component {
               <div className="shadow-box">
                 <div className="inner">
                   <h6 className="mb-0">Resource</h6>
-                  <h4 className="my-1"><a href="http://sciencehackdayny.github.io/data-camp-16/" target="_blank">Data Camp Trainings</a></h4>
+                  <h4 className="my-1"><a href="https://sciencehackdayny.github.io/data-camp-16/" target="_blank">Data Camp Trainings</a></h4>
                   <p>{`Our Data Camp Trainings are a collection of resources on collaborative coding, data munging, version control, sensor science, and design principles. Originally used at Science Hack Day 2016 and Space Apps - Brooklyn, this resource is appropriately staged for a hackathon or one-day workshop.`}</p>
                 </div>
               </div>
