@@ -104,7 +104,7 @@ export default class Home extends React.Component {
             <h3 className="text-xs-center mb-3 mt-0">We are supported by</h3>
 
             <div className="row">
-              <div className="col-xs-6 mb-3">
+              <div className="col-xs-4 mb-3">
                 <div className="row">
                   <div className="col-xs-12 col-sm-4">
                     <a href="http://www.sloan.org/" target="_blank"><img src="/assets/img/logo-sloan@2x.jpg"/></a>
@@ -113,12 +113,21 @@ export default class Home extends React.Component {
                 </div>
               </div>
 
-              <div className="col-xs-6">
+              <div className="col-xs-4">
                 <div className="row">
                   <div className="col-xs-12 col-sm-4">
                     <a href="http://helmsleytrust.org/" target="_blank"><img src="/assets/img/logo-helmsley@2x.jpg"/></a>
                   </div>
                   <p className="col-sm-8 hidden-xs-down">{`The Helmsley Charitable Trust aspires to improve lives by supporting exceptional nonprofits and other mission-aligned organizations in the U.S. and around the world in health, selected place-based initiatives, and education and human services.`}</p>
+                </div>
+              </div>
+
+              <div className="col-xs-4 mb-3">
+                <div className="row">
+                  <div className="col-xs-12 col-sm-4">
+                    <a href="http://www.sloan.org/" target="_blank"><img src="/assets/img/logo-siegel.jpg"/></a>
+                  </div>
+                  <p className="col-sm-8 hidden-xs-down">{`Siegel Family Endowment is focused on understanding and shaping learning in our technology-driven world. SFE supports people and champions organizations who work at the intersection of technology, learning, and career-readiness.`}</p>
                 </div>
               </div>
             </div>
