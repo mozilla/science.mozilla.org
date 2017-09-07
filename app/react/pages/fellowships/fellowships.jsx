@@ -143,9 +143,33 @@ export default class Fellowships extends React.Component {
               </Collapse>
             </div>
             <div className="py-3" name="Fellows" slug="fellows" iconDefault="/assets/img/icon-tab-fellows.svg" iconActive="/assets/img/icon-tab-fellows-blue.svg">
-              <h2>Our 2016 Fellows</h2>
+              <h2>Our 2017 Fellows</h2>
 
               <p>The fellows chosen are representative of the change we want to see in the community, championing openness, collaboration, and mentorship in science. Over the next ten months, the fellows will work on projects to help their local communities engage with open data, open source software and teach forward to their peers. They will also receive training and support from Mozilla to hone their skills around open source, participatory learning, and data sharing.</p>
+
+              <div className="row my-3">
+                <div className="col-sm-3 center-vertical">
+                  <img className="circle" src="/assets/img/fellowships/fellow-amel.png"/>
+                </div>
+                <div className="col-sm-9">
+                  <h4 className="mb-0">Amel Ghouila</h4>
+                  <p className="mb-1"><a href="https://twitter.com/AmelGhouila" target="_blank">@AmelGhouila</a></p>
+                  <p>A computer scientist by background, Amel earned her PhD in Bioinformatics and is currently a bioinformatician at Institut Pasteur de Tunis, where she works on the frame of the pan-African bioinformatics network <a href="http://h3abionet.org/" target="_blank">H3ABionet</a> supporting researchers and their projects while developing bioinformatics capacity throughout Africa. Amel is passionate about knowledge  transfer and working open to foster collaborations and innovation in the biomedical research field. She is also passionate about empowering and educating young girls, she launched the Technovation Challenge Tunisian chapter to help Tunisian girls learn how to address challenges in their communities by designing mobile applications.</p>
+                </div>
+              </div>
+
+              <div className="row my-3">
+                <div className="col-sm-3 center-vertical">
+                  <img className="circle" src="/assets/img/fellowships/fellow-chris.png"/>
+                </div>
+                <div className="col-sm-9">
+                  <h4 className="mb-0">Chris Hartgerink</h4>
+                  <p className="mb-1"><a href="https://twitter.com/chartgerink" target="_blank">@chartgerink</a> | <a href="http://onsnetwork.org/chartgerink/" target="_blank">Chris' Blog</a></p>
+                  <p>Chris is an applied statistics PhD-candidate at <a href="https://www.tilburguniversity.edu/" target=")blank">Tilburg University</a>, as part of the <a href="http://metaresearch.nl/" target="_blank">Metaresearch group</a>. He has contributed to open science projects such as the <a href="https://github.com/centerforopenscience/rpp" target="_blank">Reproducibility Project: Psychology</a>, tries to develop open-source software for scientists, and does research on detecting data fabrication in science. He is particularly interested in how the scholarly system can be adapted to become sustainable, healthy scholarly environment with permissive use of content, which also aligns the needs of science and scientists instead of creating a perverse system that promotes unreliable science. He initiated <a href="http://libscie.org/" target="_blank">Liberate Science</a> to work towards such a system.</p>
+                </div>
+              </div>
+
+              <h2>Our 2016 Fellows</h2>
 
               <div className="row my-3">
                 <div className="col-sm-3 center-vertical">
