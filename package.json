@@ -6,8 +6,8 @@
   "license": "MPL-2.0",
   "repository": "mozilla/science.mozilla.org",
   "engines": {
-    "node": "^6.11.1",
-    "npm": "^3.10.10"
+    "node": "^8.9.1",
+    "npm": "^5.5.1"
   },
   "scripts": {
     "start": "npm run build && npm-run-all --parallel server:dev watch:**",
