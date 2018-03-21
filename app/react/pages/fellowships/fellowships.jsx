@@ -28,9 +28,9 @@ export default class Fellowships extends React.Component {
               <p className="lead mt-1 col-xs-12 col-md-10 col-lg-8"><em>Are you a champion of open science and open data? Mozilla is seeking researchers eager to advance openness in science and data within their institutions.</em></p>
             </div>
 
-            <div hidden className="row">
+            <div className="row">
               <div className="col-xs-12">
-                <a className="btn btn-white mb-2" href="https://mozilla-science-lab.forms.fm/mozilla-fellows-for-science-2017" target="_blank">Apply Now</a>
+                <a className="btn btn-white mb-2" href="https://foundation.mozilla.org/fellowships/apply/" target="_blank">Apply Now</a>
               </div>
             </div>
           </div>
@@ -42,7 +42,7 @@ export default class Fellowships extends React.Component {
               <h2>About the Program</h2>
 
               <p>The Mozilla Fellowships for Science present a unique opportunity for researchers who want to influence the future of open science and data sharing within their communities.</p>
-              <p>We're looking for researchers with a passion for open source and data sharing, already working to shift research practice to be more collaborative, iterative and open. Fellows will spend 10 months starting September 2017 as community catalysts at their institutions, mentoring the next generation of open data practitioners and researchers and building lasting change in the global open science community.</p>
+              <p>We're looking for researchers with a passion for open source and data sharing, already working to shift research practice to be more collaborative, iterative and open. Fellows will spend 10 months starting September 2018 as community catalysts at their institutions, mentoring the next generation of open data practitioners and researchers and building lasting change in the global open science community.</p>
               <p>Throughout their fellowship term, chosen fellows will receive training and support from Mozilla to hone their skills around open source, data sharing, open science policy and licensing. They will also craft code, curriculum and other learning resources that help their local communities learn open data practices, and teach their institutional peers.</p>
 
               <h3 className="mb-3">Expectations</h3>
@@ -63,9 +63,9 @@ export default class Fellowships extends React.Component {
               <p>The Fellowships are designed to allow for flexibility for both Fellows and their families. The standard fellowship offers a stipend of $60,000 USD*, paid in 10 monthly installments. Fellows are responsible for remitting all applicable taxes and other government payments as required.</p>
               <p>To help offset cost of living, the fellowship also provides supplements for childcare and health insurance, and helps pay for research/equipment and books. The fellowships also covers the costs of required travel for fellowship activities.</p>
 
-              <p className="mb-3">Fellows will receive:</p>
+              <p hidden className="mb-3">Fellows will receive:</p>
 
-              <div className="mb-3">
+              <div hidden className="mb-3">
                 <IconItem imgSrc="/assets/img/fellowships/icon-stipend.svg" copy="a stipend of $60,000 USD*, paid in 10 monthly installments"></IconItem>
                 <IconItem imgSrc="/assets/img/fellowships/icon-insurance.svg" copy="a one-time health insurance supplement for Fellows and their families, ranging from $3,500 for single Fellows to $7,000 for a couple with two or more children"></IconItem>
                 <IconItem imgSrc="/assets/img/fellowships/icon-child.svg" copy="a one-time childcare allotment of up to $6,000 for families with children"></IconItem>
@@ -91,21 +91,21 @@ export default class Fellowships extends React.Component {
 
               <Collapse>
                 <Panel header={`I live outside of the US, UK or Canada - am I eligible?`}>
-                  <p>{`Yes, as long as you are legally allowed to work in the country where you currently reside.`}</p>
+                  <p>{`Yes, as long as you are legally allowed to work in the country where you currently reside. Our fellowship application is a global call for researchers.`}</p>
                 </Panel>
 
                 <Panel header={`What disciplines are included in the eligible sciences?`}>
                   <p>{`Previously, our fellowship focused on the physical and natural sciences: biology, chemistry, earth science, physics, astronomy, ecology, etc.`}</p>
-                  <p>{`We’ve opened this year’s application to include the social and library sciences; in fact, all scientific disiplines are welcome among our applicants. Strong attachment to furthering scientific research in some capacity is favored, and a recommended emphasis in the applications we receive.`}</p>
+                  <p>{`We’ve opened our current application eligibility to include the social and library sciences; in fact, all scientific disiplines are welcome among our applicants. Strong attachment to furthering open scientific research in some capacity is favored, and a recommended emphasis in the applications we receive. This year, we'll also be particularly seeking open biomedical researchers, so please apply if you think your voice is under-represented in that field. We'd love to promote it!`}</p>
                 </Panel>
 
                 <Panel header={`I work at a research institution but not a "university" - can I still apply?`}>
                   <p>{`You bet! Government funded research institutions and groups (e.g., National Institutes of Health, Environmental Protection Agency, or research centers like NEON, BEACON, etc) as well as positions in other research institutions (e.g., Museum of Natural History and many Planetariums have research arms, as well) count!`}</p>
-                  <p>{`Still unsure? Let us know - we'd be happy to talk it through.`}</p>
+                  <p>{`Still unsure? Let us know - we'd be happy to talk it through, you can reach out to sciencelab@mozillafoundation.org with questions!`}</p>
                 </Panel>
 
                 <Panel header={`I'm not currently at a university or research institution - can I still apply?`}>
-                  <p>{`Fellows are required to be based at a university or research institution for the 10 month tenure. Mozilla cannot assist Fellows in finding placements.`}</p>
+                  <p>{`Fellows are required to be based at a university or research institution for the 10-month tenure. Mozilla cannot assist Fellows in finding placements.`}</p>
                 </Panel>
 
                 <Panel header={`Can I continue my research, coursework or teaching during this time?`}>
@@ -114,23 +114,23 @@ export default class Fellowships extends React.Component {
                 </Panel>
 
                 <Panel header={`When are Fellowships intended to start? And end?`}>
-                  <p>{`The anticipated start date for Fellows is in September 2017, running to the end of June 2018, for the 10 months of the fellowship duration. After the CFP launches in April, the application will be open through May 14th (a Sunday). The Science Lab team will review applications for the subsequent two weeks, and request interviews with applicants (two rounds of interviews) and their advisors before making offers in early June, and responding to all applicants by mid-June. Fellows will be announced officially in July.`}</p>
+                  <p>{`The anticipated start date for Fellows is in September 2018, running to the end of June 2019, for the 10 months of the fellowship duration. After the CFP launches in March, the application will be open through April 20th, 5:00PM ET (a Friday). The Science Lab team will review applications for the subsequent two weeks, and request interviews with applicants (two rounds of interviews) and their advisors before making offers in early June, and responding to all applicants by mid-June. Fellows will be announced officially in June 2018.`}</p>
                 </Panel>
 
                 <Panel header={`When will we be notified if we're selected?`}>
-                  <p>{`The notification date will vary depending on the volume of applications received but we project that prospective candidates will be contacted by the last week in June, 2017.`}</p>
+                  <p>{`The notification date will vary depending on the volume of applications received but we project that prospective candidates will be contacted by the last week in June, 2018.`}</p>
                 </Panel>
 
                 <Panel header={`What sort of travel is expected?`}>
-                  <p>{`Fellows are expected to be able to travel as part of the fellowship. Travel will include,  at a minimum: onboarding (likely late Sept / early October; location TBD), the Mozilla Festival (Oct. 27-29 in London), one workweek in 2017 (location TBD), a Working Open Workshop (location TBD), an “off-boarding” week at the conclusion of the fellowship (sometime in June; location TBD).`}</p>
+                  <p>{`Fellows are expected to be able to travel as part of the fellowship. Travel will include,  at a minimum: onboarding (likely late Sept / early October; location TBD), the Mozilla Festival (Oct. 26-28 in London), one fellows' summit in 2018 (location TBD), a Working Open Workshop (location TBD), an “off-boarding” week at the conclusion of the fellowship (sometime in June; location TBD).`}</p>
                 </Panel>
 
                 <Panel header={`I'm a pre-tenure, early career faculty member - does that rule me out?`}>
-                  <p>{`Not necessarily! Be sure to list your teaching commitments in the application, as there are travel obligations and expectations that we want to make sure you have adequate time for.`}</p>
+                  <p>{`Not necessarily! Be sure to list your teaching commitments in the application, as there are travel obligations and expectations that we want to make sure you have adequate time to accommodate. In general, we are flexible and happy to negotiate an arrangement that works best for you.`}</p>
                 </Panel>
 
                 <Panel header={`What role does my advisor play in this process?`}>
-                  <p>{`We want to make sure Fellows, as they'll be working somewhat autonomously within their institution, are in supportive environments. We find this is best achieved with advisors who are supportive and tuned in to the challenges around open research practice and data sharing within the institution, and are open to Fellows working more full-time for 10 months to build momentum, teach, and collaborate to advance those goals within those labs and research settings.`}</p>
+                  <p>{`As the Fellows work somewhat autonomously within their institutions, we want to make sure Fellows are in supportive environments. We find this is best achieved with advisors who are supportive and tuned-in to the challenges around open research practice and data sharing within the institution. Having internal support is an excellent way to further the fellows' work, and advisors are excellent advocates on the 10 month path to build momentum, teach, and collaboratively advance open science within their labs and research settings.`}</p>
                 </Panel>
 
                 <Panel header={`How will I be funded over the Fellowship?`}>
@@ -270,8 +270,9 @@ export default class Fellowships extends React.Component {
 
         <div className="py-3 fellow-cta">
           <div className="container">
-            <h3>The 2017 call for applications is now closed</h3>
-            <a hidden className="btn btn-white mb-2" href="https://mozilla-science-lab.forms.fm/mozilla-fellows-for-science-2017" target="_blank">Apply Now</a>
+            <h3 hidden>The 2017 call for applications is now closed</h3>
+            <h3>The 2018 call for applications is now open!</h3>
+            <a className="btn btn-white mb-2" href="https://foundation.mozilla.org/fellowships/apply/" target="_blank">Apply Now</a>
           </div>
         </div>
 
