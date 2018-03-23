@@ -61,7 +61,7 @@ export default class Footer extends React.Component {
 
           <div className="footer-content">
             <a className="logo" href="https://mozilla.org" target="_blank">
-              <img height="30" width="105" src="/assets/img/mozilla-wordmark.svg"/>
+              <img height="30" width="105" src="/assets/img/moz-wordmark-light-reverse.svg"/>
             </a>
             <p>Mozilla is a global non-profit dedicated to putting you in control of your online experience and shaping the future of the web for the public good. Visit us at <a href="//mozilla.org" target="_blank">mozilla.org</a></p>
           </div>
