@@ -60,7 +60,7 @@ export default class Fellowships extends React.Component {
 
               <h3 className="mb-1">Stipend and Financial Benefits</h3>
 
-              <p>The Fellowships are designed to allow for flexibility for both Fellows and their families. The standard fellowship offers a stipend of $60,000 USD*, paid in 10 monthly installments. Fellows are responsible for remitting all applicable taxes and other government payments as required.</p>
+              <p>The Fellowships are designed to allow for flexibility for both Fellows and their families. The standard fellowship offers a base stipend of $60,000 USD, paid in 10 monthly installments. Fellows are responsible for remitting all applicable taxes and other government payments as required.</p>
               <p>To help offset cost of living, the fellowship also provides supplements for childcare and health insurance, and helps pay for research/equipment and books. The fellowships also covers the costs of required travel for fellowship activities.</p>
 
               <p hidden className="mb-3">Fellows will receive:</p>
