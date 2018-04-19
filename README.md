@@ -49,11 +49,11 @@ All JS and SCSS code must pass our code conventions as defined by several lintin
 
 ### JavaScript
 
-For JavaScript, this project extends the Mozilla Foundation's [ESLint rule set](https://github.com/MozillaFoundation/mofo-style/blob/master/.eslintrc.yaml). The specific extensions can be seen in `.eslintrc.yaml`. Refer to ESLint's [documentation](http://eslint.org/docs/rules/) for an explanation of the rules.
+For JavaScript, this project extends the Mozilla Foundation's [ESLint rule set](https://github.com/MozillaFoundation/mofo-style/blob/master/.eslintrc.yaml). The specific extensions can be seen in `.eslintrc.yaml`. Refer to ESLint's [documentation](https://eslint.org/docs/rules/) for an explanation of the rules.
 
 ### SCSS
 
-For SCSS, we use [StyleLint](http://stylelint.io/) with the standard configuration. See StyleLint's [rules documentation](http://stylelint.io/user-guide/rules/) for more information.
+For SCSS, we use [StyleLint](https://stylelint.io/) with the standard configuration. See StyleLint's [rules documentation](https://stylelint.io/user-guide/rules/) for more information.
 
 It's highly recommended that you add plugins to your editor of choice that can read the local "RC" files in the root of the codebase, `.eslintrc.yaml` and `.stylelintrc`, so you can see errors as they occur.
 

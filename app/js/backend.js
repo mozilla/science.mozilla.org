@@ -25,7 +25,7 @@ function pojoToQuery(pojo) {
  * @returns {Promise} A promise to resolve an XHR request
  */
 function doXHR(route, params = defaultParams) {
-  let request = new XMLHttpRequest();
+  let request = new XMLhttpsRequest();
 
   return new Promise((resolve, reject) => {
     request.open(`GET`, `${route}${params ? pojoToQuery(params) : ``}`, true);
