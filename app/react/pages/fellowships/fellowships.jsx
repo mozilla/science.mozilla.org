@@ -27,12 +27,6 @@ export default class Fellowships extends React.Component {
               <h2 className="col-xs-12">Fellowships</h2>
               <p className="lead mt-1 col-xs-12 col-md-10 col-lg-8"><em>Are you a champion of open science and open data? Mozilla is seeking researchers eager to advance openness in science and data within their institutions.</em></p>
             </div>
-
-            <div className="row">
-              <div className="col-xs-12">
-                <a className="btn btn-white mb-2" href="https://foundation.mozilla.org/fellowships/apply/" target="_blank">Apply Now</a>
-              </div>
-            </div>
           </div>
         </div>
 
@@ -266,14 +260,6 @@ export default class Fellowships extends React.Component {
 
           </TabSwitcher>
 
-        </div>
-
-        <div className="py-3 fellow-cta">
-          <div className="container">
-            <h3 hidden>The 2017 call for applications is now closed</h3>
-            <h3>The 2018 call for applications is now open!</h3>
-            <a className="btn btn-white mb-2" href="https://foundation.mozilla.org/fellowships/apply/" target="_blank">Apply Now</a>
-          </div>
         </div>
 
       </div>
