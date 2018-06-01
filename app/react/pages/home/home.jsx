@@ -28,18 +28,6 @@ export default class Home extends React.Component {
             item3={{text: `Open Science: A way for science to achieve its fullest potential`, icon: `/assets/img/icon-open.svg`}}></ThreeUp>
         </div>
 
-        <div hidden className="container-dynamic fellow-cta mb-3">
-          <img src="/assets/img/icon-drop.svg" className="sprinkle"/>
-          <img src="/assets/img/icon-droptwo.svg" className="sprinkle"/>
-          <div className="shadow-box">
-            <div>
-              <h2>Apply to be a Fellow</h2>
-              <p>The Mozilla Fellowships for Science present a unique opportunity for researchers who want to influence the future of open science and data sharing within their communities.</p>
-              <a className="btn btn-outline-info mb-2" href="/programs/fellowships">Learn More</a>
-            </div>
-          </div>
-        </div>
-
         <div className="event-study-cta row row-full">
           <div className="col-md-6">
             <div className="row flex-items-xs-center">
