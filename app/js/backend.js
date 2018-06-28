@@ -1,7 +1,4 @@
-import env from "../../config/env.generated.json";
-
-let scienceAPI = env.SCIENCE_API;
-let wpAPI = env.WP_API;
+let scienceAPI = `/api`;
 
 let defaultParams = {
   format: `json`
@@ -85,31 +82,37 @@ export default {
     }
   },
 
-  // Using `cachebuster` because WP-API caches `Access-Control-Allow-Origin` per route.
-  // This means without it you can't safely do local development.
-  // Local requests without cachebuster can set access control to only the localhost, breaking staging & production.
-
   blogPost: {
     get: function (id) {
-      return doXHR(`${wpAPI}/posts`, {
-        "filter[name]": id,
-        cachebuster: Date.now() * Math.random()
-      });
+      return doXHR(`${scienceAPI}/blog/posts/${id}/`);
     }
   },
   blogPosts: {
     get: function (page = 1, category=``, search=``) {
-      return doXHR(`${wpAPI}/posts`, {
-        cachebuster: Date.now() * Math.random(),
-        page: page,
-        "filter[category_name]": category,
-        "filter[s]": search
-      });
+
+      let req = {
+        page: page
+      };
+
+      if(category !== ``) {
+        req.category = category;
+      }
+
+      if(search !== ``) {
+        req.search = search;
+      }
+
+      return doXHR(`${scienceAPI}/blog/posts/`, req);
     }
   },
   blogCategories: {
     get: function () {
-      return doXHR (`${wpAPI}/taxonomies/category/terms`);
+      return doXHR (`${scienceAPI}/blog/categories/`);
+    }
+  },
+  initData: {
+    get: function () {
+      return doXHR (`${scienceAPI}/bootstrap/`);
     }
   }
 };
