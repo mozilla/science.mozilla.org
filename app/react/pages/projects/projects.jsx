@@ -2,7 +2,7 @@ import React from "react";
 
 import ThreeUp from "../../components/three-up/three-up.jsx";
 import ProjectList from "../../components/project-list/project-list.jsx";
-import { RadioFilter } from "mofo-ui";
+import AdaptiveFilter from "../../components/adaptive-filter/adaptive-filter.jsx";
 
 import DebounceInput from 'react-debounce-input';
 import { Link } from 'react-router';
@@ -147,7 +147,9 @@ export default class Projects extends React.Component {
                 })}
               </select>
             </div>
-            <RadioFilter options={sortOptions} initialChoice={this.state.sortBy} onChange={this.onSortChange}></RadioFilter>
+            <div className="col-xs-12 mb-1">
+              <AdaptiveFilter options={sortOptions} initialChoice={this.state.sortBy} onChange={this.onSortChange}></AdaptiveFilter>
+            </div>
           </div>
           <ProjectList projects={this.state.projects}/>
           <div className="lead text-xs-center mb-2">
