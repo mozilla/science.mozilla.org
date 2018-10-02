@@ -113,7 +113,7 @@ export default class Home extends React.Component {
               <div className="col-xs-4 mb-3">
                 <div className="row">
                   <div className="col-xs-12 col-sm-4">
-                    <a href="https://www.siegelendowment.org/" target="_blank"><img src="/assets/img/logo-siegel.jpg"/></a>
+                    <a href="https://www.siegelendowment.org/" target="_blank"><img src="/assets/img/logo-siegel-new.svg"/></a>
                   </div>
                   <p className="col-sm-8 hidden-xs-down">{`Siegel Family Endowment is focused on understanding and shaping learning in our technology-driven world. SFE supports people and champions organizations who work at the intersection of technology, learning, and career-readiness.`}</p>
                 </div>
