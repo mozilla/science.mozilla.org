@@ -17,6 +17,7 @@
     "build:scss": "node-sass app/scss/main.scss dist/css/main.css && postcss --use autoprefixer --autoprefixer.browsers 'last 3 versions' -o dist/css/main.css dist/css/main.css",
     "build:static": "cp -r node_modules/mofo-bootstrap/dest/css dist/ && postcss --use autoprefixer --autoprefixer.browsers 'last 3 versions' -o dist/css/mofo-bootstrap.css dist/css/mofo-bootstrap.css && cp app/index.html dist/index.html",
     "build:assets": "cp -r app/assets dist/ && cp app/favicon.ico dist/",
+    "heroku-postbuild": "echo Skip builds on Heroku",
     "server:dev": "live-server ./dist --port=1818 --entry-file=index.html",
     "server:prod": "node server.js",
     "watch:js": "chokidar 'app/js/**/*.js' 'app/react/**/*.js' 'app/react/**/*.jsx' -c 'npm run build:js'",
@@ -69,5 +70,6 @@
   },
   "devDependencies": {
     "imagemin-cli-preserve-dir-structure": "0.0.2"
-  }
+  },
+  "heroku-run-build-script": true
 }
