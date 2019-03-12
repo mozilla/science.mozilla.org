@@ -70,6 +70,5 @@
   },
   "devDependencies": {
     "imagemin-cli-preserve-dir-structure": "0.0.2"
-  },
-  "heroku-run-build-script": true
+  }
 }
