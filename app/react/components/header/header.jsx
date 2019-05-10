@@ -93,7 +93,7 @@ export default class Header extends React.Component {
             <Link className={getNavLinkClasses(`resources`)} to="/resources">Resources</Link>
             <Link className={getNavLinkClasses(`projects`)} to="/projects">Projects</Link>
             <Link className={getNavLinkClasses(`people`)} to="/people">People</Link>
-            <Link className={getNavLinkClasses(`blog`)} to="/blog">Blog</Link>
+            <a href="https://science.mozilla.org/blog">Blog</a>
           </div>
           <div hidden className="auth-links">
             <Link className="nav-link" to="/sign-in">Sign In</Link>
