@@ -84,8 +84,10 @@ render((
         <Route path=":tab" component={Event}/>
       </Route>
       <Route path="programs/events" component={Events} />
-      <Route path="programs/fellowships" component={Fellowships}>
-        <Route path=":tab" component={Fellowships} />
+      <Route path="programs/fellowships" component={() => {
+        window.location.href = `https://foundation.mozilla.org/fellowships`;
+        return null;
+      }}>
       </Route>
       <Route path="programs/studygroups" component={StudyGroups}>
         <Route path=":tab" component={StudyGroups} />

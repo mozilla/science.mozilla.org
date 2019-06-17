@@ -87,7 +87,7 @@ export default class Header extends React.Component {
               <div className={slideoutNavClass}>
                 <Link className="nav-link events" to="/programs/events">Our Events</Link>
                 <Link className="nav-link study-groups" to="/programs/studygroups">Study Groups</Link>
-                <Link className="nav-link fellowships" to="/programs/fellowships">Fellowships</Link>
+                <a href="https://foundation.mozilla.org/fellowships" className="nav-link fellowships">Fellowships</a>
               </div>
             </div>
             <Link className={getNavLinkClasses(`resources`)} to="/resources">Resources</Link>
