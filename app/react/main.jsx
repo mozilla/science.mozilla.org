@@ -21,7 +21,6 @@ import Resources from "./pages/resources/resources.jsx";
 import StyleGuide from "./pages/style-guide.jsx";
 import Events from "./pages/events.jsx";
 import StudyGroups from "./pages/study-groups/study-groups.jsx";
-import Fellowships from "./pages/fellowships/fellowships.jsx";
 import Event from "./pages/event-details/event-details.jsx";
 import CodeOfConduct from "./pages/code-of-conduct/code-of-conduct.jsx";
 
