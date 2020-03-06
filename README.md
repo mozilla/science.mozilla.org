@@ -1,3 +1,5 @@
+**[This project was sunsetted](https://blog.mozilla.org/foundation-archive/mozilla-science/news-from-mozilla-science-lab/) in September 2018. More information can be found at the [ScienceLab wiki](https://wiki.mozilla.org/ScienceLab).**
+
 [![Build Status](https://travis-ci.org/mozilla/science.mozilla.org.svg?branch=master)](https://travis-ci.org/mozilla/science.mozilla.org)
 [![Uses Mofo Standards](https://MozillaFoundation.github.io/mofo-standards/badge.svg)](https://github.com/MozillaFoundation/mofo-standards)
 
